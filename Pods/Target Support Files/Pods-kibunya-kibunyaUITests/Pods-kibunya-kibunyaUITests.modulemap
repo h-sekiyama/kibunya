@@ -1,0 +1,6 @@
+framework module Pods_kibunya_kibunyaUITests {
+  umbrella header "Pods-kibunya-kibunyaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
