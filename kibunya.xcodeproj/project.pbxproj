@@ -9,15 +9,21 @@
 /* Begin PBXBuildFile section */
 		3E70A80D24E26376008667B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A80C24E26376008667B5 /* AppDelegate.swift */; };
 		3E70A80F24E26376008667B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A80E24E26376008667B5 /* SceneDelegate.swift */; };
-		3E70A81124E26376008667B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A81024E26376008667B5 /* ViewController.swift */; };
-		3E70A81424E26376008667B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E70A81224E26376008667B5 /* Main.storyboard */; };
+		3E70A81124E26376008667B5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A81024E26376008667B5 /* MainViewController.swift */; };
+		3E70A81424E26376008667B5 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E70A81224E26376008667B5 /* MainViewController.storyboard */; };
 		3E70A81624E26378008667B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E70A81524E26378008667B5 /* Assets.xcassets */; };
 		3E70A81924E26378008667B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E70A81724E26378008667B5 /* LaunchScreen.storyboard */; };
 		3E70A82424E26378008667B5 /* kibunyaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A82324E26378008667B5 /* kibunyaTests.swift */; };
 		3E70A82F24E26379008667B5 /* kibunyaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A82E24E26379008667B5 /* kibunyaUITests.swift */; };
+		3E72A6F924E6C37B00EC71EB /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E72A6F824E6C37B00EC71EB /* TabBarView.xib */; };
+		3E8FBE7F24E52A4E00BAC128 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */; };
+		3E8FBE8124E52A6B00BAC128 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8024E52A6B00BAC128 /* SignUpViewController.storyboard */; };
+		3E8FBE8324E54EF400BAC128 /* MailSendCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */; };
+		3E8FBE8524E54F0300BAC128 /* MailSendCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */; };
 		3EEB5CD124E37A3C00A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */; };
 		3EEB5CD324E37A4800A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD224E37A4800A0EA19 /* GoogleService-Info.plist */; };
 		3EEB5CD524E37A4F00A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD424E37A4F00A0EA19 /* GoogleService-Info.plist */; };
+		3EF0854B24E68BB2003E8FE2 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0854A24E68BB2003E8FE2 /* TabBarView.swift */; };
 		6A61898A33C12CEE4535F409 /* Pods_kibunya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4E4D1907B851DEDE716569 /* Pods_kibunya.framework */; };
 		BB08ED1EB104B5556D1E84D0 /* Pods_kibunya_kibunyaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F349568CC0ADE4EB46C56950 /* Pods_kibunya_kibunyaUITests.framework */; };
 		F4629B59FD7272E403AAE519 /* Pods_kibunyaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E1A4D237F9B8A5C76C69549 /* Pods_kibunyaTests.framework */; };
@@ -44,8 +50,8 @@
 		3E70A80924E26376008667B5 /* kibunya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kibunya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E70A80C24E26376008667B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E70A80E24E26376008667B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3E70A81024E26376008667B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3E70A81324E26376008667B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3E70A81024E26376008667B5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3E70A81324E26376008667B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewController.storyboard; sourceTree = "<group>"; };
 		3E70A81524E26378008667B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E70A81824E26378008667B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E70A81A24E26378008667B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,9 +61,15 @@
 		3E70A82A24E26379008667B5 /* kibunyaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kibunyaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E70A82E24E26379008667B5 /* kibunyaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kibunyaUITests.swift; sourceTree = "<group>"; };
 		3E70A83024E26379008667B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E72A6F824E6C37B00EC71EB /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
+		3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = /Users/user/sites/kibunya/kibunya/SignUpViewController.swift; sourceTree = "<absolute>"; };
+		3E8FBE8024E52A6B00BAC128 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
+		3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailSendCompleteViewController.swift; sourceTree = "<group>"; };
+		3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailSendCompleteViewController.storyboard; sourceTree = "<group>"; };
 		3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3EEB5CD224E37A4800A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "kibunya/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3EEB5CD424E37A4F00A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "kibunya/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		3EF0854A24E68BB2003E8FE2 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		53A41DA030BC9368DE59A067 /* Pods-kibunya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunya.release.xcconfig"; path = "Target Support Files/Pods-kibunya/Pods-kibunya.release.xcconfig"; sourceTree = "<group>"; };
 		8AA0F6FEB4B0E14B9CF6709A /* Pods-kibunya-kibunyaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunya-kibunyaUITests.debug.xcconfig"; path = "Target Support Files/Pods-kibunya-kibunyaUITests/Pods-kibunya-kibunyaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E1A4D237F9B8A5C76C69549 /* Pods_kibunyaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kibunyaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,11 +134,12 @@
 		3E70A80B24E26376008667B5 /* kibunya */ = {
 			isa = PBXGroup;
 			children = (
-				3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */,
 				3E70A80C24E26376008667B5 /* AppDelegate.swift */,
 				3E70A80E24E26376008667B5 /* SceneDelegate.swift */,
-				3E70A81024E26376008667B5 /* ViewController.swift */,
-				3E70A81224E26376008667B5 /* Main.storyboard */,
+				3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */,
+				3E70E6BB24E59544007F7E8C /* Login */,
+				3E70E6BC24E59568007F7E8C /* Main */,
+				3E70E6BD24E64F89007F7E8C /* Tab */,
 				3E70A81524E26378008667B5 /* Assets.xcassets */,
 				3E70A81724E26378008667B5 /* LaunchScreen.storyboard */,
 				3E70A81A24E26378008667B5 /* Info.plist */,
@@ -152,6 +165,35 @@
 				3E70A83024E26379008667B5 /* Info.plist */,
 			);
 			path = kibunyaUITests;
+			sourceTree = "<group>";
+		};
+		3E70E6BB24E59544007F7E8C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */,
+				3E8FBE8024E52A6B00BAC128 /* SignUpViewController.storyboard */,
+				3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */,
+				3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3E70E6BC24E59568007F7E8C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3E70A81024E26376008667B5 /* MainViewController.swift */,
+				3E70A81224E26376008667B5 /* MainViewController.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3E70E6BD24E64F89007F7E8C /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				3EF0854A24E68BB2003E8FE2 /* TabBarView.swift */,
+				3E72A6F824E6C37B00EC71EB /* TabBarView.xib */,
+			);
+			path = Tab;
 			sourceTree = "<group>";
 		};
 		86ABA8A6EF18FD942793203D /* Pods */ = {
@@ -288,8 +330,11 @@
 			files = (
 				3E70A81924E26378008667B5 /* LaunchScreen.storyboard in Resources */,
 				3EEB5CD124E37A3C00A0EA19 /* GoogleService-Info.plist in Resources */,
+				3E8FBE8124E52A6B00BAC128 /* SignUpViewController.storyboard in Resources */,
+				3E72A6F924E6C37B00EC71EB /* TabBarView.xib in Resources */,
 				3E70A81624E26378008667B5 /* Assets.xcassets in Resources */,
-				3E70A81424E26376008667B5 /* Main.storyboard in Resources */,
+				3E8FBE8524E54F0300BAC128 /* MailSendCompleteViewController.storyboard in Resources */,
+				3E70A81424E26376008667B5 /* MainViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +464,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E70A81124E26376008667B5 /* ViewController.swift in Sources */,
+				3E8FBE7F24E52A4E00BAC128 /* SignUpViewController.swift in Sources */,
+				3EF0854B24E68BB2003E8FE2 /* TabBarView.swift in Sources */,
+				3E70A81124E26376008667B5 /* MainViewController.swift in Sources */,
+				3E8FBE8324E54EF400BAC128 /* MailSendCompleteViewController.swift in Sources */,
 				3E70A80D24E26376008667B5 /* AppDelegate.swift in Sources */,
 				3E70A80F24E26376008667B5 /* SceneDelegate.swift in Sources */,
 			);
@@ -457,12 +505,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3E70A81224E26376008667B5 /* Main.storyboard */ = {
+		3E70A81224E26376008667B5 /* MainViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3E70A81324E26376008667B5 /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		3E70A81724E26378008667B5 /* LaunchScreen.storyboard */ = {
