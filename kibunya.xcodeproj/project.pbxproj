@@ -16,10 +16,13 @@
 		3E70A82424E26378008667B5 /* kibunyaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A82324E26378008667B5 /* kibunyaTests.swift */; };
 		3E70A82F24E26379008667B5 /* kibunyaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A82E24E26379008667B5 /* kibunyaUITests.swift */; };
 		3E72A6F924E6C37B00EC71EB /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E72A6F824E6C37B00EC71EB /* TabBarView.xib */; };
+		3E7FD59C24E7F24B005011B6 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FD59A24E7F24B005011B6 /* TestCell.swift */; };
+		3E7FD59D24E7F24B005011B6 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7FD59B24E7F24B005011B6 /* TestCell.xib */; };
 		3E8FBE7F24E52A4E00BAC128 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */; };
 		3E8FBE8124E52A6B00BAC128 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8024E52A6B00BAC128 /* SignUpViewController.storyboard */; };
 		3E8FBE8324E54EF400BAC128 /* MailSendCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */; };
 		3E8FBE8524E54F0300BAC128 /* MailSendCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */; };
+		3EA278D324E7BF5C00A62834 /* Kibuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA278D224E7BF5C00A62834 /* Kibuns.swift */; };
 		3EEB5CD124E37A3C00A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */; };
 		3EEB5CD324E37A4800A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD224E37A4800A0EA19 /* GoogleService-Info.plist */; };
 		3EEB5CD524E37A4F00A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD424E37A4F00A0EA19 /* GoogleService-Info.plist */; };
@@ -62,10 +65,13 @@
 		3E70A82E24E26379008667B5 /* kibunyaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kibunyaUITests.swift; sourceTree = "<group>"; };
 		3E70A83024E26379008667B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E72A6F824E6C37B00EC71EB /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
+		3E7FD59A24E7F24B005011B6 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
+		3E7FD59B24E7F24B005011B6 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
 		3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = /Users/user/sites/kibunya/kibunya/SignUpViewController.swift; sourceTree = "<absolute>"; };
 		3E8FBE8024E52A6B00BAC128 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
 		3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailSendCompleteViewController.swift; sourceTree = "<group>"; };
 		3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailSendCompleteViewController.storyboard; sourceTree = "<group>"; };
+		3EA278D224E7BF5C00A62834 /* Kibuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kibuns.swift; sourceTree = "<group>"; };
 		3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3EEB5CD224E37A4800A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "kibunya/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3EEB5CD424E37A4F00A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "kibunya/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -181,6 +187,8 @@
 		3E70E6BC24E59568007F7E8C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3EA278D424E7BF7000A62834 /* Model */,
+				3EA278CD24E7BDBF00A62834 /* KibunList */,
 				3E70A81024E26376008667B5 /* MainViewController.swift */,
 				3E70A81224E26376008667B5 /* MainViewController.storyboard */,
 			);
@@ -194,6 +202,23 @@
 				3E72A6F824E6C37B00EC71EB /* TabBarView.xib */,
 			);
 			path = Tab;
+			sourceTree = "<group>";
+		};
+		3EA278CD24E7BDBF00A62834 /* KibunList */ = {
+			isa = PBXGroup;
+			children = (
+				3E7FD59A24E7F24B005011B6 /* TestCell.swift */,
+				3E7FD59B24E7F24B005011B6 /* TestCell.xib */,
+			);
+			path = KibunList;
+			sourceTree = "<group>";
+		};
+		3EA278D424E7BF7000A62834 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3EA278D224E7BF5C00A62834 /* Kibuns.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		86ABA8A6EF18FD942793203D /* Pods */ = {
@@ -332,6 +357,7 @@
 				3EEB5CD124E37A3C00A0EA19 /* GoogleService-Info.plist in Resources */,
 				3E8FBE8124E52A6B00BAC128 /* SignUpViewController.storyboard in Resources */,
 				3E72A6F924E6C37B00EC71EB /* TabBarView.xib in Resources */,
+				3E7FD59D24E7F24B005011B6 /* TestCell.xib in Resources */,
 				3E70A81624E26378008667B5 /* Assets.xcassets in Resources */,
 				3E8FBE8524E54F0300BAC128 /* MailSendCompleteViewController.storyboard in Resources */,
 				3E70A81424E26376008667B5 /* MainViewController.storyboard in Resources */,
@@ -466,6 +492,8 @@
 			files = (
 				3E8FBE7F24E52A4E00BAC128 /* SignUpViewController.swift in Sources */,
 				3EF0854B24E68BB2003E8FE2 /* TabBarView.swift in Sources */,
+				3EA278D324E7BF5C00A62834 /* Kibuns.swift in Sources */,
+				3E7FD59C24E7F24B005011B6 /* TestCell.swift in Sources */,
 				3E70A81124E26376008667B5 /* MainViewController.swift in Sources */,
 				3E8FBE8324E54EF400BAC128 /* MailSendCompleteViewController.swift in Sources */,
 				3E70A80D24E26376008667B5 /* AppDelegate.swift in Sources */,
