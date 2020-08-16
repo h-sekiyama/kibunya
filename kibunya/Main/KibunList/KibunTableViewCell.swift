@@ -1,9 +1,10 @@
 import UIKit
 
-class TestCell: UITableViewCell {
+class KibunTableViewCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var kibunText: UILabel!
+    @IBOutlet weak var kibunImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,7 +18,8 @@ class TestCell: UITableViewCell {
     }
     
     func setCell(kibuns: Kibuns) {
-        self.name.text = kibuns.name as String
-        self.kibunText.text = kibuns.text as String
+        self.name.text = kibuns.name
+        self.kibunText.text = kibuns.text!.isEmpty ? "未入力" : kibuns.text
+        self.kibunImage.image = UIImage(named: "kibunIcon\(kibuns.kibun ?? 0)")
     }
 }

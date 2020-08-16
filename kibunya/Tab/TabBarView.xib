@@ -18,26 +18,35 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDK-JH-ocO">
-                    <rect key="frame" x="0.0" y="832" width="414" height="30"/>
+                    <rect key="frame" x="0.0" y="782" width="414" height="80"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-LC-TPD" userLabel="気分タブ">
-                            <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="136.5" height="80"/>
                             <state key="normal" title="気分"/>
+                            <connections>
+                                <action selector="kibunButton:" destination="-1" eventType="touchUpInside" id="UDJ-YA-CFl"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUZ-Zu-lok" userLabel="入力タブ">
-                            <rect key="frame" x="138" y="0.0" width="138" height="30"/>
+                            <rect key="frame" x="136.5" y="0.0" width="139" height="80"/>
                             <state key="normal" title="入力"/>
+                            <connections>
+                                <action selector="InputKibunButton:" destination="-1" eventType="touchUpInside" id="0VF-Al-6Gv"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-Y6-xWo" userLabel="その他タブ">
-                            <rect key="frame" x="276" y="0.0" width="138" height="30"/>
+                            <rect key="frame" x="275.5" y="0.0" width="138.5" height="80"/>
                             <state key="normal" title="その他"/>
+                            <connections>
+                                <action selector="otherButton:" destination="-1" eventType="touchUpInside" id="iUI-xd-1AB"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Ack-Y6-xWo" secondAttribute="trailing" id="62h-nU-jLL"/>
                         <constraint firstItem="gl7-LC-TPD" firstAttribute="leading" secondItem="KDK-JH-ocO" secondAttribute="leading" id="DLM-Hp-rsl"/>
                         <constraint firstItem="MUZ-Zu-lok" firstAttribute="width" secondItem="Ack-Y6-xWo" secondAttribute="width" id="Mxc-oZ-LDd"/>
-                        <constraint firstItem="gl7-LC-TPD" firstAttribute="width" secondItem="MUZ-Zu-lok" secondAttribute="width" id="WcE-c3-dPL"/>
+                        <constraint firstAttribute="height" constant="80" id="nnA-vd-0OP"/>
                     </constraints>
                 </stackView>
             </subviews>

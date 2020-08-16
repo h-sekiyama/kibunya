@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E6C004524E92101001D4828 /* InputKibunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C004424E92100001D4828 /* InputKibunViewController.swift */; };
+		3E6C004724E92112001D4828 /* InputKibunViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C004624E92112001D4828 /* InputKibunViewController.storyboard */; };
 		3E70A80D24E26376008667B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A80C24E26376008667B5 /* AppDelegate.swift */; };
 		3E70A80F24E26376008667B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A80E24E26376008667B5 /* SceneDelegate.swift */; };
 		3E70A81124E26376008667B5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A81024E26376008667B5 /* MainViewController.swift */; };
@@ -16,8 +18,8 @@
 		3E70A82424E26378008667B5 /* kibunyaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A82324E26378008667B5 /* kibunyaTests.swift */; };
 		3E70A82F24E26379008667B5 /* kibunyaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A82E24E26379008667B5 /* kibunyaUITests.swift */; };
 		3E72A6F924E6C37B00EC71EB /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E72A6F824E6C37B00EC71EB /* TabBarView.xib */; };
-		3E7FD59C24E7F24B005011B6 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FD59A24E7F24B005011B6 /* TestCell.swift */; };
-		3E7FD59D24E7F24B005011B6 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7FD59B24E7F24B005011B6 /* TestCell.xib */; };
+		3E7FD59C24E7F24B005011B6 /* KibunTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FD59A24E7F24B005011B6 /* KibunTableViewCell.swift */; };
+		3E7FD59D24E7F24B005011B6 /* KibunTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7FD59B24E7F24B005011B6 /* KibunTableViewCell.xib */; };
 		3E8FBE7F24E52A4E00BAC128 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */; };
 		3E8FBE8124E52A6B00BAC128 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8024E52A6B00BAC128 /* SignUpViewController.storyboard */; };
 		3E8FBE8324E54EF400BAC128 /* MailSendCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E6C004424E92100001D4828 /* InputKibunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputKibunViewController.swift; sourceTree = "<group>"; };
+		3E6C004624E92112001D4828 /* InputKibunViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputKibunViewController.storyboard; sourceTree = "<group>"; };
 		3E70A80924E26376008667B5 /* kibunya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kibunya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E70A80C24E26376008667B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E70A80E24E26376008667B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,8 +69,8 @@
 		3E70A82E24E26379008667B5 /* kibunyaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kibunyaUITests.swift; sourceTree = "<group>"; };
 		3E70A83024E26379008667B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E72A6F824E6C37B00EC71EB /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
-		3E7FD59A24E7F24B005011B6 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
-		3E7FD59B24E7F24B005011B6 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
+		3E7FD59A24E7F24B005011B6 /* KibunTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KibunTableViewCell.swift; sourceTree = "<group>"; };
+		3E7FD59B24E7F24B005011B6 /* KibunTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KibunTableViewCell.xib; sourceTree = "<group>"; };
 		3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = /Users/user/sites/kibunya/kibunya/SignUpViewController.swift; sourceTree = "<absolute>"; };
 		3E8FBE8024E52A6B00BAC128 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
 		3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailSendCompleteViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E6C004324E920BA001D4828 /* InputKibun */ = {
+			isa = PBXGroup;
+			children = (
+				3E6C004424E92100001D4828 /* InputKibunViewController.swift */,
+				3E6C004624E92112001D4828 /* InputKibunViewController.storyboard */,
+			);
+			path = InputKibun;
+			sourceTree = "<group>";
+		};
 		3E70A80024E26376008667B5 = {
 			isa = PBXGroup;
 			children = (
@@ -143,8 +156,10 @@
 				3E70A80C24E26376008667B5 /* AppDelegate.swift */,
 				3E70A80E24E26376008667B5 /* SceneDelegate.swift */,
 				3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */,
+				3EA278D424E7BF7000A62834 /* Model */,
 				3E70E6BB24E59544007F7E8C /* Login */,
 				3E70E6BC24E59568007F7E8C /* Main */,
+				3E6C004324E920BA001D4828 /* InputKibun */,
 				3E70E6BD24E64F89007F7E8C /* Tab */,
 				3E70A81524E26378008667B5 /* Assets.xcassets */,
 				3E70A81724E26378008667B5 /* LaunchScreen.storyboard */,
@@ -187,7 +202,6 @@
 		3E70E6BC24E59568007F7E8C /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				3EA278D424E7BF7000A62834 /* Model */,
 				3EA278CD24E7BDBF00A62834 /* KibunList */,
 				3E70A81024E26376008667B5 /* MainViewController.swift */,
 				3E70A81224E26376008667B5 /* MainViewController.storyboard */,
@@ -207,8 +221,8 @@
 		3EA278CD24E7BDBF00A62834 /* KibunList */ = {
 			isa = PBXGroup;
 			children = (
-				3E7FD59A24E7F24B005011B6 /* TestCell.swift */,
-				3E7FD59B24E7F24B005011B6 /* TestCell.xib */,
+				3E7FD59A24E7F24B005011B6 /* KibunTableViewCell.swift */,
+				3E7FD59B24E7F24B005011B6 /* KibunTableViewCell.xib */,
 			);
 			path = KibunList;
 			sourceTree = "<group>";
@@ -356,8 +370,9 @@
 				3E70A81924E26378008667B5 /* LaunchScreen.storyboard in Resources */,
 				3EEB5CD124E37A3C00A0EA19 /* GoogleService-Info.plist in Resources */,
 				3E8FBE8124E52A6B00BAC128 /* SignUpViewController.storyboard in Resources */,
+				3E6C004724E92112001D4828 /* InputKibunViewController.storyboard in Resources */,
 				3E72A6F924E6C37B00EC71EB /* TabBarView.xib in Resources */,
-				3E7FD59D24E7F24B005011B6 /* TestCell.xib in Resources */,
+				3E7FD59D24E7F24B005011B6 /* KibunTableViewCell.xib in Resources */,
 				3E70A81624E26378008667B5 /* Assets.xcassets in Resources */,
 				3E8FBE8524E54F0300BAC128 /* MailSendCompleteViewController.storyboard in Resources */,
 				3E70A81424E26376008667B5 /* MainViewController.storyboard in Resources */,
@@ -490,10 +505,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E6C004524E92101001D4828 /* InputKibunViewController.swift in Sources */,
 				3E8FBE7F24E52A4E00BAC128 /* SignUpViewController.swift in Sources */,
 				3EF0854B24E68BB2003E8FE2 /* TabBarView.swift in Sources */,
 				3EA278D324E7BF5C00A62834 /* Kibuns.swift in Sources */,
-				3E7FD59C24E7F24B005011B6 /* TestCell.swift in Sources */,
+				3E7FD59C24E7F24B005011B6 /* KibunTableViewCell.swift in Sources */,
 				3E70A81124E26376008667B5 /* MainViewController.swift in Sources */,
 				3E8FBE8324E54EF400BAC128 /* MailSendCompleteViewController.swift in Sources */,
 				3E70A80D24E26376008667B5 /* AppDelegate.swift in Sources */,

@@ -11,6 +11,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // 気分リスト定義
     @IBOutlet weak var kibunList: UITableView!
     var kibuns: [Kibuns] = [Kibuns]()
+    
+    // FireStore取得
+    let defaultStore: Firestore! = Firestore.firestore()
+    
+
                                                                                                                                         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +26,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         kibunList.dataSource = self
         kibunList.delegate = self
-        kibunList.register(UINib(nibName: "TestCell", bundle: nil), forCellReuseIdentifier: "TestCell")
+        kibunList.register(UINib(nibName: "KibunTableViewCell", bundle: nil), forCellReuseIdentifier: "KibunTableViewCell")
         self.setKibuns()
     }
     
@@ -32,6 +37,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tabBarView  = TabBarView()
         view.addSubview(tabBarView.tab)
         
+        tabBarView.owner = self
+        
         // タブの表示位置を調整
         NSLayoutConstraint.activate([
             tabBarView.tab.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -40,10 +47,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // 気分リストを設定
     func setKibuns() {
-        kibuns = [
-            Kibuns(name: "みっちゃん", user_id: 0, kibun: 0, text: "今日は勉強がはかどる", date: Date()),
-            Kibuns(name: "ゆき", user_id: 1, kibun: 1, text: "アンジュノに会いたい", date: Date())
-        ]
+        defaultStore.collection("kibuns").getDocuments {(snaps, error) in
+            if let error = error {
+                fatalError("\(error)")
+            }
+            guard let snaps = snaps else { return }
+            self.kibuns = snaps.documents.map {document in
+                let data = Kibuns(document: document)
+                return data
+            }
+            self.kibunList.reloadData()
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -52,7 +66,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // セルの中身を設定するデータソース
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TestCell", for: indexPath ) as! TestCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "KibunTableViewCell", for: indexPath ) as! KibunTableViewCell
         cell.setCell(kibuns: kibuns[indexPath.row])
         return cell
     }
@@ -69,8 +83,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // サーバDBをアップデートする処理
     func updateData() {
-        let defaultStore: Firestore! = Firestore.firestore()
-        
         defaultStore.collection("kibuns").document("yucco").setData([
             "kibun": 3,
             "date": Date()
