@@ -14,15 +14,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // FireStore取得
     let defaultStore: Firestore! = Firestore.firestore()
-    
-
-                                                                                                                                        
+                                                                                                                        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // ユーザーを取得
-        Auth.auth().currentUser?.reload()
-        print(Auth.auth().currentUser?.displayName ?? "名無し")
         
         kibunList.dataSource = self
         kibunList.delegate = self
@@ -36,13 +30,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // タブの表示
         tabBarView  = TabBarView()
         view.addSubview(tabBarView.tab)
-        
         tabBarView.owner = self
         
         // タブの表示位置を調整
-        NSLayoutConstraint.activate([
-            tabBarView.tab.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - 80, width: self.view.bounds.width, height: 80)
     }
     
     // 気分リストを設定
@@ -79,20 +70,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // セルの高さを指定する
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 74
-    }
-    
-    // サーバDBをアップデートする処理
-    func updateData() {
-        defaultStore.collection("kibuns").document("yucco").setData([
-            "kibun": 3,
-            "date": Date()
-        ]) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
-            }
-        }
     }
 }
 

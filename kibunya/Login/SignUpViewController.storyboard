@@ -10,7 +10,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="VjG-tR-EtW">
             <objects>
-                <viewController id="0bA-Lw-MKw" customClass="SignUpViewController" customModule="kibunya" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0bA-Lw-MKw" customClass="SignUpViewController" customModule="kibunya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f5B-4i-hjZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

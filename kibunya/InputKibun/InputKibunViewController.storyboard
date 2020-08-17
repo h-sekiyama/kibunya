@@ -10,13 +10,108 @@
         <!--Input Kibun View Controller-->
         <scene sceneID="1sL-nG-Lwa">
             <objects>
-                <viewController storyboardIdentifier="InputKibunViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uHM-hf-JGD" customClass="InputKibunViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InputKibunViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uHM-hf-JGD" customClass="InputKibunViewController" customModule="kibunya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wxw-JS-15q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今日の気分は？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGa-jd-Qbi">
+                                <rect key="frame" x="146" y="69" width="122" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIO-AR-cmf">
+                                <rect key="frame" x="20" y="134" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="8Ci-6w-zxw"/>
+                                    <constraint firstAttribute="height" constant="60" id="ksJ-X2-05n"/>
+                                </constraints>
+                                <state key="normal" title="最高"/>
+                                <connections>
+                                    <action selector="kibunButton0:" destination="uHM-hf-JGD" eventType="touchUpInside" id="DmS-bg-TEx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsP-gD-KDQ" userLabel="良い">
+                                <rect key="frame" x="88" y="134" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Myz-AD-jrY"/>
+                                    <constraint firstAttribute="height" constant="60" id="Ttv-lJ-g6a"/>
+                                </constraints>
+                                <state key="normal" title="良い"/>
+                                <connections>
+                                    <action selector="kibunButton1:" destination="uHM-hf-JGD" eventType="touchUpInside" id="2Va-GU-9nB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctg-jD-Fpq">
+                                <rect key="frame" x="156" y="134" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2OE-gV-naB"/>
+                                    <constraint firstAttribute="width" constant="60" id="v9D-72-kln"/>
+                                </constraints>
+                                <state key="normal" title="普通"/>
+                                <connections>
+                                    <action selector="kibunButton2:" destination="uHM-hf-JGD" eventType="touchUpInside" id="P3T-py-SNs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fha-WL-DzW" userLabel="悪い">
+                                <rect key="frame" x="224" y="134" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="3e8-d7-ub6"/>
+                                    <constraint firstAttribute="height" constant="60" id="dkS-aA-BrT"/>
+                                </constraints>
+                                <state key="normal" title="悪い"/>
+                                <connections>
+                                    <action selector="kibunButton3:" destination="uHM-hf-JGD" eventType="touchUpInside" id="sFI-rA-GRN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mL1-C2-SKk" userLabel="最悪">
+                                <rect key="frame" x="292" y="134" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="0C4-iO-wMs"/>
+                                    <constraint firstAttribute="width" constant="60" id="MOy-9e-0SZ"/>
+                                </constraints>
+                                <state key="normal" title="最悪"/>
+                                <connections>
+                                    <action selector="kibunButton4:" destination="uHM-hf-JGD" eventType="touchUpInside" id="gxF-uw-EVq"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="今日あった出来事は？" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Egb-MT-XW9">
+                                <rect key="frame" x="20" y="244" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-uv-Avx">
+                                <rect key="frame" x="192" y="313" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="送信"/>
+                                <connections>
+                                    <action selector="sendButton:" destination="uHM-hf-JGD" eventType="touchUpInside" id="VN2-Is-zqA"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wsP-gD-KDQ" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="07o-h1-ejp"/>
+                            <constraint firstItem="Egb-MT-XW9" firstAttribute="top" secondItem="ctg-jD-Fpq" secondAttribute="bottom" constant="50" id="DvK-rX-UK2"/>
+                            <constraint firstItem="sIO-AR-cmf" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="E10-WV-R4s"/>
+                            <constraint firstItem="ctg-jD-Fpq" firstAttribute="leading" secondItem="wsP-gD-KDQ" secondAttribute="trailing" constant="8" id="Hcc-bq-3JS"/>
+                            <constraint firstItem="mL1-C2-SKk" firstAttribute="leading" secondItem="Fha-WL-DzW" secondAttribute="trailing" constant="8" id="IGl-Ht-Ir1"/>
+                            <constraint firstItem="mL1-C2-SKk" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="Jxb-Ca-Tdh"/>
+                            <constraint firstItem="Fha-WL-DzW" firstAttribute="leading" secondItem="ctg-jD-Fpq" secondAttribute="trailing" constant="8" id="Q5U-y5-AXS"/>
+                            <constraint firstItem="sIO-AR-cmf" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" constant="20" id="cID-TU-TtE"/>
+                            <constraint firstItem="Fha-WL-DzW" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="cqo-x3-Pnt"/>
+                            <constraint firstItem="Egb-MT-XW9" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" constant="20" id="jja-88-LHs"/>
+                            <constraint firstItem="Dm6-zi-Z9E" firstAttribute="trailing" secondItem="Egb-MT-XW9" secondAttribute="trailing" constant="20" id="kcI-zv-xF4"/>
+                            <constraint firstItem="wsP-gD-KDQ" firstAttribute="leading" secondItem="sIO-AR-cmf" secondAttribute="trailing" constant="8" id="lgo-vW-clx"/>
+                            <constraint firstItem="ctg-jD-Fpq" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="wmC-Kz-UN3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Dm6-zi-Z9E"/>
                     </view>
+                    <connections>
+                        <outlet property="kibunTextBox" destination="Egb-MT-XW9" id="f24-9D-dF3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16y-qX-bR7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
