@@ -3,7 +3,7 @@ import UIKit
 
 class TabBarView: NSObject {
 
-    @IBOutlet var tab: UIView!
+    @IBOutlet weak var tab: UIStackView!
     
     // 現在画面表示を担当しているViewControllerインスタンスを保持しておくプロパティ
     weak var owner: UIViewController?
@@ -26,9 +26,12 @@ class TabBarView: NSObject {
         otherViewController.modalPresentationStyle = .fullScreen
         owner?.present(otherViewController, animated: false, completion: nil)
     }
+    
+    
+    var tabView: UIView!
 
     override init() {
         super.init()
-        tab = UINib(nibName: "TabBarView", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? UIView
+        tabView = UINib(nibName: "TabBarView", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? UIView
     }
 }

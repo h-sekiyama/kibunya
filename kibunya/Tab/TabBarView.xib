@@ -20,21 +20,21 @@
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDK-JH-ocO">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-LC-TPD" userLabel="気分タブ">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-LC-TPD" userLabel="気分タブ">
                             <rect key="frame" x="0.0" y="0.0" width="136.5" height="80"/>
                             <state key="normal" title="気分"/>
                             <connections>
-                                <action selector="kibunButton:" destination="-1" eventType="touchUpInside" id="UDJ-YA-CFl"/>
+                                <action selector="kibunButton:" destination="-1" eventType="touchUpInside" id="rlg-sK-MBA"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUZ-Zu-lok" userLabel="入力タブ">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MUZ-Zu-lok" userLabel="入力タブ">
                             <rect key="frame" x="136.5" y="0.0" width="139" height="80"/>
                             <state key="normal" title="入力"/>
                             <connections>
                                 <action selector="InputKibunButton:" destination="-1" eventType="touchUpInside" id="0VF-Al-6Gv"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-Y6-xWo" userLabel="その他タブ">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-Y6-xWo" userLabel="その他タブ">
                             <rect key="frame" x="275.5" y="0.0" width="138.5" height="80"/>
                             <state key="normal" title="その他"/>
                             <connections>

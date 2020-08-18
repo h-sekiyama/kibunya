@@ -7,7 +7,7 @@ class Kibuns: NSObject {
     var user_id: String?
     var kibun: Int?
     var text: String?
-    var date: Date?
+    var date: String?
     
     init(document: QueryDocumentSnapshot) {
         self.uid = document.documentID
@@ -16,6 +16,6 @@ class Kibuns: NSObject {
         self.user_id = Dic["user_id"] as? String
         self.kibun = Dic["kibun"] as? Int
         self.text = Dic["text"] as? String
-        self.date = Dic["date"] as? Date
+        self.date = Dic["date"] as? String
     }
 }

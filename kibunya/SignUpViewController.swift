@@ -1,13 +1,24 @@
 import UIKit
 import Foundation
 import Firebase
+import FirebaseFirestore
 import FirebaseAuth
 
 class SignUpViewController: UIViewController {
     
+    // FireStore取得
+    let defaultStore: Firestore! = Firestore.firestore()
+    
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
+    
+    // ログイン画面へ遷移する
+    @IBAction func loginButton(_ sender: Any) {
+        let loginViewController = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as UIViewController
+        loginViewController.modalPresentationStyle = .fullScreen
+        self.present(loginViewController, animated: false, completion: nil)
+    }
     
     @IBAction private func didTapSignUpButton() {
         let email = emailTextField.text ?? ""
@@ -15,6 +26,7 @@ class SignUpViewController: UIViewController {
         let name = nameTextField.text ?? ""
         
         signUp(email: email, password: password, name: name)
+        startIndicator()
     }
 
     private func signUp(email: String, password: String, name: String) {
@@ -52,6 +64,11 @@ class SignUpViewController: UIViewController {
     }
     
     private func showSignUpCompletion() {
+        self.dismissIndicator()
+        
+        // この時点でユーザー情報をサーバDBに登録
+        
+        
         let mailSendCompleteViewController = UIStoryboard(name: "MailSendCompleteViewController", bundle: nil).instantiateViewController(withIdentifier: "MailSendCompleteViewController") as UIViewController
         mailSendCompleteViewController.modalPresentationStyle = .fullScreen
         self.present(mailSendCompleteViewController, animated: true, completion: nil)

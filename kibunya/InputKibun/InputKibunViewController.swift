@@ -3,7 +3,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-class InputKibunViewController: UIViewController {
+class InputKibunViewController: UIViewController, UITextFieldDelegate {
     
     // タブ定義
     var tabBarView: TabBarView!
@@ -53,9 +53,16 @@ class InputKibunViewController: UIViewController {
         tabBarView  = TabBarView()
         view.addSubview(tabBarView.tab)
         tabBarView.owner = self
-        
+
         // タブの表示位置を調整
         tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - 80, width: self.view.bounds.width, height: 80)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // キーボードを非表示にする。
+        if(kibunTextBox.isFirstResponder) {
+            kibunTextBox.resignFirstResponder()
+        }
     }
     
     // サーバDBをアップデートする処理
@@ -76,7 +83,7 @@ class InputKibunViewController: UIViewController {
         var ref: DocumentReference?
         ref = defaultStore.collection("kibuns").addDocument(data: [
             "kibun": kibunStatus!,
-            "date": Date(),
+            "date": Functions.today(),
             "text": kibunTextBox.text ?? "",
             "name": userName,
             "user_id": userId

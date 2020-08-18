@@ -11,6 +11,13 @@ class OtherViewController: UIViewController {
     // FireStore取得
     let defaultStore: Firestore! = Firestore.firestore()
     
+    // 家族追加画面へ遷移
+    @IBAction func addFamilyButton(_ sender: Any) {
+        let addFamilyViewController = UIStoryboard(name: "AddFamilyViewController", bundle: nil).instantiateViewController(withIdentifier: "AddFamilyViewController") as UIViewController
+        addFamilyViewController.modalPresentationStyle = .fullScreen
+        self.present(addFamilyViewController, animated: false, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

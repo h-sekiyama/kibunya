@@ -38,6 +38,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="dateText" destination="Nl5-Mz-wtH" id="KO1-OH-H7u"/>
                         <outlet property="kibunList" destination="txb-8X-qYK" id="5gG-EK-0eM"/>
                     </connections>
                 </viewController>
