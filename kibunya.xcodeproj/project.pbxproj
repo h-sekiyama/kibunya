@@ -17,6 +17,10 @@
 		3E6C005B24EADDD1001D4828 /* AddFamilyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C005A24EADDD1001D4828 /* AddFamilyViewController.storyboard */; };
 		3E6C005E24EAE97C001D4828 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C005D24EAE97C001D4828 /* Extensions.swift */; };
 		3E6C006024EC247E001D4828 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C005F24EC247E001D4828 /* Functions.swift */; };
+		3E6C006324ED6972001D4828 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C006224ED6972001D4828 /* ChangeNameViewController.swift */; };
+		3E6C006524ED69E6001D4828 /* ChangeNameViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C006424ED69E6001D4828 /* ChangeNameViewController.storyboard */; };
+		3E6C006824ED75A7001D4828 /* ShowFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C006724ED75A7001D4828 /* ShowFamilyViewController.swift */; };
+		3E6C006A24ED75D4001D4828 /* ShowFamilyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C006924ED75D4001D4828 /* ShowFamilyViewController.storyboard */; };
 		3E70A80D24E26376008667B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A80C24E26376008667B5 /* AppDelegate.swift */; };
 		3E70A80F24E26376008667B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A80E24E26376008667B5 /* SceneDelegate.swift */; };
 		3E70A81124E26376008667B5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A81024E26376008667B5 /* MainViewController.swift */; };
@@ -70,6 +74,10 @@
 		3E6C005A24EADDD1001D4828 /* AddFamilyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddFamilyViewController.storyboard; sourceTree = "<group>"; };
 		3E6C005D24EAE97C001D4828 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3E6C005F24EC247E001D4828 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		3E6C006224ED6972001D4828 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
+		3E6C006424ED69E6001D4828 /* ChangeNameViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeNameViewController.storyboard; sourceTree = "<group>"; };
+		3E6C006724ED75A7001D4828 /* ShowFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFamilyViewController.swift; sourceTree = "<group>"; };
+		3E6C006924ED75D4001D4828 /* ShowFamilyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowFamilyViewController.storyboard; sourceTree = "<group>"; };
 		3E70A80924E26376008667B5 /* kibunya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kibunya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E70A80C24E26376008667B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E70A80E24E26376008667B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +155,8 @@
 		3E6C004824EA5EDD001D4828 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				3E6C006124ED6955001D4828 /* ChangeName */,
+				3E6C006624ED758F001D4828 /* ShowFamily */,
 				3E6C005724EADD69001D4828 /* AddFamily */,
 				3E6C004924EA5EF9001D4828 /* OtherViewController.swift */,
 				3E6C004B24EA5F50001D4828 /* OtherViewController.storyboard */,
@@ -170,6 +180,24 @@
 				3E6C005F24EC247E001D4828 /* Functions.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		3E6C006124ED6955001D4828 /* ChangeName */ = {
+			isa = PBXGroup;
+			children = (
+				3E6C006224ED6972001D4828 /* ChangeNameViewController.swift */,
+				3E6C006424ED69E6001D4828 /* ChangeNameViewController.storyboard */,
+			);
+			path = ChangeName;
+			sourceTree = "<group>";
+		};
+		3E6C006624ED758F001D4828 /* ShowFamily */ = {
+			isa = PBXGroup;
+			children = (
+				3E6C006724ED75A7001D4828 /* ShowFamilyViewController.swift */,
+				3E6C006924ED75D4001D4828 /* ShowFamilyViewController.storyboard */,
+			);
+			path = ShowFamily;
 			sourceTree = "<group>";
 		};
 		3E70A80024E26376008667B5 = {
@@ -424,6 +452,8 @@
 				3E72A6F924E6C37B00EC71EB /* TabBarView.xib in Resources */,
 				3E7FD59D24E7F24B005011B6 /* KibunTableViewCell.xib in Resources */,
 				3E6C005624EA85D4001D4828 /* LoginViewController.storyboard in Resources */,
+				3E6C006524ED69E6001D4828 /* ChangeNameViewController.storyboard in Resources */,
+				3E6C006A24ED75D4001D4828 /* ShowFamilyViewController.storyboard in Resources */,
 				3E70A81624E26378008667B5 /* Assets.xcassets in Resources */,
 				3E8FBE8524E54F0300BAC128 /* MailSendCompleteViewController.storyboard in Resources */,
 				3E70A81424E26376008667B5 /* MainViewController.storyboard in Resources */,
@@ -567,7 +597,9 @@
 				3E8FBE8324E54EF400BAC128 /* MailSendCompleteViewController.swift in Sources */,
 				3E70A80D24E26376008667B5 /* AppDelegate.swift in Sources */,
 				3E70A80F24E26376008667B5 /* SceneDelegate.swift in Sources */,
+				3E6C006824ED75A7001D4828 /* ShowFamilyViewController.swift in Sources */,
 				3E6C004A24EA5EF9001D4828 /* OtherViewController.swift in Sources */,
+				3E6C006324ED6972001D4828 /* ChangeNameViewController.swift in Sources */,
 				3E6C005924EADDA0001D4828 /* AddFamilyViewController.swift in Sources */,
 				3E6C005424EA85BF001D4828 /* LoginViewController.swift in Sources */,
 			);

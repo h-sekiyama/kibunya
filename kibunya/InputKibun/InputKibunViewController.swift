@@ -39,6 +39,7 @@ class InputKibunViewController: UIViewController, UITextFieldDelegate {
     }
     // 送信ボタンタップ
     @IBAction func sendButton(_ sender: Any) {
+        startIndicator()
         updateData()
     }
     
@@ -65,9 +66,10 @@ class InputKibunViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBOutlet weak var sendKibunCompleteLabel: UILabel!
+    
     // サーバDBをアップデートする処理
     func updateData() {
-        
         // ユーザーを取得
         Auth.auth().currentUser?.reload()
         guard let userId = Auth.auth().currentUser?.uid else {
@@ -80,8 +82,7 @@ class InputKibunViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-        var ref: DocumentReference?
-        ref = defaultStore.collection("kibuns").addDocument(data: [
+        defaultStore.collection("kibuns").addDocument(data: [
             "kibun": kibunStatus!,
             "date": Functions.today(),
             "text": kibunTextBox.text ?? "",
@@ -90,10 +91,11 @@ class InputKibunViewController: UIViewController, UITextFieldDelegate {
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
+                self.sendKibunCompleteLabel.isHidden = true
             } else {
-                //ref(DocumentReference)に自動付番されたドキュメントIDが返ってくる
-                print("Document added with ID: \(ref!.documentID)")
+                self.sendKibunCompleteLabel.isHidden = false
             }
+            self.dismissIndicator()
         }
     }
 }

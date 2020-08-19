@@ -90,6 +90,13 @@
                                     <action selector="sendButton:" destination="uHM-hf-JGD" eventType="touchUpInside" id="VN2-Is-zqA"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今日の気分を送信しました！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIE-Bh-Rfj">
+                                <rect key="frame" x="94" y="405" width="226" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -111,6 +118,7 @@
                     </view>
                     <connections>
                         <outlet property="kibunTextBox" destination="Egb-MT-XW9" id="f24-9D-dF3"/>
+                        <outlet property="sendKibunCompleteLabel" destination="XIE-Bh-Rfj" id="VNB-mr-zOo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16y-qX-bR7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

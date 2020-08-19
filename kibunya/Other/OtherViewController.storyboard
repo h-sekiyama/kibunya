@@ -41,11 +41,40 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="b5H-7d-D14" appends="YES" id="bfr-KN-oAF"/>
+                                    <outletCollection property="gestureRecognizers" destination="ZjA-Ex-GiB" appends="YES" id="Z1N-b7-QoS"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rqq-7K-Fea" userLabel="家族一覧表示">
+                                <rect key="frame" x="0.0" y="183" width="414" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="家族リストを見る" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ls-y2-xW5" userLabel="家族リストを見る">
+                                        <rect key="frame" x="41" y="30" width="139" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.87220415610000002" green="0.87220415610000002" blue="0.87220415610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="3ai-NV-9Ew" appends="YES" id="NUg-K7-c4H"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zgJ-Y5-fYR" userLabel="名前変更">
-                                <rect key="frame" x="0.0" y="183" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="277" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名前を変更する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvb-yr-2I4">
@@ -69,6 +98,9 @@
                                         <color key="value" red="0.87220415610000002" green="0.87220415610000002" blue="0.87220415610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="X8o-cs-ad4" appends="YES" id="vXr-hI-Pvn"/>
+                                </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="その他" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtD-ue-Pnm">
                                 <rect key="frame" x="186" y="56" width="52" height="21"/>
@@ -78,7 +110,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="db7-Bf-geb" userLabel="ログアウト">
-                                <rect key="frame" x="0.0" y="271" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="365" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ログアウトする" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7i-OX-qt1">
@@ -102,6 +134,9 @@
                                         <color key="value" red="0.87220415610000002" green="0.87220415610000002" blue="0.87220415610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Lfm-ZQ-DAu" appends="YES" id="sVJ-J3-fxr"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -109,9 +144,24 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mpq-42-Yl7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="b5H-7d-D14">
+                <tapGestureRecognizer id="ZjA-Ex-GiB" userLabel="家族を追加するタップ">
                     <connections>
-                        <action selector="addFamilyButton:" destination="Urh-ip-LnY" id="Pus-u6-72x"/>
+                        <action selector="addFamilyButton:" destination="Urh-ip-LnY" id="Kg8-7E-r6b"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="3ai-NV-9Ew" userLabel="家族リストを見るタップ">
+                    <connections>
+                        <action selector="showFamilyList:" destination="Urh-ip-LnY" id="W7P-2p-gLU"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="X8o-cs-ad4" userLabel="名前を変更するタップ">
+                    <connections>
+                        <action selector="changeNameButton:" destination="Urh-ip-LnY" id="LTY-9c-Mbn"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Lfm-ZQ-DAu" userLabel="ログアウトするタップ">
+                    <connections>
+                        <action selector="logoutButton:" destination="Urh-ip-LnY" id="RIm-sD-IgG"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

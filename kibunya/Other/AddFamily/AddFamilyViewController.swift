@@ -108,10 +108,17 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addedFamily: UIView!
     @IBOutlet weak var addedFamilyLabel: UILabel!
     @IBOutlet weak var addFamilyInfo: UILabel!
+    @IBOutlet weak var myUserIdTextBox: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addedFamily.isHidden = true
+        
+        Auth.auth().currentUser?.reload()
+        guard let myUserId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        myUserIdTextBox.text = myUserId
     }
     
     override func loadView() {
@@ -130,6 +137,9 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
         // キーボードを非表示にする。
         if(userIdInputTextBox.isFirstResponder) {
             userIdInputTextBox.resignFirstResponder()
+        }
+        if(myUserIdTextBox.isFirstResponder) {
+            myUserIdTextBox.resignFirstResponder()
         }
     }
 }
