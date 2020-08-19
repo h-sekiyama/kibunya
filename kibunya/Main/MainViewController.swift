@@ -76,13 +76,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 
                 // 表示対象のデータを取得（今日の日付け＆家族設定している人）
-                for id in familiesArray {
+                _ = familiesArray.map { id in
                     self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: id).whereField("date", isEqualTo: Functions.today()).getDocuments() { (snaps, error)  in
                         if let error = error {
                             fatalError("\(error)")
                         }
                         guard let snaps = snaps else { return }
-                        self.kibuns = snaps.documents.map {document in
+                        self.kibuns += snaps.documents.map {document in
                             let data = Kibuns(document: document)
                             return data
                         }
