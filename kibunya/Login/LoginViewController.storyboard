@@ -32,7 +32,7 @@
                                 <rect key="frame" x="20" y="211" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nx3-jz-7rR">
                                 <rect key="frame" x="177" y="291" width="62" height="30"/>
@@ -50,12 +50,20 @@
                                     <action selector="signUpButton:" destination="fju-8b-B9j" eventType="touchUpInside" id="0cB-Tn-HiX"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="メール認証がまだですよ！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRv-ux-jK5">
+                                <rect key="frame" x="104" y="428" width="208" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cDz-7p-dpE"/>
                     </view>
                     <connections>
                         <outlet property="mailTextBox" destination="cEL-it-u4w" id="kct-rh-699"/>
+                        <outlet property="notYetMailAuth" destination="kRv-ux-jK5" id="oUm-sg-ofB"/>
                         <outlet property="passwordTextBox" destination="VEY-mc-cJ3" id="e3n-NE-J4U"/>
                     </connections>
                 </viewController>

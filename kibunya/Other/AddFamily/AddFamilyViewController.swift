@@ -13,6 +13,8 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
     var familyUserId: String = ""
     // 追加する家族の名前保存変数
     var familyUserName: String? = ""
+    // 自分のユーザーID
+    var myUserId: String = ""
     
     //  ユーザーIDを入力するテキストボックス
     @IBOutlet weak var userIdInputTextBox: UITextField!
@@ -48,12 +50,11 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-        defaultStore.collection("families").whereField("user_id", arrayContains: userId).getDocuments() { (querySnapshot, err) in
+        defaultStore.collection("families").whereField("user_id", arrayContainsAny: [userId, familyUserId]).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                if (querySnapshot?.documents.count == 0) {
-                    // まだ家族を登録した（された）事がない場合
+                if (querySnapshot?.documents.count == 0) {  // 自分か相手のユーザーIDがまだ家族登録されていない場合
                     self.defaultStore.collection("families").addDocument(data: [
                         "user_id": [userId, self.familyUserId]
                     ]) { err in
@@ -64,25 +65,31 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
                             self.addedFamily.isHidden = false
                         }
                     }
-                } else {
-                    // 既に家族を登録した（された）事がある場合
-                    var isContainId = false
+                } else {    // 自分か相手のユーザーIDがいずれかの家族に追加済みの場合
+                    // 相手のIDが登録済みかどうか
+                    var isContainOpponentId = false
+                    // 自分のIDが登録済みかどうか
+                    var isContainMyId = false
+                    
                     for document in querySnapshot!.documents {
                         _ = document.data()["user_id"].map {ids in
-                            (ids as! [String]).map {id in
+                            _ = (ids as! [String]).map {id in
                                 if (id == self.familyUserId) {
-                                    isContainId = true
+                                    isContainOpponentId = true
+                                }
+                            }
+                            _ = (ids as! [String]).map {id in
+                                if (id == self.myUserId) {
+                                    isContainMyId = true
                                 }
                             }
                         }
                     }
-                    if (isContainId) {
-                        // 追加しようとした家族がすでに登録済みの場合
+                    if (isContainMyId && isContainOpponentId) { // 追加しようとした家族も自分も既にに登録済みの場合
                         self.addedFamilyLabel.text = self.familyUserName
                         self.addFamilyInfo.text = "は既に家族登録済みです"
                         self.addedFamily.isHidden = false
-                    } else {
-                        // 追加しようとした家族がまだ追加してない場合
+                    } else if (isContainMyId) { // 追加しようとした相手のみ未登録の場合
                         for document in querySnapshot!.documents {
                             self.defaultStore.collection("families").document(document.documentID).updateData(["user_id": FieldValue.arrayUnion([self.familyUserId])]) { err in
                                 if let err = err {
@@ -97,7 +104,22 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
                                 }
                             }
                         }
-                    }
+                    } else if (isContainOpponentId) { // 自分のみ未登録の場合
+                       for document in querySnapshot!.documents {
+                           self.defaultStore.collection("families").document(document.documentID).updateData(["user_id": FieldValue.arrayUnion([self.myUserId])]) { err in
+                               if let err = err {
+                                   // エラー
+                                   print("Error writing document: \(err)")
+                               } else {
+                                   // 成功
+                                   print("Document successfully written!")
+                                   self.addedFamilyLabel.text = self.familyUserName
+                                   self.addFamilyInfo.text = "の家族に参加しました！"
+                                   self.addedFamily.isHidden = false
+                               }
+                           }
+                       }
+                   }
                 }
             }
             self.dismissIndicator()
@@ -119,6 +141,7 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
             return
         }
         myUserIdTextBox.text = myUserId
+        self.myUserId = myUserId
     }
     
     override func loadView() {

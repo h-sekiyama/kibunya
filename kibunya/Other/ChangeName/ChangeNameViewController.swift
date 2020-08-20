@@ -27,6 +27,7 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
             self.afterName.text = self.nameTextBox.text
             
             // TODO: usersコレクションの更新処理も追加
+            
             self.dismissIndicator()
         }
     }

@@ -34,7 +34,14 @@ class OtherViewController: UIViewController {
     
     // ログアウト
     @IBAction func logoutButton(_ sender: Any) {
-        // TODO: ログアウト処理実装
+        do {
+            try Auth.auth().signOut()
+            let signUpViewController = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as UIViewController
+            signUpViewController.modalPresentationStyle = .fullScreen
+            self.present(signUpViewController, animated: true, completion: nil)
+        } catch let error {
+            print(error)
+        }
     }
     
     override func viewDidLoad() {

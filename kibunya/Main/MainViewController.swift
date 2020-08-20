@@ -67,26 +67,41 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    _ = document.data()["user_id"].map {ids in
-                        (ids as! [String]).map {id in
-                            familiesArray.append(id)
+                if (querySnapshot?.documents.count == 0) {  // 家族登録してる人が一人もいない
+                    // 表示対象のデータを取得（今日の日付け）
+                    self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: userId).whereField("date", isEqualTo: Functions.today()).getDocuments() { (snaps, error)  in
+                         if let error = error {
+                             fatalError("\(error)")
+                         }
+                         guard let snaps = snaps else { return }
+                         self.kibuns += snaps.documents.map {document in
+                             let data = Kibuns(document: document)
+                             return data
+                         }
+                         self.kibunList.reloadData()
+                     }
+                } else {    // 家族が一人以上いる
+                    for document in querySnapshot!.documents {
+                        _ = document.data()["user_id"].map {ids in
+                            (ids as! [String]).map {id in
+                                familiesArray.append(id)
+                            }
                         }
                     }
-                }
-                
-                // 表示対象のデータを取得（今日の日付け＆家族設定している人）
-                _ = familiesArray.map { id in
-                    self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: id).whereField("date", isEqualTo: Functions.today()).getDocuments() { (snaps, error)  in
-                        if let error = error {
-                            fatalError("\(error)")
+                    
+                    // 表示対象のデータを取得（今日の日付け＆家族設定している人）
+                    _ = familiesArray.map { id in
+                        self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: id).whereField("date", isEqualTo: Functions.today()).getDocuments() { (snaps, error)  in
+                            if let error = error {
+                                fatalError("\(error)")
+                            }
+                            guard let snaps = snaps else { return }
+                            self.kibuns += snaps.documents.map {document in
+                                let data = Kibuns(document: document)
+                                return data
+                            }
+                            self.kibunList.reloadData()
                         }
-                        guard let snaps = snaps else { return }
-                        self.kibuns += snaps.documents.map {document in
-                            let data = Kibuns(document: document)
-                            return data
-                        }
-                        self.kibunList.reloadData()
                     }
                 }
             }

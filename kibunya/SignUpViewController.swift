@@ -67,8 +67,12 @@ class SignUpViewController: UIViewController {
         self.dismissIndicator()
         
         // この時点でユーザー情報をサーバDBに登録
+        Auth.auth().currentUser?.reload()
+        defaultStore.collection("users").document(Auth.auth().currentUser?.uid ?? "").setData([
+            "name": Auth.auth().currentUser?.displayName as Any
+        ])
         
-        
+        // 確認メール送信完了画面に遷移
         let mailSendCompleteViewController = UIStoryboard(name: "MailSendCompleteViewController", bundle: nil).instantiateViewController(withIdentifier: "MailSendCompleteViewController") as UIViewController
         mailSendCompleteViewController.modalPresentationStyle = .fullScreen
         self.present(mailSendCompleteViewController, animated: true, completion: nil)
@@ -98,7 +102,6 @@ class SignUpViewController: UIViewController {
         case .wrongPassword: message = "入力した認証情報でサインインできません"
         case .userDisabled: message = "このアカウントは無効です"
         case .weakPassword: message = "パスワードが脆弱すぎます"
-        // これは一例です。必要に応じて増減させてください
         default: break
         }
         return message
@@ -111,7 +114,7 @@ class SignUpViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Auth.auth().currentUser?.reload()
-        // ユーザー登録済みならメイン画面を表示
+        // メール認証済みなら即メイン画面を表示
         if (Auth.auth().currentUser?.isEmailVerified ?? false) {
             let mailSendCompleteViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as UIViewController
             mailSendCompleteViewController.modalPresentationStyle = .fullScreen

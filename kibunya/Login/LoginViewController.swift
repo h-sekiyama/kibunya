@@ -11,17 +11,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // パスワード入力ボックス
     @IBOutlet weak var passwordTextBox: UITextField!
     
+    @IBOutlet weak var notYetMailAuth: UILabel!
+    
     // ログインボタンタップ
     @IBAction func loginButton(_ sender: Any) {
+        startIndicator()
         let email = mailTextBox.text ?? ""
         let password = passwordTextBox.text ?? ""
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
             guard let self = self else { return }
-            if let user = result?.user {
-                // サインイン後の画面へ
+            if (result?.user) != nil {
+                Auth.auth().currentUser?.reload()
+                // メール認証済みの場合のみログイン
+                if (Auth.auth().currentUser?.isEmailVerified ?? false) {
+                    // 気分リスト画面に遷移
+                    let mainViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as UIViewController
+                    mainViewController.modalPresentationStyle = .fullScreen
+                    self.present(mainViewController, animated: false, completion: nil)
+                } else {
+                    self.notYetMailAuth.isHidden = false
+                }
+                self.dismissIndicator()
             }
             self.showErrorIfNeeded(error)
+            self.dismissIndicator()
         }
     }
     
