@@ -100,17 +100,19 @@ class MainViewController: UIViewController, UITableViewDelegate {
                             if let error = error {
                                 fatalError("\(error)")
                             }
-                            if (snaps?.count == 0) {    // まだ家族の誰も今日の日記を書いてない
-                                self.kibunList.isHidden = true
-                                self.emptyKibunLabel.isHidden = false
-                                return
-                            }
                             guard let snaps = snaps else { return }
                             self.kibuns += snaps.documents.map {document in
                                 let data = Kibuns(document: document)
                                 return data
                             }
-                            self.kibunList.reloadData()
+                            if (self.kibuns.count == 0) {    // まだ家族の誰も今日の日記を書いてない
+                                self.kibunList.isHidden = true
+                                self.emptyKibunLabel.isHidden = false
+                            } else {
+                                self.kibunList.isHidden = false
+                                self.emptyKibunLabel.isHidden = true
+                                self.kibunList.reloadData()
+                            }
                         }
                     }
                 }
