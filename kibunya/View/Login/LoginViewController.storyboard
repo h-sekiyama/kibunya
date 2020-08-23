@@ -34,7 +34,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nx3-jz-7rR">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nx3-jz-7rR">
                                 <rect key="frame" x="177" y="291" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ログイン"/>
@@ -62,6 +62,7 @@
                         <viewLayoutGuide key="safeArea" id="cDz-7p-dpE"/>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="nx3-jz-7rR" id="eiS-6S-Ics"/>
                         <outlet property="mailTextBox" destination="cEL-it-u4w" id="kct-rh-699"/>
                         <outlet property="notYetMailAuth" destination="kRv-ux-jK5" id="oUm-sg-ofB"/>
                         <outlet property="passwordTextBox" destination="VEY-mc-cJ3" id="e3n-NE-J4U"/>

@@ -77,11 +77,6 @@
                                     <action selector="kibunButton4:" destination="uHM-hf-JGD" eventType="touchUpInside" id="gxF-uw-EVq"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="今日あった出来事は？" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Egb-MT-XW9">
-                                <rect key="frame" x="20" y="244" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-uv-Avx">
                                 <rect key="frame" x="192" y="313" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -97,11 +92,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="biR-WE-q3x">
+                                <rect key="frame" x="20" y="215" width="374" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="wsP-gD-KDQ" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="07o-h1-ejp"/>
-                            <constraint firstItem="Egb-MT-XW9" firstAttribute="top" secondItem="ctg-jD-Fpq" secondAttribute="bottom" constant="50" id="DvK-rX-UK2"/>
                             <constraint firstItem="sIO-AR-cmf" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="E10-WV-R4s"/>
                             <constraint firstItem="ctg-jD-Fpq" firstAttribute="leading" secondItem="wsP-gD-KDQ" secondAttribute="trailing" constant="8" id="Hcc-bq-3JS"/>
                             <constraint firstItem="mL1-C2-SKk" firstAttribute="leading" secondItem="Fha-WL-DzW" secondAttribute="trailing" constant="8" id="IGl-Ht-Ir1"/>
@@ -109,22 +119,20 @@
                             <constraint firstItem="Fha-WL-DzW" firstAttribute="leading" secondItem="ctg-jD-Fpq" secondAttribute="trailing" constant="8" id="Q5U-y5-AXS"/>
                             <constraint firstItem="sIO-AR-cmf" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" constant="20" id="cID-TU-TtE"/>
                             <constraint firstItem="Fha-WL-DzW" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="cqo-x3-Pnt"/>
-                            <constraint firstItem="Egb-MT-XW9" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" constant="20" id="jja-88-LHs"/>
-                            <constraint firstItem="Dm6-zi-Z9E" firstAttribute="trailing" secondItem="Egb-MT-XW9" secondAttribute="trailing" constant="20" id="kcI-zv-xF4"/>
                             <constraint firstItem="wsP-gD-KDQ" firstAttribute="leading" secondItem="sIO-AR-cmf" secondAttribute="trailing" constant="8" id="lgo-vW-clx"/>
                             <constraint firstItem="ctg-jD-Fpq" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="wmC-Kz-UN3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dm6-zi-Z9E"/>
                     </view>
                     <connections>
-                        <outlet property="kibunTextBox" destination="Egb-MT-XW9" id="f24-9D-dF3"/>
+                        <outlet property="kibunTextBox" destination="biR-WE-q3x" id="wQd-Av-21e"/>
                         <outlet property="sendButton" destination="sRU-uv-Avx" id="qL0-ML-oRb"/>
                         <outlet property="sendKibunCompleteLabel" destination="XIE-Bh-Rfj" id="VNB-mr-zOo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16y-qX-bR7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-500" y="145"/>
+            <point key="canvasLocation" x="-500.00000000000006" y="144.64285714285714"/>
         </scene>
     </scenes>
 </document>

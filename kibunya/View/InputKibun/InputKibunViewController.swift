@@ -3,7 +3,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-class InputKibunViewController: UIViewController, UITextFieldDelegate {
+class InputKibunViewController: UIViewController {
     
     // タブ定義
     var tabBarView: TabBarView!
@@ -12,7 +12,8 @@ class InputKibunViewController: UIViewController, UITextFieldDelegate {
     // 気分情報を入れる変数
     var kibunStatus: Int? = nil
     // 今日あった出来事を入力するテキストボックス
-    @IBOutlet weak var kibunTextBox: UITextField!
+    @IBOutlet weak var kibunTextBox: UITextView!
+    
     // 最高ボタンタップ
     @IBAction func kibunButton0(_ sender: Any) {
         kibunStatus = 0
@@ -60,7 +61,7 @@ class InputKibunViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // テキストボックス入力監視
-        kibunTextBox.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        kibunTextBox.delegate = self
     }
     
     override func loadView() {
@@ -84,15 +85,6 @@ class InputKibunViewController: UIViewController, UITextFieldDelegate {
     
     // 気分送信完了ラベル
     @IBOutlet weak var sendKibunCompleteLabel: UILabel!
-    
-    // テキストボックス入力監視処理
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        if (kibunTextBox.text?.count != 0 && kibunStatus != nil) {
-            sendButton.isEnabled = true
-        } else {
-            sendButton.isEnabled = false
-        }
-    }
     
     // サーバDBをアップデートする処理
     func updateData() {
@@ -124,6 +116,16 @@ class InputKibunViewController: UIViewController, UITextFieldDelegate {
             self.dismissIndicator()
             self.kibunTextBox.text = ""
             self.sendButton.isEnabled = false
+        }
+    }
+}
+
+extension InputKibunViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView){
+        if (kibunTextBox.text?.count != 0 && kibunStatus != nil) {
+            sendButton.isEnabled = true
+        } else {
+            sendButton.isEnabled = false
         }
     }
 }

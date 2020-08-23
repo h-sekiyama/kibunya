@@ -4,15 +4,14 @@ import Firebase
 import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
     // Eメール入力ボックス
     @IBOutlet weak var mailTextBox: UITextField!
-    
     // パスワード入力ボックス
     @IBOutlet weak var passwordTextBox: UITextField!
-    
+    // メール認証未実施ラベル
     @IBOutlet weak var notYetMailAuth: UILabel!
-    
+    // ログインボタン
+    @IBOutlet weak var loginButton: UIButton!
     // ログインボタンタップ
     @IBAction func loginButton(_ sender: Any) {
         startIndicator()
@@ -48,6 +47,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mailTextBox.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        passwordTextBox.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // キーボードを非表示にする
+        if(mailTextBox.isFirstResponder) {
+            mailTextBox.resignFirstResponder()
+        }
+        if(passwordTextBox.isFirstResponder) {
+            passwordTextBox.resignFirstResponder()
+        }
     }
     
     private func showErrorIfNeeded(_ errorOrNil: Error?) {
@@ -78,5 +90,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         default: break
         }
         return message
+    }
+    
+    // 各テキストフィールド入力監視
+    @objc func textFieldDidChange(_ textFiled: UITextField) {
+        if (mailTextBox.text!.count > 0 && passwordTextBox.text!.count > 0) {
+            loginButton.isEnabled = true
+        } else {
+            loginButton.isEnabled = false
+        }
     }
 }

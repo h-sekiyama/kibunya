@@ -33,7 +33,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qS-C3-7Vm">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qS-C3-7Vm">
                                 <rect key="frame" x="176" y="376" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="登録する"/>
@@ -57,6 +57,7 @@
                         <outlet property="emailTextField" destination="xSp-TO-9Fi" id="u6C-hC-luJ"/>
                         <outlet property="nameTextField" destination="lPF-D9-71F" id="aES-jS-3Wb"/>
                         <outlet property="passwordTextField" destination="8dc-jb-tKs" id="QcF-0d-GZ4"/>
+                        <outlet property="signUpButton" destination="0qS-C3-7Vm" id="SYE-HX-WA1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pYV-eS-quf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

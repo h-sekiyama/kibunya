@@ -20,6 +20,8 @@ class SignUpViewController: UIViewController {
         self.present(loginViewController, animated: false, completion: nil)
     }
     
+    // 登録するボタン
+    @IBOutlet weak var signUpButton: UIButton!
     @IBAction private func didTapSignUpButton() {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
@@ -109,6 +111,10 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -119,6 +125,28 @@ class SignUpViewController: UIViewController {
             let mailSendCompleteViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as UIViewController
             mailSendCompleteViewController.modalPresentationStyle = .fullScreen
             self.present(mailSendCompleteViewController, animated: true, completion: nil)
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // キーボードを非表示にする
+        if(nameTextField.isFirstResponder) {
+            nameTextField.resignFirstResponder()
+        }
+        if(emailTextField.isFirstResponder) {
+            emailTextField.resignFirstResponder()
+        }
+        if(passwordTextField.isFirstResponder) {
+            passwordTextField.resignFirstResponder()
+        }
+    }
+    
+    // 各テキストフィールド入力監視
+    @objc func textFieldDidChange(_ textFiled: UITextField) {
+        if (nameTextField.text!.count > 0 && emailTextField.text!.count > 0 && passwordTextField.text!.count > 0) {
+            signUpButton.isEnabled = true
+        } else {
+            signUpButton.isEnabled = false
         }
     }
 }
