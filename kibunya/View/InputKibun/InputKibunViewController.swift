@@ -7,36 +7,49 @@ class InputKibunViewController: UIViewController, UITextFieldDelegate {
     
     // タブ定義
     var tabBarView: TabBarView!
-    
     // FireStore取得
     let defaultStore: Firestore! = Firestore.firestore()
-    
     // 気分情報を入れる変数
     var kibunStatus: Int? = nil
-    
     // 今日あった出来事を入力するテキストボックス
     @IBOutlet weak var kibunTextBox: UITextField!
-    
     // 最高ボタンタップ
     @IBAction func kibunButton0(_ sender: Any) {
         kibunStatus = 0
+        if (kibunTextBox.text?.count != 0) {
+            sendButton.isEnabled = true
+        }
     }
     // 良いボタンタップ
     @IBAction func kibunButton1(_ sender: Any) {
         kibunStatus = 1
+        if (kibunTextBox.text?.count != 0) {
+            sendButton.isEnabled = true
+        }
     }
     // 普通ボタンタップ
     @IBAction func kibunButton2(_ sender: Any) {
         kibunStatus = 2
+        if (kibunTextBox.text?.count != 0) {
+            sendButton.isEnabled = true
+        }
     }
     // 悪いボタンタップ
     @IBAction func kibunButton3(_ sender: Any) {
         kibunStatus = 3
+        if (kibunTextBox.text?.count != 0) {
+            sendButton.isEnabled = true
+        }
     }
     // 最悪ボタンタップ
     @IBAction func kibunButton4(_ sender: Any) {
         kibunStatus = 4
+        if (kibunTextBox.text?.count != 0) {
+            sendButton.isEnabled = true
+        }
     }
+    // 送信ボタン
+    @IBOutlet weak var sendButton: UIButton!
     // 送信ボタンタップ
     @IBAction func sendButton(_ sender: Any) {
         startIndicator()
@@ -45,6 +58,9 @@ class InputKibunViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // テキストボックス入力監視
+        kibunTextBox.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
     }
     
     override func loadView() {
@@ -60,13 +76,23 @@ class InputKibunViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // キーボードを非表示にする。
+        // キーボードを非表示にする
         if(kibunTextBox.isFirstResponder) {
             kibunTextBox.resignFirstResponder()
         }
     }
     
+    // 気分送信完了ラベル
     @IBOutlet weak var sendKibunCompleteLabel: UILabel!
+    
+    // テキストボックス入力監視処理
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if (kibunTextBox.text?.count != 0 && kibunStatus != nil) {
+            sendButton.isEnabled = true
+        } else {
+            sendButton.isEnabled = false
+        }
+    }
     
     // サーバDBをアップデートする処理
     func updateData() {
@@ -96,6 +122,8 @@ class InputKibunViewController: UIViewController, UITextFieldDelegate {
                 self.sendKibunCompleteLabel.isHidden = false
             }
             self.dismissIndicator()
+            self.kibunTextBox.text = ""
+            self.sendButton.isEnabled = false
         }
     }
 }

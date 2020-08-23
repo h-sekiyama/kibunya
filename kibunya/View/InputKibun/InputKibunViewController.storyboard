@@ -82,7 +82,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-uv-Avx">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-uv-Avx">
                                 <rect key="frame" x="192" y="313" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="送信"/>
@@ -118,6 +118,7 @@
                     </view>
                     <connections>
                         <outlet property="kibunTextBox" destination="Egb-MT-XW9" id="f24-9D-dF3"/>
+                        <outlet property="sendButton" destination="sRU-uv-Avx" id="qL0-ML-oRb"/>
                         <outlet property="sendKibunCompleteLabel" destination="XIE-Bh-Rfj" id="VNB-mr-zOo"/>
                     </connections>
                 </viewController>
