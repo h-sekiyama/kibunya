@@ -54,6 +54,10 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>SignUpViewController</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>line</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -230,11 +230,7 @@
 				3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */,
 				3E6C005C24EAE965001D4828 /* Common */,
 				3EA278D424E7BF7000A62834 /* Model */,
-				3E70E6BB24E59544007F7E8C /* Login */,
-				3E70E6BC24E59568007F7E8C /* Main */,
-				3E6C004324E920BA001D4828 /* InputKibun */,
-				3E6C004824EA5EDD001D4828 /* Other */,
-				3E70E6BD24E64F89007F7E8C /* Tab */,
+				3E763CAD24F25FD70097FCD1 /* View */,
 				3E70A81524E26378008667B5 /* Assets.xcassets */,
 				3E70A81724E26378008667B5 /* LaunchScreen.storyboard */,
 				3E70A81A24E26378008667B5 /* Info.plist */,
@@ -292,6 +288,18 @@
 				3E72A6F824E6C37B00EC71EB /* TabBarView.xib */,
 			);
 			path = Tab;
+			sourceTree = "<group>";
+		};
+		3E763CAD24F25FD70097FCD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3E70E6BD24E64F89007F7E8C /* Tab */,
+				3E70E6BB24E59544007F7E8C /* Login */,
+				3E70E6BC24E59568007F7E8C /* Main */,
+				3E6C004324E920BA001D4828 /* InputKibun */,
+				3E6C004824EA5EDD001D4828 /* Other */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3EA278CD24E7BDBF00A62834 /* KibunList */ = {

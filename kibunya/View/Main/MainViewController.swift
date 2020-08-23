@@ -3,21 +3,20 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDelegate {
     
     // タブ定義
     var tabBarView: TabBarView!
-    
     // 今日の日付text
     @IBOutlet weak var dateText: UILabel!
-    
     // 気分リスト定義
     @IBOutlet weak var kibunList: UITableView!
     var kibuns: [Kibuns] = [Kibuns]()
-    
     // FireStore取得
     let defaultStore: Firestore! = Firestore.firestore()
-                                                                                                                        
+    // まだ家族が誰も日記を書いてない時のラベル
+    @IBOutlet weak var emptyKibunLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,9 +69,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if (querySnapshot?.documents.count == 0) {  // 家族登録してる人が一人もいない
                     // 表示対象のデータを取得（今日の日付け）
                     self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: userId).whereField("date", isEqualTo: Functions.today()).getDocuments() { (snaps, error)  in
-                         if let error = error {
-                             fatalError("\(error)")
-                         }
+                        if let error = error {
+                            fatalError("\(error)")
+                        }
+                        if (snaps?.count == 0) {    // まだ今日の日記を書いてない
+                            self.kibunList.isHidden = true
+                            self.emptyKibunLabel.text = "まだ今日の日記を書いてません"
+                            self.emptyKibunLabel.isHidden = false
+                            return
+                        }
                          guard let snaps = snaps else { return }
                          self.kibuns += snaps.documents.map {document in
                              let data = Kibuns(document: document)
@@ -95,6 +100,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                             if let error = error {
                                 fatalError("\(error)")
                             }
+                            if (snaps?.count == 0) {    // まだ家族の誰も今日の日記を書いてない
+                                self.kibunList.isHidden = true
+                                self.emptyKibunLabel.isHidden = false
+                                return
+                            }
                             guard let snaps = snaps else { return }
                             self.kibuns += snaps.documents.map {document in
                                 let data = Kibuns(document: document)
@@ -107,6 +117,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
+}
+
+extension MainViewController: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       return 1

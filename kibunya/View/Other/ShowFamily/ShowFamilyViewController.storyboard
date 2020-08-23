@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Show Family View Controller-->
+        <scene sceneID="yud-X0-yn1">
+            <objects>
+                <viewController storyboardIdentifier="ShowFamilyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8pb-5t-3sN" customClass="ShowFamilyViewController" customModule="kibunya" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z7e-Cg-qfO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="家族リスト" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBr-aQ-ILg">
+                                <rect key="frame" x="163.5" y="84" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y63-tG-sgE">
+                                <rect key="frame" x="0.0" y="122" width="414" height="660"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="Jcc-l8-v5P">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jcc-l8-v5P" id="OWq-tc-MW7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="家族が一人もいません…" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qAB-jm-jHv">
+                                <rect key="frame" x="121" y="426" width="187" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="y63-tG-sgE" firstAttribute="top" secondItem="TBr-aQ-ILg" secondAttribute="bottom" constant="17" id="O4K-nL-PvT"/>
+                            <constraint firstItem="y63-tG-sgE" firstAttribute="leading" secondItem="cEO-mn-WR5" secondAttribute="leading" id="Y02-r4-27e"/>
+                            <constraint firstItem="y63-tG-sgE" firstAttribute="bottom" secondItem="cEO-mn-WR5" secondAttribute="bottom" constant="-80" id="YF3-MB-sAa"/>
+                            <constraint firstItem="y63-tG-sgE" firstAttribute="centerX" secondItem="z7e-Cg-qfO" secondAttribute="centerX" id="pao-dU-Tbj"/>
+                            <constraint firstItem="TBr-aQ-ILg" firstAttribute="centerX" secondItem="z7e-Cg-qfO" secondAttribute="centerX" id="zoS-ho-HaL"/>
+                            <constraint firstItem="TBr-aQ-ILg" firstAttribute="top" secondItem="cEO-mn-WR5" secondAttribute="top" constant="40" id="zpc-B1-cVb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cEO-mn-WR5"/>
+                    </view>
+                    <connections>
+                        <outlet property="emptyFamilyLabel" destination="qAB-jm-jHv" id="xd9-ZC-fwv"/>
+                        <outlet property="tableView" destination="y63-tG-sgE" id="fhm-iZ-Wa6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UU1-6e-fgN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="466.66666666666669" y="-172.09821428571428"/>
+        </scene>
+    </scenes>
+</document>

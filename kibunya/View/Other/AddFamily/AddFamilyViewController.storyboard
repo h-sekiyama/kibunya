@@ -37,7 +37,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyN-3Z-l5q">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyN-3Z-l5q">
                                 <rect key="frame" x="153" y="285" width="108" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="家族に追加する"/>
@@ -85,11 +85,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuY-u2-bZe">
+                                <rect key="frame" x="130" y="554" width="154" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="LINEで自分のIDを送る"/>
+                                <connections>
+                                    <action selector="sendLine:" destination="LAC-2z-Dqm" eventType="touchUpInside" id="B8t-tl-tTv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="KY2-Ws-242"/>
                     </view>
                     <connections>
+                        <outlet property="addFamilyButton" destination="nyN-3Z-l5q" id="ofM-8m-Ejx"/>
                         <outlet property="addFamilyInfo" destination="Gto-jR-svd" id="gVH-kc-og7"/>
                         <outlet property="addedFamily" destination="g70-xK-xAm" id="Hcg-7D-Jkm"/>
                         <outlet property="addedFamilyLabel" destination="StP-AE-qZm" id="mCt-kp-3Bk"/>
