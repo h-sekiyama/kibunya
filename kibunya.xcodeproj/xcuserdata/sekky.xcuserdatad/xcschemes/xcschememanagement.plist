@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>24</integer>
 		</dict>
+		<key>リリース用.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>25</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3E70A80824E26376008667B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3E70A81E24E26378008667B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3E70A82924E26379008667B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

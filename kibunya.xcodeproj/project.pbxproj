@@ -37,6 +37,8 @@
 		3E8FBE8324E54EF400BAC128 /* MailSendCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */; };
 		3E8FBE8524E54F0300BAC128 /* MailSendCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */; };
 		3EA278D324E7BF5C00A62834 /* Kibuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA278D224E7BF5C00A62834 /* Kibuns.swift */; };
+		3EE54E3324F3DE87002050B7 /* KibunDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE54E3224F3DE87002050B7 /* KibunDetailViewController.swift */; };
+		3EE54E3524F3DE9A002050B7 /* KibunDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE54E3424F3DE9A002050B7 /* KibunDetailViewController.storyboard */; };
 		3EEB5CD124E37A3C00A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */; };
 		3EEB5CD324E37A4800A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD224E37A4800A0EA19 /* GoogleService-Info.plist */; };
 		3EEB5CD524E37A4F00A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD424E37A4F00A0EA19 /* GoogleService-Info.plist */; };
@@ -78,7 +80,7 @@
 		3E6C006424ED69E6001D4828 /* ChangeNameViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeNameViewController.storyboard; sourceTree = "<group>"; };
 		3E6C006724ED75A7001D4828 /* ShowFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFamilyViewController.swift; sourceTree = "<group>"; };
 		3E6C006924ED75D4001D4828 /* ShowFamilyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowFamilyViewController.storyboard; sourceTree = "<group>"; };
-		3E70A80924E26376008667B5 /* kibunya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kibunya.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E70A80924E26376008667B5 /* 家族ダイアリー.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "家族ダイアリー.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E70A80C24E26376008667B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E70A80E24E26376008667B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3E70A81024E26376008667B5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,8 @@
 		3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailSendCompleteViewController.swift; sourceTree = "<group>"; };
 		3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailSendCompleteViewController.storyboard; sourceTree = "<group>"; };
 		3EA278D224E7BF5C00A62834 /* Kibuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kibuns.swift; sourceTree = "<group>"; };
+		3EE54E3224F3DE87002050B7 /* KibunDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KibunDetailViewController.swift; sourceTree = "<group>"; };
+		3EE54E3424F3DE9A002050B7 /* KibunDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KibunDetailViewController.storyboard; sourceTree = "<group>"; };
 		3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3EEB5CD224E37A4800A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "kibunya/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3EEB5CD424E37A4F00A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "kibunya/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -215,7 +219,7 @@
 		3E70A80A24E26376008667B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3E70A80924E26376008667B5 /* kibunya.app */,
+				3E70A80924E26376008667B5 /* 家族ダイアリー.app */,
 				3E70A81F24E26378008667B5 /* kibunyaTests.xctest */,
 				3E70A82A24E26379008667B5 /* kibunyaUITests.xctest */,
 			);
@@ -275,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				3EA278CD24E7BDBF00A62834 /* KibunList */,
+				3EE54E3624F3DF63002050B7 /* KibunDetail */,
 				3E70A81024E26376008667B5 /* MainViewController.swift */,
 				3E70A81224E26376008667B5 /* MainViewController.storyboard */,
 			);
@@ -319,6 +324,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3EE54E3624F3DF63002050B7 /* KibunDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3EE54E3224F3DE87002050B7 /* KibunDetailViewController.swift */,
+				3EE54E3424F3DE9A002050B7 /* KibunDetailViewController.storyboard */,
+			);
+			path = KibunDetail;
+			sourceTree = "<group>";
+		};
 		86ABA8A6EF18FD942793203D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,7 +375,7 @@
 			);
 			name = kibunya;
 			productName = kibunya;
-			productReference = 3E70A80924E26376008667B5 /* kibunya.app */;
+			productReference = 3E70A80924E26376008667B5 /* 家族ダイアリー.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3E70A81E24E26378008667B5 /* kibunyaTests */ = {
@@ -451,6 +465,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EE54E3524F3DE9A002050B7 /* KibunDetailViewController.storyboard in Resources */,
 				3E70A81924E26378008667B5 /* LaunchScreen.storyboard in Resources */,
 				3EEB5CD124E37A3C00A0EA19 /* GoogleService-Info.plist in Resources */,
 				3E6C004C24EA5F50001D4828 /* OtherViewController.storyboard in Resources */,
@@ -606,6 +621,7 @@
 				3E70A80D24E26376008667B5 /* AppDelegate.swift in Sources */,
 				3E70A80F24E26376008667B5 /* SceneDelegate.swift in Sources */,
 				3E6C006824ED75A7001D4828 /* ShowFamilyViewController.swift in Sources */,
+				3EE54E3324F3DE87002050B7 /* KibunDetailViewController.swift in Sources */,
 				3E6C004A24EA5EF9001D4828 /* OtherViewController.swift in Sources */,
 				3E6C006324ED6972001D4828 /* ChangeNameViewController.swift in Sources */,
 				3E6C005924EADDA0001D4828 /* AddFamilyViewController.swift in Sources */,
@@ -791,7 +807,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "家族ダイアリー";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -810,7 +826,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "家族ダイアリー";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

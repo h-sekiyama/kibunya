@@ -4,7 +4,6 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class InputKibunViewController: UIViewController {
-    
     // タブ定義
     var tabBarView: TabBarView!
     // FireStore取得

@@ -10,7 +10,7 @@
         <!--Change Name View Controller-->
         <scene sceneID="dgQ-O9-D52">
             <objects>
-                <viewController storyboardIdentifier="ChangeNameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8eU-Fb-KQo" customClass="ChangeNameViewController" customModule="kibunya" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeNameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8eU-Fb-KQo" customClass="ChangeNameViewController" customModule="家族ダイアリー" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vrL-ay-3Me">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfK-w6-QCv">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfK-w6-QCv">
                                 <rect key="frame" x="153" y="186" width="108" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="この名前にする"/>
@@ -65,6 +65,7 @@
                         <outlet property="afterName" destination="BUI-mz-jc1" id="DLW-fF-2EM"/>
                         <outlet property="nameChangeResultView" destination="YXT-ge-88O" id="NdG-qo-ED6"/>
                         <outlet property="nameTextBox" destination="JFF-fy-2kh" id="9db-Hm-cX4"/>
+                        <outlet property="updateNameButton" destination="bfK-w6-QCv" id="0i0-Rl-SFu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9DC-zJ-i7n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
