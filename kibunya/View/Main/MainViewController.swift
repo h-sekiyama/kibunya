@@ -2,6 +2,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import Foundation
 
 class MainViewController: UIViewController, UITableViewDelegate {
     
@@ -68,7 +69,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
             } else {
                 if (querySnapshot?.documents.count == 0) {  // 家族登録してる人が一人もいない
                     // 表示対象のデータを取得（今日の日付け）
-                    self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: userId).whereField("date", isEqualTo: Functions.today()).getDocuments() { (snaps, error)  in
+                    self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: userId).whereField("date", isEqualTo: Functions.getDate(timeStamp: Timestamp(date: Date()))).getDocuments() { (snaps, error)  in
                         if let error = error {
                             fatalError("\(error)")
                         }
@@ -78,12 +79,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
                             self.emptyKibunLabel.isHidden = false
                             return
                         }
-                         guard let snaps = snaps else { return }
-                         self.kibuns += snaps.documents.map {document in
+                        guard let snaps = snaps else { return }
+                        self.kibuns += snaps.documents.map {document in
                              let data = Kibuns(document: document)
                              return data
                          }
-                         self.kibunList.reloadData()
+                        self.kibuns.sort()
+                        self.kibunList.reloadData()
                      }
                 } else {    // 家族が一人以上いる
                     for document in querySnapshot!.documents {
@@ -96,7 +98,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                     
                     // 表示対象のデータを取得（今日の日付け＆家族設定している人）
                     _ = familiesArray.map { id in
-                        self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: id).whereField("date", isEqualTo: Functions.today()).getDocuments() { (snaps, error)  in
+                        self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: id).whereField("date", isEqualTo: Functions.getDate(timeStamp: Timestamp(date: Date()))).getDocuments() { (snaps, error)  in
                             if let error = error {
                                 fatalError("\(error)")
                             }
@@ -111,6 +113,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                             } else {
                                 self.kibunList.isHidden = false
                                 self.emptyKibunLabel.isHidden = true
+                                self.kibuns.sort()
                                 self.kibunList.reloadData()
                             }
                         }

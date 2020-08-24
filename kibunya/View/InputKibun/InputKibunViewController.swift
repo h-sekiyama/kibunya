@@ -104,7 +104,8 @@ class InputKibunViewController: UIViewController {
             "date": Functions.today(),
             "text": kibunTextBox.text ?? "",
             "name": userName,
-            "user_id": userId
+            "user_id": userId,
+            "time": Date()
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
