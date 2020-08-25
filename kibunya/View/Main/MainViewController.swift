@@ -17,6 +17,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
     let defaultStore: Firestore! = Firestore.firestore()
     // まだ家族が誰も日記を書いてない時のラベル
     @IBOutlet weak var emptyKibunLabel: UILabel!
+    // 自分のユーザーID
+    var myUserId: String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,10 @@ class MainViewController: UIViewController, UITableViewDelegate {
         kibunList.delegate = self
         kibunList.register(UINib(nibName: "KibunTableViewCell", bundle: nil), forCellReuseIdentifier: "KibunTableViewCell")
         self.showKibuns()
+        
+        Auth.auth().currentUser?.reload()
+        // 自分のユーザーIDを取得
+        myUserId = Auth.auth().currentUser?.uid
     }
     
     override func loadView() {
@@ -145,5 +151,30 @@ extension MainViewController: UITableViewDataSource {
     // セルの高さを指定する
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 74
+    }
+    
+    // セルの編集許可（自分の投稿のみ）
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        if (self.kibuns[indexPath.row].user_id! == myUserId) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    // スワイプしたセルを削除
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            defaultStore.collection("kibuns").document(self.kibuns[indexPath.row].documentId!).delete() { err in
+                if let err = err{
+                    print("Error removing document: \(err)")
+                }else{
+                    print("Document successfully removed!")
+                    self.kibuns.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+                }
+            }
+        }
     }
 }

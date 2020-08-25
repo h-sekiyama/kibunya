@@ -26,17 +26,6 @@ class Functions {
         return dateFormatter.string(from: date)
     }
     
-    // タイムスタンプを文字列に変換して返すメソッド
-    public static func getStrDate(unixtimeInterval: TimeInterval) -> String {
-
-        let date = NSDate(timeIntervalSince1970: unixtimeInterval/1000)
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "yyyy.MM.dd hh:mm"
-        return dateFormatter.string(from: date as Date)
-    }
-    
     // Lineでメッセージを投稿
     public static func sendLineMessage(_ text: String)  {
         let lineSchemeMessage: String! = "line://msg/text/"

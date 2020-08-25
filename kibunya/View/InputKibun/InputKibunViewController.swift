@@ -99,13 +99,16 @@ class InputKibunViewController: UIViewController {
             return
         }
 
-        defaultStore.collection("kibuns").addDocument(data: [
+        // ドキュメントIDを事前に設定する
+        let documentId = defaultStore.collection("kibuns").document().documentID
+        defaultStore.collection("kibuns").document(documentId).setData([
             "kibun": kibunStatus!,
             "date": Functions.today(),
             "text": kibunTextBox.text ?? "",
             "name": userName,
             "user_id": userId,
-            "time": Date()
+            "time": Date(),
+            "documentId": documentId
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")

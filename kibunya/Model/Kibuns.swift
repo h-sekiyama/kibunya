@@ -6,6 +6,10 @@ class Kibuns: NSObject, Comparable {
         return lhs.time!.dateValue() > rhs.time!.dateValue()
     }
     
+    static func == (lhs: Kibuns, rhs: Kibuns) -> Bool {
+       return lhs.user_id == rhs.user_id
+    }
+    
     var uid: String?
     var name: String?
     var user_id: String?
@@ -13,6 +17,7 @@ class Kibuns: NSObject, Comparable {
     var text: String?
     var date: String?
     var time: Timestamp?
+    var documentId: String?
     
     init(document: QueryDocumentSnapshot) {
         self.uid = document.documentID
@@ -23,5 +28,6 @@ class Kibuns: NSObject, Comparable {
         self.text = Dic["text"] as? String
         self.date = Dic["date"] as? String
         self.time = Dic["time"] as? Timestamp
+        self.documentId = Dic["documentId"] as? String
     }
 }
