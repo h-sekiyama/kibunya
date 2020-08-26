@@ -63,6 +63,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // 気分リストを設定
     func showKibuns() {
+        startIndicator()
         // まず自分および家族登録してるユーザーのユーザーIDを取得
         Auth.auth().currentUser?.reload()
         guard let userId = Auth.auth().currentUser?.uid else {
@@ -71,7 +72,10 @@ class MainViewController: UIViewController, UITableViewDelegate {
         var familiesArray: [String] = []
         defaultStore.collection("families").whereField("user_id", arrayContains: userId).getDocuments() { (querySnapshot, err) in
             if let err = err {
-                print("Error getting documents: \(err)")
+                self.emptyKibunLabel.text = "読み込みエラーです"
+                self.emptyKibunLabel.isHidden = false
+                self.dismissIndicator()
+                print(err)
             } else {
                 if (querySnapshot?.documents.count == 0) {  // 家族登録してる人が一人もいない
                     // 表示対象のデータを取得（今日の日付け）
@@ -92,6 +96,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                          }
                         self.kibuns.sort()
                         self.kibunList.reloadData()
+                        self.dismissIndicator()
                      }
                 } else {    // 家族が一人以上いる
                     for document in querySnapshot!.documents {
@@ -103,7 +108,10 @@ class MainViewController: UIViewController, UITableViewDelegate {
                     }
                     
                     // 表示対象のデータを取得（今日の日付け＆家族設定している人）
-                    _ = familiesArray.map { id in
+                    _ = familiesArray.enumerated().map { index, id in
+                        if (!UIViewController.isShowIndicator) {
+                            self.startIndicator()
+                        }
                         self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: id).whereField("date", isEqualTo: Functions.getDate(timeStamp: Timestamp(date: Date()))).getDocuments() { (snaps, error)  in
                             if let error = error {
                                 fatalError("\(error)")
@@ -121,6 +129,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
                                 self.emptyKibunLabel.isHidden = true
                                 self.kibuns.sort()
                                 self.kibunList.reloadData()
+                            }
+                            if (UIViewController.isShowIndicator) {
+                                self.dismissIndicator()
                             }
                         }
                     }

@@ -2,6 +2,9 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+    
+    public static var isShowIndicator: Bool = false
+    
     func startIndicator() {
 
         let loadingIndicator = UIActivityIndicatorView(style: .whiteLarge)
@@ -21,6 +24,7 @@ extension UIViewController {
         self.view.bringSubviewToFront(loadingIndicator)
 
         loadingIndicator.startAnimating()
+        UIViewController.isShowIndicator = true
     }
 
     func dismissIndicator() {
@@ -29,6 +33,7 @@ extension UIViewController {
                 $0.removeFromSuperview()
             }
         }
+        UIViewController.isShowIndicator = false
     }
 }
 

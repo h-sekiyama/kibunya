@@ -35,17 +35,26 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
             return
         }
         
+        startIndicator()
         defaultStore.collection("families").whereField("user_id", arrayContains: myUserId).getDocuments() { (querySnapshot, err) in
             if let err = err {
-                print("Error getting documents: \(err)")
+                self.emptyFamilyLabel.text = "読み込みエラーです"
+                self.tableView.isHidden = true
+                self.emptyFamilyLabel.isHidden = false
+                self.dismissIndicator()
+                print(err)
             } else {
                 if (querySnapshot?.documents.count == 0) {  // 自分か相手のユーザーIDがまだ家族登録されていない場合
+                    self.emptyFamilyLabel.text = "まだ家族が一人もいません"
                     self.tableView.isHidden = true
                     self.emptyFamilyLabel.isHidden = false
                 } else {
                     self.familyArray = querySnapshot?.documents[0].data()["user_id"] as! [String]
                     for id in self.familyArray {
                         let ref = self.defaultStore.collection("users").document(id)
+                        if (!UIViewController.isShowIndicator) {
+                            self.startIndicator()
+                        }
                         ref.getDocument{ (document, error) in
                             if let name = document.flatMap({ data in
                                 return  data["name"]
@@ -53,10 +62,13 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
                                 self.familyNameArray.append(name as! String)
                             }
                             self.tableView.reloadData()
+                            if (UIViewController.isShowIndicator) {
+                                self.dismissIndicator()
+                            }
                         }
                     }
                 }
-                
+                self.dismissIndicator()
             }
         }
     }

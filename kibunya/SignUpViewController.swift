@@ -77,7 +77,7 @@ class SignUpViewController: UIViewController {
         // 確認メール送信完了画面に遷移
         let mailSendCompleteViewController = UIStoryboard(name: "MailSendCompleteViewController", bundle: nil).instantiateViewController(withIdentifier: "MailSendCompleteViewController") as UIViewController
         mailSendCompleteViewController.modalPresentationStyle = .fullScreen
-        self.present(mailSendCompleteViewController, animated: true, completion: nil)
+        self.present(mailSendCompleteViewController, animated: false, completion: nil)
     }
 
     private func showError(_ errorOrNil: Error?) {
@@ -87,7 +87,7 @@ class SignUpViewController: UIViewController {
         let message = errorMessage(of: error) // エラーメッセージを取得
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: false, completion: nil)
     }
     
     private func errorMessage(of error: Error) -> String {
@@ -124,7 +124,7 @@ class SignUpViewController: UIViewController {
         if (Auth.auth().currentUser?.isEmailVerified ?? false) {
             let mailSendCompleteViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as UIViewController
             mailSendCompleteViewController.modalPresentationStyle = .fullScreen
-            self.present(mailSendCompleteViewController, animated: true, completion: nil)
+            self.present(mailSendCompleteViewController, animated: false, completion: nil)
         }
     }
     
@@ -148,5 +148,9 @@ class SignUpViewController: UIViewController {
         } else {
             signUpButton.isEnabled = false
         }
+        
+        // 入力文字数制限をつける
+        guard let text = nameTextField.text else { return }
+        nameTextField.text = String(text.prefix(20))
     }
 }

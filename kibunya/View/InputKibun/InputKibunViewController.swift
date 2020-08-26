@@ -55,6 +55,8 @@ class InputKibunViewController: UIViewController {
         startIndicator()
         updateData()
     }
+    // 残り入力可能文字数
+    @IBOutlet weak var remainingTextCountLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,5 +132,15 @@ extension InputKibunViewController: UITextViewDelegate {
         } else {
             sendButton.isEnabled = false
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // 入力を反映させたテキストを取得する
+        let resultText: String = (textView.text! as NSString).replacingCharacters(in: range, with: text)
+        self.remainingTextCountLabel.text = String(140 - resultText.count)
+        if resultText.count < 140 {
+            return true
+        }
+        return false
     }
 }
