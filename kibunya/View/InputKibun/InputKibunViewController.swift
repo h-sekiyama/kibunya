@@ -52,8 +52,13 @@ class InputKibunViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     // 送信ボタンタップ
     @IBAction func sendButton(_ sender: Any) {
-        startIndicator()
-        updateData()
+        if (kibunTextBox.text.count == 0) {
+            sendKibunCompleteLabel.text = "気分が未入力です"
+            sendKibunCompleteLabel.isHidden = false
+        } else {
+            startIndicator()
+            updateData()
+        }
     }
     // 残り入力可能文字数
     @IBOutlet weak var remainingTextCountLabel: UILabel!
@@ -116,6 +121,7 @@ class InputKibunViewController: UIViewController {
                 print("Error adding document: \(err)")
                 self.sendKibunCompleteLabel.isHidden = true
             } else {
+                self.sendKibunCompleteLabel.text = "今日の気分を送信しました！"
                 self.sendKibunCompleteLabel.isHidden = false
             }
             self.dismissIndicator()
@@ -135,6 +141,11 @@ extension InputKibunViewController: UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (kibunTextBox.text?.count != 0 && kibunStatus != nil) {
+            sendButton.isEnabled = true
+        } else {
+            sendButton.isEnabled = false
+        }
         // 入力を反映させたテキストを取得する
         let resultText: String = (textView.text! as NSString).replacingCharacters(in: range, with: text)
         self.remainingTextCountLabel.text = String(140 - resultText.count)
