@@ -67,6 +67,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         // まず自分および家族登録してるユーザーのユーザーIDを取得
         Auth.auth().currentUser?.reload()
         guard let userId = Auth.auth().currentUser?.uid else {
+            self.dismissIndicator()
             return
         }
         var familiesArray: [String] = []
@@ -81,12 +82,14 @@ class MainViewController: UIViewController, UITableViewDelegate {
                     // 表示対象のデータを取得（今日の日付け）
                     self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: userId).whereField("date", isEqualTo: Functions.getDate(timeStamp: Timestamp(date: Date()))).getDocuments() { (snaps, error)  in
                         if let error = error {
+                            self.dismissIndicator()
                             fatalError("\(error)")
                         }
                         if (snaps?.count == 0) {    // まだ今日の日記を書いてない
                             self.kibunList.isHidden = true
                             self.emptyKibunLabel.text = "まだ今日の日記を書いてません"
                             self.emptyKibunLabel.isHidden = false
+                            self.dismissIndicator()
                             return
                         }
                         guard let snaps = snaps else { return }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E5B315824FBB389006AB64C /* SMSSendCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5B315724FBB389006AB64C /* SMSSendCompleteViewController.swift */; };
+		3E5B315A24FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B315924FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard */; };
 		3E6C004524E92101001D4828 /* InputKibunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C004424E92100001D4828 /* InputKibunViewController.swift */; };
 		3E6C004724E92112001D4828 /* InputKibunViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C004624E92112001D4828 /* InputKibunViewController.storyboard */; };
 		3E6C004A24EA5EF9001D4828 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C004924EA5EF9001D4828 /* OtherViewController.swift */; };
@@ -66,6 +68,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E5B315624FB9425006AB64C /* 家族ダイアリー.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "家族ダイアリー.entitlements"; sourceTree = "<group>"; };
+		3E5B315724FBB389006AB64C /* SMSSendCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSSendCompleteViewController.swift; sourceTree = "<group>"; };
+		3E5B315924FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SMSSendCompleteViewController.storyboard; sourceTree = "<group>"; };
 		3E6C004424E92100001D4828 /* InputKibunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputKibunViewController.swift; sourceTree = "<group>"; };
 		3E6C004624E92112001D4828 /* InputKibunViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputKibunViewController.storyboard; sourceTree = "<group>"; };
 		3E6C004924EA5EF9001D4828 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +234,7 @@
 		3E70A80B24E26376008667B5 /* kibunya */ = {
 			isa = PBXGroup;
 			children = (
+				3E5B315624FB9425006AB64C /* 家族ダイアリー.entitlements */,
 				3E70A80C24E26376008667B5 /* AppDelegate.swift */,
 				3E70A80E24E26376008667B5 /* SceneDelegate.swift */,
 				3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */,
@@ -269,6 +275,8 @@
 				3E8FBE8024E52A6B00BAC128 /* SignUpViewController.storyboard */,
 				3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */,
 				3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */,
+				3E5B315724FBB389006AB64C /* SMSSendCompleteViewController.swift */,
+				3E5B315924FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard */,
 				3E6C005324EA85BF001D4828 /* LoginViewController.swift */,
 				3E6C005524EA85D4001D4828 /* LoginViewController.storyboard */,
 			);
@@ -469,6 +477,7 @@
 				3E70A81924E26378008667B5 /* LaunchScreen.storyboard in Resources */,
 				3EEB5CD124E37A3C00A0EA19 /* GoogleService-Info.plist in Resources */,
 				3E6C004C24EA5F50001D4828 /* OtherViewController.storyboard in Resources */,
+				3E5B315A24FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard in Resources */,
 				3E6C005B24EADDD1001D4828 /* AddFamilyViewController.storyboard in Resources */,
 				3E8FBE8124E52A6B00BAC128 /* SignUpViewController.storyboard in Resources */,
 				3E6C004724E92112001D4828 /* InputKibunViewController.storyboard in Resources */,
@@ -626,6 +635,7 @@
 				3E6C006324ED6972001D4828 /* ChangeNameViewController.swift in Sources */,
 				3E6C005924EADDA0001D4828 /* AddFamilyViewController.swift in Sources */,
 				3E6C005424EA85BF001D4828 /* LoginViewController.swift in Sources */,
+				3E5B315824FBB389006AB64C /* SMSSendCompleteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,6 +809,7 @@
 			baseConfigurationReference = 9B6032BA666830724FCD44A5 /* Pods-kibunya.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 42UU3JKF9R;
@@ -819,6 +830,7 @@
 			baseConfigurationReference = 53A41DA030BC9368DE59A067 /* Pods-kibunya.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 42UU3JKF9R;

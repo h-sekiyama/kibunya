@@ -2,15 +2,16 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseCore
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         Auth.auth().signInAnonymously()
-
+        registerForPushNotifications()
         return true
     }
 
@@ -27,7 +28,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+         // 1. Convert device token to string
+         let tokenParts = deviceToken.map { data -> String in
+             return String(format: "%02.2hhx", data)
+         }
+         let token = tokenParts.joined()
+         // 2. Print device token to use for PNs payloads
+         print("Device Token: \(token)")
+     }
 
+     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+         // 1. Print out error if PNs registration not successful
+         print("Failed to register for remote notifications with error: \(error)")
+     }
 
+    func registerForPushNotifications() {
+      UNUserNotificationCenter.current().delegate = self
+      UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+        (granted, error) in
+            print("Permission granted: \(granted)")
+            // 1. Check if permission granted
+            guard granted else { return }
+            // 2. Attempt registration for remote notifications on the main thread
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
+    
+    private func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        print("PUSH来た")
+    }
+
+    private func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
+                     fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        print("PUSH来た")
+
+    }
 }
 

@@ -70,3 +70,16 @@ extension UIView {
         }
     }
 }
+
+// ユーザーデフォルトに値をセットする処理
+private let AuthVerificationIDKey = "authVerificationID"
+extension UserDefaults {
+    var authVerificationID: String? {
+        set(newValue) {
+            set(newValue, forKey: AuthVerificationIDKey)
+            synchronize()
+        } get {
+            return string(forKey: AuthVerificationIDKey)
+        }
+    }
+}

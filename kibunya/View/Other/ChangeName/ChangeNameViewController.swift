@@ -51,6 +51,7 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 設定済みの名前をテキストフィールドに表示
         Auth.auth().currentUser?.reload()
         guard let name = Auth.auth().currentUser?.displayName else {
             return
