@@ -10,7 +10,7 @@
         <!--Add Family View Controller-->
         <scene sceneID="Zk7-ow-Zb0">
             <objects>
-                <viewController storyboardIdentifier="AddFamilyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LAC-2z-Dqm" customClass="AddFamilyViewController" customModule="kibunya" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddFamilyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LAC-2z-Dqm" customClass="AddFamilyViewController" customModule="家族ダイアリー" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Bd-e6-HKV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXM-eK-HAY">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXM-eK-HAY">
                                 <rect key="frame" x="192" y="164" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="検索"/>
@@ -103,6 +103,7 @@
                         <outlet property="addedFamily" destination="g70-xK-xAm" id="Hcg-7D-Jkm"/>
                         <outlet property="addedFamilyLabel" destination="StP-AE-qZm" id="mCt-kp-3Bk"/>
                         <outlet property="myUserIdTextBox" destination="joC-RK-xe3" id="HBg-ci-8DB"/>
+                        <outlet property="searchUserButton" destination="cXM-eK-HAY" id="Xv1-yo-vhf"/>
                         <outlet property="userIdInputTextBox" destination="MhA-TR-SyO" id="Xi0-1D-Pjy"/>
                         <outlet property="userNameLabel" destination="0qK-Al-hx3" id="abs-B2-vpB"/>
                     </connections>

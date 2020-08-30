@@ -20,6 +20,7 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userIdInputTextBox: UITextField!
     
     // ユーザー検索ボタン
+    @IBOutlet weak var searchUserButton: UIButton!
     @IBAction func searchUserButton(_ sender: Any) {
         
         if (self.userIdInputTextBox.text == myUserId) {
@@ -195,6 +196,8 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
         }
         myUserIdTextBox.text = myUserId
         self.myUserId = myUserId
+        
+        userIdInputTextBox.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
     }
     
     override func loadView() {
@@ -216,6 +219,15 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
         }
         if(myUserIdTextBox.isFirstResponder) {
             myUserIdTextBox.resignFirstResponder()
+        }
+    }
+    
+    // 各テキストフィールド入力監視
+    @objc func textFieldDidChange(_ textFiled: UITextField) {
+        if (userIdInputTextBox.text!.count > 0) {
+            searchUserButton.isEnabled = true
+        } else {
+            searchUserButton.isEnabled = false
         }
     }
 }

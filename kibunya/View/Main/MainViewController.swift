@@ -35,6 +35,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
         Auth.auth().currentUser?.reload()
         // 自分のユーザーIDを取得
         myUserId = Auth.auth().currentUser?.uid
+        
+        // アプリがフォアグラウンドになった時のオブザーバー登録
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.viewWillEnterForeground(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     override func loadView() {
@@ -47,6 +50,14 @@ class MainViewController: UIViewController, UITableViewDelegate {
 
         // タブの表示位置を調整
         tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - 80, width: self.view.bounds.width, height: 80)
+    }
+    
+    //フォアグラウンドに来た時の処理を記載
+    @objc func viewWillEnterForeground(_ notification: Notification?) {
+        if (self.isViewLoaded && (self.view.window != nil)) {
+            kibuns.removeAll()
+            showKibuns()
+        }
     }
     
     // 日付の表示
