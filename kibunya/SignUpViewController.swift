@@ -119,32 +119,30 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var telNoSignUpButton: UIButton!
     @IBAction func didTapTelNoSignUpButton(_ sender: Any) {
         startIndicator()
-        let telNo = telNoTextField.text ?? ""   // 形式は「+1 80 1234 5678」の様な形である必要がある
-        Auth.auth().currentUser?.reload()
-        // 入力した電話番号が端末に紐づく番号と一致した場合は即メイン画面を表示
-        if (Auth.auth().currentUser?.phoneNumber == telNo) {
-            
-            login()
-        } else {
-            
-            PhoneAuthProvider.provider().verifyPhoneNumber(telNo, uiDelegate: nil) { (verificationID, error) in
-                if let error = error {
-                    self.showMessagePrompt(message: "ErrorDescription \(error.localizedDescription)")
-                    self.dismissIndicator()
-                    return
-                }
-                // 確認IDをアプリ側で保持しておく
-                if let verificationID = verificationID {
-                    print("verificationID \(verificationID)")
-                    UserDefaults.standard.authVerificationID = verificationID
-                }
-                
-                // SMS認証コード送信完了画面に遷移
-                let sMSSendCompleteViewController = UIStoryboard(name: "SMSSendCompleteViewController", bundle: nil).instantiateViewController(withIdentifier: "SMSSendCompleteViewController") as UIViewController
-                sMSSendCompleteViewController.modalPresentationStyle = .fullScreen
-                self.present(sMSSendCompleteViewController, animated: false, completion: nil)
+        var telNo = telNoTextField.text ?? ""
+        
+        // 電話番号が+81から始まる形式でない場合、+81から始まる形式に変換
+        if (telNo.first != "+") {
+            telNo = "+81" + String(telNo.dropFirst())
+        }
+
+        PhoneAuthProvider.provider().verifyPhoneNumber(telNo, uiDelegate: nil) { (verificationID, error) in
+            if let error = error {
+                self.showMessagePrompt(message: "ErrorDescription \(error.localizedDescription)")
                 self.dismissIndicator()
+                return
             }
+            // 確認IDをアプリ側で保持しておく
+            if let verificationID = verificationID {
+                print("verificationID \(verificationID)")
+                UserDefaults.standard.authVerificationID = verificationID
+            }
+            
+            // SMS認証コード送信完了画面に遷移
+            let sMSSendCompleteViewController = UIStoryboard(name: "SMSSendCompleteViewController", bundle: nil).instantiateViewController(withIdentifier: "SMSSendCompleteViewController") as UIViewController
+            sMSSendCompleteViewController.modalPresentationStyle = .fullScreen
+            self.present(sMSSendCompleteViewController, animated: false, completion: nil)
+            self.dismissIndicator()
         }
     }
     
@@ -167,12 +165,8 @@ class SignUpViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Auth.auth().currentUser?.reload()
-        // メール認証済みなら即メイン画面を表示
-        if (Auth.auth().currentUser?.isEmailVerified ?? false) {
-            login()
-        }
-        // ログイン中の電話番号がUserDefaultにある場合は即メイン画面を表示
-        if (Auth.auth().currentUser?.phoneNumber != nil) {
+        // メール認証済み、もしくは入力した電話番号が端末に紐づく番号と一致したら即メイン画面を表示
+        if (Auth.auth().currentUser?.isEmailVerified ?? false || Auth.auth().currentUser?.phoneNumber != nil) {
             login()
         }
     }
@@ -201,7 +195,7 @@ class SignUpViewController: UIViewController {
             signUpButton.isEnabled = false
         }
         
-        if (telNoTextField.text!.count == 13) {
+        if (telNoTextField.text!.count == 11 || telNoTextField.text!.count == 13) {
             telNoSignUpButton.isEnabled = true
         } else {
             telNoSignUpButton.isEnabled = false
