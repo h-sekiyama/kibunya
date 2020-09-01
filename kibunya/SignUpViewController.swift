@@ -90,6 +90,7 @@ class SignUpViewController: UIViewController {
         // エラーがなければ何もしません
         guard let error = errorOrNil else { return }
         
+        dismissIndicator()
         let message = errorMessage(of: error) // エラーメッセージを取得
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3E5B315824FBB389006AB64C /* SMSSendCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5B315724FBB389006AB64C /* SMSSendCompleteViewController.swift */; };
 		3E5B315A24FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B315924FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard */; };
+		3E5B315E24FE912D006AB64C /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5B315D24FE912D006AB64C /* ForgetPasswordViewController.swift */; };
+		3E5B316024FE9171006AB64C /* ForgetPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B315F24FE9171006AB64C /* ForgetPasswordViewController.storyboard */; };
 		3E6C004524E92101001D4828 /* InputKibunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C004424E92100001D4828 /* InputKibunViewController.swift */; };
 		3E6C004724E92112001D4828 /* InputKibunViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C004624E92112001D4828 /* InputKibunViewController.storyboard */; };
 		3E6C004A24EA5EF9001D4828 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C004924EA5EF9001D4828 /* OtherViewController.swift */; };
@@ -71,6 +73,8 @@
 		3E5B315624FB9425006AB64C /* 家族ダイアリー.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "家族ダイアリー.entitlements"; sourceTree = "<group>"; };
 		3E5B315724FBB389006AB64C /* SMSSendCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSSendCompleteViewController.swift; sourceTree = "<group>"; };
 		3E5B315924FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SMSSendCompleteViewController.storyboard; sourceTree = "<group>"; };
+		3E5B315D24FE912D006AB64C /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		3E5B315F24FE9171006AB64C /* ForgetPasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgetPasswordViewController.storyboard; sourceTree = "<group>"; };
 		3E6C004424E92100001D4828 /* InputKibunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputKibunViewController.swift; sourceTree = "<group>"; };
 		3E6C004624E92112001D4828 /* InputKibunViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InputKibunViewController.storyboard; sourceTree = "<group>"; };
 		3E6C004924EA5EF9001D4828 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +283,8 @@
 				3E5B315924FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard */,
 				3E6C005324EA85BF001D4828 /* LoginViewController.swift */,
 				3E6C005524EA85D4001D4828 /* LoginViewController.storyboard */,
+				3E5B315D24FE912D006AB64C /* ForgetPasswordViewController.swift */,
+				3E5B315F24FE9171006AB64C /* ForgetPasswordViewController.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -488,6 +494,7 @@
 				3E6C006A24ED75D4001D4828 /* ShowFamilyViewController.storyboard in Resources */,
 				3E70A81624E26378008667B5 /* Assets.xcassets in Resources */,
 				3E8FBE8524E54F0300BAC128 /* MailSendCompleteViewController.storyboard in Resources */,
+				3E5B316024FE9171006AB64C /* ForgetPasswordViewController.storyboard in Resources */,
 				3E70A81424E26376008667B5 /* MainViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,6 +629,7 @@
 				3E8FBE7F24E52A4E00BAC128 /* SignUpViewController.swift in Sources */,
 				3EF0854B24E68BB2003E8FE2 /* TabBarView.swift in Sources */,
 				3E6C006024EC247E001D4828 /* Functions.swift in Sources */,
+				3E5B315E24FE912D006AB64C /* ForgetPasswordViewController.swift in Sources */,
 				3EA278D324E7BF5C00A62834 /* Kibuns.swift in Sources */,
 				3E7FD59C24E7F24B005011B6 /* KibunTableViewCell.swift in Sources */,
 				3E6C005E24EAE97C001D4828 /* Extensions.swift in Sources */,

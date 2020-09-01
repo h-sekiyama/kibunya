@@ -38,6 +38,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // パスワードリセット画面へボタンタップ
+    @IBAction func forgetPasswordButton(_ sender: Any) {
+        let forgetPasswordViewController = UIStoryboard(name: "ForgetPasswordViewController", bundle: nil).instantiateViewController(withIdentifier: "ForgetPasswordViewController") as UIViewController
+        forgetPasswordViewController.modalPresentationStyle = .fullScreen
+        self.present(forgetPasswordViewController, animated: false, completion: nil)
+    }
     // 新規登録画面へボタンタップ
     @IBAction func signUpButton(_ sender: Any) {
         let signUpViewController = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as UIViewController
