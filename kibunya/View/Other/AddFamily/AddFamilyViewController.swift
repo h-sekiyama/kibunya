@@ -24,7 +24,11 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
     // ユーザー検索ボタン
     @IBOutlet weak var searchUserButton: UIButton!
     @IBAction func searchUserButton(_ sender: Any) {
-        
+        searchUser()
+    }
+    
+    // ユーザーID検索処理
+    func searchUser() {
         if (self.userIdInputTextBox.text == myUserId) {
             self.userNameLabel.text = "自分のユーザーIDです"
             self.addFamilyButton.isEnabled = false
@@ -203,9 +207,10 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
         
         userIdInputTextBox.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
-        // 招待から起動した場合、追加するIDを入力済みにしておく
+        // 招待から起動した場合、追加するIDを入力済みにして検索実行
         if (!addFamilyId.isEmpty) {
             userIdInputTextBox.text = addFamilyId
+            searchUser()
         }
     }
     

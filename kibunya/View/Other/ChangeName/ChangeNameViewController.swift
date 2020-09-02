@@ -87,9 +87,5 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
         } else {
             updateNameButton.isEnabled = false
         }
-        
-        // 入力文字数制限をつける
-        guard let text = nameTextBox.text else { return }
-        nameTextBox.text = String(text.prefix(20))
     }
 }
