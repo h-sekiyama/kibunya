@@ -19,6 +19,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var emptyKibunLabel: UILabel!
     // 自分のユーザーID
     var myUserId: String? = ""
+    // テーブル描画中フラグ
+    var isDrawingTable: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         kibunList.dataSource = self
         kibunList.delegate = self
         kibunList.register(UINib(nibName: "KibunTableViewCell", bundle: nil), forCellReuseIdentifier: "KibunTableViewCell")
-        self.showKibuns()
+        showKibuns()
         
         Auth.auth().currentUser?.reload()
         // 自分のユーザーIDを取得
@@ -52,9 +54,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
         tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - 80, width: self.view.bounds.width, height: 80)
     }
     
-    //フォアグラウンドに来た時の処理を記載
+    // フォアグラウンドに来た時の処理を記載
     @objc func viewWillEnterForeground(_ notification: Notification?) {
-        if (self.isViewLoaded && (self.view.window != nil)) {
+        if (self.isViewLoaded && self.view.window != nil && !isDrawingTable) {
             kibuns.removeAll()
             showKibuns()
         }
@@ -75,9 +77,11 @@ class MainViewController: UIViewController, UITableViewDelegate {
     // 気分リストを設定
     func showKibuns() {
         startIndicator()
+        isDrawingTable = true
         // まず自分および家族登録してるユーザーのユーザーIDを取得
         Auth.auth().currentUser?.reload()
         guard let userId = Auth.auth().currentUser?.uid else {
+            self.isDrawingTable = false
             self.dismissIndicator()
             return
         }
@@ -86,6 +90,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
             if let err = err {
                 self.emptyKibunLabel.text = "読み込みエラーです"
                 self.emptyKibunLabel.isHidden = false
+                self.isDrawingTable = false
                 self.dismissIndicator()
                 print(err)
             } else {
@@ -93,6 +98,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                     // 表示対象のデータを取得（今日の日付け）
                     self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: userId).whereField("date", isEqualTo: Functions.getDate(timeStamp: Timestamp(date: Date()))).getDocuments() { (snaps, error)  in
                         if let error = error {
+                            self.isDrawingTable = false
                             self.dismissIndicator()
                             fatalError("\(error)")
                         }
@@ -100,6 +106,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                             self.kibunList.isHidden = true
                             self.emptyKibunLabel.text = "まだ今日の日記を書いてません"
                             self.emptyKibunLabel.isHidden = false
+                            self.isDrawingTable = false
                             self.dismissIndicator()
                             return
                         }
@@ -110,6 +117,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                          }
                         self.kibuns.sort()
                         self.kibunList.reloadData()
+                        self.isDrawingTable = false
                         self.dismissIndicator()
                      }
                 } else {    // 家族が一人以上いる
@@ -145,6 +153,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                                 self.kibunList.reloadData()
                             }
                             if (UIViewController.isShowIndicator) {
+                                self.isDrawingTable = false
                                 self.dismissIndicator()
                             }
                         }
