@@ -8,12 +8,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        // アプリキル状態でURIからアプリを開いた時
+        if connectionOptions.urlContexts.count == 1 {
+            let content = connectionOptions.urlContexts.first!
+            print(content.url)
+
+            guard let components = URLComponents(string: content.url.absoluteString),
+                let host = components.host else {
+                    return
+            }
+            
+            goToAddFamily(host: host, components: components)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -44,14 +56,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    // URIからの起動
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-     
+        
         guard let url = URLContexts.first?.url,
             let components = URLComponents(string: url.absoluteString),
             let host = components.host else {
             return
         }
-     
+        goToAddFamily(host: host, components: components)
+    }
+    
+    // 受け取ったURIを元に家族追加画面に遷移
+    func goToAddFamily(host: String, components: URLComponents) {
         if host == "login" {
            if let queryItems = components.queryItems {
                 var id: String?
@@ -61,6 +78,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         switch queryItem.name {
                         case "id":
                             // ログイン済みの場合のみ家族追加画面に遷移
+                            Auth.auth().currentUser?.reload()
                             if (Auth.auth().currentUser?.isEmailVerified ?? false || Auth.auth().currentUser?.phoneNumber != nil) {
                                 id = value
                                 let addFamilyViewController: UIStoryboard = UIStoryboard(name: "AddFamilyViewController", bundle: nil)
