@@ -15,6 +15,8 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
     var familyUserName: String? = ""
     // 自分のユーザーID
     var myUserId: String = ""
+    // 招待から起動した際に追加家族IDを入れる変数
+    var addFamilyId: String = ""
     
     //  ユーザーIDを入力するテキストボックス
     @IBOutlet weak var userIdInputTextBox: UITextField!
@@ -177,13 +179,15 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    let userName: String = Auth.auth().currentUser?.displayName ?? ""
+    
     // 追加した家族名を表示する領域
     @IBOutlet weak var addedFamily: UIView!
     @IBOutlet weak var addedFamilyLabel: UILabel!
     @IBOutlet weak var addFamilyInfo: UILabel!
     @IBOutlet weak var myUserIdTextBox: UITextField!
     @IBAction func sendLine(_ sender: Any) {
-        Functions.sendLineMessage(myUserId)
+        Functions.sendLineMessage("家族の交換日記アプリ「家族ダイアリー」\n" + userName + "からの招待です。\n\nkazokuDiary://login?id=" + myUserId)
     }
     
     override func viewDidLoad() {
@@ -198,6 +202,11 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
         self.myUserId = myUserId
         
         userIdInputTextBox.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        
+        // 招待から起動した場合、追加するIDを入力済みにしておく
+        if (!addFamilyId.isEmpty) {
+            userIdInputTextBox.text = addFamilyId
+        }
     }
     
     override func loadView() {

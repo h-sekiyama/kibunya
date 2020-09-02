@@ -166,7 +166,7 @@ class SignUpViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Auth.auth().currentUser?.reload()
-        // メール認証済み、もしくは入力した電話番号が端末に紐づく番号と一致したら即メイン画面を表示
+        // メール認証済み、ないし電話番号認証済み即メイン画面を表示
         if (Auth.auth().currentUser?.isEmailVerified ?? false || Auth.auth().currentUser?.phoneNumber != nil) {
             login()
         }
