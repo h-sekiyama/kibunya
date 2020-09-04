@@ -127,6 +127,7 @@ class InputKibunViewController: UIViewController {
             self.dismissIndicator()
             self.kibunTextBox.text = ""
             self.sendButton.isEnabled = false
+            self.remainingTextCountLabel.text = "300"
         }
     }
 }
@@ -148,8 +149,8 @@ extension InputKibunViewController: UITextViewDelegate {
         }
         // 入力を反映させたテキストを取得する
         let resultText: String = (textView.text! as NSString).replacingCharacters(in: range, with: text)
-        self.remainingTextCountLabel.text = String(140 - resultText.count)
-        if resultText.count < 140 {
+        self.remainingTextCountLabel.text = String(300 - resultText.count)
+        if resultText.count < 300 {
             return true
         }
         return false

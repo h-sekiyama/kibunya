@@ -18,12 +18,31 @@ class Functions {
         return dateFormatter.string(from: date)
     }
     
+    // タイムスタンプを年月日に変換して返すメソッド2
+    public static func getDateSlash(timeStamp: Timestamp) -> String {
+        let date = timeStamp.dateValue()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM月/日"
+        return dateFormatter.string(from: date)
+    }
+    
     // タイムスタンプを時間に変換して返すメソッド
     public static func getTime(timeStamp: Timestamp) -> String {
         let date = timeStamp.dateValue()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: date)
+    }
+    
+    // Date型を渡したら曜日月の年月日に変換して返すメソッド
+    public static func getDateWithDayOfTheWeek(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let dateStr = formatter.string(from: date)
+        formatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale?
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "EEEEE", options: 0, locale:  Locale.current)
+        let weekStr = formatter.string(from:  date)
+        return dateStr + " (" + weekStr + ")"
     }
     
     // Lineでメッセージを投稿

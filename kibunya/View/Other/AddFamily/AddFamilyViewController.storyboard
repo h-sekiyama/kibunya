@@ -85,12 +85,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuY-u2-bZe">
-                                <rect key="frame" x="130" y="554" width="154" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEY-Dm-u9v">
+                                <rect key="frame" x="153" y="564" width="107" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="LINEで自分のIDを送る"/>
+                                <state key="normal" title="自分のIDを送る"/>
                                 <connections>
-                                    <action selector="sendLine:" destination="LAC-2z-Dqm" eventType="touchUpInside" id="B8t-tl-tTv"/>
+                                    <action selector="otherShareButton:" destination="LAC-2z-Dqm" eventType="touchUpInside" id="GZ0-Pb-bMp"/>
                                 </connections>
                             </button>
                         </subviews>

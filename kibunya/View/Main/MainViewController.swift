@@ -26,7 +26,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         
         // 日付の表示実行
-        dispDate()
+        dateText.text = Functions.getDateWithDayOfTheWeek(date: Date())
         
         // 気分一覧を表示
         kibunList.dataSource = self
@@ -60,18 +60,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
             kibuns.removeAll()
             showKibuns()
         }
-    }
-    
-    // 日付の表示
-    func dispDate() {
-        let date = NSDate()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        let dateStr = formatter.string(from: date as Date)
-        formatter.locale = NSLocale(localeIdentifier: "ja_JP") as Locale?
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "EEEEE", options: 0, locale:  Locale.current)
-        let weekStr = formatter.string(from:  date as Date)
-        dateText.text = dateStr + " (" + weekStr + ")"
     }
     
     // 気分リストを設定
@@ -168,6 +156,20 @@ extension MainViewController: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       return 1
+    }
+    
+    // セルがタップされた時の処理
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        let kibunDetailViewController = UIStoryboard(name: "KibunDetailViewController", bundle: nil).instantiateViewController(withIdentifier: "KibunDetailViewController") as! KibunDetailViewController
+        kibunDetailViewController.time = kibuns[indexPath.row].time
+        kibunDetailViewController.userName = kibuns[indexPath.row].name
+        kibunDetailViewController.text = kibuns[indexPath.row].text
+        kibunDetailViewController.kibun = kibuns[indexPath.row].kibun
+        kibunDetailViewController.modalPresentationStyle = .fullScreen
+        self.present(kibunDetailViewController, animated: false, completion: nil)
     }
     
     // セルの中身を設定するデータソース

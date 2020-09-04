@@ -2,6 +2,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import Accounts
 
 class AddFamilyViewController: UIViewController, UITextFieldDelegate {
   
@@ -190,8 +191,31 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addedFamilyLabel: UILabel!
     @IBOutlet weak var addFamilyInfo: UILabel!
     @IBOutlet weak var myUserIdTextBox: UITextField!
-    @IBAction func sendLine(_ sender: Any) {
-        Functions.sendLineMessage("家族の交換日記アプリ「家族ダイアリー」\n" + userName + "からの招待です。\n\nkazokuDiary://login?id=" + myUserId)
+
+    // 自分のIDを共有
+    @IBAction func otherShareButton(_ sender: Any) {
+        let shareName: String = userName
+        let shareId: String = myUserId
+        // 初期化処理
+        let activityVC = UIActivityViewController(activityItems: ["家族の交換日記アプリ「家族ダイアリー」\n" + shareName + "からの招待です。\n\nkazokuDiary://login?id=" + shareId], applicationActivities: nil)
+        
+        // 使用しないアクティビティタイプ
+        let excludedActivityTypes = [
+            UIActivity.ActivityType.saveToCameraRoll,
+            UIActivity.ActivityType.print,
+            UIActivity.ActivityType.addToReadingList,
+            UIActivity.ActivityType.airDrop,
+            UIActivity.ActivityType.assignToContact,
+            UIActivity.ActivityType.markupAsPDF,
+            UIActivity.ActivityType.openInIBooks,
+            UIActivity.ActivityType.postToWeibo,
+            UIActivity.ActivityType.postToVimeo
+        ]
+        
+        activityVC.excludedActivityTypes = excludedActivityTypes
+
+        // UIActivityViewControllerを表示
+        self.present(activityVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
