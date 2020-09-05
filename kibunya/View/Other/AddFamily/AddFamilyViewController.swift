@@ -197,7 +197,7 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
         let shareName: String = userName
         let shareId: String = myUserId
         // 初期化処理
-        let activityVC = UIActivityViewController(activityItems: ["家族の交換日記アプリ「家族ダイアリー」\n" + shareName + "からの招待です。\n\nkazokuDiary://login?id=" + shareId], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: ["家族の交換日記アプリ「家族ダイアリー」\n" + shareName + "からの招待です。\n\nkazokuDiary://login?id=" + shareId + "\n\nアプリをダウンロード\nhttps://apps.apple.com/us/app/id1528947553"], applicationActivities: nil)
         
         // 使用しないアクティビティタイプ
         let excludedActivityTypes = [

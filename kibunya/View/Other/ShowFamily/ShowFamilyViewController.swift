@@ -52,9 +52,7 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
                     self.familyArray = querySnapshot?.documents[0].data()["user_id"] as! [String]
                     for id in self.familyArray {
                         let ref = self.defaultStore.collection("users").document(id)
-                        if (!UIViewController.isShowIndicator) {
-                            self.startIndicator()
-                        }
+                        self.startIndicator()
                         ref.getDocument{ (document, error) in
                             if let name = document.flatMap({ data in
                                 return  data["name"]
@@ -62,9 +60,7 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
                                 self.familyNameArray.append(name as! String)
                             }
                             self.tableView.reloadData()
-                            if (UIViewController.isShowIndicator) {
-                                self.dismissIndicator()
-                            }
+                            self.dismissIndicator()
                         }
                     }
                 }

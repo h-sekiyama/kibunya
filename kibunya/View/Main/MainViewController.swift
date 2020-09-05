@@ -119,9 +119,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                     
                     // 表示対象のデータを取得（今日の日付け＆家族設定している人）
                     _ = familiesArray.enumerated().map { index, id in
-                        if (!UIViewController.isShowIndicator) {
-                            self.startIndicator()
-                        }
+                        self.startIndicator()
                         self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: id).whereField("date", isEqualTo: Functions.getDate(timeStamp: Timestamp(date: Date()))).getDocuments() { (snaps, error)  in
                             if let error = error {
                                 fatalError("\(error)")
@@ -140,10 +138,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
                                 self.kibuns.sort()
                                 self.kibunList.reloadData()
                             }
-                            if (UIViewController.isShowIndicator) {
-                                self.isDrawingTable = false
-                                self.dismissIndicator()
-                            }
+                            self.isDrawingTable = false
+                            self.dismissIndicator()
                         }
                     }
                 }
