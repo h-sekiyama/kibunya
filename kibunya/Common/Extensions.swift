@@ -86,12 +86,3 @@ extension UserDefaults {
         }
     }
 }
-
-// 配列の条件に該当するデータを削除する処理
-extension Array where Element: Equatable {
-    mutating func remove(value: Element) {
-        if let i = self.firstIndex(of: value) {
-            self.remove(at: i)
-        }
-    }
-}

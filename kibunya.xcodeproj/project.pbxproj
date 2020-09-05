@@ -818,7 +818,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 42UU3JKF9R;
 				INFOPLIST_FILE = kibunya/Info.plist;
@@ -828,6 +829,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
 				PRODUCT_NAME = "家族ダイアリー";
+				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -839,7 +841,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 42UU3JKF9R;
 				INFOPLIST_FILE = kibunya/Info.plist;
@@ -849,6 +852,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
 				PRODUCT_NAME = "家族ダイアリー";
+				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー（本番）";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
