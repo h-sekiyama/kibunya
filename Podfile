@@ -13,6 +13,7 @@ target 'kibunya' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Messaging'
   pod 'Firebase/Core'
+  pod 'FirebaseUI/Storage'
 
   target 'kibunyaTests' do
     inherit! :search_paths

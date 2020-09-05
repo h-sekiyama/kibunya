@@ -3,50 +3,85 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import Foundation
+import FirebaseUI
 
 class ChangeNameViewController: UIViewController, UITextFieldDelegate {
+    
+    //ストレージサーバのURLを取得
+    let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
+    //保存したい画像のデータを変数として持つ
+    var ProfileImageData: Data = Data()
+    // 自分のUID
+    var myUserId: String = ""
+    
     // タブ定義
     var tabBarView: TabBarView!
     // FireStore取得
     let defaultStore: Firestore! = Firestore.firestore()
+    // プロフィールアイコン画像
+    @IBOutlet weak var profileIcon: UIImageView!
+    @IBAction func profileIconTap(_ sender: UITapGestureRecognizer) {
+        let ipc = UIImagePickerController()
+        ipc.delegate = self
+        ipc.sourceType = UIImagePickerController.SourceType.photoLibrary
+        //編集を可能にする
+        ipc.allowsEditing = true
+        self.present(ipc,animated: true, completion: nil)
+    }
+    
     // 名前入力テキストボックス
     @IBOutlet weak var nameTextBox: UITextField!
-    // 名前変更ボタン
-    @IBOutlet weak var updateNameButton: UIButton!
-    @IBAction func updateName(_ sender: Any) {
+    // プロフィール変更ボタン
+    @IBOutlet weak var updateProfile: UIButton!
+    @IBAction func updateProfile(_ sender: Any) {
         startIndicator()
-        Auth.auth().currentUser?.reload()
-        // 自分のユーザーIDを取得
-        guard let myUserId = Auth.auth().currentUser?.uid else {
-            return
-        }
-        
+
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = nameTextBox.text
         changeRequest?.commitChanges { (error) in
             if (error != nil) {
-                self.nameChangeResultView.isHidden = true
+                self.changeCompleteLabel.isHidden = true
                 return
             }
-            self.nameChangeResultView.isHidden = false
-            self.afterName.text = self.nameTextBox.text
             
-            self.defaultStore.collection("users").document(myUserId).updateData(["name": self.nameTextBox.text!]) { err in
+            self.defaultStore.collection("users").document(self.myUserId).updateData(["name": self.nameTextBox.text!]) { err in
                 if let err  = err {
                     print("Error update document: \(err)")
+                    self.changeCompleteLabel.isHidden = true
                 }else{
-                    print("Document successfully update")
+                    self.changeCompleteLabel.isHidden = false
                 }
             }
             
             self.dismissIndicator()
         }
+        
+        uploadImage()
     }
     
-    // 名前変更完了後に表示するView
-    @IBOutlet weak var nameChangeResultView: UIView!
-    // 変更後の名前ラベル
-    @IBOutlet weak var afterName: UILabel!
+    // プロフィールアイコンの更新処理
+    func uploadImage () {
+        //保存したい画像のデータを変数として持つ
+        var ProfileImageData: Data = Data()
+        //プロフィール画像が存在すれば
+        if (profileIcon.image != UIImage(named: "no_image")!) {
+            //画像を圧縮
+            ProfileImageData = (profileIcon.image?.jpegData(compressionQuality: 0.01))!
+            let imageRef = storage.child("profileIcon").child("\(myUserId).jpg")
+            //storageに画像を送信
+            imageRef.putData(ProfileImageData, metadata: nil) { (metaData, error) in
+                //エラーであれば
+                if error != nil {
+                    print(error.debugDescription)
+                    return
+                }
+                self.updateProfile.isEnabled = false
+            }
+        }
+    }
+    
+    // 変更完了ラベル
+    @IBOutlet weak var changeCompleteLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,8 +92,20 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
             return
         }
         nameTextBox.text = name
-        
         nameTextBox.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        
+        myUserId = Auth.auth().currentUser?.uid ?? ""
+        let imageRef = storage.child("profileIcon").child("\(myUserId).jpg")
+        imageRef.downloadURL(completion: { [weak self] url, error in
+            guard let self = self else { return }
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            guard let url = url else { return }
+            
+            //
+            self.profileIcon.sd_setImage(with: url)
+        })
     }
     
     override func loadView() {
@@ -83,9 +130,25 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
     // 各テキストフィールド入力監視
     @objc func textFieldDidChange(_ textFiled: UITextField) {
         if (nameTextBox.text!.count > 0) {
-            updateNameButton.isEnabled = true
+            updateProfile.isEnabled = true
         } else {
-            updateNameButton.isEnabled = false
+            updateProfile.isEnabled = false
         }
+    }
+}
+
+extension ChangeNameViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editedImage = info[.editedImage] as? UIImage {
+            profileIcon.image = editedImage
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            profileIcon.image = originalImage
+        }
+        dismiss(animated: true, completion: nil)
+        updateProfile.isEnabled = true
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }
