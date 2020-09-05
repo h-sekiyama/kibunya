@@ -22,7 +22,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y63-tG-sgE">
-                                <rect key="frame" x="0.0" y="122" width="414" height="660"/>
+                                <rect key="frame" x="0.0" y="122" width="414" height="620"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="Jcc-l8-v5P">
@@ -45,12 +45,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jom-y4-jjc">
+                                <rect key="frame" x="130.5" y="752" width="153" height="30"/>
+                                <state key="normal" title="家出する（家族解除）"/>
+                                <connections>
+                                    <action selector="runawayButton:" destination="8pb-5t-3sN" eventType="touchUpInside" id="b1T-Xe-u75"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="y63-tG-sgE" firstAttribute="top" secondItem="TBr-aQ-ILg" secondAttribute="bottom" constant="17" id="O4K-nL-PvT"/>
+                            <constraint firstItem="cEO-mn-WR5" firstAttribute="bottom" secondItem="jom-y4-jjc" secondAttribute="bottom" constant="80" id="V9R-0K-J1k"/>
                             <constraint firstItem="y63-tG-sgE" firstAttribute="leading" secondItem="cEO-mn-WR5" secondAttribute="leading" id="Y02-r4-27e"/>
-                            <constraint firstItem="y63-tG-sgE" firstAttribute="bottom" secondItem="cEO-mn-WR5" secondAttribute="bottom" constant="-80" id="YF3-MB-sAa"/>
+                            <constraint firstItem="y63-tG-sgE" firstAttribute="bottom" secondItem="cEO-mn-WR5" secondAttribute="bottom" constant="-120" id="YF3-MB-sAa"/>
+                            <constraint firstItem="jom-y4-jjc" firstAttribute="centerX" secondItem="z7e-Cg-qfO" secondAttribute="centerX" id="d72-o5-Be5"/>
                             <constraint firstItem="y63-tG-sgE" firstAttribute="centerX" secondItem="z7e-Cg-qfO" secondAttribute="centerX" id="pao-dU-Tbj"/>
                             <constraint firstItem="TBr-aQ-ILg" firstAttribute="centerX" secondItem="z7e-Cg-qfO" secondAttribute="centerX" id="zoS-ho-HaL"/>
                             <constraint firstItem="TBr-aQ-ILg" firstAttribute="top" secondItem="cEO-mn-WR5" secondAttribute="top" constant="40" id="zpc-B1-cVb"/>
@@ -59,6 +68,7 @@
                     </view>
                     <connections>
                         <outlet property="emptyFamilyLabel" destination="qAB-jm-jHv" id="xd9-ZC-fwv"/>
+                        <outlet property="runawayButton" destination="jom-y4-jjc" id="TbN-iO-2Fo"/>
                         <outlet property="tableView" destination="y63-tG-sgE" id="fhm-iZ-Wa6"/>
                     </connections>
                 </viewController>

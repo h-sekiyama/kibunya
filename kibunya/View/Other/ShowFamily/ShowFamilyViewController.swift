@@ -17,8 +17,33 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
     private var familyArray: [String] = []
     // 家族名の配列
     private var familyNameArray: [String] = []
+    // 家族を識別するID（ドキュメント名）
+    private var familyId: String = ""
     // 家族が一人もいない時のラベル
     @IBOutlet weak var emptyFamilyLabel: UILabel!
+    // 家出するボタン
+    @IBOutlet weak var runawayButton: UIButton!
+    @IBAction func runawayButton(_ sender: Any) {
+        let dialog = UIAlertController(title: "家出しますか？", message: "家出すると家族が一人もいなくなります", preferredStyle: .alert)
+        dialog.addAction(UIAlertAction(title: "家出する", style: .default,
+            handler: { action in
+                let newFamilyArray = self.familyArray.filter {
+                    $0 != self.myUserId
+                }
+                self.defaultStore.collection("families").document(self.familyId).updateData(["user_id" : newFamilyArray]){ err in
+                    if let err  = err {
+                        print("Error update document: \(err)")
+                    }else{
+                        print("Document successfully update")
+                    }
+                    self.updateFamilyList()
+                }
+            }))
+        dialog.addAction(UIAlertAction(title: "しない", style: .cancel, handler: nil))
+        // 生成したダイアログを実際に表示します
+        self.present(dialog, animated: true, completion: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +56,11 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
         
         // 自分のユーザーID取得
         Auth.auth().currentUser?.reload()
-        guard let myUserId = Auth.auth().currentUser?.uid else {
-            return
-        }
-        
+        myUserId = Auth.auth().currentUser?.uid ?? ""
+        updateFamilyList()
+    }
+    
+    func updateFamilyList() {
         startIndicator()
         defaultStore.collection("families").whereField("user_id", arrayContains: myUserId).getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -48,7 +74,9 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
                     self.emptyFamilyLabel.text = "まだ家族が一人もいません"
                     self.tableView.isHidden = true
                     self.emptyFamilyLabel.isHidden = false
+                    self.runawayButton.isEnabled = false
                 } else {
+                    self.familyId = querySnapshot?.documents[0].documentID ?? ""
                     self.familyArray = querySnapshot?.documents[0].data()["user_id"] as! [String]
                     for id in self.familyArray {
                         let ref = self.defaultStore.collection("users").document(id)
@@ -63,6 +91,7 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
                             self.dismissIndicator()
                         }
                     }
+                    self.runawayButton.isEnabled = true
                 }
                 self.dismissIndicator()
             }
