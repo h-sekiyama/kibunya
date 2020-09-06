@@ -26,6 +26,7 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
         ipc.sourceType = UIImagePickerController.SourceType.photoLibrary
         //編集を可能にする
         ipc.allowsEditing = true
+        ipc.modalPresentationStyle = .fullScreen
         self.present(ipc,animated: true, completion: nil)
     }
     

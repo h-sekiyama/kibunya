@@ -51,13 +51,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         
         // 日付の表示実行
-        dateText.text = Functions.getDateWithDayOfTheWeek(date: Date())
+        dateText.text = Functions.getDateWithDayOfTheWeek(date: displayedDate)
         
         // 気分一覧を表示
         kibunList.dataSource = self
         kibunList.delegate = self
         kibunList.register(UINib(nibName: "KibunTableViewCell", bundle: nil), forCellReuseIdentifier: "KibunTableViewCell")
-        showKibuns(date: Date())
+        showKibuns(date: displayedDate)
         
         Auth.auth().currentUser?.reload()
         // 自分のユーザーIDを取得
@@ -82,8 +82,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
     // フォアグラウンドに来た時の処理を記載
     @objc func viewWillEnterForeground(_ notification: Notification?) {
         if (self.isViewLoaded && self.view.window != nil && !isDrawingTable) {
+            dateText.text = Functions.getDateWithDayOfTheWeek(date: displayedDate)
             kibuns.removeAll()
-            showKibuns(date: Date())
+            showKibuns(date: displayedDate)
         }
     }
     
@@ -189,6 +190,7 @@ extension MainViewController: UITableViewDataSource {
         kibunDetailViewController.userName = kibuns[indexPath.row].name
         kibunDetailViewController.text = kibuns[indexPath.row].text
         kibunDetailViewController.kibun = kibuns[indexPath.row].kibun
+        kibunDetailViewController.date = displayedDate
         kibunDetailViewController.modalPresentationStyle = .fullScreen
         self.present(kibunDetailViewController, animated: false, completion: nil)
     }

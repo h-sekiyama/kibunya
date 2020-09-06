@@ -7,7 +7,7 @@ extension UIViewController {
     
     func startIndicator() {
         if (UIViewController.isShowIndicator == false) {
-            let loadingIndicator = UIActivityIndicatorView(style: .whiteLarge)
+            let loadingIndicator = UIActivityIndicatorView(style: .large)
 
             loadingIndicator.center = self.view.center
             let grayOutView = UIView(frame: self.view.frame)
