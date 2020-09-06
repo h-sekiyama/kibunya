@@ -3,9 +3,12 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import Foundation
+import FirebaseUI
 
 class MainViewController: UIViewController, UITableViewDelegate {
     
+    //ストレージサーバのURLを取得
+    let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
     // タブ定義
     var tabBarView: TabBarView!
     // 今日の日付text
@@ -171,7 +174,10 @@ extension MainViewController: UITableViewDataSource {
     // セルの中身を設定するデータソース
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "KibunTableViewCell", for: indexPath ) as! KibunTableViewCell
-        cell.setCell(kibuns: kibuns[indexPath.row])
+        let imageRef = storage.child("profileIcon").child("\(kibuns[indexPath.row].user_id!).jpg")
+        let placeholderImage = UIImage(named: "no_image")
+        cell.userIcon.sd_setImage(with: imageRef, placeholderImage: placeholderImage)
+        cell.setCell(kibuns: self.kibuns[indexPath.row])
         return cell
     }
     

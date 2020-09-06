@@ -117,6 +117,12 @@ extension ShowFamilyViewController: UITableViewDataSource {
       return 1
     }
     
+    // セルがタップされた時の処理
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // セルの選択を解除
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
     // セルの中身を設定するデータソース
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)

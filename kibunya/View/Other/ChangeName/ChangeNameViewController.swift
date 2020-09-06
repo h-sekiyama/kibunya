@@ -68,8 +68,10 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
             //画像を圧縮
             ProfileImageData = (profileIcon.image?.jpegData(compressionQuality: 0.01))!
             let imageRef = storage.child("profileIcon").child("\(myUserId).jpg")
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
             //storageに画像を送信
-            imageRef.putData(ProfileImageData, metadata: nil) { (metaData, error) in
+            imageRef.putData(ProfileImageData, metadata: metadata) { (metaData, error) in
                 //エラーであれば
                 if error != nil {
                     print(error.debugDescription)
