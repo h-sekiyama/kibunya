@@ -10,6 +10,18 @@ class Functions {
         return dateFormatter.string(from: Date())
     }
     
+    // 渡したDate型が今日の日付けか判定するメソッド
+    public static func isToday(date: Date) -> Bool {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年MM月dd日"
+        let dateStr = formatter.string(from: date)
+        if (dateStr == today()) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     // タイムスタンプを年月日に変換して返すメソッド
     public static func getDate(timeStamp: Timestamp) -> String {
         let date = timeStamp.dateValue()

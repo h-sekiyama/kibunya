@@ -11,8 +11,10 @@ class MainViewController: UIViewController, UITableViewDelegate {
     let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
     // タブ定義
     var tabBarView: TabBarView!
-    // 今日の日付text
+    // 表示中の年月日
     @IBOutlet weak var dateText: UILabel!
+    // 表示中の年月日変数
+    var displayedDate: Date = Date()
     // 気分リスト定義
     @IBOutlet weak var kibunList: UITableView!
     var kibuns: [Kibuns] = [Kibuns]()
@@ -24,6 +26,26 @@ class MainViewController: UIViewController, UITableViewDelegate {
     var myUserId: String? = ""
     // テーブル描画中フラグ
     var isDrawingTable: Bool = false
+    // １日戻るボタン
+    @IBOutlet weak var backDateButton: UIButton!
+    @IBAction func backDateButton(_ sender: Any) {
+        kibuns.removeAll()
+        displayedDate = displayedDate.addingTimeInterval(-60 * 60 * 24)
+        showKibuns(date: displayedDate)
+        dateText.text = Functions.getDateWithDayOfTheWeek(date: displayedDate)
+        nextDateButton.isEnabled = true
+    }
+    // １日進むボタン
+    @IBOutlet weak var nextDateButton: UIButton!
+    @IBAction func nextDateButton(_ sender: Any) {
+        kibuns.removeAll()
+        displayedDate = displayedDate.addingTimeInterval(60 * 60 * 24)
+        showKibuns(date: displayedDate)
+        dateText.text = Functions.getDateWithDayOfTheWeek(date: displayedDate)
+        if (Functions.isToday(date: displayedDate)) {
+            nextDateButton.isEnabled = false
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +57,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         kibunList.dataSource = self
         kibunList.delegate = self
         kibunList.register(UINib(nibName: "KibunTableViewCell", bundle: nil), forCellReuseIdentifier: "KibunTableViewCell")
-        showKibuns()
+        showKibuns(date: Date())
         
         Auth.auth().currentUser?.reload()
         // 自分のユーザーIDを取得
@@ -61,12 +83,12 @@ class MainViewController: UIViewController, UITableViewDelegate {
     @objc func viewWillEnterForeground(_ notification: Notification?) {
         if (self.isViewLoaded && self.view.window != nil && !isDrawingTable) {
             kibuns.removeAll()
-            showKibuns()
+            showKibuns(date: Date())
         }
     }
     
     // 気分リストを設定
-    func showKibuns() {
+    func showKibuns(date: Date) {
         startIndicator()
         isDrawingTable = true
         // まず自分および家族登録してるユーザーのユーザーIDを取得
@@ -86,8 +108,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
                 print(err)
             } else {
                 if (querySnapshot?.documents.count == 0) {  // 家族登録してる人が一人もいない
-                    // 表示対象のデータを取得（今日の日付け）
-                    self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: userId).whereField("date", isEqualTo: Functions.getDate(timeStamp: Timestamp(date: Date()))).getDocuments() { (snaps, error)  in
+                    // 表示対象のデータを取得（指定の日付け）
+                    self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: userId).whereField("date", isEqualTo: Functions.getDate(timeStamp: Timestamp(date: date))).getDocuments() { (snaps, error)  in
                         if let error = error {
                             self.isDrawingTable = false
                             self.dismissIndicator()
@@ -95,7 +117,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                         }
                         if (snaps?.count == 0) {    // まだ今日の日記を書いてない
                             self.kibunList.isHidden = true
-                            self.emptyKibunLabel.text = "まだ今日の日記を書いてません"
+                            self.emptyKibunLabel.text = "誰も日記を書いてません"
                             self.emptyKibunLabel.isHidden = false
                             self.isDrawingTable = false
                             self.dismissIndicator()
@@ -123,7 +145,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                     // 表示対象のデータを取得（今日の日付け＆家族設定している人）
                     _ = familiesArray.enumerated().map { index, id in
                         self.startIndicator()
-                        self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: id).whereField("date", isEqualTo: Functions.getDate(timeStamp: Timestamp(date: Date()))).getDocuments() { (snaps, error)  in
+                        self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: id).whereField("date", isEqualTo: Functions.getDate(timeStamp: Timestamp(date: date))).getDocuments() { (snaps, error)  in
                             if let error = error {
                                 fatalError("\(error)")
                             }
