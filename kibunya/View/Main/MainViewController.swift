@@ -52,6 +52,10 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         // 日付の表示実行
         dateText.text = Functions.getDateWithDayOfTheWeek(date: displayedDate)
+        // 日付けが今日なら進むボタンをDisabledにする
+        if (Functions.isToday(date: displayedDate)) {
+            nextDateButton.isEnabled = false
+        }
         
         // 気分一覧を表示
         kibunList.dataSource = self
@@ -81,7 +85,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // フォアグラウンドに来た時の処理を記載
     @objc func viewWillEnterForeground(_ notification: Notification?) {
-        if (self.isViewLoaded && self.view.window != nil && !isDrawingTable) {
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk()
+        if (self.isViewLoaded && self.view.window != nil && !isDrawingTable && Functions.isToday(date: displayedDate)) {
             dateText.text = Functions.getDateWithDayOfTheWeek(date: displayedDate)
             kibuns.removeAll()
             showKibuns(date: displayedDate)
@@ -200,8 +206,14 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "KibunTableViewCell", for: indexPath ) as! KibunTableViewCell
         let imageRef = storage.child("profileIcon").child("\(kibuns[indexPath.row].user_id!).jpg")
         let placeholderImage = UIImage(named: "no_image")
-        cell.userIcon.sd_setImage(with: imageRef, placeholderImage: placeholderImage)
+        if (UserDefaults.standard.cachedProfileIconKey != nil && kibuns[indexPath.row].user_id == myUserId) {
+            cell.userIcon.sd_setImage(with: URL(string: UserDefaults.standard.cachedProfileIconKey!))
+        } else {
+            cell.userIcon.sd_setImage(with: imageRef, placeholderImage: placeholderImage)
+        }
+        cell.userIcon.setNeedsLayout()
         cell.setCell(kibuns: self.kibuns[indexPath.row])
+        
         return cell
     }
     

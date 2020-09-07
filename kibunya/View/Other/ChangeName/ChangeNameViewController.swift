@@ -79,6 +79,9 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
                     return
                 }
                 self.updateProfile.isEnabled = false
+                imageRef.downloadURL { url, error in
+                    UserDefaults.standard.cachedProfileIconKey = url?.absoluteString
+                }
             }
         }
     }
@@ -98,6 +101,7 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
         nameTextBox.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
         myUserId = Auth.auth().currentUser?.uid ?? ""
+        let placeholderImage = UIImage(named: "no_image")
         let imageRef = storage.child("profileIcon").child("\(myUserId).jpg")
         imageRef.downloadURL(completion: { [weak self] url, error in
             guard let self = self else { return }
@@ -105,9 +109,15 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
                 print(error!.localizedDescription)
             }
             guard let url = url else { return }
-            
-            //
-            self.profileIcon.sd_setImage(with: url)
+            self.profileIcon.sd_setImage(with: url,
+                                         placeholderImage: placeholderImage,
+                                         options: [.retryFailed],
+                                         completed:  { (_, error, _, _) in
+                                             if error == nil {
+                                                self.profileIcon.setNeedsLayout()
+                                                UserDefaults.standard.cachedProfileIconKey = url.absoluteString
+                                             }
+                                         })
         })
     }
     

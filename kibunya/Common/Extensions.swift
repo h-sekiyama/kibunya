@@ -76,6 +76,7 @@ extension UIView {
 
 // ユーザーデフォルトに値をセットする処理
 private let AuthVerificationIDKey = "authVerificationID"
+private let CachedProfileIconKey = "cachedProfileIconKey"
 extension UserDefaults {
     var authVerificationID: String? {
         set(newValue) {
@@ -83,6 +84,15 @@ extension UserDefaults {
             synchronize()
         } get {
             return string(forKey: AuthVerificationIDKey)
+        }
+    }
+    
+    var cachedProfileIconKey: String? {
+        set(newValue) {
+            set(newValue, forKey: CachedProfileIconKey)
+            synchronize()
+        } get {
+            return string(forKey: CachedProfileIconKey)
         }
     }
 }

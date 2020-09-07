@@ -23,8 +23,7 @@ class KibunTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        // 初期化
-        userIcon.image = UIImage(named: "no_image")
+        self.userIcon.sd_cancelCurrentImageLoad()
     }
     
     func setCell(kibuns: Kibuns) {
