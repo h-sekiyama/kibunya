@@ -77,4 +77,36 @@ class Functions {
             print("failed to open..")
         }
     }
+    
+    // DocumentディレクトリのfileURLを取得
+    public static func getDocumentsURL() -> NSURL {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as NSURL
+        return documentsURL
+    }
+
+    // ディレクトリのパスにファイル名をつなげてファイルのフルパスを作る
+    public static func fileInDocumentsDirectory(filename: String) -> String {
+        let fileURL = getDocumentsURL().appendingPathComponent(filename)
+        return fileURL!.path
+    }
+    
+    // 端末内に保存している画像を取得するメソッド
+    public static func loadImageFromPath(path: String) -> UIImage? {
+        let image = UIImage(contentsOfFile: path)
+        if image == nil {
+            print("missing image at: \(path)")
+        }
+        return image
+    }
+    
+    // 画像を端末に保存するメソッド
+    public static func saveImage (image: UIImage, path: String ) {
+        let jpegData = image.jpegData(compressionQuality: 1.0)
+        do {
+            try jpegData!.write(to: URL(fileURLWithPath: path), options: .atomic)
+            UserDefaults.standard.cachedProfileIconKey = path
+        } catch {
+            print(error)
+        }
+    }
 }

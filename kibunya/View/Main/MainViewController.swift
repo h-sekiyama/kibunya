@@ -26,6 +26,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
     var myUserId: String? = ""
     // テーブル描画中フラグ
     var isDrawingTable: Bool = false
+    // 端末内に保存している自分のプロフィール画像
+    var myProfileIcon: UIImage? = nil
     // １日戻るボタン
     @IBOutlet weak var backDateButton: UIButton!
     @IBAction func backDateButton(_ sender: Any) {
@@ -69,6 +71,11 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         // アプリがフォアグラウンドになった時のオブザーバー登録
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.viewWillEnterForeground(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+        
+        // 端末内に保存してるプロフィール画像があれば読み込む
+        if (UserDefaults.standard.cachedProfileIconKey != nil) {
+            myProfileIcon = Functions.loadImageFromPath(path: Functions.fileInDocumentsDirectory(filename: "profileIcon"))
+        }
     }
     
     override func loadView() {
@@ -206,8 +213,8 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "KibunTableViewCell", for: indexPath ) as! KibunTableViewCell
         let imageRef = storage.child("profileIcon").child("\(kibuns[indexPath.row].user_id!).jpg")
         let placeholderImage = UIImage(named: "no_image")
-        if (UserDefaults.standard.cachedProfileIconKey != nil && kibuns[indexPath.row].user_id == myUserId) {
-            cell.userIcon.sd_setImage(with: URL(string: UserDefaults.standard.cachedProfileIconKey!))
+        if (myProfileIcon != nil && kibuns[indexPath.row].user_id == myUserId) {
+            cell.userIcon.image = myProfileIcon
         } else {
             cell.userIcon.sd_setImage(with: imageRef, placeholderImage: placeholderImage)
         }

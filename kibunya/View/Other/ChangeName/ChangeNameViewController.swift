@@ -13,11 +13,12 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
     var ProfileImageData: Data = Data()
     // 自分のUID
     var myUserId: String = ""
-    
     // タブ定義
     var tabBarView: TabBarView!
     // FireStore取得
     let defaultStore: Firestore! = Firestore.firestore()
+    // プロフィールアイコン画像保存用変数
+    var myProfileIcon: UIImage? = nil
     // プロフィールアイコン画像
     @IBOutlet weak var profileIcon: UIImageView!
     @IBAction func profileIconTap(_ sender: UITapGestureRecognizer) {
@@ -79,9 +80,8 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
                     return
                 }
                 self.updateProfile.isEnabled = false
-                imageRef.downloadURL { url, error in
-                    UserDefaults.standard.cachedProfileIconKey = url?.absoluteString
-                }
+                Functions.saveImage(image: self.profileIcon.image!, path: Functions.fileInDocumentsDirectory(filename: "profileIcon"))
+                UserDefaults.standard.cachedProfileIconKey = Functions.fileInDocumentsDirectory(filename: "profileIcon")
             }
         }
     }
@@ -100,25 +100,16 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
         nameTextBox.text = name
         nameTextBox.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
+        // 自分のユーザーIDを取得
         myUserId = Auth.auth().currentUser?.uid ?? ""
-        let placeholderImage = UIImage(named: "no_image")
-        let imageRef = storage.child("profileIcon").child("\(myUserId).jpg")
-        imageRef.downloadURL(completion: { [weak self] url, error in
-            guard let self = self else { return }
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-            guard let url = url else { return }
-            self.profileIcon.sd_setImage(with: url,
-                                         placeholderImage: placeholderImage,
-                                         options: [.retryFailed],
-                                         completed:  { (_, error, _, _) in
-                                             if error == nil {
-                                                self.profileIcon.setNeedsLayout()
-                                                UserDefaults.standard.cachedProfileIconKey = url.absoluteString
-                                             }
-                                         })
-        })
+        
+        // プロフィール画像を設定
+        if (UserDefaults.standard.cachedProfileIconKey != nil) {
+            myProfileIcon = Functions.loadImageFromPath(path: Functions.fileInDocumentsDirectory(filename: "profileIcon"))
+        } else {
+            myProfileIcon = UIImage(named: "no_image")
+        }
+        profileIcon.image = myProfileIcon
     }
     
     override func loadView() {
