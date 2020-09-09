@@ -2,6 +2,9 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import Foundation
+import FirebaseUI
+import CropViewController
 
 class InputKibunViewController: UIViewController {
     // タブ定義
@@ -68,6 +71,16 @@ class InputKibunViewController: UIViewController {
         
         // テキストボックス入力監視
         kibunTextBox.delegate = self
+    }
+    
+    // 画像添付ボタン
+    @IBOutlet weak var sendImage: UIImageView!
+    @IBAction func sendImage(_ sender: Any) {
+        let ipc = UIImagePickerController()
+        ipc.delegate = self
+        ipc.sourceType = UIImagePickerController.SourceType.photoLibrary
+        ipc.modalPresentationStyle = .fullScreen
+        self.present(ipc,animated: true, completion: nil)
     }
     
     override func loadView() {
@@ -154,5 +167,51 @@ extension InputKibunViewController: UITextViewDelegate {
             return true
         }
         return false
+    }
+}
+
+extension InputKibunViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let pickerImage = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) else { return }
+
+        //CropViewControllerを初期化する。pickerImageを指定する。
+        let cropController = CropViewController(croppingStyle: .default, image: pickerImage)
+
+        cropController.delegate = self
+
+        //AspectRatioのサイズをimageViewのサイズに合わせる。
+        cropController.customAspectRatio = sendImage.frame.size
+
+        //今回は使わない、余計なボタン等を非表示にする。
+        cropController.aspectRatioPickerButtonHidden = true
+        cropController.resetAspectRatioEnabled = false
+        cropController.rotateButtonsHidden = true
+
+        //cropBoxのサイズを固定する。
+        cropController.cropView.cropBoxResizeEnabled = false
+
+        //pickerを閉じたら、cropControllerを表示する。
+        picker.dismiss(animated: true) {
+
+            self.present(cropController, animated: true, completion: nil)
+        }
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension InputKibunViewController: CropViewControllerDelegate {
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+            //トリミング編集が終えたら、呼び出される。
+            updateImageViewWithImage(image, fromCropViewController: cropViewController)
+    }
+
+    func updateImageViewWithImage(_ image: UIImage, fromCropViewController cropViewController: CropViewController) {
+            //トリミングした画像をimageViewのimageに代入する。
+            self.sendImage.image = image
+
+            cropViewController.dismiss(animated: true, completion: nil)
     }
 }

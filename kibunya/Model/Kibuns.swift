@@ -10,6 +10,7 @@ class Kibuns: NSObject, Comparable {
        return lhs.user_id == rhs.user_id
     }
     
+    var uid: String?
     var name: String?
     var user_id: String?
     var kibun: Int?
@@ -19,6 +20,7 @@ class Kibuns: NSObject, Comparable {
     var documentId: String?
     
     init(document: QueryDocumentSnapshot) {
+        self.uid = document.documentID
         let Dic = document.data()
         self.name = Dic["name"] as? String
         self.user_id = Dic["user_id"] as? String

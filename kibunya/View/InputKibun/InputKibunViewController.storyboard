@@ -15,8 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日の気分は？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGa-jd-Qbi">
-                                <rect key="frame" x="146" y="69" width="122" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日の日記" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGa-jd-Qbi">
+                                <rect key="frame" x="163.5" y="69" width="87" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -76,15 +76,17 @@
                                     <action selector="kibunButton4:" destination="uHM-hf-JGD" eventType="touchUpInside" id="gxF-uw-EVq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-uv-Avx">
-                                <rect key="frame" x="191.5" y="313" width="31" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-uv-Avx">
+                                <rect key="frame" x="192" y="445" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="送信"/>
                                 <connections>
                                     <action selector="sendButton:" destination="uHM-hf-JGD" eventType="touchUpInside" id="VN2-Is-zqA"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日の気分を送信しました！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIE-Bh-Rfj">
-                                <rect key="frame" x="94" y="405" width="226" height="21"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今日の日記を書きました！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIE-Bh-Rfj">
+                                <rect key="frame" x="103" y="483" width="208" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -113,11 +115,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="no_image_diary" translatesAutoresizingMaskIntoConstraints="NO" id="QpR-Gq-NFP">
+                                <rect key="frame" x="147" y="347" width="120" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="EsM-Sb-zea" appends="YES" id="7H2-E1-XsW"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="wsP-gD-KDQ" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="07o-h1-ejp"/>
-                            <constraint firstItem="sRU-uv-Avx" firstAttribute="top" secondItem="biR-WE-q3x" secondAttribute="bottom" constant="8" id="8cu-Y9-Xpb"/>
                             <constraint firstItem="dGa-jd-Qbi" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="25" id="9i3-Ls-pRm"/>
                             <constraint firstItem="sIO-AR-cmf" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="E10-WV-R4s"/>
                             <constraint firstItem="biR-WE-q3x" firstAttribute="trailing" secondItem="wxw-JS-15q" secondAttribute="trailingMargin" id="Fjc-tt-NFm"/>
@@ -127,13 +141,10 @@
                             <constraint firstItem="biR-WE-q3x" firstAttribute="centerX" secondItem="dGa-jd-Qbi" secondAttribute="centerX" id="P6h-hY-fq6"/>
                             <constraint firstItem="Fha-WL-DzW" firstAttribute="leading" secondItem="ctg-jD-Fpq" secondAttribute="trailing" constant="8" id="Q5U-y5-AXS"/>
                             <constraint firstItem="3Tb-EX-Q93" firstAttribute="top" secondItem="biR-WE-q3x" secondAttribute="bottom" constant="8" id="YYz-JS-ufb"/>
-                            <constraint firstItem="XIE-Bh-Rfj" firstAttribute="top" secondItem="sRU-uv-Avx" secondAttribute="bottom" constant="62" id="Zol-M5-ec1"/>
                             <constraint firstItem="sIO-AR-cmf" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" constant="20" id="cID-TU-TtE"/>
                             <constraint firstItem="Fha-WL-DzW" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="cqo-x3-Pnt"/>
                             <constraint firstItem="biR-WE-q3x" firstAttribute="leading" secondItem="sIO-AR-cmf" secondAttribute="leading" id="cyO-lo-laT"/>
                             <constraint firstItem="wsP-gD-KDQ" firstAttribute="leading" secondItem="sIO-AR-cmf" secondAttribute="trailing" constant="8" id="lgo-vW-clx"/>
-                            <constraint firstItem="biR-WE-q3x" firstAttribute="centerX" secondItem="XIE-Bh-Rfj" secondAttribute="centerX" id="oE8-Ik-OuI"/>
-                            <constraint firstItem="biR-WE-q3x" firstAttribute="centerX" secondItem="sRU-uv-Avx" secondAttribute="centerX" id="oVO-tU-J9p"/>
                             <constraint firstItem="Dm6-zi-Z9E" firstAttribute="trailing" secondItem="3Tb-EX-Q93" secondAttribute="trailing" constant="28" id="qBm-Zd-dEZ"/>
                             <constraint firstItem="ctg-jD-Fpq" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="wmC-Kz-UN3"/>
                             <constraint firstItem="biR-WE-q3x" firstAttribute="top" secondItem="sIO-AR-cmf" secondAttribute="bottom" constant="21" id="y1Z-90-Wu4"/>
@@ -144,12 +155,21 @@
                         <outlet property="kibunTextBox" destination="biR-WE-q3x" id="wQd-Av-21e"/>
                         <outlet property="remainingTextCountLabel" destination="3Tb-EX-Q93" id="cra-54-W5p"/>
                         <outlet property="sendButton" destination="sRU-uv-Avx" id="qL0-ML-oRb"/>
+                        <outlet property="sendImage" destination="QpR-Gq-NFP" id="8sf-AZ-jP7"/>
                         <outlet property="sendKibunCompleteLabel" destination="XIE-Bh-Rfj" id="VNB-mr-zOo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16y-qX-bR7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="EsM-Sb-zea" userLabel="画像タップ">
+                    <connections>
+                        <action selector="sendImage:" destination="uHM-hf-JGD" id="vdT-UE-ajl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-500.00000000000006" y="144.64285714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="no_image_diary" width="240" height="180"/>
+    </resources>
 </document>

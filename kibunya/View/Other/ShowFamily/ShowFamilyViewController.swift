@@ -3,10 +3,13 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import Foundation
+import FirebaseUI
 
 class ShowFamilyViewController: UIViewController, UITableViewDelegate {
     // タブ定義
     var tabBarView: TabBarView!
+    //ストレージサーバのURLを取得
+    let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
     // 家族リスト
     @IBOutlet weak var tableView: UITableView!
     // FireStore取得
@@ -17,8 +20,12 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
     private var familyArray: [String] = []
     // 家族名の配列
     private var familyNameArray: [String] = []
+    // 家族のプロフィールアイコンURLの配列
+    private var familyProfileIconArray: [StorageReference] = []
     // 家族を識別するID（ドキュメント名）
     private var familyId: String = ""
+    // 端末内に保存している自分のプロフィール画像
+    var myProfileIcon: UIImage? = nil
     // 家族が一人もいない時のラベル
     @IBOutlet weak var emptyFamilyLabel: UILabel!
     // 家出するボタン
@@ -44,7 +51,6 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
         self.present(dialog, animated: true, completion: nil)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,6 +64,23 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
         Auth.auth().currentUser?.reload()
         myUserId = Auth.auth().currentUser?.uid ?? ""
         updateFamilyList()
+        
+        // 端末内に保存してるプロフィール画像があれば読み込む
+        if (UserDefaults.standard.cachedProfileIconKey != nil) {
+            myProfileIcon = Functions.loadImageFromPath(path: Functions.fileInDocumentsDirectory(filename: "profileIcon"))
+        }
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
+        // タブの表示
+        tabBarView  = TabBarView()
+        view.addSubview(tabBarView.tab)
+        tabBarView.owner = self
+
+        // タブの表示位置を調整
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY - 80, width: self.view.bounds.width, height: 80)
     }
     
     func updateFamilyList() {
@@ -86,6 +109,7 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
                                 return  data["name"]
                             }) {
                                 self.familyNameArray.append(name as! String)
+                                self.familyProfileIconArray.append(self.storage.child("profileIcon").child("\(id).jpg"))
                             }
                             self.tableView.reloadData()
                             self.dismissIndicator()
@@ -96,18 +120,6 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
                 self.dismissIndicator()
             }
         }
-    }
-    
-    override func loadView() {
-        super.loadView()
-        
-        // タブの表示
-        tabBarView  = TabBarView()
-        view.addSubview(tabBarView.tab)
-        tabBarView.owner = self
-
-        // タブの表示位置を調整
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY - 80, width: self.view.bounds.width, height: 80)
     }
 }
 
@@ -125,8 +137,12 @@ extension ShowFamilyViewController: UITableViewDataSource {
     
     // セルの中身を設定するデータソース
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = familyNameArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let placeholderImage = UIImage(named: "no_image")
+        let profileIcon = cell.viewWithTag(1) as! UIImageView
+        profileIcon.sd_setImage(with: familyProfileIconArray[indexPath.row], placeholderImage: placeholderImage)
+        let nameLabel = cell.viewWithTag(2) as! UILabel
+        nameLabel.text = familyNameArray[indexPath.row]
         return cell
     }
     

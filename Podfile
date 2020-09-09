@@ -14,6 +14,7 @@ target 'kibunya' do
   pod 'Firebase/Messaging'
   pod 'Firebase/Core'
   pod 'FirebaseUI/Storage'
+  pod 'CropViewController'
 
   target 'kibunyaTests' do
     inherit! :search_paths
