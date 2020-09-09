@@ -7,12 +7,16 @@ import FirebaseUI
 import CropViewController
 
 class InputKibunViewController: UIViewController {
+    //ストレージサーバのURLを取得
+    let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
     // タブ定義
     var tabBarView: TabBarView!
     // FireStore取得
     let defaultStore: Firestore! = Firestore.firestore()
     // 気分情報を入れる変数
     var kibunStatus: Int? = nil
+    // 画像を添付したかどうか
+    var isExistImage: Bool = false
     // 今日あった出来事を入力するテキストボックス
     @IBOutlet weak var kibunTextBox: UITextView!
     
@@ -121,6 +125,39 @@ class InputKibunViewController: UIViewController {
 
         // ドキュメントIDを事前に設定する
         let documentId = defaultStore.collection("kibuns").document().documentID
+        
+        var imageUrl: String = ""
+        // 添付画像があるか判定
+        if (isExistImage) {
+            //保存したい画像のデータを変数として持つ
+            var diaryImage: Data = Data()
+            diaryImage = (sendImage.image?.jpegData(compressionQuality: 0.01))!
+            let imageRef = storage.child("diary").child("\(documentId).jpg")
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            //storageに画像を送信
+            imageRef.putData(diaryImage, metadata: metadata) { (metaData, error) in
+                //エラーであれば
+                if error != nil {
+                    print(error.debugDescription)
+                    return
+                }
+                imageRef.downloadURL { url, error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        imageUrl = url?.absoluteString ?? ""
+                        self.updateDiary(userId: userId, userName: userName, documentId: documentId, imageUrl: imageUrl)
+                    }
+                }
+            }
+        } else {
+            updateDiary(userId: userId, userName: userName, documentId: documentId)
+        }
+    }
+    
+    // 日記をアップロードする処理
+    func updateDiary(userId: String, userName: String, documentId: String, imageUrl: String = "") {
         defaultStore.collection("kibuns").document(documentId).setData([
             "kibun": kibunStatus!,
             "date": Functions.today(),
@@ -128,7 +165,8 @@ class InputKibunViewController: UIViewController {
             "name": userName,
             "user_id": userId,
             "time": Date(),
-            "documentId": documentId
+            "documentId": documentId,
+            "image": imageUrl
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
@@ -204,14 +242,15 @@ extension InputKibunViewController: UIImagePickerControllerDelegate, UINavigatio
 
 extension InputKibunViewController: CropViewControllerDelegate {
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-            //トリミング編集が終えたら、呼び出される。
-            updateImageViewWithImage(image, fromCropViewController: cropViewController)
+        //トリミング編集が終えたら、呼び出される。
+        updateImageViewWithImage(image, fromCropViewController: cropViewController)
     }
 
     func updateImageViewWithImage(_ image: UIImage, fromCropViewController cropViewController: CropViewController) {
-            //トリミングした画像をimageViewのimageに代入する。
-            self.sendImage.image = image
+        //トリミングした画像をimageViewのimageに代入する。
+        self.sendImage.image = image
+        self.isExistImage = true
 
-            cropViewController.dismiss(animated: true, completion: nil)
+        cropViewController.dismiss(animated: true, completion: nil)
     }
 }

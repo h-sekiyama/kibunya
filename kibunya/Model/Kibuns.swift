@@ -18,6 +18,7 @@ class Kibuns: NSObject, Comparable {
     var date: String?
     var time: Timestamp?
     var documentId: String?
+    var image: String?
     
     init(document: QueryDocumentSnapshot) {
         self.uid = document.documentID
@@ -29,5 +30,6 @@ class Kibuns: NSObject, Comparable {
         self.date = Dic["date"] as? String
         self.time = Dic["time"] as? Timestamp
         self.documentId = Dic["documentId"] as? String
+        self.image = Dic["image"] as? String
     }
 }

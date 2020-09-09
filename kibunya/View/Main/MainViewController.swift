@@ -204,6 +204,7 @@ extension MainViewController: UITableViewDataSource {
         kibunDetailViewController.text = kibuns[indexPath.row].text
         kibunDetailViewController.kibun = kibuns[indexPath.row].kibun
         kibunDetailViewController.date = displayedDate
+        kibunDetailViewController.imageUrl = kibuns[indexPath.row].image ?? ""
         kibunDetailViewController.modalPresentationStyle = .fullScreen
         self.present(kibunDetailViewController, animated: false, completion: nil)
     }
@@ -219,6 +220,13 @@ extension MainViewController: UITableViewDataSource {
             cell.userIcon.sd_setImage(with: imageRef, placeholderImage: placeholderImage)
         }
         cell.userIcon.setNeedsLayout()
+        if (kibuns[indexPath.row].image != nil && kibuns[indexPath.row].image != "") {
+            cell.isExistImage.image = UIImage(named: "diary_image_icon")
+            cell.isExistImage.isHidden = false
+        } else {
+            cell.isExistImage.isHidden = true
+        }
+        cell.isExistImage.setNeedsLayout()
         cell.setCell(kibuns: self.kibuns[indexPath.row])
         
         return cell

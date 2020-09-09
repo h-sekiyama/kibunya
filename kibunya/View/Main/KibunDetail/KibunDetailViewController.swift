@@ -2,9 +2,12 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseUI
 
 class KibunDetailViewController:  UIViewController {
     
+    //ストレージサーバのURLを取得
+    let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
     // 投稿日時
     var time: Timestamp? = nil
     // 投稿日時（Date型）
@@ -15,13 +18,19 @@ class KibunDetailViewController:  UIViewController {
     var text: String? = ""
     // 気分
     var kibun: Int? = 0
+    // 画像URL
+    var imageUrl: String = ""
     // タブ定義
     var tabBarView: TabBarView!
     
+    // 年月日時間
     @IBOutlet weak var timeLabel: UILabel!
+    // ユーザーの名前
     @IBOutlet weak var userNameLabel: UILabel!
+    // 画像
+    @IBOutlet weak var diaryImage: UIImageView!
+    // 日記本文
     @IBOutlet weak var textLabel: UITextView!
-    
     // 戻るボタン
     @IBAction func backButton(_ sender: Any) {
         let mainViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
@@ -36,6 +45,9 @@ class KibunDetailViewController:  UIViewController {
         timeLabel.text = "\(Functions.getDate(timeStamp: time!)) \(Functions.getTime(timeStamp: time!))"
         userNameLabel.text = userName! + "の日記"
         textLabel.text = text!
+        if (imageUrl != "") {
+            diaryImage.sd_setImage(with: URL(string: imageUrl))
+        }
     }
     
     override func loadView() {

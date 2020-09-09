@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="みっちゃん" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVU-Qs-GGO" userLabel="名前">
-                        <rect key="frame" x="78" y="8" width="248" height="21"/>
+                        <rect key="frame" x="78" y="8" width="226" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -45,10 +45,15 @@
                         <rect key="frame" x="347" y="28" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L6X-kb-c3a">
+                        <rect key="frame" x="312" y="9" width="27" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="isExistImage" destination="L6X-kb-c3a" id="MnO-Iy-bKJ"/>
                 <outlet property="kibunImage" destination="nKL-hk-cD5" id="dnQ-uY-DMv"/>
                 <outlet property="kibunText" destination="Zlp-wK-xcD" id="8ps-fF-gl6"/>
                 <outlet property="name" destination="SVU-Qs-GGO" id="cwd-Oc-axB"/>
