@@ -3,8 +3,8 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import Foundation
-import FirebaseUI
 import CropViewController
+import FirebaseUI
 
 class InputKibunViewController: UIViewController {
     //ストレージサーバのURLを取得
@@ -174,6 +174,7 @@ class InputKibunViewController: UIViewController {
             } else {
                 self.sendKibunCompleteLabel.text = "今日の気分を送信しました！"
                 self.sendKibunCompleteLabel.isHidden = false
+                self.sendImage.image = UIImage(named: "no_image_diary")
             }
             self.dismissIndicator()
             self.kibunTextBox.text = ""

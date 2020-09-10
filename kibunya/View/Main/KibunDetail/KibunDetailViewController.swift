@@ -48,6 +48,10 @@ class KibunDetailViewController:  UIViewController {
         if (imageUrl != "") {
             diaryImage.sd_setImage(with: URL(string: imageUrl))
         }
+        
+        // 本文タップ時にキーボードを出さない様にする
+        textLabel.isUserInteractionEnabled = true
+        textLabel.isEditable = false
     }
     
     override func loadView() {

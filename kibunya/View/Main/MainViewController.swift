@@ -59,12 +59,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
             nextDateButton.isEnabled = false
         }
         
-        // 気分一覧を表示
-        kibunList.dataSource = self
-        kibunList.delegate = self
-        kibunList.register(UINib(nibName: "KibunTableViewCell", bundle: nil), forCellReuseIdentifier: "KibunTableViewCell")
-        showKibuns(date: displayedDate)
-        
         Auth.auth().currentUser?.reload()
         // 自分のユーザーIDを取得
         myUserId = Auth.auth().currentUser?.uid
@@ -76,6 +70,12 @@ class MainViewController: UIViewController, UITableViewDelegate {
         if (UserDefaults.standard.cachedProfileIconKey != nil) {
             myProfileIcon = Functions.loadImageFromPath(path: Functions.fileInDocumentsDirectory(filename: "profileIcon"))
         }
+        
+        // 気分一覧を表示
+        kibunList.dataSource = self
+        kibunList.delegate = self
+        kibunList.register(UINib(nibName: "KibunTableViewCell", bundle: nil), forCellReuseIdentifier: "KibunTableViewCell")
+        showKibuns(date: displayedDate)
     }
     
     override func loadView() {
@@ -92,8 +92,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
     
     // フォアグラウンドに来た時の処理を記載
     @objc func viewWillEnterForeground(_ notification: Notification?) {
-        SDImageCache.shared.clearMemory()
-        SDImageCache.shared.clearDisk()
         if (self.isViewLoaded && self.view.window != nil && !isDrawingTable && Functions.isToday(date: displayedDate)) {
             dateText.text = Functions.getDateWithDayOfTheWeek(date: displayedDate)
             kibuns.removeAll()
@@ -214,6 +212,7 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "KibunTableViewCell", for: indexPath ) as! KibunTableViewCell
         let imageRef = storage.child("profileIcon").child("\(kibuns[indexPath.row].user_id!).jpg")
         let placeholderImage = UIImage(named: "no_image")
+        cell.userIcon.image = nil
         if (myProfileIcon != nil && kibuns[indexPath.row].user_id == myUserId) {
             cell.userIcon.image = myProfileIcon
         } else {
@@ -228,7 +227,9 @@ extension MainViewController: UITableViewDataSource {
         }
         cell.isExistImage.setNeedsLayout()
         cell.setCell(kibuns: self.kibuns[indexPath.row])
-        
+        DispatchQueue.main.async {
+            self.kibunList.reloadData()
+        }
         return cell
     }
     
