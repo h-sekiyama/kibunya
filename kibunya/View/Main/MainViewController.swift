@@ -141,7 +141,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
                              return data
                          }
                         self.kibuns.sort()
-                        self.kibunList.reloadData()
+                        DispatchQueue.main.async {
+                            self.kibunList.reloadData()
+                        }
                         self.isDrawingTable = false
                         self.dismissIndicator()
                      }
@@ -173,7 +175,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
                                 self.kibunList.isHidden = false
                                 self.emptyKibunLabel.isHidden = true
                                 self.kibuns.sort()
-                                self.kibunList.reloadData()
+                                DispatchQueue.main.async {
+                                    self.kibunList.reloadData()
+                                }
                             }
                             self.isDrawingTable = false
                             self.dismissIndicator()
@@ -227,9 +231,6 @@ extension MainViewController: UITableViewDataSource {
         }
         cell.isExistImage.setNeedsLayout()
         cell.setCell(kibuns: self.kibuns[indexPath.row])
-        DispatchQueue.main.async {
-            self.kibunList.reloadData()
-        }
         return cell
     }
     
@@ -255,6 +256,14 @@ extension MainViewController: UITableViewDataSource {
 
     // スワイプしたセルを削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let imageRef = self.storage.child("diary").child("\(self.kibuns[indexPath.row].documentId!).jpg")
+        imageRef.delete { error in
+            if error != nil {
+                print("Uh-oh, an error occurred!")
+            } else {
+                print("delete success!!")
+            }
+        }
         if editingStyle == UITableViewCell.EditingStyle.delete {
             defaultStore.collection("kibuns").document(self.kibuns[indexPath.row].documentId!).delete() { err in
                 if let err = err{
