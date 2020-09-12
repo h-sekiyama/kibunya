@@ -100,8 +100,8 @@ class Functions {
     }
     
     // 画像を端末に保存するメソッド
-    public static func saveImage (image: UIImage, path: String ) {
-        let jpegData = image.jpegData(compressionQuality: 1.0)
+    public static func saveImage(image: UIImage, path: String ) {
+        let jpegData = image.jpegData(compressionQuality: 0.01)
         do {
             try jpegData!.write(to: URL(fileURLWithPath: path), options: .atomic)
             UserDefaults.standard.cachedProfileIconKey = path
@@ -109,4 +109,7 @@ class Functions {
             print(error)
         }
     }
+    
+    // タブを表示するメソッド
+    public static func showTabView
 }

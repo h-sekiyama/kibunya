@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "iphone_notification20x20@2x.png",
+      "filename" : "ipad_notification20x20@2x-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
@@ -13,7 +13,7 @@
       "size" : "20x20"
     },
     {
-      "filename" : "iphone_settings29x29@2x.png",
+      "filename" : "ipad_settings29x29@2x-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
@@ -25,7 +25,7 @@
       "size" : "29x29"
     },
     {
-      "filename" : "iphone_spotlight40x40@2x.png",
+      "filename" : "ipad_spotlight40x40@2x-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"

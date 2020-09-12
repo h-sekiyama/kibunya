@@ -46,7 +46,8 @@ class KibunDetailViewController:  UIViewController {
         userNameLabel.text = userName! + "の日記"
         textLabel.text = text!
         if (imageUrl != "") {
-            diaryImage.sd_setImage(with: URL(string: imageUrl), placeholderImage: UIImage(named: "no_image_diary"), options: [.retryFailed], context: [.storeCacheType: SDImageCacheType.memory.rawValue])
+            diaryImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            diaryImage.sd_setImage(with: URL(string: imageUrl))
         }
         
         // 本文タップ時にキーボードを出さない様にする
