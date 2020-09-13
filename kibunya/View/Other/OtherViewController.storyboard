@@ -15,131 +15,284 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZjM-Jv-wkz" userLabel="家族追加">
-                                <rect key="frame" x="0.0" y="95" width="414" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qRb-AZ-xjf" userLabel="BackgroundView">
+                                <rect key="frame" x="0.0" y="110" width="414" height="651"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="家族を追加する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAV-jT-ard">
-                                        <rect key="frame" x="41" y="30" width="122" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZjM-Jv-wkz" userLabel="家族追加">
+                                        <rect key="frame" x="30" y="35" width="354" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAV-jT-ard">
+                                                <rect key="frame" x="85" y="26.5" width="119" height="17"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="家族を追加する">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_paw" translatesAutoresizingMaskIntoConstraints="NO" id="9IO-jr-TF5">
+                                                <rect key="frame" x="22" y="18" width="51" height="34"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="9IO-jr-TF5" firstAttribute="top" secondItem="ZjM-Jv-wkz" secondAttribute="top" constant="18" id="EnN-N1-M0K"/>
+                                            <constraint firstAttribute="height" constant="70" id="RcO-Rj-snF"/>
+                                            <constraint firstItem="yAV-jT-ard" firstAttribute="centerY" secondItem="ZjM-Jv-wkz" secondAttribute="centerY" id="Tf1-XC-wi6"/>
+                                            <constraint firstItem="yAV-jT-ard" firstAttribute="leading" secondItem="9IO-jr-TF5" secondAttribute="trailing" constant="12" id="lOw-Il-34J"/>
+                                            <constraint firstItem="9IO-jr-TF5" firstAttribute="leading" secondItem="ZjM-Jv-wkz" secondAttribute="leading" constant="22" id="oMp-yQ-zGX"/>
+                                            <constraint firstAttribute="bottom" secondItem="9IO-jr-TF5" secondAttribute="bottom" constant="18" id="rfq-a1-R7Q"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="34"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.89803921568627454" green="0.80000000000000004" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowAlpha">
+                                                <real key="value" value="0.40000000000000002"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="2" height="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ZjA-Ex-GiB" appends="YES" id="Z1N-b7-QoS"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnu-sU-chW" userLabel="家族リストをみる">
+                                        <rect key="frame" x="30" y="131" width="354" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jlv-Cz-gQ9">
+                                                <rect key="frame" x="85" y="26.5" width="136" height="17"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="家族リストをみる">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_paw" translatesAutoresizingMaskIntoConstraints="NO" id="tNr-Ie-aka">
+                                                <rect key="frame" x="22" y="18" width="51" height="34"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="tNr-Ie-aka" firstAttribute="top" secondItem="hnu-sU-chW" secondAttribute="top" constant="18" id="5cp-Dl-GY0"/>
+                                            <constraint firstItem="tNr-Ie-aka" firstAttribute="leading" secondItem="hnu-sU-chW" secondAttribute="leading" constant="22" id="I3p-Tu-8hi"/>
+                                            <constraint firstItem="Jlv-Cz-gQ9" firstAttribute="leading" secondItem="tNr-Ie-aka" secondAttribute="trailing" constant="12" id="S49-HR-iJm"/>
+                                            <constraint firstItem="Jlv-Cz-gQ9" firstAttribute="centerY" secondItem="hnu-sU-chW" secondAttribute="centerY" id="XXk-ES-hrK"/>
+                                            <constraint firstAttribute="height" constant="70" id="dm9-Xm-WyN"/>
+                                            <constraint firstAttribute="bottom" secondItem="tNr-Ie-aka" secondAttribute="bottom" constant="18" id="mgp-Hw-HM3"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="34"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.8980392157" green="0.80000000000000004" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowAlpha">
+                                                <real key="value" value="0.40000000000000002"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="2" height="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="zGQ-a4-ld7" appends="YES" id="G90-fi-1TK"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaX-ul-O95" userLabel="プロフィールを変更する">
+                                        <rect key="frame" x="30" y="227" width="354" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHC-9B-F5f">
+                                                <rect key="frame" x="85" y="26.5" width="186" height="17"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="プロフィールを変更する">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_paw" translatesAutoresizingMaskIntoConstraints="NO" id="R4a-4T-qKZ">
+                                                <rect key="frame" x="22" y="18" width="51" height="34"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="R4a-4T-qKZ" firstAttribute="leading" secondItem="gaX-ul-O95" secondAttribute="leading" constant="22" id="2IZ-sU-P4j"/>
+                                            <constraint firstAttribute="bottom" secondItem="R4a-4T-qKZ" secondAttribute="bottom" constant="18" id="XuV-hx-g6j"/>
+                                            <constraint firstItem="R4a-4T-qKZ" firstAttribute="top" secondItem="gaX-ul-O95" secondAttribute="top" constant="18" id="i7t-Vz-VWQ"/>
+                                            <constraint firstItem="WHC-9B-F5f" firstAttribute="centerY" secondItem="gaX-ul-O95" secondAttribute="centerY" id="l1Z-Pd-gKq"/>
+                                            <constraint firstAttribute="height" constant="70" id="yxf-Ua-WIo"/>
+                                            <constraint firstItem="WHC-9B-F5f" firstAttribute="leading" secondItem="R4a-4T-qKZ" secondAttribute="trailing" constant="12" id="zvE-hg-PX7"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="34"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.8980392157" green="0.80000000000000004" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowAlpha">
+                                                <real key="value" value="0.40000000000000002"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="2" height="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="lVQ-vw-c8a" appends="YES" id="J3Y-Lv-yIk"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WUN-ev-lRi" userLabel="ログアウトする">
+                                        <rect key="frame" x="30" y="323" width="354" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zr-es-Uq2">
+                                                <rect key="frame" x="85" y="26.5" width="119" height="17"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="ログアウトする">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_paw" translatesAutoresizingMaskIntoConstraints="NO" id="Orm-bj-Htm">
+                                                <rect key="frame" x="22" y="18" width="51" height="34"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="Orm-bj-Htm" firstAttribute="top" secondItem="WUN-ev-lRi" secondAttribute="top" constant="18" id="44B-Us-9zB"/>
+                                            <constraint firstItem="0Zr-es-Uq2" firstAttribute="leading" secondItem="Orm-bj-Htm" secondAttribute="trailing" constant="12" id="6qc-zz-jzn"/>
+                                            <constraint firstItem="Orm-bj-Htm" firstAttribute="leading" secondItem="WUN-ev-lRi" secondAttribute="leading" constant="22" id="7lW-Af-73I"/>
+                                            <constraint firstAttribute="height" constant="70" id="L6J-u9-pb6"/>
+                                            <constraint firstAttribute="bottom" secondItem="Orm-bj-Htm" secondAttribute="bottom" constant="18" id="Yfd-VF-6Ec"/>
+                                            <constraint firstItem="0Zr-es-Uq2" firstAttribute="centerY" secondItem="WUN-ev-lRi" secondAttribute="centerY" id="huc-pO-UQ2"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="34"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.8980392157" green="0.80000000000000004" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowAlpha">
+                                                <real key="value" value="0.40000000000000002"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="2" height="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="CWm-CV-dPT" appends="YES" id="g2J-vj-6FW"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <gestureRecognizers/>
+                                <color key="backgroundColor" red="1" green="0.96470588239999999" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ZjM-Jv-wkz" firstAttribute="top" secondItem="qRb-AZ-xjf" secondAttribute="top" constant="35" id="1AR-gy-ljO"/>
+                                    <constraint firstAttribute="trailing" secondItem="gaX-ul-O95" secondAttribute="trailing" constant="30" id="1MF-wB-hTJ"/>
+                                    <constraint firstItem="ZjM-Jv-wkz" firstAttribute="leading" secondItem="qRb-AZ-xjf" secondAttribute="leading" constant="30" id="4uT-Q8-PXN"/>
+                                    <constraint firstItem="WUN-ev-lRi" firstAttribute="leading" secondItem="qRb-AZ-xjf" secondAttribute="leading" constant="30" id="5bv-nG-eHD"/>
+                                    <constraint firstAttribute="trailing" secondItem="hnu-sU-chW" secondAttribute="trailing" constant="30" id="CrG-nj-YTx"/>
+                                    <constraint firstAttribute="trailing" secondItem="WUN-ev-lRi" secondAttribute="trailing" constant="30" id="JbJ-Px-6QT"/>
+                                    <constraint firstItem="hnu-sU-chW" firstAttribute="leading" secondItem="qRb-AZ-xjf" secondAttribute="leading" constant="30" id="ONg-EU-Ed7"/>
+                                    <constraint firstItem="hnu-sU-chW" firstAttribute="top" secondItem="ZjM-Jv-wkz" secondAttribute="bottom" constant="26" id="a5Q-XA-F87"/>
+                                    <constraint firstItem="WUN-ev-lRi" firstAttribute="top" secondItem="gaX-ul-O95" secondAttribute="bottom" constant="26" id="dOW-ez-BRY"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZjM-Jv-wkz" secondAttribute="trailing" constant="30" id="f75-3m-JPz"/>
+                                    <constraint firstItem="gaX-ul-O95" firstAttribute="leading" secondItem="qRb-AZ-xjf" secondAttribute="leading" constant="30" id="nbv-IY-vBC"/>
+                                    <constraint firstItem="gaX-ul-O95" firstAttribute="top" secondItem="hnu-sU-chW" secondAttribute="bottom" constant="26" id="wVx-af-22y"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.94117647059999998" green="0.74901960779999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.87220415609137059" green="0.87220415609137059" blue="0.87220415609137059" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ZjA-Ex-GiB" appends="YES" id="Z1N-b7-QoS"/>
-                                </connections>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rqq-7K-Fea" userLabel="家族一覧表示">
-                                <rect key="frame" x="0.0" y="183" width="414" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="家族リストを見る" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ls-y2-xW5" userLabel="家族リストを見る">
-                                        <rect key="frame" x="41" y="30" width="139" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.87220415610000002" green="0.87220415610000002" blue="0.87220415610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="3ai-NV-9Ew" appends="YES" id="NUg-K7-c4H"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zgJ-Y5-fYR" userLabel="名前変更">
-                                <rect key="frame" x="0.0" y="277" width="414" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="プロフィールを変更する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvb-yr-2I4">
-                                        <rect key="frame" x="41" y="30" width="191" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.87220415610000002" green="0.87220415610000002" blue="0.87220415610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="X8o-cs-ad4" appends="YES" id="vXr-hI-Pvn"/>
-                                </connections>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="その他" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtD-ue-Pnm">
-                                <rect key="frame" x="186" y="56" width="52" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtD-ue-Pnm">
+                                <rect key="frame" x="162" y="64" width="90" height="23"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="せってい">
+                                        <attributes>
+                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="23" name="HiraMaruProN-W4"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="db7-Bf-geb" userLabel="ログアウト">
-                                <rect key="frame" x="0.0" y="365" width="414" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ログアウトする" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7i-OX-qt1">
-                                        <rect key="frame" x="41" y="30" width="122" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.87220415610000002" green="0.87220415610000002" blue="0.87220415610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Lfm-ZQ-DAu" appends="YES" id="sVJ-J3-fxr"/>
-                                </connections>
-                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="0.85882352941176465" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="rtD-ue-Pnm" firstAttribute="centerX" secondItem="EA3-Un-dd6" secondAttribute="centerX" id="H6I-4e-85X"/>
+                            <constraint firstItem="qRb-AZ-xjf" firstAttribute="leading" secondItem="glR-6j-EHG" secondAttribute="leading" id="czj-sf-N5J"/>
+                            <constraint firstItem="qRb-AZ-xjf" firstAttribute="trailing" secondItem="glR-6j-EHG" secondAttribute="trailing" id="hap-hI-3L2"/>
+                            <constraint firstItem="qRb-AZ-xjf" firstAttribute="bottom" secondItem="EA3-Un-dd6" secondAttribute="bottom" constant="-135" id="jIH-fX-Gm6"/>
+                            <constraint firstItem="rtD-ue-Pnm" firstAttribute="top" secondItem="glR-6j-EHG" secondAttribute="top" constant="20" id="kkO-2f-PGA"/>
+                            <constraint firstAttribute="top" secondItem="qRb-AZ-xjf" secondAttribute="top" constant="-110" id="lOk-ez-H9X"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="glR-6j-EHG"/>
                     </view>
                 </viewController>
@@ -149,23 +302,26 @@
                         <action selector="addFamilyButton:" destination="Urh-ip-LnY" id="Kg8-7E-r6b"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="3ai-NV-9Ew" userLabel="家族リストを見るタップ">
+                <tapGestureRecognizer id="zGQ-a4-ld7" userLabel="家族リストをみるタップ">
                     <connections>
-                        <action selector="showFamilyList:" destination="Urh-ip-LnY" id="W7P-2p-gLU"/>
+                        <action selector="showFamilyList:" destination="Urh-ip-LnY" id="4OZ-EO-PeC"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="X8o-cs-ad4" userLabel="名前を変更するタップ">
+                <tapGestureRecognizer id="lVQ-vw-c8a" userLabel="プロフィールを変更するタップ">
                     <connections>
-                        <action selector="changeNameButton:" destination="Urh-ip-LnY" id="LTY-9c-Mbn"/>
+                        <action selector="changeNameButton:" destination="Urh-ip-LnY" id="FYZ-4M-4Uc"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="Lfm-ZQ-DAu" userLabel="ログアウトするタップ">
+                <tapGestureRecognizer id="CWm-CV-dPT" userLabel="ログアウトするタップ">
                     <connections>
-                        <action selector="logoutButton:" destination="Urh-ip-LnY" id="RIm-sD-IgG"/>
+                        <action selector="logoutButton:" destination="Urh-ip-LnY" id="Z63-5i-cxX"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="327.536231884058" y="-133.25892857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_paw" width="51" height="54.5"/>
+    </resources>
 </document>

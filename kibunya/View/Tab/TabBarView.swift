@@ -8,19 +8,22 @@ class TabBarView: NSObject {
     // 現在画面表示を担当しているViewControllerインスタンスを保持しておくプロパティ
     weak var owner: UIViewController?
     
-    // 気分リストボタン
-    @IBAction func kibunButton(_ sender: Any) {
+    // 日記一覧ボタン
+    @IBOutlet weak var diaryButton: UIButton!
+    @IBAction func diaryButton(_ sender: Any) {
         let mainViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as UIViewController
         mainViewController.modalPresentationStyle = .fullScreen
         owner?.present(mainViewController, animated: false, completion: nil)
     }
     // 気分入力ボタン
-    @IBAction func InputKibunButton(_ sender: Any) {
+    @IBOutlet weak var inputDiaryButton: UIButton!
+    @IBAction func inputDiaryButton(_ sender: Any) {
         let inputKibunViewController = UIStoryboard(name: "InputKibunViewController", bundle: nil).instantiateViewController(withIdentifier: "InputKibunViewController") as UIViewController
         inputKibunViewController.modalPresentationStyle = .fullScreen
         owner?.present(inputKibunViewController, animated: false, completion: nil)
     }
     // その他ボタン
+    @IBOutlet weak var otherButton: UIButton!
     @IBAction func otherButton(_ sender: Any) {
         let otherViewController = UIStoryboard(name: "OtherViewController", bundle: nil).instantiateViewController(withIdentifier: "OtherViewController") as UIViewController
         otherViewController.modalPresentationStyle = .fullScreen

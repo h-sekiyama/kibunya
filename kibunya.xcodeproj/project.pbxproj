@@ -25,6 +25,7 @@
 		3E6C006524ED69E6001D4828 /* ChangeNameViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C006424ED69E6001D4828 /* ChangeNameViewController.storyboard */; };
 		3E6C006824ED75A7001D4828 /* ShowFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C006724ED75A7001D4828 /* ShowFamilyViewController.swift */; };
 		3E6C006A24ED75D4001D4828 /* ShowFamilyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C006924ED75D4001D4828 /* ShowFamilyViewController.storyboard */; };
+		3E6D765D250CD4B800E2BF05 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6D765C250CD4B800E2BF05 /* Constants.swift */; };
 		3E70A80D24E26376008667B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A80C24E26376008667B5 /* AppDelegate.swift */; };
 		3E70A80F24E26376008667B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A80E24E26376008667B5 /* SceneDelegate.swift */; };
 		3E70A81124E26376008667B5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A81024E26376008667B5 /* MainViewController.swift */; };
@@ -89,6 +90,7 @@
 		3E6C006424ED69E6001D4828 /* ChangeNameViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeNameViewController.storyboard; sourceTree = "<group>"; };
 		3E6C006724ED75A7001D4828 /* ShowFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFamilyViewController.swift; sourceTree = "<group>"; };
 		3E6C006924ED75D4001D4828 /* ShowFamilyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowFamilyViewController.storyboard; sourceTree = "<group>"; };
+		3E6D765C250CD4B800E2BF05 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3E70A80924E26376008667B5 /* 家族ダイアリー.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "家族ダイアリー.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E70A80C24E26376008667B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E70A80E24E26376008667B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				3E6C005D24EAE97C001D4828 /* Extensions.swift */,
 				3E6C005F24EC247E001D4828 /* Functions.swift */,
+				3E6D765C250CD4B800E2BF05 /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				3E6C006824ED75A7001D4828 /* ShowFamilyViewController.swift in Sources */,
 				3EE54E3324F3DE87002050B7 /* KibunDetailViewController.swift in Sources */,
 				3E6C004A24EA5EF9001D4828 /* OtherViewController.swift in Sources */,
+				3E6D765D250CD4B800E2BF05 /* Constants.swift in Sources */,
 				3E6C006324ED6972001D4828 /* ChangeNameViewController.swift in Sources */,
 				3E6C005924EADDA0001D4828 /* AddFamilyViewController.swift in Sources */,
 				3E6C005424EA85BF001D4828 /* LoginViewController.swift in Sources */,

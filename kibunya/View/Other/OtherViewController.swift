@@ -25,7 +25,7 @@ class OtherViewController: UIViewController {
         self.present(showFamilyViewController, animated: false, completion: nil)
     }
     
-    // 名前変更画面へ遷移
+    // プロフィール変更画面へ遷移
     @IBAction func changeNameButton(_ sender: Any) {
         let changeNameViewController = UIStoryboard(name: "ChangeNameViewController", bundle: nil).instantiateViewController(withIdentifier: "ChangeNameViewController") as UIViewController
         changeNameViewController.modalPresentationStyle = .fullScreen
@@ -34,14 +34,22 @@ class OtherViewController: UIViewController {
     
     // ログアウト
     @IBAction func logoutButton(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            let signUpViewController = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as UIViewController
-            signUpViewController.modalPresentationStyle = .fullScreen
-            self.present(signUpViewController, animated: true, completion: nil)
-        } catch let error {
-            print(error)
-        }
+        let dialog = UIAlertController(title: "ログアウト", message: "ログアウトしますか？", preferredStyle: .alert)
+        dialog.addAction(UIAlertAction(title: "OK", style: .default,
+            handler: { action in
+                do {
+                    try Auth.auth().signOut()
+                    let signUpViewController = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as UIViewController
+                    signUpViewController.modalPresentationStyle = .fullScreen
+                    self.present(signUpViewController, animated: true, completion: nil)
+                } catch let error {
+                    print(error)
+                }
+            }))
+        dialog.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+        // 生成したダイアログを実際に表示します
+        self.present(dialog, animated: true, completion: nil)
+
     }
     
     override func viewDidLoad() {
@@ -57,6 +65,7 @@ class OtherViewController: UIViewController {
         tabBarView.owner = self
         
         // タブの表示位置を調整
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - 80, width: self.view.bounds.width, height: 80)
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
+        tabBarView.otherButton.setBackgroundImage(UIImage(named: "tab_image2_on"), for: .normal)
     }
 }

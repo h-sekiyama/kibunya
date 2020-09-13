@@ -96,7 +96,8 @@ class InputKibunViewController: UIViewController {
         tabBarView.owner = self
 
         // タブの表示位置を調整
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - 80, width: self.view.bounds.width, height: 80)
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
+        tabBarView.inputDiaryButton.setBackgroundImage(UIImage(named: "tab_image1_on"), for: .normal)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

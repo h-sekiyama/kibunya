@@ -80,7 +80,8 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
         tabBarView.owner = self
 
         // タブの表示位置を調整
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY - 80, width: self.view.bounds.width, height: 80)
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY - 140, width: self.view.bounds.width, height: 140)
+        tabBarView.otherButton.setBackgroundImage(UIImage(named: "tab_image2_on"), for: .normal)
     }
     
     func updateFamilyList() {

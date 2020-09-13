@@ -28,6 +28,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
     var isDrawingTable: Bool = false
     // 端末内に保存している自分のプロフィール画像
     var myProfileIcon: UIImage? = nil
+    // 背景色を付ける用のView
+    @IBOutlet weak var backgroundView: UIView!
     // １日戻るボタン
     @IBOutlet weak var backDateButton: UIButton!
     @IBAction func backDateButton(_ sender: Any) {
@@ -36,6 +38,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         showKibuns(date: displayedDate)
         dateText.text = Functions.getDateWithDayOfTheWeek(date: displayedDate)
         nextDateButton.isEnabled = true
+        nextDateButton.setImage(UIImage(named: "arrow_right_on"), for: .normal)
     }
     // １日進むボタン
     @IBOutlet weak var nextDateButton: UIButton!
@@ -46,6 +49,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         dateText.text = Functions.getDateWithDayOfTheWeek(date: displayedDate)
         if (Functions.isToday(date: displayedDate)) {
             nextDateButton.isEnabled = false
+            nextDateButton.setImage(UIImage(named: "arrow_right_off"), for: .normal)
         }
     }
     
@@ -57,6 +61,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         // 日付けが今日なら進むボタンをDisabledにする
         if (Functions.isToday(date: displayedDate)) {
             nextDateButton.isEnabled = false
+            nextDateButton.setImage(UIImage(named: "arrow_right_off"), for: .normal)
         }
         
         Auth.auth().currentUser?.reload()
@@ -81,15 +86,17 @@ class MainViewController: UIViewController, UITableViewDelegate {
     override func loadView() {
         super.loadView()
         
+        kibunList.backgroundColor = UIColor(red: 255/255, green: 246/255, blue: 238/255, alpha: 1)
+        
         // タブの表示
         tabBarView  = TabBarView()
         view.addSubview(tabBarView.tab)
         tabBarView.owner = self
 
         // タブの表示位置を調整
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - 80, width: self.view.bounds.width, height: 80)
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
+        tabBarView.diaryButton.setBackgroundImage(UIImage(named: "tab_image0_on"), for: .normal)
     }
-    
     // フォアグラウンドに来た時の処理を記載
     @objc func viewWillEnterForeground(_ notification: Notification?) {
         if (self.isViewLoaded && self.view.window != nil && !isDrawingTable && Functions.isToday(date: displayedDate)) {
@@ -199,8 +206,9 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // セルの選択を解除
         tableView.deselectRow(at: indexPath, animated: false)
-        
         let kibunDetailViewController = UIStoryboard(name: "KibunDetailViewController", bundle: nil).instantiateViewController(withIdentifier: "KibunDetailViewController") as! KibunDetailViewController
+        kibunDetailViewController.diaryId = kibuns[indexPath.row].documentId!
+        kibunDetailViewController.userId = kibuns[indexPath.row].user_id!
         kibunDetailViewController.time = kibuns[indexPath.row].time
         kibunDetailViewController.userName = kibuns[indexPath.row].name
         kibunDetailViewController.text = kibuns[indexPath.row].text
@@ -222,6 +230,8 @@ extension MainViewController: UITableViewDataSource {
         } else {
             cell.userIcon.sd_setImage(with: imageRef, placeholderImage: placeholderImage)
         }
+        cell.userIcon.layer.cornerRadius = 15
+        cell.clipsToBounds = true
         cell.userIcon.setNeedsLayout()
         if (kibuns[indexPath.row].image != nil && kibuns[indexPath.row].image != "") {
             cell.isExistImage.image = UIImage(named: "diary_image_icon")
@@ -241,7 +251,7 @@ extension MainViewController: UITableViewDataSource {
     
     // セルの高さを指定する
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 74
+        return 124
     }
     
     // セルの編集許可（自分の投稿のみ）

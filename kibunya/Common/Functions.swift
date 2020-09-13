@@ -109,7 +109,4 @@ class Functions {
             print(error)
         }
     }
-    
-    // タブを表示するメソッド
-    public static func showTabView
 }

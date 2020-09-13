@@ -8,6 +8,10 @@ class KibunDetailViewController:  UIViewController {
     
     //ストレージサーバのURLを取得
     let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
+    // 日記のドキュメントID
+    var diaryId: String = ""
+    // 投稿者のユーザーID
+    var userId: String = ""
     // 投稿日時
     var time: Timestamp? = nil
     // 投稿日時（Date型）
@@ -27,10 +31,14 @@ class KibunDetailViewController:  UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     // ユーザーの名前
     @IBOutlet weak var userNameLabel: UILabel!
-    // 画像
+    // 投稿画像
     @IBOutlet weak var diaryImage: UIImageView!
     // 日記本文
     @IBOutlet weak var textLabel: UITextView!
+    // ユーザーアイコン
+    @IBOutlet weak var profileIcon: UIImageView!
+    // 気分アイコン画像
+    @IBOutlet weak var kibunImage: UIImageView!
     // 戻るボタン
     @IBAction func backButton(_ sender: Any) {
         let mainViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
@@ -43,7 +51,7 @@ class KibunDetailViewController:  UIViewController {
         super.viewDidLoad()
         
         timeLabel.text = "\(Functions.getDate(timeStamp: time!)) \(Functions.getTime(timeStamp: time!))"
-        userNameLabel.text = userName! + "の日記"
+        userNameLabel.text = userName!
         textLabel.text = text!
         if (imageUrl != "") {
             diaryImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
@@ -53,6 +61,16 @@ class KibunDetailViewController:  UIViewController {
         // 本文タップ時にキーボードを出さない様にする
         textLabel.isUserInteractionEnabled = true
         textLabel.isEditable = false
+        
+        // 気分アイコン設定
+        self.kibunImage.image = UIImage(named: "kibunIcon\(kibun ?? 0)")
+        
+        // プロフィール画像設定
+        let placeholderImage = UIImage(named: "no_image")
+        profileIcon.sd_setImage(with: self.storage.child("profileIcon").child("\(userId).jpg"), placeholderImage: placeholderImage)
+        
+        // 日記本文の背景設定
+        textLabel.backgroundColor = UIColor(red: 255/255, green: 246/255, blue: 238/255, alpha: 1)
     }
     
     override func loadView() {
@@ -64,6 +82,7 @@ class KibunDetailViewController:  UIViewController {
         tabBarView.owner = self
 
         // タブの表示位置を調整
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - 80, width: self.view.bounds.width, height: 80)
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
+        tabBarView.diaryButton.setBackgroundImage(UIImage(named: "tab_image0_on"), for: .normal)
     }
 }

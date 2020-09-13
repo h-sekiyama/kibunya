@@ -15,83 +15,181 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="アンジュの日記" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYI-NW-36Y">
-                                <rect key="frame" x="92" y="118" width="230" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVJ-Q0-wdb" userLabel="BackgroundView">
+                                <rect key="frame" x="0.0" y="110" width="414" height="651"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b2j-yb-TE6">
+                                        <rect key="frame" x="20" y="20" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="6K5-jW-bo8"/>
+                                            <constraint firstAttribute="height" constant="60" id="qbh-Fm-1Vn"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYI-NW-36Y">
+                                        <rect key="frame" x="88" y="39" width="180" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="d82-M0-oks"/>
+                                            <constraint firstAttribute="width" constant="180" id="uLE-cH-PDo"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="アンジュ">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="18" name="HiraMaruProN-W4"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NXW-2C-e6E">
+                                        <rect key="frame" x="282" y="32" width="50" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="AMC-u5-xmL"/>
+                                            <constraint firstAttribute="height" constant="36" id="ax2-E1-0eU"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmd-wn-WYp">
+                                        <rect key="frame" x="352" y="39.5" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="42" id="Ewz-ej-9IF"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="16:51">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.71372549019607845" green="0.59215686274509804" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5B3-vC-Ov8">
+                                        <rect key="frame" x="8" y="88" width="398" height="2"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.80000000000000004" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2" id="MT8-Ki-RmI"/>
+                                            <constraint firstAttribute="height" constant="2" id="iry-Qj-VeE"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image_diary" translatesAutoresizingMaskIntoConstraints="NO" id="xQc-VO-0yJ">
+                                        <rect key="frame" x="20" y="98" width="374" height="279"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="374" id="6kt-Rl-z3E"/>
+                                            <constraint firstAttribute="height" constant="279" id="aC3-Mn-crU"/>
+                                        </constraints>
+                                    </imageView>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JYq-xC-zct">
+                                        <rect key="frame" x="20" y="391" width="374" height="252"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKf-Y4-Sg8">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="252"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
+                                                <attributedString key="attributedText">
+                                                    <fragment>
+                                                        <string key="content">＜うんちに異常が見られたら　～うんちに虫が入っていた！？～＞
+「うんちに虫が出た」と来院する患者さんは結構います。この場合、気持ち悪いのはわかりますが、出た現物を持参すること。
+出てくる虫は瓜実条虫（サナダムシ）が圧倒的に多いのですがこの虫、検便しても卵が糞の中に出てきません。検便では診断できないのが条虫類です。「こんな形でこんなに長くて・・・」と一生懸命説明されても回虫なのか条虫なのか判断しかねることが多いです。
+</string>
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="14" name="HiraMaruProN-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="虫が出たといってよくよく見たら実はエノキ茸だったりしたこともあります。">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="14" name="HiraMaruProN-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="JKf-Y4-Sg8" firstAttribute="leading" secondItem="Fdx-KV-4uN" secondAttribute="leading" id="G0l-wy-U6U"/>
+                                            <constraint firstItem="JKf-Y4-Sg8" firstAttribute="top" secondItem="Fdx-KV-4uN" secondAttribute="top" id="Zvc-hF-1eL"/>
+                                            <constraint firstItem="Fdx-KV-4uN" firstAttribute="bottom" secondItem="JKf-Y4-Sg8" secondAttribute="bottom" id="rFs-ij-duN"/>
+                                            <constraint firstItem="JKf-Y4-Sg8" firstAttribute="trailing" secondItem="Fdx-KV-4uN" secondAttribute="trailing" id="up1-FC-wcb"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="SiC-3r-WPb"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="Fdx-KV-4uN"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="NXW-2C-e6E" firstAttribute="centerY" secondItem="nYI-NW-36Y" secondAttribute="centerY" id="7yi-Dv-ZtA"/>
+                                    <constraint firstItem="xQc-VO-0yJ" firstAttribute="leading" secondItem="nVJ-Q0-wdb" secondAttribute="leading" constant="20" id="8sa-jd-3ZZ"/>
+                                    <constraint firstItem="nYI-NW-36Y" firstAttribute="centerY" secondItem="b2j-yb-TE6" secondAttribute="centerY" id="LFq-HX-BUd"/>
+                                    <constraint firstAttribute="trailing" secondItem="xQc-VO-0yJ" secondAttribute="trailing" constant="20" id="Od8-S0-hMy"/>
+                                    <constraint firstItem="NXW-2C-e6E" firstAttribute="leading" secondItem="nYI-NW-36Y" secondAttribute="trailing" constant="14" id="ddh-GU-Zhd"/>
+                                    <constraint firstItem="b2j-yb-TE6" firstAttribute="top" secondItem="nVJ-Q0-wdb" secondAttribute="top" constant="20" id="eMQ-aq-1z0"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zmd-wn-WYp" secondAttribute="trailing" constant="20" id="gc6-yM-WhQ"/>
+                                    <constraint firstItem="5B3-vC-Ov8" firstAttribute="leading" secondItem="nVJ-Q0-wdb" secondAttribute="leading" constant="8" id="oiF-uu-LQH"/>
+                                    <constraint firstItem="nYI-NW-36Y" firstAttribute="leading" secondItem="b2j-yb-TE6" secondAttribute="trailing" constant="8" id="pUy-72-zIo"/>
+                                    <constraint firstAttribute="trailing" secondItem="5B3-vC-Ov8" secondAttribute="trailing" constant="8" id="poe-oF-fnU"/>
+                                    <constraint firstItem="b2j-yb-TE6" firstAttribute="leading" secondItem="nVJ-Q0-wdb" secondAttribute="leading" constant="20" id="qHM-xb-2ab"/>
+                                    <constraint firstItem="Zmd-wn-WYp" firstAttribute="centerY" secondItem="NXW-2C-e6E" secondAttribute="centerY" id="qsp-ys-JiS"/>
+                                    <constraint firstItem="5B3-vC-Ov8" firstAttribute="top" secondItem="b2j-yb-TE6" secondAttribute="bottom" constant="8" id="rJY-Yv-7vd"/>
+                                    <constraint firstItem="xQc-VO-0yJ" firstAttribute="top" secondItem="5B3-vC-Ov8" secondAttribute="bottom" constant="8" id="tYe-BK-Q96"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQ9-j4-pKP">
+                                <rect key="frame" x="75" y="64" width="264" height="23"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="2020年12月31日 23:59">
+                                        <attributes>
+                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="23" name="HiraMaruProN-W4"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGQ-WP-sJN">
-                                <rect key="frame" x="20" y="44" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="戻る"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGQ-WP-sJN">
+                                <rect key="frame" x="20" y="53.5" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Ezf-nZ-z7u"/>
+                                    <constraint firstAttribute="width" constant="44" id="oae-QO-919"/>
+                                </constraints>
+                                <state key="normal" image="arrow_left_on"/>
                                 <connections>
                                     <action selector="backButton:" destination="fH5-yP-nRf" eventType="touchUpInside" id="3z9-gO-RTq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2020年12月31日 23:59" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQ9-j4-pKP">
-                                <rect key="frame" x="102" y="89" width="211" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="no_image_diary" translatesAutoresizingMaskIntoConstraints="NO" id="xQc-VO-0yJ">
-                                <rect key="frame" x="20" y="147" width="374" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKf-Y4-Sg8">
-                                <rect key="frame" x="20" y="355" width="374" height="462"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
-                                    <bool key="isElement" value="NO"/>
-                                </accessibility>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">一杯のコーヒー
-
-カップの中に描かれる白い渦は
-時間の流れと同じ速度
-
-朝の一杯のコーヒー
-
-君の好きな温度のコーヒー
-……僕にはちょっとぬるい
-
-君のいない部屋に
-君の知らない曲をかけ
-
-
-君を思い出す
-
-
-いい年してこんなの聴いてんのか
-
-なんて笑われてしまいそうだけど
-シーガルは結構いい曲作ってるんだぞ
-君の趣味じゃないだろうけど
-
-クリーム入りの一杯のコーヒー
-
-君と出会ってどれだけの月日が過ぎたのだろう</string>
-                                        <attributes>
-                                            <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" metaFont="menu" size="14"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="0.85882352941176465" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="sQ9-j4-pKP" firstAttribute="top" secondItem="dzl-r3-I1u" secondAttribute="top" constant="20" id="FxQ-rO-IlN"/>
+                            <constraint firstAttribute="bottom" secondItem="nVJ-Q0-wdb" secondAttribute="bottom" constant="135" id="Su1-xp-0Xe"/>
+                            <constraint firstItem="PGQ-WP-sJN" firstAttribute="centerY" secondItem="sQ9-j4-pKP" secondAttribute="centerY" id="UzM-MV-lr9"/>
+                            <constraint firstItem="PGQ-WP-sJN" firstAttribute="leading" secondItem="dzl-r3-I1u" secondAttribute="leading" constant="20" id="XDK-Lj-7uy"/>
+                            <constraint firstItem="nVJ-Q0-wdb" firstAttribute="top" secondItem="BcH-69-8wm" secondAttribute="top" constant="110" id="Yvj-QL-wpa"/>
+                            <constraint firstItem="nVJ-Q0-wdb" firstAttribute="trailing" secondItem="dzl-r3-I1u" secondAttribute="trailing" id="gUB-Qu-LEf"/>
+                            <constraint firstItem="nVJ-Q0-wdb" firstAttribute="leading" secondItem="dzl-r3-I1u" secondAttribute="leading" id="t4B-nf-GeQ"/>
+                            <constraint firstItem="sQ9-j4-pKP" firstAttribute="centerX" secondItem="BcH-69-8wm" secondAttribute="centerX" id="zS2-Fo-z4T"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dzl-r3-I1u"/>
                     </view>
                     <connections>
                         <outlet property="diaryImage" destination="xQc-VO-0yJ" id="n4B-uo-B2d"/>
+                        <outlet property="kibunImage" destination="NXW-2C-e6E" id="Pp9-MD-Ks6"/>
+                        <outlet property="profileIcon" destination="b2j-yb-TE6" id="7O3-Vm-asS"/>
                         <outlet property="textLabel" destination="JKf-Y4-Sg8" id="Hfl-hG-s3g"/>
                         <outlet property="timeLabel" destination="sQ9-j4-pKP" id="l9c-Gl-JuK"/>
                         <outlet property="userNameLabel" destination="nYI-NW-36Y" id="5Jb-R0-DA5"/>
@@ -103,6 +201,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_left_on" width="24" height="36.5"/>
         <image name="no_image_diary" width="240" height="180"/>
     </resources>
 </document>

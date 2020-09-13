@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "kibunIcon1.png",
+      "filename" : "icon_awsome.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "kibunIcon1-1.png",
+      "filename" : "icon_awsome-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "kibunIcon1-2.png",
+      "filename" : "icon_awsome-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

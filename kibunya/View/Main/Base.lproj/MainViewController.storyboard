@@ -15,53 +15,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wP-IY-kLv" userLabel="BackgroundView">
+                                <rect key="frame" x="0.0" y="110" width="414" height="651"/>
+                                <color key="backgroundColor" red="1" green="0.96470588239999999" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.94117647058823528" green="0.74901960784313726" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="txb-8X-qYK" userLabel="Kibun List">
-                                <rect key="frame" x="0.0" y="101" width="414" height="761"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="651"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020年12月24日(水)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl5-Mz-wtH">
-                                <rect key="frame" x="127" y="64" width="160" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl5-Mz-wtH">
+                                <rect key="frame" x="92.5" y="64" width="229" height="23"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="2020年12月24日(水)">
+                                        <attributes>
+                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="23" name="HiraMaruProN-W4"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="誰も日記を書いていません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KYa-aa-6UK">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KYa-aa-6UK">
                                 <rect key="frame" x="0.0" y="426" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="誰も日記を書いていません">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name=".HiraKakuInterface-W3"/>
+                                            <font key="NSOriginalFont" size="17" name=".HiraKakuInterface-W3"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDe-NO-a1F">
-                                <rect key="frame" x="89" y="60" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="chevron.left" catalog="system"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDe-NO-a1F">
+                                <rect key="frame" x="20" y="53.5" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="DO4-XF-R2v"/>
+                                    <constraint firstAttribute="height" constant="44" id="gkj-Xd-Qbv"/>
+                                </constraints>
+                                <state key="normal" image="arrow_left_on"/>
                                 <connections>
                                     <action selector="backDateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c67-mw-Xgu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6C-kP-KVH">
-                                <rect key="frame" x="295" y="60" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="chevron.right" catalog="system"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6C-kP-KVH">
+                                <rect key="frame" x="350" y="53.5" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="Rgw-us-DYF"/>
+                                    <constraint firstAttribute="height" constant="44" id="xKy-W4-m2k"/>
+                                </constraints>
+                                <state key="normal" image="arrow_right_on"/>
                                 <connections>
                                     <action selector="nextDateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XK4-8Q-QI3"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="0.85882352941176465" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="RDe-NO-a1F" firstAttribute="centerY" secondItem="Nl5-Mz-wtH" secondAttribute="centerY" id="0uD-NX-oPh"/>
                             <constraint firstItem="Nl5-Mz-wtH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="3P7-N9-jWU"/>
                             <constraint firstItem="Nl5-Mz-wtH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JWP-ni-dPT"/>
-                            <constraint firstItem="txb-8X-qYK" firstAttribute="top" secondItem="Nl5-Mz-wtH" secondAttribute="bottom" constant="16" id="dnw-Tr-UQn"/>
+                            <constraint firstItem="6wP-IY-kLv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MaL-Dp-4EJ"/>
+                            <constraint firstItem="6wP-IY-kLv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MzE-DB-bT8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L6C-kP-KVH" secondAttribute="trailing" constant="20" id="SLB-6F-Zid"/>
+                            <constraint firstItem="txb-8X-qYK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="110" id="Ygs-AA-GV4"/>
+                            <constraint firstItem="RDe-NO-a1F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="h4f-OP-m3J"/>
                             <constraint firstItem="txb-8X-qYK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hn7-fr-8h1"/>
+                            <constraint firstItem="6wP-IY-kLv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="110" id="i75-3Y-eL9"/>
+                            <constraint firstItem="L6C-kP-KVH" firstAttribute="centerY" secondItem="Nl5-Mz-wtH" secondAttribute="centerY" id="ibO-u6-bSr"/>
+                            <constraint firstAttribute="bottom" secondItem="6wP-IY-kLv" secondAttribute="bottom" constant="135" id="kk0-Zz-doH"/>
                             <constraint firstItem="txb-8X-qYK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="maF-iu-5DY"/>
-                            <constraint firstItem="txb-8X-qYK" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="uOs-fs-9aN"/>
+                            <constraint firstItem="txb-8X-qYK" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" constant="-135" id="uOs-fs-9aN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="backDateButton" destination="RDe-NO-a1F" id="qqU-oh-AXf"/>
+                        <outlet property="backgroundView" destination="6wP-IY-kLv" id="vES-lH-X8R"/>
                         <outlet property="dateText" destination="Nl5-Mz-wtH" id="KO1-OH-H7u"/>
                         <outlet property="emptyKibunLabel" destination="KYa-aa-6UK" id="xVo-zy-vSr"/>
                         <outlet property="kibunList" destination="txb-8X-qYK" id="5gG-EK-0eM"/>
@@ -74,7 +114,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="arrow_left_on" width="24" height="36.5"/>
+        <image name="arrow_right_on" width="23.5" height="36.5"/>
     </resources>
 </document>
