@@ -13,14 +13,27 @@ class InputKibunViewController: UIViewController {
     var tabBarView: TabBarView!
     // FireStore取得
     let defaultStore: Firestore! = Firestore.firestore()
+    // 気分ボタンを入れる配列
+    var kibunButtonArray: [UIButton] = []
     // 気分情報を入れる変数
-    var kibunStatus: Int? = nil
+    var kibunStatus: Int? = nil {
+        didSet {
+            if kibunStatus == nil {
+                return
+            }
+            for (index, kibunButton) in kibunButtonArray.enumerated() {
+                kibunButton.setImage(UIImage(named: "kibunIcon\(index)_off"), for: .normal)
+            }
+            kibunButtonArray[kibunStatus!].setImage(UIImage(named: "kibunIcon\(kibunStatus!)"), for: .normal)
+        }
+    }
     // 画像を添付したかどうか
     var isExistImage: Bool = false
     // 今日あった出来事を入力するテキストボックス
     @IBOutlet weak var kibunTextBox: UITextView!
     
     // 最高ボタンタップ
+    @IBOutlet weak var kibunButton0: UIButton!
     @IBAction func kibunButton0(_ sender: Any) {
         kibunStatus = 0
         if (kibunTextBox.text?.count != 0) {
@@ -28,6 +41,7 @@ class InputKibunViewController: UIViewController {
         }
     }
     // 良いボタンタップ
+    @IBOutlet weak var kibunButton1: UIButton!
     @IBAction func kibunButton1(_ sender: Any) {
         kibunStatus = 1
         if (kibunTextBox.text?.count != 0) {
@@ -35,6 +49,7 @@ class InputKibunViewController: UIViewController {
         }
     }
     // 普通ボタンタップ
+    @IBOutlet weak var kibunButton2: UIButton!
     @IBAction func kibunButton2(_ sender: Any) {
         kibunStatus = 2
         if (kibunTextBox.text?.count != 0) {
@@ -42,6 +57,7 @@ class InputKibunViewController: UIViewController {
         }
     }
     // 悪いボタンタップ
+    @IBOutlet weak var kibunButton3: UIButton!
     @IBAction func kibunButton3(_ sender: Any) {
         kibunStatus = 3
         if (kibunTextBox.text?.count != 0) {
@@ -49,6 +65,7 @@ class InputKibunViewController: UIViewController {
         }
     }
     // 最悪ボタンタップ
+    @IBOutlet weak var kibunButton4: UIButton!
     @IBAction func kibunButton4(_ sender: Any) {
         kibunStatus = 4
         if (kibunTextBox.text?.count != 0) {
@@ -75,6 +92,9 @@ class InputKibunViewController: UIViewController {
         
         // テキストボックス入力監視
         kibunTextBox.delegate = self
+        
+        // 気分ボタンを配列に入れる
+        kibunButtonArray = [kibunButton0, kibunButton1, kibunButton2, kibunButton3, kibunButton4]
     }
     
     // 画像添付ボタン
