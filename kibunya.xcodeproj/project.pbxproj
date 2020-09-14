@@ -91,7 +91,7 @@
 		3E6C006724ED75A7001D4828 /* ShowFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFamilyViewController.swift; sourceTree = "<group>"; };
 		3E6C006924ED75D4001D4828 /* ShowFamilyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowFamilyViewController.storyboard; sourceTree = "<group>"; };
 		3E6D765C250CD4B800E2BF05 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		3E70A80924E26376008667B5 /* 家族ダイアリー.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "家族ダイアリー.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E70A80924E26376008667B5 /* Family Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Family Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E70A80C24E26376008667B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E70A80E24E26376008667B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3E70A81024E26376008667B5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 		3E70A80A24E26376008667B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3E70A80924E26376008667B5 /* 家族ダイアリー.app */,
+				3E70A80924E26376008667B5 /* Family Diary.app */,
 				3E70A81F24E26378008667B5 /* kibunyaTests.xctest */,
 				3E70A82A24E26379008667B5 /* kibunyaUITests.xctest */,
 			);
@@ -392,7 +392,7 @@
 			);
 			name = kibunya;
 			productName = kibunya;
-			productReference = 3E70A80924E26376008667B5 /* 家族ダイアリー.app */;
+			productReference = 3E70A80924E26376008667B5 /* Family Diary.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3E70A81E24E26378008667B5 /* kibunyaTests */ = {
@@ -832,7 +832,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
-				PRODUCT_NAME = "家族ダイアリー";
+				PRODUCT_NAME = "Family Diary";
 				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -855,7 +855,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
-				PRODUCT_NAME = "家族ダイアリー";
+				PRODUCT_NAME = "Family Diary";
 				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー（本番）";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

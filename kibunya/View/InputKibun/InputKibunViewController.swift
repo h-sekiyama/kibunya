@@ -27,6 +27,7 @@ class InputKibunViewController: UIViewController {
             kibunButtonArray[kibunStatus!].setImage(UIImage(named: "kibunIcon\(kibunStatus!)"), for: .normal)
         }
     }
+    
     // 画像を添付したかどうか
     var isExistImage: Bool = false
     // 今日あった出来事を入力するテキストボックス
@@ -38,6 +39,7 @@ class InputKibunViewController: UIViewController {
         kibunStatus = 0
         if (kibunTextBox.text?.count != 0) {
             sendButton.isEnabled = true
+            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
         }
     }
     // 良いボタンタップ
@@ -46,6 +48,7 @@ class InputKibunViewController: UIViewController {
         kibunStatus = 1
         if (kibunTextBox.text?.count != 0) {
             sendButton.isEnabled = true
+            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
         }
     }
     // 普通ボタンタップ
@@ -54,6 +57,7 @@ class InputKibunViewController: UIViewController {
         kibunStatus = 2
         if (kibunTextBox.text?.count != 0) {
             sendButton.isEnabled = true
+            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
         }
     }
     // 悪いボタンタップ
@@ -62,6 +66,7 @@ class InputKibunViewController: UIViewController {
         kibunStatus = 3
         if (kibunTextBox.text?.count != 0) {
             sendButton.isEnabled = true
+            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
         }
     }
     // 最悪ボタンタップ
@@ -70,6 +75,7 @@ class InputKibunViewController: UIViewController {
         kibunStatus = 4
         if (kibunTextBox.text?.count != 0) {
             sendButton.isEnabled = true
+            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
         }
     }
     // 送信ボタン
@@ -84,6 +90,8 @@ class InputKibunViewController: UIViewController {
             updateData()
         }
     }
+    // 吹き出し表示用View
+    @IBOutlet weak var balloonView: UIView!
     // 残り入力可能文字数
     @IBOutlet weak var remainingTextCountLabel: UILabel!
     
@@ -195,11 +203,12 @@ class InputKibunViewController: UIViewController {
             } else {
                 self.sendKibunCompleteLabel.text = "今日の気分を送信しました！"
                 self.sendKibunCompleteLabel.isHidden = false
-                self.sendImage.image = UIImage(named: "no_image_diary")
+                self.sendImage.image = UIImage(named: "diary_image_icon")
             }
             self.dismissIndicator()
             self.kibunTextBox.text = ""
             self.sendButton.isEnabled = false
+            self.sendButton.backgroundColor = UIColor(red: 225/255, green: 205/255, blue: 203/255, alpha: 1)
             self.remainingTextCountLabel.text = "300"
         }
     }
@@ -209,16 +218,20 @@ extension InputKibunViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView){
         if (kibunTextBox.text?.count != 0 && kibunStatus != nil) {
             sendButton.isEnabled = true
+            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
         } else {
             sendButton.isEnabled = false
+            sendButton.backgroundColor = UIColor(red: 225/255, green: 205/255, blue: 203/255, alpha: 1)
         }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if (kibunTextBox.text?.count != 0 && kibunStatus != nil) {
             sendButton.isEnabled = true
+            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
         } else {
             sendButton.isEnabled = false
+            sendButton.backgroundColor = UIColor(red: 225/255, green: 205/255, blue: 203/255, alpha: 1)
         }
         // 入力を反映させたテキストを取得する
         let resultText: String = (textView.text! as NSString).replacingCharacters(in: range, with: text)

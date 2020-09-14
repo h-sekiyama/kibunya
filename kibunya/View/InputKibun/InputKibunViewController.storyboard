@@ -10,11 +10,18 @@
         <!--Input Kibun View Controller-->
         <scene sceneID="1sL-nG-Lwa">
             <objects>
-                <viewController storyboardIdentifier="InputKibunViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uHM-hf-JGD" customClass="InputKibunViewController" customModule="家族ダイアリー" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InputKibunViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uHM-hf-JGD" customClass="InputKibunViewController" customModule="Family_Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wxw-JS-15q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhy-2r-OR0" userLabel="Navi Bar">
+                                <rect key="frame" x="0.0" y="44" width="414" height="66"/>
+                                <color key="backgroundColor" red="1" green="0.8984755874" blue="0.66378134489999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="J03-V1-Exd"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGa-jd-Qbi">
                                 <rect key="frame" x="149.5" y="64" width="115" height="23"/>
                                 <attributedString key="attributedText">
@@ -29,34 +36,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vD-Ye-WaI" userLabel="BackgroundView">
-                                <rect key="frame" x="0.0" y="110" width="414" height="651"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="698"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-uv-Avx">
-                                        <rect key="frame" x="192" y="606" width="31" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="送信"/>
-                                        <connections>
-                                            <action selector="sendButton:" destination="uHM-hf-JGD" eventType="touchUpInside" id="VN2-Is-zqA"/>
-                                        </connections>
-                                    </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="biR-WE-q3x">
-                                        <rect key="frame" x="20" y="249" width="374" height="90"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textView>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diary_image_icon" translatesAutoresizingMaskIntoConstraints="NO" id="QpR-Gq-NFP">
-                                        <rect key="frame" x="141.5" y="449" width="131" height="105"/>
+                                        <rect key="frame" x="145" y="402" width="124" height="99.5"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="QpR-Gq-NFP" secondAttribute="height" multiplier="262:210" id="qBe-EV-SlV"/>
@@ -70,12 +53,305 @@
                                             <outletCollection property="gestureRecognizers" destination="EsM-Sb-zea" appends="YES" id="7H2-E1-XsW"/>
                                         </connections>
                                     </imageView>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日の日記を書きました！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIE-Bh-Rfj">
+                                        <rect key="frame" x="103" y="587.5" width="208" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efI-9D-mvQ" userLabel="balloonView">
+                                        <rect key="frame" x="2" y="124.5" width="410" height="265.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balloonImage" translatesAutoresizingMaskIntoConstraints="NO" id="vRy-PZ-If0">
+                                                <rect key="frame" x="0.0" y="0.0" width="410" height="265.5"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="biR-WE-q3x">
+                                                <rect key="frame" x="20" y="28" width="370" height="217.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Tb-EX-Q93">
+                                                <rect key="frame" x="362.5" y="0.0" width="27.5" height="14"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="300">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.89803921568627454" green="0.80000000000000004" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="14" name="HiraMaruProN-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="vRy-PZ-If0" secondAttribute="trailing" id="6eY-ur-SWo"/>
+                                            <constraint firstAttribute="bottom" secondItem="biR-WE-q3x" secondAttribute="bottom" constant="20" id="8aa-vw-P7h"/>
+                                            <constraint firstItem="vRy-PZ-If0" firstAttribute="top" secondItem="efI-9D-mvQ" secondAttribute="top" id="EUu-aW-d1J"/>
+                                            <constraint firstItem="biR-WE-q3x" firstAttribute="leading" secondItem="efI-9D-mvQ" secondAttribute="leading" constant="20" id="Kj8-t6-nwV"/>
+                                            <constraint firstAttribute="trailing" secondItem="3Tb-EX-Q93" secondAttribute="trailing" constant="20" id="gQP-gv-TaB"/>
+                                            <constraint firstItem="3Tb-EX-Q93" firstAttribute="top" secondItem="efI-9D-mvQ" secondAttribute="top" id="h27-Kp-2YB"/>
+                                            <constraint firstAttribute="trailing" secondItem="biR-WE-q3x" secondAttribute="trailing" constant="20" id="rUn-UB-fCj"/>
+                                            <constraint firstItem="vRy-PZ-If0" firstAttribute="leading" secondItem="efI-9D-mvQ" secondAttribute="leading" id="sx1-Ur-xiY"/>
+                                            <constraint firstItem="biR-WE-q3x" firstAttribute="top" secondItem="efI-9D-mvQ" secondAttribute="top" constant="28" id="tqF-2m-SHb"/>
+                                            <constraint firstAttribute="bottom" secondItem="vRy-PZ-If0" secondAttribute="bottom" id="tva-cB-6UC"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nt0-bN-N9x" userLabel="Icon Stack View">
+                                        <rect key="frame" x="20" y="20" width="374" height="104.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwk-OF-CNK" userLabel="さいこうView">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="104.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIO-AR-cmf" userLabel="さいこうボタン">
+                                                        <rect key="frame" x="4" y="0.0" width="67" height="52"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="sIO-AR-cmf" secondAttribute="height" multiplier="205:160" id="64R-86-9pa"/>
+                                                        </constraints>
+                                                        <state key="normal" image="kibunIcon0_off"/>
+                                                        <connections>
+                                                            <action selector="kibunButton0:" destination="uHM-hf-JGD" eventType="touchUpInside" id="DmS-bg-TEx"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geM-M1-2TA">
+                                                        <rect key="frame" x="6.5" y="60" width="61.5" height="14.5"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="さいこう！">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="geM-M1-2TA" firstAttribute="top" secondItem="sIO-AR-cmf" secondAttribute="bottom" constant="8" id="MwU-39-aZl"/>
+                                                    <constraint firstItem="sIO-AR-cmf" firstAttribute="leading" secondItem="xwk-OF-CNK" secondAttribute="leading" constant="4" id="cLy-Mx-G0v"/>
+                                                    <constraint firstItem="geM-M1-2TA" firstAttribute="centerX" secondItem="sIO-AR-cmf" secondAttribute="centerX" id="ifI-Bd-Kwz"/>
+                                                    <constraint firstAttribute="trailing" secondItem="sIO-AR-cmf" secondAttribute="trailing" constant="4" id="lvm-G2-PF0"/>
+                                                    <constraint firstItem="sIO-AR-cmf" firstAttribute="top" secondItem="xwk-OF-CNK" secondAttribute="top" id="oNp-dy-cbl"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1T-7r-pnB" userLabel="いいねーView">
+                                                <rect key="frame" x="75" y="0.0" width="74.5" height="104.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsP-gD-KDQ" userLabel="いいねーボタン">
+                                                        <rect key="frame" x="4" y="0.0" width="66.5" height="52"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="wsP-gD-KDQ" secondAttribute="height" multiplier="205:160" id="f0W-lg-Umv"/>
+                                                        </constraints>
+                                                        <state key="normal" image="kibunIcon1_off"/>
+                                                        <connections>
+                                                            <action selector="kibunButton1:" destination="uHM-hf-JGD" eventType="touchUpInside" id="2Va-GU-9nB"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56A-2Q-zjT" userLabel="いいね〜">
+                                                        <rect key="frame" x="12.5" y="60" width="49.5" height="14.5"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="いいね〜">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstItem="wsP-gD-KDQ" firstAttribute="leading" secondItem="H1T-7r-pnB" secondAttribute="leading" constant="4" id="HRO-ri-VSR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wsP-gD-KDQ" secondAttribute="trailing" constant="4" id="KF0-Em-7bA"/>
+                                                    <constraint firstItem="wsP-gD-KDQ" firstAttribute="top" secondItem="H1T-7r-pnB" secondAttribute="top" id="Muv-8u-BCt"/>
+                                                    <constraint firstItem="56A-2Q-zjT" firstAttribute="top" secondItem="wsP-gD-KDQ" secondAttribute="bottom" constant="8" id="ljA-JD-pdv"/>
+                                                    <constraint firstItem="56A-2Q-zjT" firstAttribute="centerX" secondItem="wsP-gD-KDQ" secondAttribute="centerX" id="qyv-JY-uvf"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2li-jR-9KT" userLabel="まあまあView">
+                                                <rect key="frame" x="149.5" y="0.0" width="75" height="104.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctg-jD-Fpq" userLabel="まあまあボタン">
+                                                        <rect key="frame" x="4" y="0.0" width="67" height="52"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ctg-jD-Fpq" secondAttribute="height" multiplier="205:160" id="cM5-WA-BcH"/>
+                                                        </constraints>
+                                                        <state key="normal" image="kibunIcon2_off"/>
+                                                        <connections>
+                                                            <action selector="kibunButton2:" destination="uHM-hf-JGD" eventType="touchUpInside" id="P3T-py-SNs"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pt5-E0-r1g">
+                                                        <rect key="frame" x="13" y="60" width="49.5" height="14.5"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="まあまあ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstItem="pt5-E0-r1g" firstAttribute="centerX" secondItem="ctg-jD-Fpq" secondAttribute="centerX" id="BwS-9t-39c"/>
+                                                    <constraint firstItem="ctg-jD-Fpq" firstAttribute="leading" secondItem="2li-jR-9KT" secondAttribute="leading" constant="4" id="PiR-5K-3tQ"/>
+                                                    <constraint firstItem="ctg-jD-Fpq" firstAttribute="top" secondItem="2li-jR-9KT" secondAttribute="top" id="YDv-9s-A1G"/>
+                                                    <constraint firstItem="pt5-E0-r1g" firstAttribute="top" secondItem="ctg-jD-Fpq" secondAttribute="bottom" constant="8" id="eC1-6u-lnl"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ctg-jD-Fpq" secondAttribute="trailing" constant="4" id="kw8-uR-zs8"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8I-wy-kf0" userLabel="うーんView">
+                                                <rect key="frame" x="224.5" y="0.0" width="74.5" height="104.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fha-WL-DzW" userLabel="うーんボタン">
+                                                        <rect key="frame" x="4" y="0.0" width="66.5" height="52"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Fha-WL-DzW" secondAttribute="height" multiplier="205:160" id="dFx-rU-grW"/>
+                                                        </constraints>
+                                                        <state key="normal" image="kibunIcon3_off"/>
+                                                        <connections>
+                                                            <action selector="kibunButton3:" destination="uHM-hf-JGD" eventType="touchUpInside" id="sFI-rA-GRN"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcI-BV-xQ3" userLabel="うーん">
+                                                        <rect key="frame" x="19" y="60" width="37" height="14.5"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="う〜ん">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Fha-WL-DzW" secondAttribute="trailing" constant="4" id="DBM-8h-4oz"/>
+                                                    <constraint firstItem="Fha-WL-DzW" firstAttribute="leading" secondItem="k8I-wy-kf0" secondAttribute="leading" constant="4" id="VTs-F0-mL0"/>
+                                                    <constraint firstItem="GcI-BV-xQ3" firstAttribute="centerX" secondItem="Fha-WL-DzW" secondAttribute="centerX" id="Wxo-uf-b5A"/>
+                                                    <constraint firstItem="Fha-WL-DzW" firstAttribute="top" secondItem="k8I-wy-kf0" secondAttribute="top" id="bV9-Pm-ENA"/>
+                                                    <constraint firstItem="GcI-BV-xQ3" firstAttribute="top" secondItem="Fha-WL-DzW" secondAttribute="bottom" constant="8" id="hpB-QY-y2o"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vnv-yr-FQn" userLabel="さいあくView">
+                                                <rect key="frame" x="299" y="0.0" width="75" height="104.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mL1-C2-SKk" userLabel="さいあくボタン">
+                                                        <rect key="frame" x="4" y="0.0" width="67" height="52"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="mL1-C2-SKk" secondAttribute="height" multiplier="205:160" id="qHK-Oc-r6o"/>
+                                                        </constraints>
+                                                        <state key="normal" image="kibunIcon4_off"/>
+                                                        <connections>
+                                                            <action selector="kibunButton4:" destination="uHM-hf-JGD" eventType="touchUpInside" id="gxF-uw-EVq"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0S-uR-KSy" userLabel="さいあく">
+                                                        <rect key="frame" x="8" y="60" width="59" height="14.5"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="さいあく">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                                    <font key="NSOriginalFont" metaFont="cellTitle"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="…">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstItem="W0S-uR-KSy" firstAttribute="top" secondItem="mL1-C2-SKk" secondAttribute="bottom" constant="8" id="F1q-kS-CCu"/>
+                                                    <constraint firstAttribute="trailing" secondItem="mL1-C2-SKk" secondAttribute="trailing" constant="4" id="eUR-DB-8LK"/>
+                                                    <constraint firstItem="mL1-C2-SKk" firstAttribute="top" secondItem="Vnv-yr-FQn" secondAttribute="top" id="inv-sM-7jE"/>
+                                                    <constraint firstItem="mL1-C2-SKk" firstAttribute="leading" secondItem="Vnv-yr-FQn" secondAttribute="leading" constant="4" id="kc0-1j-ifB"/>
+                                                    <constraint firstItem="W0S-uR-KSy" firstAttribute="centerX" secondItem="mL1-C2-SKk" secondAttribute="centerX" id="px0-Dz-V3A"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="2li-jR-9KT" firstAttribute="leading" secondItem="H1T-7r-pnB" secondAttribute="trailing" id="0bq-HL-OgS"/>
+                                            <constraint firstItem="2li-jR-9KT" firstAttribute="width" secondItem="k8I-wy-kf0" secondAttribute="width" id="3yy-43-6kL"/>
+                                            <constraint firstItem="k8I-wy-kf0" firstAttribute="leading" secondItem="2li-jR-9KT" secondAttribute="trailing" id="6Ho-98-Zrl"/>
+                                            <constraint firstItem="H1T-7r-pnB" firstAttribute="leading" secondItem="xwk-OF-CNK" secondAttribute="trailing" id="7qf-m6-Pb0"/>
+                                            <constraint firstItem="H1T-7r-pnB" firstAttribute="width" secondItem="2li-jR-9KT" secondAttribute="width" id="HMM-IR-i9J"/>
+                                            <constraint firstItem="Vnv-yr-FQn" firstAttribute="leading" secondItem="k8I-wy-kf0" secondAttribute="trailing" id="JxD-6T-P6R"/>
+                                            <constraint firstItem="xwk-OF-CNK" firstAttribute="width" secondItem="H1T-7r-pnB" secondAttribute="width" id="LEi-Rd-1SV"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vnv-yr-FQn" secondAttribute="trailing" id="OYn-De-NaC"/>
+                                            <constraint firstItem="k8I-wy-kf0" firstAttribute="width" secondItem="Vnv-yr-FQn" secondAttribute="width" id="qUU-vb-eJ5"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-uv-Avx">
+                                        <rect key="frame" x="107" y="517.5" width="200" height="60"/>
+                                        <color key="backgroundColor" red="0.88235294117647056" green="0.80392156862745101" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="A4n-cv-zS6"/>
+                                            <constraint firstAttribute="width" constant="200" id="nP5-kf-X6X"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="これでおくる">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="sendButton:" destination="uHM-hf-JGD" eventType="touchUpInside" id="VN2-Is-zqA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.96470588239999999" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="QpR-Gq-NFP" firstAttribute="centerX" secondItem="1vD-Ye-WaI" secondAttribute="centerX" id="Sls-36-4iI"/>
+                                    <constraint firstAttribute="trailing" secondItem="efI-9D-mvQ" secondAttribute="trailing" constant="2" id="9iV-Nj-r8k"/>
+                                    <constraint firstItem="efI-9D-mvQ" firstAttribute="top" secondItem="Nt0-bN-N9x" secondAttribute="bottom" id="FXB-UC-Ynt"/>
+                                    <constraint firstItem="QpR-Gq-NFP" firstAttribute="top" secondItem="efI-9D-mvQ" secondAttribute="bottom" constant="12" id="IaJ-Eq-Q3o"/>
+                                    <constraint firstItem="Nt0-bN-N9x" firstAttribute="height" secondItem="1vD-Ye-WaI" secondAttribute="height" multiplier="0.15" id="OSW-6X-HEX"/>
                                     <constraint firstItem="QpR-Gq-NFP" firstAttribute="centerX" secondItem="1vD-Ye-WaI" secondAttribute="centerX" id="Y0a-VI-ifq"/>
-                                    <constraint firstAttribute="bottom" secondItem="QpR-Gq-NFP" secondAttribute="bottom" constant="97" id="mBY-7y-ETb"/>
+                                    <constraint firstItem="Nt0-bN-N9x" firstAttribute="top" secondItem="1vD-Ye-WaI" secondAttribute="top" constant="20" id="dIc-le-TFr"/>
+                                    <constraint firstItem="XIE-Bh-Rfj" firstAttribute="top" secondItem="sRU-uv-Avx" secondAttribute="bottom" constant="10" id="ezP-d8-HFp"/>
+                                    <constraint firstItem="efI-9D-mvQ" firstAttribute="leading" secondItem="1vD-Ye-WaI" secondAttribute="leading" constant="2" id="haj-78-bNc"/>
+                                    <constraint firstItem="sRU-uv-Avx" firstAttribute="top" secondItem="QpR-Gq-NFP" secondAttribute="bottom" constant="16" id="qCL-Mg-hEf"/>
+                                    <constraint firstItem="efI-9D-mvQ" firstAttribute="height" secondItem="1vD-Ye-WaI" secondAttribute="height" multiplier="0.38" id="rK8-MO-lt2"/>
+                                    <constraint firstItem="XIE-Bh-Rfj" firstAttribute="centerX" secondItem="1vD-Ye-WaI" secondAttribute="centerX" id="vcQ-2j-ulO"/>
+                                    <constraint firstItem="sRU-uv-Avx" firstAttribute="centerX" secondItem="1vD-Ye-WaI" secondAttribute="centerX" id="wg8-Cn-ONy"/>
+                                    <constraint firstItem="Nt0-bN-N9x" firstAttribute="leading" secondItem="1vD-Ye-WaI" secondAttribute="leading" constant="20" id="xZc-os-FEO"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nt0-bN-N9x" secondAttribute="trailing" constant="20" id="y00-sY-92R"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
@@ -86,184 +362,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIO-AR-cmf" userLabel="さいこうボタン">
-                                <rect key="frame" x="20" y="134" width="66" height="56.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="sIO-AR-cmf" secondAttribute="height" multiplier="205:175" id="64R-86-9pa"/>
-                                    <constraint firstAttribute="width" constant="66" id="8Ci-6w-zxw"/>
-                                </constraints>
-                                <state key="normal" image="kibunIcon0_off"/>
-                                <connections>
-                                    <action selector="kibunButton0:" destination="uHM-hf-JGD" eventType="touchUpInside" id="DmS-bg-TEx"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geM-M1-2TA">
-                                <rect key="frame" x="23" y="200.5" width="60" height="14"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="さいこう！">
-                                        <attributes>
-                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="12" name=".HiraKakuInterface-W3"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsP-gD-KDQ" userLabel="いいねーボタン">
-                                <rect key="frame" x="94" y="134" width="66" height="56.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="66" id="Myz-AD-jrY"/>
-                                    <constraint firstAttribute="width" secondItem="wsP-gD-KDQ" secondAttribute="height" multiplier="205:175" id="f0W-lg-Umv"/>
-                                </constraints>
-                                <state key="normal" image="kibunIcon1_off"/>
-                                <connections>
-                                    <action selector="kibunButton1:" destination="uHM-hf-JGD" eventType="touchUpInside" id="2Va-GU-9nB"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56A-2Q-zjT" userLabel="いいね〜">
-                                <rect key="frame" x="103" y="200.5" width="48" height="14"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="いいね〜">
-                                        <attributes>
-                                            <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="12" name=".HiraKakuInterface-W3"/>
-                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctg-jD-Fpq" userLabel="まあまあボタン">
-                                <rect key="frame" x="168" y="134" width="66" height="56.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ctg-jD-Fpq" secondAttribute="height" multiplier="205:175" id="cM5-WA-BcH"/>
-                                    <constraint firstAttribute="width" constant="66" id="v9D-72-kln"/>
-                                </constraints>
-                                <state key="normal" image="kibunIcon2_off"/>
-                                <connections>
-                                    <action selector="kibunButton2:" destination="uHM-hf-JGD" eventType="touchUpInside" id="P3T-py-SNs"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pt5-E0-r1g">
-                                <rect key="frame" x="177" y="200.5" width="48" height="14"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="まあまあ">
-                                        <attributes>
-                                            <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="12" name=".HiraKakuInterface-W3"/>
-                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fha-WL-DzW" userLabel="うーんボタン">
-                                <rect key="frame" x="242" y="134" width="66" height="56.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="66" id="3e8-d7-ub6"/>
-                                    <constraint firstAttribute="width" secondItem="Fha-WL-DzW" secondAttribute="height" multiplier="205:175" id="dFx-rU-grW"/>
-                                </constraints>
-                                <state key="normal" image="kibunIcon3_off"/>
-                                <connections>
-                                    <action selector="kibunButton3:" destination="uHM-hf-JGD" eventType="touchUpInside" id="sFI-rA-GRN"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcI-BV-xQ3" userLabel="うーん">
-                                <rect key="frame" x="257" y="200.5" width="36" height="14"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="う〜ん">
-                                        <attributes>
-                                            <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="12" name=".HiraKakuInterface-W3"/>
-                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mL1-C2-SKk" userLabel="さいあくボタン">
-                                <rect key="frame" x="316" y="134" width="66" height="56.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="66" id="MOy-9e-0SZ"/>
-                                    <constraint firstAttribute="width" secondItem="mL1-C2-SKk" secondAttribute="height" multiplier="205:175" id="qHK-Oc-r6o"/>
-                                </constraints>
-                                <state key="normal" image="kibunIcon4_off"/>
-                                <connections>
-                                    <action selector="kibunButton4:" destination="uHM-hf-JGD" eventType="touchUpInside" id="gxF-uw-EVq"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0S-uR-KSy" userLabel="さいあく">
-                                <rect key="frame" x="320" y="200.5" width="58" height="15"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="さいあく">
-                                        <attributes>
-                                            <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="12" name=".HiraKakuInterface-W3"/>
-                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="…">
-                                        <attributes>
-                                            <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="cellTitle"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今日の日記を書きました！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIE-Bh-Rfj">
-                                <rect key="frame" x="103" y="483" width="208" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="300" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Tb-EX-Q93">
-                                <rect key="frame" x="355" y="309.5" width="31" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.85882352941176465" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="wsP-gD-KDQ" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="07o-h1-ejp"/>
-                            <constraint firstItem="geM-M1-2TA" firstAttribute="top" secondItem="sIO-AR-cmf" secondAttribute="bottom" constant="10" id="08V-VJ-mtN"/>
                             <constraint firstItem="dGa-jd-Qbi" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="20" id="9i3-Ls-pRm"/>
-                            <constraint firstItem="geM-M1-2TA" firstAttribute="centerX" secondItem="sIO-AR-cmf" secondAttribute="centerX" id="9oW-iy-Mkv"/>
-                            <constraint firstItem="W0S-uR-KSy" firstAttribute="top" secondItem="mL1-C2-SKk" secondAttribute="bottom" constant="10" id="DkT-hE-xkv"/>
-                            <constraint firstItem="sIO-AR-cmf" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="E10-WV-R4s"/>
-                            <constraint firstItem="ctg-jD-Fpq" firstAttribute="leading" secondItem="wsP-gD-KDQ" secondAttribute="trailing" constant="8" id="Hcc-bq-3JS"/>
-                            <constraint firstItem="mL1-C2-SKk" firstAttribute="leading" secondItem="Fha-WL-DzW" secondAttribute="trailing" constant="8" id="IGl-Ht-Ir1"/>
-                            <constraint firstItem="mL1-C2-SKk" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="Jxb-Ca-Tdh"/>
-                            <constraint firstItem="GcI-BV-xQ3" firstAttribute="centerX" secondItem="Fha-WL-DzW" secondAttribute="centerX" id="PUr-tR-SHl"/>
-                            <constraint firstItem="Fha-WL-DzW" firstAttribute="leading" secondItem="ctg-jD-Fpq" secondAttribute="trailing" constant="8" id="Q5U-y5-AXS"/>
-                            <constraint firstItem="56A-2Q-zjT" firstAttribute="top" secondItem="wsP-gD-KDQ" secondAttribute="bottom" constant="10" id="S1C-NC-q74"/>
-                            <constraint firstItem="1vD-Ye-WaI" firstAttribute="top" secondItem="wxw-JS-15q" secondAttribute="top" constant="110" id="VUQ-fd-fR2"/>
-                            <constraint firstItem="GcI-BV-xQ3" firstAttribute="top" secondItem="Fha-WL-DzW" secondAttribute="bottom" constant="10" id="VeE-zp-odq"/>
+                            <constraint firstItem="QpR-Gq-NFP" firstAttribute="width" secondItem="wxw-JS-15q" secondAttribute="width" multiplier="0.3" id="B6B-ht-ihy"/>
+                            <constraint firstItem="nhy-2r-OR0" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" id="HjU-Yo-gD0"/>
+                            <constraint firstItem="1vD-Ye-WaI" firstAttribute="top" secondItem="nhy-2r-OR0" secondAttribute="bottom" id="VUQ-fd-fR2"/>
                             <constraint firstItem="dGa-jd-Qbi" firstAttribute="centerX" secondItem="wxw-JS-15q" secondAttribute="centerX" id="Vew-YR-znz"/>
-                            <constraint firstItem="sIO-AR-cmf" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" constant="20" id="cID-TU-TtE"/>
-                            <constraint firstItem="Fha-WL-DzW" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="cqo-x3-Pnt"/>
-                            <constraint firstAttribute="bottom" secondItem="1vD-Ye-WaI" secondAttribute="bottom" constant="135" id="gzK-V8-Tvc"/>
-                            <constraint firstItem="56A-2Q-zjT" firstAttribute="centerX" secondItem="wsP-gD-KDQ" secondAttribute="centerX" id="h2p-Po-rHF"/>
-                            <constraint firstItem="wsP-gD-KDQ" firstAttribute="leading" secondItem="sIO-AR-cmf" secondAttribute="trailing" constant="8" id="lgo-vW-clx"/>
+                            <constraint firstAttribute="bottom" secondItem="1vD-Ye-WaI" secondAttribute="bottom" constant="88" id="gzK-V8-Tvc"/>
+                            <constraint firstItem="nhy-2r-OR0" firstAttribute="trailing" secondItem="Dm6-zi-Z9E" secondAttribute="trailing" id="hZa-AQ-BHf"/>
                             <constraint firstItem="1vD-Ye-WaI" firstAttribute="trailing" secondItem="Dm6-zi-Z9E" secondAttribute="trailing" id="tYc-bA-5gV"/>
                             <constraint firstItem="1vD-Ye-WaI" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" id="wWf-de-1my"/>
-                            <constraint firstItem="ctg-jD-Fpq" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="90" id="wmC-Kz-UN3"/>
-                            <constraint firstItem="W0S-uR-KSy" firstAttribute="centerX" secondItem="mL1-C2-SKk" secondAttribute="centerX" id="xDf-xu-nfT"/>
-                            <constraint firstItem="pt5-E0-r1g" firstAttribute="top" secondItem="ctg-jD-Fpq" secondAttribute="bottom" constant="10" id="xr7-sZ-uvY"/>
-                            <constraint firstItem="pt5-E0-r1g" firstAttribute="centerX" secondItem="ctg-jD-Fpq" secondAttribute="centerX" id="zCI-x9-s0W"/>
+                            <constraint firstItem="nhy-2r-OR0" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" id="yBX-ml-1gY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dm6-zi-Z9E"/>
                     </view>
                     <connections>
+                        <outlet property="balloonView" destination="efI-9D-mvQ" id="Ty0-v6-mRf"/>
                         <outlet property="kibunButton0" destination="sIO-AR-cmf" id="HGi-hV-U4p"/>
                         <outlet property="kibunButton1" destination="wsP-gD-KDQ" id="jOt-8f-Iyo"/>
                         <outlet property="kibunButton2" destination="ctg-jD-Fpq" id="FS3-ZH-Oil"/>
@@ -287,6 +403,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="balloonImage" width="701" height="626"/>
         <image name="diary_image_icon" width="131" height="105"/>
         <image name="kibunIcon0_off" width="102.5" height="87.5"/>
         <image name="kibunIcon1_off" width="97.5" height="87.5"/>

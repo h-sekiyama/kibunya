@@ -10,11 +10,18 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MainViewController" customModule="家族ダイアリー" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MainViewController" customModule="Family_Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zY1-AB-hvX" userLabel="Navi Bar">
+                                <rect key="frame" x="0.0" y="44" width="414" height="66"/>
+                                <color key="backgroundColor" red="1" green="0.8984755874" blue="0.66378134489999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="azY-aX-NYB"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wP-IY-kLv" userLabel="BackgroundView">
                                 <rect key="frame" x="0.0" y="110" width="414" height="651"/>
                                 <color key="backgroundColor" red="1" green="0.96470588239999999" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -28,7 +35,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="txb-8X-qYK" userLabel="Kibun List">
-                                <rect key="frame" x="0.0" y="110" width="414" height="651"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="698"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl5-Mz-wtH">
@@ -43,14 +50,13 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KYa-aa-6UK">
-                                <rect key="frame" x="0.0" y="426" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYa-aa-6UK">
+                                <rect key="frame" x="103" y="438" width="208" height="20.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="誰も日記を書いていません">
                                         <attributes>
-                                            <font key="NSFont" size="17" name=".HiraKakuInterface-W3"/>
-                                            <font key="NSOriginalFont" size="17" name=".HiraKakuInterface-W3"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -83,19 +89,24 @@
                         <color key="backgroundColor" red="1" green="0.85882352941176465" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="RDe-NO-a1F" firstAttribute="centerY" secondItem="Nl5-Mz-wtH" secondAttribute="centerY" id="0uD-NX-oPh"/>
+                            <constraint firstItem="zY1-AB-hvX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="22X-fG-V1P"/>
                             <constraint firstItem="Nl5-Mz-wtH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="3P7-N9-jWU"/>
+                            <constraint firstItem="zY1-AB-hvX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9lm-kf-tDl"/>
                             <constraint firstItem="Nl5-Mz-wtH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JWP-ni-dPT"/>
                             <constraint firstItem="6wP-IY-kLv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MaL-Dp-4EJ"/>
                             <constraint firstItem="6wP-IY-kLv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MzE-DB-bT8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L6C-kP-KVH" secondAttribute="trailing" constant="20" id="SLB-6F-Zid"/>
-                            <constraint firstItem="txb-8X-qYK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="110" id="Ygs-AA-GV4"/>
+                            <constraint firstItem="txb-8X-qYK" firstAttribute="top" secondItem="zY1-AB-hvX" secondAttribute="bottom" id="Ygs-AA-GV4"/>
+                            <constraint firstItem="KYa-aa-6UK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bCf-Wg-NR1"/>
                             <constraint firstItem="RDe-NO-a1F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="h4f-OP-m3J"/>
                             <constraint firstItem="txb-8X-qYK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hn7-fr-8h1"/>
-                            <constraint firstItem="6wP-IY-kLv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="110" id="i75-3Y-eL9"/>
+                            <constraint firstItem="6wP-IY-kLv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="66" id="i75-3Y-eL9"/>
                             <constraint firstItem="L6C-kP-KVH" firstAttribute="centerY" secondItem="Nl5-Mz-wtH" secondAttribute="centerY" id="ibO-u6-bSr"/>
                             <constraint firstAttribute="bottom" secondItem="6wP-IY-kLv" secondAttribute="bottom" constant="135" id="kk0-Zz-doH"/>
                             <constraint firstItem="txb-8X-qYK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="maF-iu-5DY"/>
-                            <constraint firstItem="txb-8X-qYK" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" constant="-135" id="uOs-fs-9aN"/>
+                            <constraint firstItem="KYa-aa-6UK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="omc-3S-abF"/>
+                            <constraint firstItem="txb-8X-qYK" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" constant="-88" id="uOs-fs-9aN"/>
+                            <constraint firstItem="zY1-AB-hvX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yDk-8N-7iv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TabBarView" customModule="家族ダイアリー" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TabBarView" customModule="Family_Diary" customModuleProvider="target">
             <connections>
                 <outlet property="diaryButton" destination="gl7-LC-TPD" id="Adp-z9-lXv"/>
                 <outlet property="inputDiaryButton" destination="MUZ-Zu-lok" id="lQd-Ds-wDg"/>
@@ -23,59 +23,91 @@
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDK-JH-ocO">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-LC-TPD" userLabel="気分タブ">
-                            <rect key="frame" x="0.0" y="0.0" width="136.5" height="135"/>
-                            <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
-                            <state key="normal" backgroundImage="tab_image0_off">
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                            </state>
-                            <connections>
-                                <action selector="diaryButton:" destination="-1" eventType="touchUpInside" id="xzW-Tf-bv9"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MUZ-Zu-lok" userLabel="入力タブ">
-                            <rect key="frame" x="136.5" y="0.0" width="139" height="135"/>
-                            <state key="normal" backgroundImage="tab_image1_off">
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                            </state>
-                            <connections>
-                                <action selector="inputDiaryButton:" destination="-1" eventType="touchUpInside" id="2aM-qL-lYZ"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-Y6-xWo" userLabel="その他タブ">
-                            <rect key="frame" x="275.5" y="0.0" width="138.5" height="135"/>
-                            <state key="normal" backgroundImage="tab_image2_off">
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                            </state>
-                            <connections>
-                                <action selector="otherButton:" destination="-1" eventType="touchUpInside" id="iUI-xd-1AB"/>
-                            </connections>
-                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCB-9w-BQy" userLabel="気分View">
+                            <rect key="frame" x="0.0" y="0.0" width="138" height="135"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-LC-TPD" userLabel="気分タブ">
+                                    <rect key="frame" x="0.0" y="45.5" width="138" height="89.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                    <state key="normal" backgroundImage="tab_image0_off">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="diaryButton:" destination="-1" eventType="touchUpInside" id="xzW-Tf-bv9"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="gl7-LC-TPD" secondAttribute="trailing" id="BIH-zs-t6l"/>
+                                <constraint firstItem="gl7-LC-TPD" firstAttribute="leading" secondItem="ZCB-9w-BQy" secondAttribute="leading" id="UCU-e5-xqS"/>
+                                <constraint firstAttribute="bottom" secondItem="gl7-LC-TPD" secondAttribute="bottom" id="g2Y-du-lHc"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3G-gW-wb8" userLabel="日記View">
+                            <rect key="frame" x="138" y="0.0" width="138" height="135"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MUZ-Zu-lok" userLabel="入力タブ">
+                                    <rect key="frame" x="0.0" y="20" width="138" height="115"/>
+                                    <state key="normal" backgroundImage="tab_image1_off">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="inputDiaryButton:" destination="-1" eventType="touchUpInside" id="2aM-qL-lYZ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="MUZ-Zu-lok" firstAttribute="leading" secondItem="h3G-gW-wb8" secondAttribute="leading" id="RR8-vs-WOg"/>
+                                <constraint firstAttribute="bottom" secondItem="MUZ-Zu-lok" secondAttribute="bottom" id="hVl-eb-4Nb"/>
+                                <constraint firstAttribute="trailing" secondItem="MUZ-Zu-lok" secondAttribute="trailing" id="pud-jL-NmQ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcI-4I-oQ4" userLabel="設定View">
+                            <rect key="frame" x="276" y="0.0" width="138" height="135"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-Y6-xWo" userLabel="その他タブ">
+                                    <rect key="frame" x="0.0" y="45.5" width="138" height="89.5"/>
+                                    <state key="normal" backgroundImage="tab_image2_off">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="otherButton:" destination="-1" eventType="touchUpInside" id="iUI-xd-1AB"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Ack-Y6-xWo" secondAttribute="bottom" id="ZgP-Pt-dFK"/>
+                                <constraint firstItem="Ack-Y6-xWo" firstAttribute="leading" secondItem="ZcI-4I-oQ4" secondAttribute="leading" id="bMe-mS-bhi"/>
+                                <constraint firstAttribute="trailing" secondItem="Ack-Y6-xWo" secondAttribute="trailing" id="eU3-5q-uNo"/>
+                            </constraints>
+                        </view>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Ack-Y6-xWo" secondAttribute="trailing" id="62h-nU-jLL"/>
-                        <constraint firstItem="gl7-LC-TPD" firstAttribute="leading" secondItem="KDK-JH-ocO" secondAttribute="leading" id="DLM-Hp-rsl"/>
-                        <constraint firstItem="MUZ-Zu-lok" firstAttribute="width" secondItem="Ack-Y6-xWo" secondAttribute="width" id="Mxc-oZ-LDd"/>
+                        <constraint firstItem="ZCB-9w-BQy" firstAttribute="width" secondItem="h3G-gW-wb8" secondAttribute="width" id="IyI-5h-VJY"/>
+                        <constraint firstItem="h3G-gW-wb8" firstAttribute="width" secondItem="ZcI-4I-oQ4" secondAttribute="width" id="z3H-Lw-oMN"/>
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="G7Y-Vb-DRj" firstAttribute="trailing" secondItem="KDK-JH-ocO" secondAttribute="trailing" id="3WF-cH-cxR"/>
-                <constraint firstItem="KDK-JH-ocO" firstAttribute="top" secondItem="gee-3i-b8b" secondAttribute="top" id="7A1-mI-gLE"/>
-                <constraint firstItem="KDK-JH-ocO" firstAttribute="leading" secondItem="G7Y-Vb-DRj" secondAttribute="leading" id="8wt-BW-l7G"/>
-                <constraint firstItem="gl7-LC-TPD" firstAttribute="width" secondItem="gee-3i-b8b" secondAttribute="width" multiplier="0.33" id="eaI-V3-fVg"/>
-                <constraint firstItem="KDK-JH-ocO" firstAttribute="width" secondItem="gee-3i-b8b" secondAttribute="width" id="fGG-1T-ERf"/>
-                <constraint firstAttribute="bottom" secondItem="KDK-JH-ocO" secondAttribute="bottom" id="qi7-H6-Vdy"/>
+                <constraint firstItem="KDK-JH-ocO" firstAttribute="bottom" secondItem="gee-3i-b8b" secondAttribute="bottom" id="3gM-Vm-Qal"/>
+                <constraint firstItem="G7Y-Vb-DRj" firstAttribute="trailing" secondItem="KDK-JH-ocO" secondAttribute="trailing" id="FgH-4I-vEs"/>
+                <constraint firstItem="KDK-JH-ocO" firstAttribute="top" secondItem="gee-3i-b8b" secondAttribute="top" id="OEg-1H-ktN"/>
+                <constraint firstItem="KDK-JH-ocO" firstAttribute="leading" secondItem="G7Y-Vb-DRj" secondAttribute="leading" id="Rnp-Zf-guA"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="G7Y-Vb-DRj"/>
-            <point key="canvasLocation" x="-304" y="79"/>
+            <point key="canvasLocation" x="-286" y="63"/>
         </view>
     </objects>
     <resources>
-        <image name="tab_image0_off" width="135" height="115"/>
+        <image name="tab_image0_off" width="135" height="89.5"/>
         <image name="tab_image1_off" width="135" height="115"/>
-        <image name="tab_image2_off" width="135" height="115"/>
+        <image name="tab_image2_off" width="135" height="89.5"/>
     </resources>
 </document>

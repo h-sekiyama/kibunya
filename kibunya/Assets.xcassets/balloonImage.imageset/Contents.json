@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icon_worst_off-3.png",
+      "filename" : "吹き出し.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon_worst_off-1.png",
+      "filename" : "吹き出し-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon_worst_off-2.png",
+      "filename" : "吹き出し-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3E70A80824E26376008667B5"
-               BuildableName = "&#x5bb6;&#x65cf;&#x30bf;&#x3099;&#x30a4;&#x30a2;&#x30ea;&#x30fc;.app"
+               BuildableName = "Family Diary.app"
                BlueprintName = "kibunya"
                ReferencedContainer = "container:kibunya.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3E70A80824E26376008667B5"
-            BuildableName = "&#x5bb6;&#x65cf;&#x30bf;&#x3099;&#x30a4;&#x30a2;&#x30ea;&#x30fc;.app"
+            BuildableName = "Family Diary.app"
             BlueprintName = "kibunya"
             ReferencedContainer = "container:kibunya.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3E70A80824E26376008667B5"
-            BuildableName = "&#x5bb6;&#x65cf;&#x30bf;&#x3099;&#x30a4;&#x30a2;&#x30ea;&#x30fc;.app"
+            BuildableName = "Family Diary.app"
             BlueprintName = "kibunya"
             ReferencedContainer = "container:kibunya.xcodeproj">
          </BuildableReference>
