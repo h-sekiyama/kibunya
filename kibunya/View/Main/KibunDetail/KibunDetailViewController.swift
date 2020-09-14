@@ -33,6 +33,8 @@ class KibunDetailViewController:  UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     // 投稿画像
     @IBOutlet weak var diaryImage: UIImageView!
+    // 投稿画像の高さ制約
+
     // 日記本文
     @IBOutlet weak var textLabel: UITextView!
     // ユーザーアイコン
@@ -46,7 +48,6 @@ class KibunDetailViewController:  UIViewController {
         mainViewController.modalPresentationStyle = .fullScreen
         self.present(mainViewController, animated: false, completion: nil)
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +57,8 @@ class KibunDetailViewController:  UIViewController {
         if (imageUrl != "") {
             diaryImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
             diaryImage.sd_setImage(with: URL(string: imageUrl))
+        } else {
+            diaryImage.isHidden = true
         }
         
         // 本文タップ時にキーボードを出さない様にする
