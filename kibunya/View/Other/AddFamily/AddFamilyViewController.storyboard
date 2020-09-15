@@ -17,9 +17,24 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMI-4U-jF4" userLabel="Navi Bar">
                                 <rect key="frame" x="0.0" y="44" width="414" height="66"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRg-lj-UDV" userLabel="Back Button">
+                                        <rect key="frame" x="20" y="11" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="9V1-6H-6a6"/>
+                                            <constraint firstAttribute="height" constant="44" id="RwW-xC-YOA"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow_left_on"/>
+                                        <connections>
+                                            <action selector="backButton:" destination="LAC-2z-Dqm" eventType="touchUpInside" id="cgo-PV-R0K"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.8980392157" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="F0A-A5-Kfe"/>
+                                    <constraint firstItem="bRg-lj-UDV" firstAttribute="centerY" secondItem="TMI-4U-jF4" secondAttribute="centerY" id="F6Z-4H-X1B"/>
+                                    <constraint firstItem="bRg-lj-UDV" firstAttribute="leading" secondItem="TMI-4U-jF4" secondAttribute="leading" constant="20" id="b63-Kh-6Zv"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mg-d1-uTf" userLabel="せってい">
@@ -336,6 +351,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_left_on" width="24" height="36.5"/>
         <image name="icon_paw" width="51" height="54.5"/>
     </resources>
 </document>

@@ -19,6 +19,12 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
     // 招待から起動した際に追加家族IDを入れる変数
     var addFamilyId: String = ""
     
+    // 戻るボタンタップ
+    @IBAction func backButton(_ sender: Any) {
+        let otherViewController = UIStoryboard(name: "OtherViewController", bundle: nil).instantiateViewController(withIdentifier: "OtherViewController") as! OtherViewController
+        otherViewController.modalPresentationStyle = .fullScreen
+        self.present(otherViewController, animated: false, completion: nil)
+    }
     //  ユーザーIDを入力するテキストボックス
     @IBOutlet weak var userIdInputTextBox: UITextField!
     

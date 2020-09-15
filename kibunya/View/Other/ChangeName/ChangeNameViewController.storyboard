@@ -17,9 +17,24 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JRT-ax-AMQ" userLabel="Navi Bar">
                                 <rect key="frame" x="0.0" y="44" width="414" height="66"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lq2-d1-Wkc" userLabel="Back Button">
+                                        <rect key="frame" x="20" y="11" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="AY8-vk-hmb"/>
+                                            <constraint firstAttribute="width" constant="44" id="jZd-j9-Yrd"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow_left_on"/>
+                                        <connections>
+                                            <action selector="backButton:" destination="8eU-Fb-KQo" eventType="touchUpInside" id="LrE-e3-6Kf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.8980392157" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="NJX-Y9-C1k"/>
+                                    <constraint firstItem="Lq2-d1-Wkc" firstAttribute="centerY" secondItem="JRT-ax-AMQ" secondAttribute="centerY" id="UPg-nC-SYz"/>
+                                    <constraint firstItem="Lq2-d1-Wkc" firstAttribute="leading" secondItem="JRT-ax-AMQ" secondAttribute="leading" constant="20" id="uzL-oP-H6n"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUX-cL-Nku">
@@ -190,6 +205,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_left_on" width="24" height="36.5"/>
         <image name="icon_paw" width="51" height="54.5"/>
         <image name="no_image" width="200" height="200"/>
     </resources>

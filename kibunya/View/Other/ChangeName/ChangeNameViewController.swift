@@ -31,6 +31,12 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
         self.present(ipc,animated: true, completion: nil)
     }
     
+    // 戻るボタンタップ
+    @IBAction func backButton(_ sender: Any) {
+        let otherViewController = UIStoryboard(name: "OtherViewController", bundle: nil).instantiateViewController(withIdentifier: "OtherViewController") as! OtherViewController
+        otherViewController.modalPresentationStyle = .fullScreen
+        self.present(otherViewController, animated: false, completion: nil)
+    }
     // 名前入力テキストボックス
     @IBOutlet weak var nameTextBox: UITextField!
     // プロフィール変更ボタン
