@@ -66,7 +66,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="410" height="265.5"/>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="biR-WE-q3x">
-                                                <rect key="frame" x="20" y="28" width="370" height="217.5"/>
+                                                <rect key="frame" x="14" y="28" width="382" height="217.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -99,10 +99,10 @@
                                             <constraint firstAttribute="trailing" secondItem="vRy-PZ-If0" secondAttribute="trailing" id="6eY-ur-SWo"/>
                                             <constraint firstAttribute="bottom" secondItem="biR-WE-q3x" secondAttribute="bottom" constant="20" id="8aa-vw-P7h"/>
                                             <constraint firstItem="vRy-PZ-If0" firstAttribute="top" secondItem="efI-9D-mvQ" secondAttribute="top" id="EUu-aW-d1J"/>
-                                            <constraint firstItem="biR-WE-q3x" firstAttribute="leading" secondItem="efI-9D-mvQ" secondAttribute="leading" constant="20" id="Kj8-t6-nwV"/>
+                                            <constraint firstItem="biR-WE-q3x" firstAttribute="leading" secondItem="efI-9D-mvQ" secondAttribute="leading" constant="14" id="Kj8-t6-nwV"/>
                                             <constraint firstAttribute="trailing" secondItem="3Tb-EX-Q93" secondAttribute="trailing" constant="20" id="gQP-gv-TaB"/>
                                             <constraint firstItem="3Tb-EX-Q93" firstAttribute="top" secondItem="efI-9D-mvQ" secondAttribute="top" id="h27-Kp-2YB"/>
-                                            <constraint firstAttribute="trailing" secondItem="biR-WE-q3x" secondAttribute="trailing" constant="20" id="rUn-UB-fCj"/>
+                                            <constraint firstAttribute="trailing" secondItem="biR-WE-q3x" secondAttribute="trailing" constant="14" id="rUn-UB-fCj"/>
                                             <constraint firstItem="vRy-PZ-If0" firstAttribute="leading" secondItem="efI-9D-mvQ" secondAttribute="leading" id="sx1-Ur-xiY"/>
                                             <constraint firstItem="biR-WE-q3x" firstAttribute="top" secondItem="efI-9D-mvQ" secondAttribute="top" constant="28" id="tqF-2m-SHb"/>
                                             <constraint firstAttribute="bottom" secondItem="vRy-PZ-If0" secondAttribute="bottom" id="tva-cB-6UC"/>

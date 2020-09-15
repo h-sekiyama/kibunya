@@ -28,6 +28,12 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
     var myProfileIcon: UIImage? = nil
     // 家族が一人もいない時のラベル
     @IBOutlet weak var emptyFamilyLabel: UILabel!
+    // 戻るボタンタップ
+    @IBAction func backButton(_ sender: Any) {
+        let otherViewController = UIStoryboard(name: "OtherViewController", bundle: nil).instantiateViewController(withIdentifier: "OtherViewController") as! OtherViewController
+        otherViewController.modalPresentationStyle = .fullScreen
+        self.present(otherViewController, animated: false, completion: nil)
+    }
     // 家出するボタン
     @IBOutlet weak var runawayButton: UIButton!
     @IBAction func runawayButton(_ sender: Any) {
@@ -80,7 +86,7 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
         tabBarView.owner = self
 
         // タブの表示位置を調整
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY - 140, width: self.view.bounds.width, height: 140)
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
         tabBarView.otherButton.setBackgroundImage(UIImage(named: "tab_image2_on"), for: .normal)
     }
     
@@ -98,7 +104,7 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
                     self.emptyFamilyLabel.text = "まだ家族が一人もいません"
                     self.tableView.isHidden = true
                     self.emptyFamilyLabel.isHidden = false
-                    self.runawayButton.isEnabled = false
+                    self.runawayButton.isHidden = true
                 } else {
                     self.familyId = querySnapshot?.documents[0].documentID ?? ""
                     self.familyArray = querySnapshot?.documents[0].data()["user_id"] as! [String]
@@ -154,6 +160,6 @@ extension ShowFamilyViewController: UITableViewDataSource {
     
     // セルの高さを指定する
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 100
     }
 }

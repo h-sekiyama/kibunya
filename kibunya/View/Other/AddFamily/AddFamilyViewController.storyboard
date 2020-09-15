@@ -38,12 +38,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mg-d1-uTf" userLabel="せってい">
-                                <rect key="frame" x="126.5" y="65.5" width="161" height="23"/>
+                                <rect key="frame" x="162" y="65.5" width="90" height="23"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="家族を追加する">
+                                    <fragment content="せってい">
                                         <attributes>
                                             <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="23" name="HiraMaruProN-W4"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -59,6 +60,21 @@
                                             <constraint firstAttribute="height" constant="34" id="lyu-cu-RKB"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hFI-pv-vaR">
+                                        <rect key="frame" x="79" y="37" width="149" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="家族を追加する">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="18"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="ユーザーIDを入力" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MhA-TR-SyO" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
                                         <rect key="frame" x="20" y="74" width="374" height="48"/>
                                         <constraints>
@@ -232,21 +248,6 @@
                                             <action selector="searchUserButton:" destination="LAC-2z-Dqm" eventType="touchUpInside" id="LWN-G3-1UI"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hFI-pv-vaR">
-                                        <rect key="frame" x="79" y="37" width="149" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="家族を追加する">
-                                                <attributes>
-                                                    <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
-                                                    <font key="NSOriginalFont" metaFont="system" size="18"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQO-lo-z08">
                                         <rect key="frame" x="8" y="392" width="398" height="2"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.80000000000000004" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -324,7 +325,11 @@
                             <constraint firstItem="TMI-4U-jF4" firstAttribute="trailing" secondItem="KY2-Ws-242" secondAttribute="trailing" id="5F5-2z-8HN"/>
                             <constraint firstItem="5Mg-d1-uTf" firstAttribute="centerX" secondItem="TMI-4U-jF4" secondAttribute="centerX" id="6Hl-Gx-uJR"/>
                             <constraint firstItem="KY2-Ws-242" firstAttribute="bottom" secondItem="tsT-K7-BeF" secondAttribute="bottom" id="F46-Kw-SzH"/>
+                            <constraint firstItem="tsT-K7-BeF" firstAttribute="bottom" secondItem="KY2-Ws-242" secondAttribute="bottom" id="OKb-BS-ag3"/>
+                            <constraint firstItem="tsT-K7-BeF" firstAttribute="top" secondItem="TMI-4U-jF4" secondAttribute="bottom" id="RIn-dw-4WT"/>
                             <constraint firstItem="5Mg-d1-uTf" firstAttribute="centerY" secondItem="TMI-4U-jF4" secondAttribute="centerY" id="dwt-5e-f9A"/>
+                            <constraint firstItem="tsT-K7-BeF" firstAttribute="leading" secondItem="KY2-Ws-242" secondAttribute="leading" id="gRa-iv-PjI"/>
+                            <constraint firstItem="tsT-K7-BeF" firstAttribute="trailing" secondItem="KY2-Ws-242" secondAttribute="trailing" id="k5q-80-wgP"/>
                             <constraint firstItem="KY2-Ws-242" firstAttribute="trailing" secondItem="tsT-K7-BeF" secondAttribute="trailing" id="lmx-NM-01n"/>
                             <constraint firstItem="TMI-4U-jF4" firstAttribute="top" secondItem="KY2-Ws-242" secondAttribute="top" id="mZ3-vN-Tb7"/>
                             <constraint firstItem="tsT-K7-BeF" firstAttribute="leading" secondItem="KY2-Ws-242" secondAttribute="leading" id="puC-Pn-218"/>
