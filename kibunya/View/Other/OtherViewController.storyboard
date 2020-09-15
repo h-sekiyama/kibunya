@@ -278,7 +278,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtD-ue-Pnm">
-                                <rect key="frame" x="162" y="64" width="90" height="23"/>
+                                <rect key="frame" x="162" y="65.5" width="90" height="23"/>
                                 <attributedString key="attributedText">
                                     <fragment content="せってい">
                                         <attributes>
@@ -294,12 +294,12 @@
                         <color key="backgroundColor" red="1" green="0.85882352941176465" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="S6c-4E-OYL" firstAttribute="top" secondItem="glR-6j-EHG" secondAttribute="top" id="2Sk-ib-AVf"/>
+                            <constraint firstItem="rtD-ue-Pnm" firstAttribute="centerY" secondItem="S6c-4E-OYL" secondAttribute="centerY" id="42W-Er-d6y"/>
                             <constraint firstItem="rtD-ue-Pnm" firstAttribute="centerX" secondItem="EA3-Un-dd6" secondAttribute="centerX" id="H6I-4e-85X"/>
                             <constraint firstItem="qRb-AZ-xjf" firstAttribute="leading" secondItem="glR-6j-EHG" secondAttribute="leading" id="czj-sf-N5J"/>
                             <constraint firstItem="S6c-4E-OYL" firstAttribute="trailing" secondItem="glR-6j-EHG" secondAttribute="trailing" id="d44-nc-vxA"/>
                             <constraint firstItem="qRb-AZ-xjf" firstAttribute="trailing" secondItem="glR-6j-EHG" secondAttribute="trailing" id="hap-hI-3L2"/>
                             <constraint firstItem="qRb-AZ-xjf" firstAttribute="bottom" secondItem="EA3-Un-dd6" secondAttribute="bottom" constant="-88" id="jIH-fX-Gm6"/>
-                            <constraint firstItem="rtD-ue-Pnm" firstAttribute="top" secondItem="glR-6j-EHG" secondAttribute="top" constant="20" id="kkO-2f-PGA"/>
                             <constraint firstItem="S6c-4E-OYL" firstAttribute="bottom" secondItem="qRb-AZ-xjf" secondAttribute="top" id="lOk-ez-H9X"/>
                             <constraint firstItem="S6c-4E-OYL" firstAttribute="leading" secondItem="glR-6j-EHG" secondAttribute="leading" id="qWB-UL-FzP"/>
                         </constraints>

@@ -30,9 +30,10 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
     
     // ユーザーID検索処理
     func searchUser() {
-        if (self.userIdInputTextBox.text == myUserId) {
-            self.userNameLabel.text = "自分のユーザーIDです"
-            self.addFamilyButton.isEnabled = false
+        if (userIdInputTextBox.text == myUserId) {
+            userNameLabel.text = "自分のユーザーIDです"
+            userNameLabel.isHidden = false
+            Functions.updateButtonEnabled(button: addFamilyButton, enabled: false)
             return
         }
         startIndicator()
@@ -42,11 +43,13 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
             if let data = document?.data() {
                 self.familyUserName = data["name"] as? String
                 self.userNameLabel.text = self.familyUserName
+                self.userNameLabel.isHidden = false
                 self.familyUserId = self.userIdInputTextBox.text ?? ""
-                self.addFamilyButton.isEnabled = true
+                Functions.updateButtonEnabled(button: self.addFamilyButton, enabled: true)
             } else {
                 self.userNameLabel.text = "該当するユーザーがいません"
-                self.addFamilyButton.isEnabled = false
+                self.userNameLabel.isHidden = false
+                Functions.updateButtonEnabled(button: self.addFamilyButton, enabled: false)
             }
             self.dismissIndicator()
         }
@@ -81,6 +84,8 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
                         } else {
                             self.addedFamilyLabel.text = self.familyUserName
                             self.addedFamily.isHidden = false
+                            self.userNameLabel.isHidden = true
+                            self.addedFamily.isHidden = true
                         }
                     }
                 } else {    // 自分か相手のユーザーIDがいずれかの家族に追加済みの場合
@@ -110,6 +115,7 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
                                     self.addedFamilyLabel.text = self.familyUserName
                                     self.addFamilyInfo.text = "と家族になりました！"
                                     self.addedFamily.isHidden = false
+                                    self.userNameLabel.isHidden = true
                                 }
                             }
                         }
@@ -193,6 +199,7 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var myUserIdTextBox: UITextField!
 
     // 自分のIDを共有
+    @IBOutlet weak var otherShareButton: UIButton!
     @IBAction func otherShareButton(_ sender: Any) {
         let shareName: String = userName
         let shareId: String = myUserId
@@ -264,9 +271,9 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
     // 各テキストフィールド入力監視
     @objc func textFieldDidChange(_ textFiled: UITextField) {
         if (userIdInputTextBox.text!.count > 0) {
-            searchUserButton.isEnabled = true
+            Functions.updateButtonEnabled(button: searchUserButton, enabled: true)
         } else {
-            searchUserButton.isEnabled = false
+            Functions.updateButtonEnabled(button: searchUserButton, enabled: false)
         }
     }
 }

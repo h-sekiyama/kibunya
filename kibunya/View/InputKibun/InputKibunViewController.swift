@@ -38,8 +38,7 @@ class InputKibunViewController: UIViewController {
     @IBAction func kibunButton0(_ sender: Any) {
         kibunStatus = 0
         if (kibunTextBox.text?.count != 0) {
-            sendButton.isEnabled = true
-            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
+            Functions.updateButtonEnabled(button: sendButton, enabled: true)
         }
     }
     // 良いボタンタップ
@@ -47,8 +46,7 @@ class InputKibunViewController: UIViewController {
     @IBAction func kibunButton1(_ sender: Any) {
         kibunStatus = 1
         if (kibunTextBox.text?.count != 0) {
-            sendButton.isEnabled = true
-            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
+            Functions.updateButtonEnabled(button: sendButton, enabled: true)
         }
     }
     // 普通ボタンタップ
@@ -56,8 +54,7 @@ class InputKibunViewController: UIViewController {
     @IBAction func kibunButton2(_ sender: Any) {
         kibunStatus = 2
         if (kibunTextBox.text?.count != 0) {
-            sendButton.isEnabled = true
-            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
+            Functions.updateButtonEnabled(button: sendButton, enabled: true)
         }
     }
     // 悪いボタンタップ
@@ -65,8 +62,7 @@ class InputKibunViewController: UIViewController {
     @IBAction func kibunButton3(_ sender: Any) {
         kibunStatus = 3
         if (kibunTextBox.text?.count != 0) {
-            sendButton.isEnabled = true
-            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
+            Functions.updateButtonEnabled(button: sendButton, enabled: true)
         }
     }
     // 最悪ボタンタップ
@@ -74,8 +70,7 @@ class InputKibunViewController: UIViewController {
     @IBAction func kibunButton4(_ sender: Any) {
         kibunStatus = 4
         if (kibunTextBox.text?.count != 0) {
-            sendButton.isEnabled = true
-            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
+            Functions.updateButtonEnabled(button: sendButton, enabled: true)
         }
     }
     // 送信ボタン
@@ -207,8 +202,7 @@ class InputKibunViewController: UIViewController {
             }
             self.dismissIndicator()
             self.kibunTextBox.text = ""
-            self.sendButton.isEnabled = false
-            self.sendButton.backgroundColor = UIColor(red: 225/255, green: 205/255, blue: 203/255, alpha: 1)
+            Functions.updateButtonEnabled(button: self.sendButton, enabled: false)
             self.remainingTextCountLabel.text = "300"
         }
     }
@@ -217,21 +211,17 @@ class InputKibunViewController: UIViewController {
 extension InputKibunViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView){
         if (kibunTextBox.text?.count != 0 && kibunStatus != nil) {
-            sendButton.isEnabled = true
-            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
+            Functions.updateButtonEnabled(button: sendButton, enabled: true)
         } else {
-            sendButton.isEnabled = false
-            sendButton.backgroundColor = UIColor(red: 225/255, green: 205/255, blue: 203/255, alpha: 1)
+            Functions.updateButtonEnabled(button: sendButton, enabled: false)
         }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if (kibunTextBox.text?.count != 0 && kibunStatus != nil) {
-            sendButton.isEnabled = true
-            sendButton.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
+            Functions.updateButtonEnabled(button: sendButton, enabled: true)
         } else {
-            sendButton.isEnabled = false
-            sendButton.backgroundColor = UIColor(red: 225/255, green: 205/255, blue: 203/255, alpha: 1)
+            Functions.updateButtonEnabled(button: sendButton, enabled: false)
         }
         // 入力を反映させたテキストを取得する
         let resultText: String = (textView.text! as NSString).replacingCharacters(in: range, with: text)

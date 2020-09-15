@@ -26,10 +26,11 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCB-9w-BQy" userLabel="気分View">
                             <rect key="frame" x="0.0" y="0.0" width="138" height="135"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-LC-TPD" userLabel="気分タブ">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-LC-TPD" userLabel="気分タブ">
                                     <rect key="frame" x="0.0" y="45.5" width="138" height="89.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" backgroundImage="tab_image0_off">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
@@ -48,7 +49,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3G-gW-wb8" userLabel="日記View">
                             <rect key="frame" x="138" y="0.0" width="138" height="135"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MUZ-Zu-lok" userLabel="入力タブ">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MUZ-Zu-lok" userLabel="入力タブ">
                                     <rect key="frame" x="0.0" y="20" width="138" height="115"/>
                                     <state key="normal" backgroundImage="tab_image1_off">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
@@ -68,7 +69,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcI-4I-oQ4" userLabel="設定View">
                             <rect key="frame" x="276" y="0.0" width="138" height="135"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-Y6-xWo" userLabel="その他タブ">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-Y6-xWo" userLabel="その他タブ">
                                     <rect key="frame" x="0.0" y="45.5" width="138" height="89.5"/>
                                     <state key="normal" backgroundImage="tab_image2_off">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>

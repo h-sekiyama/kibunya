@@ -109,4 +109,15 @@ class Functions {
             print(error)
         }
     }
+    
+    // 汎用ボタンの有効無効の切り替え
+    public static func updateButtonEnabled(button: UIButton, enabled: Bool) {
+        if (enabled) {
+            button.backgroundColor = UIColor(red: 112/255, green: 67/255, blue: 74/255, alpha: 1)
+            button.isEnabled = true
+        }  else {
+            button.backgroundColor = UIColor(red: 225/255, green: 205/255, blue: 203/255, alpha: 1)
+            button.isEnabled = false
+        }
+    }
 }

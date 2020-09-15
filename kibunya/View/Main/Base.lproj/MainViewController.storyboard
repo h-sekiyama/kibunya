@@ -17,7 +17,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zY1-AB-hvX" userLabel="Navi Bar">
                                 <rect key="frame" x="0.0" y="44" width="414" height="66"/>
-                                <color key="backgroundColor" red="1" green="0.8984755874" blue="0.66378134489999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="1" green="0.89803921568627454" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="azY-aX-NYB"/>
                                 </constraints>
@@ -39,7 +39,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl5-Mz-wtH">
-                                <rect key="frame" x="92.5" y="64" width="229" height="23"/>
+                                <rect key="frame" x="92.5" y="65.5" width="229" height="23"/>
                                 <attributedString key="attributedText">
                                     <fragment content="2020年12月24日(水)">
                                         <attributes>
@@ -64,7 +64,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDe-NO-a1F">
-                                <rect key="frame" x="20" y="53.5" width="44" height="44"/>
+                                <rect key="frame" x="20" y="55" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="DO4-XF-R2v"/>
                                     <constraint firstAttribute="height" constant="44" id="gkj-Xd-Qbv"/>
@@ -75,7 +75,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6C-kP-KVH">
-                                <rect key="frame" x="350" y="53.5" width="44" height="44"/>
+                                <rect key="frame" x="350" y="55" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="Rgw-us-DYF"/>
                                     <constraint firstAttribute="height" constant="44" id="xKy-W4-m2k"/>
@@ -86,11 +86,10 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.85882352941176465" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.86274509803921573" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="RDe-NO-a1F" firstAttribute="centerY" secondItem="Nl5-Mz-wtH" secondAttribute="centerY" id="0uD-NX-oPh"/>
                             <constraint firstItem="zY1-AB-hvX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="22X-fG-V1P"/>
-                            <constraint firstItem="Nl5-Mz-wtH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="3P7-N9-jWU"/>
                             <constraint firstItem="zY1-AB-hvX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9lm-kf-tDl"/>
                             <constraint firstItem="Nl5-Mz-wtH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JWP-ni-dPT"/>
                             <constraint firstItem="6wP-IY-kLv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MaL-Dp-4EJ"/>
@@ -98,6 +97,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L6C-kP-KVH" secondAttribute="trailing" constant="20" id="SLB-6F-Zid"/>
                             <constraint firstItem="txb-8X-qYK" firstAttribute="top" secondItem="zY1-AB-hvX" secondAttribute="bottom" id="Ygs-AA-GV4"/>
                             <constraint firstItem="KYa-aa-6UK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bCf-Wg-NR1"/>
+                            <constraint firstItem="Nl5-Mz-wtH" firstAttribute="centerY" secondItem="zY1-AB-hvX" secondAttribute="centerY" id="bcw-cs-KS9"/>
                             <constraint firstItem="RDe-NO-a1F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="h4f-OP-m3J"/>
                             <constraint firstItem="txb-8X-qYK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hn7-fr-8h1"/>
                             <constraint firstItem="6wP-IY-kLv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="66" id="i75-3Y-eL9"/>

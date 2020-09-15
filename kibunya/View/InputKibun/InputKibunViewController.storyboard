@@ -23,7 +23,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGa-jd-Qbi">
-                                <rect key="frame" x="149.5" y="64" width="115" height="23"/>
+                                <rect key="frame" x="149.5" y="65.5" width="115" height="23"/>
                                 <attributedString key="attributedText">
                                     <fragment content="今日の日記">
                                         <attributes>
@@ -315,16 +315,22 @@
                                             <constraint firstItem="k8I-wy-kf0" firstAttribute="width" secondItem="Vnv-yr-FQn" secondAttribute="width" id="qUU-vb-eJ5"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-uv-Avx">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-uv-Avx">
                                         <rect key="frame" x="107" y="517.5" width="200" height="60"/>
                                         <color key="backgroundColor" red="0.88235294117647056" green="0.80392156862745101" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="A4n-cv-zS6"/>
                                             <constraint firstAttribute="width" constant="200" id="nP5-kf-X6X"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="これでおくる">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="これでおくる">
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" metaFont="system" size="18"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -365,9 +371,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.85882352941176465" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="dGa-jd-Qbi" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" constant="20" id="9i3-Ls-pRm"/>
                             <constraint firstItem="QpR-Gq-NFP" firstAttribute="width" secondItem="wxw-JS-15q" secondAttribute="width" multiplier="0.3" id="B6B-ht-ihy"/>
                             <constraint firstItem="nhy-2r-OR0" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" id="HjU-Yo-gD0"/>
+                            <constraint firstItem="dGa-jd-Qbi" firstAttribute="centerY" secondItem="nhy-2r-OR0" secondAttribute="centerY" id="VLj-y9-EAV"/>
                             <constraint firstItem="1vD-Ye-WaI" firstAttribute="top" secondItem="nhy-2r-OR0" secondAttribute="bottom" id="VUQ-fd-fR2"/>
                             <constraint firstItem="dGa-jd-Qbi" firstAttribute="centerX" secondItem="wxw-JS-15q" secondAttribute="centerX" id="Vew-YR-znz"/>
                             <constraint firstAttribute="bottom" secondItem="1vD-Ye-WaI" secondAttribute="bottom" constant="88" id="gzK-V8-Tvc"/>

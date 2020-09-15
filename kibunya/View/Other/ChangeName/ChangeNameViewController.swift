@@ -79,7 +79,7 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
                     print(error.debugDescription)
                     return
                 }
-                self.updateProfile.isEnabled = false
+                Functions.updateButtonEnabled(button: self.updateProfile, enabled: false)
                 Functions.saveImage(image: self.profileIcon.image!, path: Functions.fileInDocumentsDirectory(filename: "profileIcon"))
                 UserDefaults.standard.cachedProfileIconKey = Functions.fileInDocumentsDirectory(filename: "profileIcon")
             }
@@ -135,9 +135,9 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
     // 各テキストフィールド入力監視
     @objc func textFieldDidChange(_ textFiled: UITextField) {
         if (nameTextBox.text!.count > 0) {
-            updateProfile.isEnabled = true
+            Functions.updateButtonEnabled(button: self.updateProfile, enabled: true)
         } else {
-            updateProfile.isEnabled = false
+            Functions.updateButtonEnabled(button: self.updateProfile, enabled: false)
         }
     }
 }
@@ -150,7 +150,7 @@ extension ChangeNameViewController: UIImagePickerControllerDelegate, UINavigatio
             profileIcon.image = originalImage
         }
         dismiss(animated: true, completion: nil)
-        updateProfile.isEnabled = true
+        Functions.updateButtonEnabled(button: self.updateProfile, enabled: false)
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

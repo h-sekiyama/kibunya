@@ -36,5 +36,9 @@ class TabBarView: NSObject {
     override init() {
         super.init()
         tabView = UINib(nibName: "TabBarView", bundle: Bundle.main).instantiate(withOwner: self, options: nil).first as? UIView
+        
+        diaryButton.showsTouchWhenHighlighted = false
+        inputDiaryButton.showsTouchWhenHighlighted = false
+        otherButton.showsTouchWhenHighlighted = false
     }
 }

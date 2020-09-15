@@ -35,6 +35,7 @@
 		3E70A82424E26378008667B5 /* kibunyaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A82324E26378008667B5 /* kibunyaTests.swift */; };
 		3E70A82F24E26379008667B5 /* kibunyaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A82E24E26379008667B5 /* kibunyaUITests.swift */; };
 		3E72A6F924E6C37B00EC71EB /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E72A6F824E6C37B00EC71EB /* TabBarView.xib */; };
+		3E7442C225110A0C00E881F6 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7442C125110A0C00E881F6 /* FormTextField.swift */; };
 		3E7FD59C24E7F24B005011B6 /* KibunTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FD59A24E7F24B005011B6 /* KibunTableViewCell.swift */; };
 		3E7FD59D24E7F24B005011B6 /* KibunTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7FD59B24E7F24B005011B6 /* KibunTableViewCell.xib */; };
 		3E8FBE7F24E52A4E00BAC128 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */; };
@@ -106,6 +107,7 @@
 		3E70A82E24E26379008667B5 /* kibunyaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kibunyaUITests.swift; sourceTree = "<group>"; };
 		3E70A83024E26379008667B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E72A6F824E6C37B00EC71EB /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
+		3E7442C125110A0C00E881F6 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		3E7FD59A24E7F24B005011B6 /* KibunTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KibunTableViewCell.swift; sourceTree = "<group>"; };
 		3E7FD59B24E7F24B005011B6 /* KibunTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KibunTableViewCell.xib; sourceTree = "<group>"; };
 		3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = /Users/user/sites/kibunya/kibunya/SignUpViewController.swift; sourceTree = "<absolute>"; };
@@ -194,6 +196,7 @@
 				3E6C005D24EAE97C001D4828 /* Extensions.swift */,
 				3E6C005F24EC247E001D4828 /* Functions.swift */,
 				3E6D765C250CD4B800E2BF05 /* Constants.swift */,
+				3E7442C125110A0C00E881F6 /* FormTextField.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				3E6C005E24EAE97C001D4828 /* Extensions.swift in Sources */,
 				3E70A81124E26376008667B5 /* MainViewController.swift in Sources */,
 				3E8FBE8324E54EF400BAC128 /* MailSendCompleteViewController.swift in Sources */,
+				3E7442C225110A0C00E881F6 /* FormTextField.swift in Sources */,
 				3E70A80D24E26376008667B5 /* AppDelegate.swift in Sources */,
 				3E70A80F24E26376008667B5 /* SceneDelegate.swift in Sources */,
 				3E6C006824ED75A7001D4828 /* ShowFamilyViewController.swift in Sources */,
