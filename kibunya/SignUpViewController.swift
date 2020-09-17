@@ -4,7 +4,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     // FireStore取得
     let defaultStore: Firestore! = Firestore.firestore()
@@ -17,7 +17,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet private weak var passwordTextField: UITextField!
     // 電話番号入力フィールド
     @IBOutlet weak var telNoTextField: UITextField!
-    
+
     // ログイン画面へ遷移する
     @IBAction func loginButton(_ sender: Any) {
         let loginViewController = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as UIViewController
@@ -154,6 +154,26 @@ class SignUpViewController: UIViewController {
         self.present(mailSendCompleteViewController, animated: false, completion: nil)
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if (self.view.frame.size.height < 800) {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= 200
+            } else {
+                let suggestionHeight = self.view.frame.origin.y + 200
+                self.view.frame.origin.y -= suggestionHeight
+            }
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // キーボードを閉じる
+        textField.resignFirstResponder()
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -161,6 +181,8 @@ class SignUpViewController: UIViewController {
         emailTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         telNoTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        
+        telNoTextField.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -185,21 +207,24 @@ class SignUpViewController: UIViewController {
         }
         if(telNoTextField.isFirstResponder) {
             telNoTextField.resignFirstResponder()
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
         }
     }
     
     // 各テキストフィールド入力監視
     @objc func textFieldDidChange(_ textFiled: UITextField) {
         if (nameTextField.text!.count > 0 && emailTextField.text!.count > 0 && passwordTextField.text!.count > 0) {
-            signUpButton.isEnabled = true
+            Functions.updateButtonEnabled(button: signUpButton, enabled: true)
         } else {
-            signUpButton.isEnabled = false
+            Functions.updateButtonEnabled(button: signUpButton, enabled: false)
         }
         
         if (telNoTextField.text!.count == 11 || telNoTextField.text!.count == 13) {
-            telNoSignUpButton.isEnabled = true
+            Functions.updateButtonEnabled(button: telNoSignUpButton, enabled: true)
         } else {
-            telNoSignUpButton.isEnabled = false
+            Functions.updateButtonEnabled(button: telNoSignUpButton, enabled: false)
         }
         
         // 入力文字数制限をつける（電話番号テキストフィールド）

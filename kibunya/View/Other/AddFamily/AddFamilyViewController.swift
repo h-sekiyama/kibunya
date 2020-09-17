@@ -231,6 +231,11 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
         self.present(activityVC, animated: true, completion: nil)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addedFamily.isHidden = true
@@ -249,6 +254,9 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
             userIdInputTextBox.text = addFamilyId
             searchUser()
         }
+        
+        userIdInputTextBox.delegate = self
+        myUserIdTextBox.delegate = self
     }
     
     override func loadView() {
@@ -266,10 +274,8 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // キーボードを非表示にする。
-        if(userIdInputTextBox.isFirstResponder) {
+        if(view.isFirstResponder) {
             userIdInputTextBox.resignFirstResponder()
-        }
-        if(myUserIdTextBox.isFirstResponder) {
             myUserIdTextBox.resignFirstResponder()
         }
     }

@@ -10,75 +10,302 @@
         <!--Sign Up View Controller-->
         <scene sceneID="VjG-tR-EtW">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0bA-Lw-MKw" customClass="SignUpViewController" customModule="家族ダイアリー" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0bA-Lw-MKw" customClass="SignUpViewController" customModule="Family_Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f5B-4i-hjZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="なまえ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPF-D9-71F">
-                                <rect key="frame" x="62" y="205" width="289" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfk-o8-p6w" userLabel="Background View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKd-q2-CUF" userLabel="Label View1">
+                                        <rect key="frame" x="62" y="60" width="290" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrG-dE-TFb">
+                                                <rect key="frame" x="69" y="15.5" width="183.5" height="21.5"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="メールアドレスで登録">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" metaFont="system" size="18"/>
+                                                            <font key="NSOriginalFont" metaFont="system" size="18"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_paw" translatesAutoresizingMaskIntoConstraints="NO" id="Rc9-S1-O9e">
+                                                <rect key="frame" x="10" y="10" width="51" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="51" id="IxN-Ip-nfS"/>
+                                                    <constraint firstAttribute="height" constant="32" id="uh9-11-Wrf"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="7nB-Sq-tIm"/>
+                                            <constraint firstItem="BrG-dE-TFb" firstAttribute="centerY" secondItem="Rc9-S1-O9e" secondAttribute="centerY" id="FOW-Nj-SP8"/>
+                                            <constraint firstAttribute="width" constant="290" id="Pne-zf-fAa"/>
+                                            <constraint firstItem="BrG-dE-TFb" firstAttribute="leading" secondItem="Rc9-S1-O9e" secondAttribute="trailing" constant="8" id="pi2-OH-CxT"/>
+                                            <constraint firstItem="Rc9-S1-O9e" firstAttribute="leading" secondItem="LKd-q2-CUF" secondAttribute="leading" constant="10" id="xZ1-Hj-1VY"/>
+                                            <constraint firstItem="Rc9-S1-O9e" firstAttribute="top" secondItem="LKd-q2-CUF" secondAttribute="top" constant="10" id="zdC-y8-fAK"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6j-A9-VOr" userLabel="Label View2">
+                                        <rect key="frame" x="45" y="396" width="307" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCP-Nu-JFs">
+                                                <rect key="frame" x="69" y="15" width="224" height="22"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="電話番号で登録">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                                            <font key="NSOriginalFont" metaFont="system" size="18"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content=" or ">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" metaFont="system" size="18"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="ログイン">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                                            <font key="NSOriginalFont" metaFont="system" size="18"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_paw" translatesAutoresizingMaskIntoConstraints="NO" id="Zlt-Wl-frd">
+                                                <rect key="frame" x="10" y="10" width="51" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="51" id="ZNu-b0-7sO"/>
+                                                    <constraint firstAttribute="height" constant="32" id="yVS-7X-yuY"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="hCP-Nu-JFs" firstAttribute="centerY" secondItem="Zlt-Wl-frd" secondAttribute="centerY" id="58J-SM-zvR"/>
+                                            <constraint firstAttribute="width" constant="307" id="8pA-wd-tPT"/>
+                                            <constraint firstItem="Zlt-Wl-frd" firstAttribute="leading" secondItem="Z6j-A9-VOr" secondAttribute="leading" constant="10" id="NrU-77-jd1"/>
+                                            <constraint firstItem="hCP-Nu-JFs" firstAttribute="leading" secondItem="Zlt-Wl-frd" secondAttribute="trailing" constant="8" id="did-GC-wXM"/>
+                                            <constraint firstItem="Zlt-Wl-frd" firstAttribute="top" secondItem="Z6j-A9-VOr" secondAttribute="top" constant="10" id="oCw-PP-3ec"/>
+                                            <constraint firstAttribute="height" constant="50" id="vBk-HC-3sP"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bx-7U-UvA" userLabel="電話番號で登録ボタン">
+                                        <rect key="frame" x="107" y="524" width="200" height="60"/>
+                                        <color key="backgroundColor" red="0.88235294119999996" green="0.80392156859999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="U9h-Np-aeT"/>
+                                            <constraint firstAttribute="width" constant="200" id="xZg-NZ-Kti"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="認証コードを送る">
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapTelNoSignUpButton:" destination="0bA-Lw-MKw" eventType="touchUpInside" id="nho-CE-tvi"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="電話番号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aiw-92-hPY" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="456" width="374" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="qqg-GS-4fY"/>
+                                        </constraints>
+                                        <attributedString key="attributedText"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.88235294119999996" green="0.80392156859999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.96934312580000004" blue="0.94409960510000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="Z6j-A9-VOr" firstAttribute="centerX" secondItem="xfk-o8-p6w" secondAttribute="centerX" constant="-8.5" id="Dpa-Yb-YXH"/>
+                                    <constraint firstAttribute="trailing" secondItem="aiw-92-hPY" secondAttribute="trailing" constant="20" id="I4s-Jn-joZ"/>
+                                    <constraint firstItem="9bx-7U-UvA" firstAttribute="centerX" secondItem="xfk-o8-p6w" secondAttribute="centerX" id="Lhu-2v-O09"/>
+                                    <constraint firstItem="9bx-7U-UvA" firstAttribute="top" secondItem="aiw-92-hPY" secondAttribute="bottom" constant="20" id="S5G-2a-CLQ"/>
+                                    <constraint firstItem="LKd-q2-CUF" firstAttribute="centerX" secondItem="xfk-o8-p6w" secondAttribute="centerX" id="bFj-Oh-rUj"/>
+                                    <constraint firstItem="aiw-92-hPY" firstAttribute="centerX" secondItem="xfk-o8-p6w" secondAttribute="centerX" id="dt7-xx-qOQ"/>
+                                    <constraint firstItem="aiw-92-hPY" firstAttribute="leading" secondItem="xfk-o8-p6w" secondAttribute="leading" constant="20" id="f6u-yJ-R6c"/>
+                                    <constraint firstItem="LKd-q2-CUF" firstAttribute="top" secondItem="xfk-o8-p6w" secondAttribute="top" constant="60" id="ipe-aY-K40"/>
+                                    <constraint firstItem="aiw-92-hPY" firstAttribute="top" secondItem="Z6j-A9-VOr" secondAttribute="bottom" constant="10" id="vnc-n5-SCz"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="なまえ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPF-D9-71F" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
+                                <rect key="frame" x="20" y="110" width="374" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="0Vd-bG-MFa"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.88235294119999996" green="0.80392156859999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSp-TO-9Fi">
-                                <rect key="frame" x="62" y="260" width="289" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSp-TO-9Fi" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
+                                <rect key="frame" x="20" y="168" width="374" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="qAX-BA-Imh"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.88235294119999996" green="0.80392156859999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dc-jb-tKs">
-                                <rect key="frame" x="62" y="313" width="289" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dc-jb-tKs" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
+                                <rect key="frame" x="20" y="226" width="374" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="eCB-9Y-Hwn"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.88235294119999996" green="0.80392156859999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bx-7U-UvA" userLabel="電話番號で登録ボタン">
-                                <rect key="frame" x="147" y="519" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="認証コードを送る"/>
-                                <connections>
-                                    <action selector="didTapTelNoSignUpButton:" destination="0bA-Lw-MKw" eventType="touchUpInside" id="nho-CE-tvi"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ic8-0N-joz">
-                                <rect key="frame" x="126" y="655" width="162" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Eメールログイン画面へ"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ic8-0N-joz">
+                                <rect key="frame" x="111.5" y="604" width="191" height="32"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Eメールログイン画面へ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                                 <connections>
                                     <action selector="loginButton:" destination="0bA-Lw-MKw" eventType="touchUpInside" id="b9U-Iq-slx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="メールアドレスで登録する" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkO-qR-qYF">
-                                <rect key="frame" x="103" y="176" width="208" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qS-C3-7Vm">
-                                <rect key="frame" x="176" y="355" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="登録する"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PST-6n-QCn">
+                                <rect key="frame" x="8" y="374" width="398" height="2"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.80000000000000004" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="2c8-et-IsB"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0qS-C3-7Vm">
+                                <rect key="frame" x="107" y="294" width="200" height="60"/>
+                                <color key="backgroundColor" red="0.92439115049999998" green="0.82285851239999996" blue="0.81839394570000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="G2O-1w-x8E"/>
+                                    <constraint firstAttribute="height" constant="60" id="MbN-VZ-I37"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="登録する">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapSignUpButton" destination="0bA-Lw-MKw" eventType="touchUpInside" id="tqD-r0-nKz"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="電話番号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aiw-92-hPY">
-                                <rect key="frame" x="63" y="477" width="289" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="電話番号で登録  or  ログイン" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCw-7N-x0S">
-                                <rect key="frame" x="96" y="448" width="224" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="xfk-o8-p6w" secondAttribute="bottom" id="47J-o3-5Ww"/>
+                            <constraint firstItem="lPF-D9-71F" firstAttribute="top" secondItem="LKd-q2-CUF" secondAttribute="bottom" id="4ND-xR-utH"/>
+                            <constraint firstItem="8dc-jb-tKs" firstAttribute="centerX" secondItem="f5B-4i-hjZ" secondAttribute="centerX" id="60i-y5-6kK"/>
+                            <constraint firstItem="lPF-D9-71F" firstAttribute="centerX" secondItem="f5B-4i-hjZ" secondAttribute="centerX" id="9DR-yg-Mkn"/>
+                            <constraint firstItem="xfk-o8-p6w" firstAttribute="trailing" secondItem="g0i-2P-U8v" secondAttribute="trailing" id="9pW-vw-FRS"/>
+                            <constraint firstItem="xfk-o8-p6w" firstAttribute="leading" secondItem="g0i-2P-U8v" secondAttribute="leading" id="Iai-i8-kxm"/>
+                            <constraint firstItem="xfk-o8-p6w" firstAttribute="top" secondItem="f5B-4i-hjZ" secondAttribute="top" id="JaZ-FR-leH"/>
+                            <constraint firstItem="Ic8-0N-joz" firstAttribute="centerX" secondItem="f5B-4i-hjZ" secondAttribute="centerX" id="KDB-gn-li2"/>
+                            <constraint firstItem="PST-6n-QCn" firstAttribute="leading" secondItem="f5B-4i-hjZ" secondAttribute="leading" constant="8" id="Qzc-xK-Cry"/>
+                            <constraint firstItem="0qS-C3-7Vm" firstAttribute="centerX" secondItem="f5B-4i-hjZ" secondAttribute="centerX" id="XbV-tB-4Ms"/>
+                            <constraint firstItem="8dc-jb-tKs" firstAttribute="leading" secondItem="g0i-2P-U8v" secondAttribute="leading" constant="20" id="Xpu-A3-m27"/>
+                            <constraint firstItem="0qS-C3-7Vm" firstAttribute="top" secondItem="8dc-jb-tKs" secondAttribute="bottom" constant="20" id="ZKc-y4-oGD"/>
+                            <constraint firstItem="xSp-TO-9Fi" firstAttribute="leading" secondItem="g0i-2P-U8v" secondAttribute="leading" constant="20" id="c2z-ZA-ZEm"/>
+                            <constraint firstItem="Ic8-0N-joz" firstAttribute="top" secondItem="9bx-7U-UvA" secondAttribute="bottom" constant="20" id="chD-ae-fxo"/>
+                            <constraint firstItem="PST-6n-QCn" firstAttribute="centerX" secondItem="f5B-4i-hjZ" secondAttribute="centerX" id="er7-aM-Z9z"/>
+                            <constraint firstItem="g0i-2P-U8v" firstAttribute="trailing" secondItem="8dc-jb-tKs" secondAttribute="trailing" constant="20" id="gIb-Hw-Sss"/>
+                            <constraint firstItem="8dc-jb-tKs" firstAttribute="top" secondItem="xSp-TO-9Fi" secondAttribute="bottom" constant="10" id="hja-hU-Akn"/>
+                            <constraint firstItem="g0i-2P-U8v" firstAttribute="trailing" secondItem="lPF-D9-71F" secondAttribute="trailing" constant="20" id="jBK-r1-sYj"/>
+                            <constraint firstAttribute="trailing" secondItem="PST-6n-QCn" secondAttribute="trailing" constant="8" id="jsd-jn-eeR"/>
+                            <constraint firstItem="PST-6n-QCn" firstAttribute="top" secondItem="0qS-C3-7Vm" secondAttribute="bottom" constant="20" id="ln1-LB-LzF"/>
+                            <constraint firstItem="Z6j-A9-VOr" firstAttribute="top" secondItem="PST-6n-QCn" secondAttribute="bottom" constant="20" id="pKA-v0-as5"/>
+                            <constraint firstItem="xSp-TO-9Fi" firstAttribute="centerX" secondItem="f5B-4i-hjZ" secondAttribute="centerX" id="tgU-MC-BGA"/>
+                            <constraint firstItem="xSp-TO-9Fi" firstAttribute="top" secondItem="lPF-D9-71F" secondAttribute="bottom" constant="10" id="uxr-p5-vCS"/>
+                            <constraint firstItem="g0i-2P-U8v" firstAttribute="trailing" secondItem="xSp-TO-9Fi" secondAttribute="trailing" constant="20" id="vNJ-b4-QEN"/>
+                            <constraint firstItem="lPF-D9-71F" firstAttribute="leading" secondItem="g0i-2P-U8v" secondAttribute="leading" constant="20" id="vmg-to-Xcj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="g0i-2P-U8v"/>
                     </view>
                     <connections>
@@ -95,4 +322,7 @@
             <point key="canvasLocation" x="-1043.4782608695652" y="-483.48214285714283"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_paw" width="51" height="54.5"/>
+    </resources>
 </document>
