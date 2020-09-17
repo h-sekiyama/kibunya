@@ -257,6 +257,8 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
         
         userIdInputTextBox.delegate = self
         myUserIdTextBox.delegate = self
+        
+        self.setupToHideKeyboardOnTapOnView()
     }
     
     override func loadView() {
