@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,7 +54,7 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sha-bf-eTm">
                                 <rect key="frame" x="0.0" y="110" width="414" height="717"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="tsT-K7-BeF" userLabel="Background View">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="752"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -79,12 +81,14 @@
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="ユーザーIDを入力" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MhA-TR-SyO" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ユーザーIDを入力" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MhA-TR-SyO" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
                                             <rect key="frame" x="20" y="74" width="374" height="48"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="48" id="di8-jF-Yb8"/>
                                             </constraints>
-                                            <attributedString key="attributedText"/>
+                                            <color key="textColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -101,7 +105,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEY-Dm-u9v">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEY-Dm-u9v">
                                             <rect key="frame" x="107" y="516" width="200" height="60"/>
                                             <color key="backgroundColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -121,12 +125,14 @@
                                                 <action selector="otherShareButton:" destination="LAC-2z-Dqm" eventType="touchUpInside" id="GZ0-Pb-bMp"/>
                                             </connections>
                                         </button>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="joC-RK-xe3" userLabel="自分のユーザーID表示ボックス" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3333" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="joC-RK-xe3" userLabel="自分のユーザーID表示ボックス" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
                                             <rect key="frame" x="20" y="448" width="374" height="48"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="48" id="goh-ZQ-80z"/>
                                             </constraints>
-                                            <attributedString key="attributedText"/>
+                                            <color key="textColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -176,7 +182,7 @@
                                                 <constraint firstAttribute="height" constant="48" id="qWg-cJ-2FQ"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nyN-3Z-l5q">
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nyN-3Z-l5q">
                                             <rect key="frame" x="107" y="254" width="200" height="60"/>
                                             <color key="backgroundColor" red="0.88235294119999996" green="0.80392156859999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
@@ -218,7 +224,7 @@
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cXM-eK-HAY">
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cXM-eK-HAY">
                                             <rect key="frame" x="107" y="142" width="200" height="60"/>
                                             <color key="backgroundColor" red="0.88235294119999996" green="0.80392156859999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
@@ -317,6 +323,7 @@
                                 </view>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="KY2-Ws-242"/>
                         <color key="backgroundColor" red="1" green="0.90888959170000005" blue="0.68796277049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Sha-bf-eTm" firstAttribute="height" secondItem="1Bd-e6-HKV" secondAttribute="height" multiplier="0.8" id="42d-gS-sIq"/>
@@ -329,7 +336,6 @@
                             <constraint firstItem="TMI-4U-jF4" firstAttribute="top" secondItem="KY2-Ws-242" secondAttribute="top" id="mZ3-vN-Tb7"/>
                             <constraint firstItem="TMI-4U-jF4" firstAttribute="leading" secondItem="KY2-Ws-242" secondAttribute="leading" id="vwZ-8M-laF"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="KY2-Ws-242"/>
                     </view>
                     <connections>
                         <outlet property="addFamilyButton" destination="nyN-3Z-l5q" id="ofM-8m-Ejx"/>
@@ -349,8 +355,19 @@
             <point key="canvasLocation" x="392.75362318840581" y="-54.241071428571423"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="MhA-TR-SyO">
+            <size key="intrinsicContentSize" width="168" height="49"/>
+        </designable>
+        <designable name="joC-RK-xe3">
+            <size key="intrinsicContentSize" width="77" height="49"/>
+        </designable>
+    </designables>
     <resources>
         <image name="arrow_left_on" width="24" height="36.5"/>
         <image name="icon_paw" width="51" height="54.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

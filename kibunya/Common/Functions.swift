@@ -120,4 +120,13 @@ class Functions {
             button.isEnabled = false
         }
     }
+    
+    // 遷移アニメーション
+    public static func presentAnimation(view: UIView) {
+        let transition = CATransition()
+        transition.duration = 0.25
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        view.window!.layer.add(transition, forKey: kCATransition)
+    }
 }

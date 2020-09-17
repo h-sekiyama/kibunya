@@ -12,5 +12,4 @@ class FormTextField: UITextField {
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return textRect(forBounds: bounds)
     }
-
 }

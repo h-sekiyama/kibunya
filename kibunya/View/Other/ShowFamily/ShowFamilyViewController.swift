@@ -32,6 +32,8 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
     @IBAction func backButton(_ sender: Any) {
         let otherViewController = UIStoryboard(name: "OtherViewController", bundle: nil).instantiateViewController(withIdentifier: "OtherViewController") as! OtherViewController
         otherViewController.modalPresentationStyle = .fullScreen
+        // 遷移アニメーション定義
+        Functions.presentAnimation(view: view)
         self.present(otherViewController, animated: false, completion: nil)
     }
     // 家出するボタン
@@ -160,6 +162,6 @@ extension ShowFamilyViewController: UITableViewDataSource {
     
     // セルの高さを指定する
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
 }

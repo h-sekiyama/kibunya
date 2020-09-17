@@ -35,6 +35,8 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
     @IBAction func backButton(_ sender: Any) {
         let otherViewController = UIStoryboard(name: "OtherViewController", bundle: nil).instantiateViewController(withIdentifier: "OtherViewController") as! OtherViewController
         otherViewController.modalPresentationStyle = .fullScreen
+        // 遷移アニメーション定義
+        Functions.presentAnimation(view: view)
         self.present(otherViewController, animated: false, completion: nil)
     }
     // 名前入力テキストボックス

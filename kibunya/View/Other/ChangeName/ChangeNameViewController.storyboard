@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -85,6 +86,7 @@
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFF-fy-2kh" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
                                         <rect key="frame" x="20" y="238" width="374" height="48"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="FdF-BN-MZz"/>
                                         </constraints>
@@ -113,7 +115,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfK-w6-QCv">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfK-w6-QCv">
                                         <rect key="frame" x="107" y="306" width="200" height="60"/>
                                         <color key="backgroundColor" red="0.88101935389999997" green="0.80402165650000001" blue="0.79607146979999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -172,6 +174,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="grF-F8-avv"/>
                         <color key="backgroundColor" red="1" green="0.8984755874" blue="0.66378134489999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="grF-F8-avv" firstAttribute="bottom" secondItem="ULT-Ch-QBm" secondAttribute="bottom" id="2Qz-pD-I9t"/>
@@ -185,7 +188,6 @@
                             <constraint firstItem="JRT-ax-AMQ" firstAttribute="trailing" secondItem="grF-F8-avv" secondAttribute="trailing" id="pvz-gD-J0E"/>
                             <constraint firstItem="ULT-Ch-QBm" firstAttribute="leading" secondItem="grF-F8-avv" secondAttribute="leading" id="swE-5e-4lu"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="grF-F8-avv"/>
                     </view>
                     <connections>
                         <outlet property="changeCompleteLabel" destination="BUI-mz-jc1" id="zc7-kW-hkj"/>
@@ -204,6 +206,11 @@
             <point key="canvasLocation" x="73.913043478260875" y="119.86607142857142"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="JFF-fy-2kh">
+            <size key="intrinsicContentSize" width="75" height="51"/>
+        </designable>
+    </designables>
     <resources>
         <image name="arrow_left_on" width="24" height="36.5"/>
         <image name="icon_paw" width="51" height="54.5"/>

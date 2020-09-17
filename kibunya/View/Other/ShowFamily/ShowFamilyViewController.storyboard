@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -18,12 +18,12 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="66"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBr-aQ-ILg">
-                                        <rect key="frame" x="161" y="20.5" width="92" height="25.5"/>
+                                        <rect key="frame" x="160.5" y="19.5" width="93.5" height="27.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="せってい">
                                                 <attributes>
                                                     <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="23" name=".HiraKakuInterface-W3"/>
+                                                    <font key="NSFont" metaFont="system" size="23"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -62,12 +62,12 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIE-sX-Wf6">
-                                        <rect key="frame" x="79" y="37" width="90" height="20"/>
+                                        <rect key="frame" x="79" y="36.5" width="92" height="21.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="家族リスト">
                                                 <attributes>
-                                                    <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                                    <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" metaFont="system" size="18"/>
                                                     <font key="NSOriginalFont" metaFont="system" size="18"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
@@ -120,10 +120,10 @@
                                                 <constraint firstItem="ZpW-gI-hdX" firstAttribute="leading" secondItem="phH-mH-dqo" secondAttribute="trailing" constant="16" id="7Ww-BD-ILn"/>
                                                 <constraint firstItem="ZpW-gI-hdX" firstAttribute="centerY" secondItem="phH-mH-dqo" secondAttribute="centerY" id="8Eb-1g-KND"/>
                                                 <constraint firstAttribute="trailing" secondItem="dVO-FB-6gw" secondAttribute="trailing" constant="8" id="JB4-cB-iK6"/>
+                                                <constraint firstItem="phH-mH-dqo" firstAttribute="centerY" secondItem="OWq-tc-MW7" secondAttribute="centerY" id="RwW-7n-Xsk"/>
                                                 <constraint firstItem="phH-mH-dqo" firstAttribute="leading" secondItem="OWq-tc-MW7" secondAttribute="leading" constant="20" id="YTT-bs-GXq"/>
                                                 <constraint firstItem="dVO-FB-6gw" firstAttribute="leading" secondItem="OWq-tc-MW7" secondAttribute="leading" constant="8" id="bgO-yJ-Zp3"/>
                                                 <constraint firstAttribute="bottom" secondItem="dVO-FB-6gw" secondAttribute="bottom" id="e54-Di-8sM"/>
-                                                <constraint firstItem="phH-mH-dqo" firstAttribute="top" secondItem="OWq-tc-MW7" secondAttribute="top" constant="20" id="u46-lS-tVl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.96934312580000004" blue="0.94409960510000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

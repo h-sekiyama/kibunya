@@ -50,22 +50,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NXW-2C-e6E">
-                                        <rect key="frame" x="292" y="32" width="50" height="36"/>
+                                        <rect key="frame" x="284" y="32" width="50" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="AMC-u5-xmL"/>
                                             <constraint firstAttribute="height" constant="36" id="ax2-E1-0eU"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmd-wn-WYp">
-                                        <rect key="frame" x="352" y="40" width="42" height="20.5"/>
+                                        <rect key="frame" x="344" y="42" width="50" height="16"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="42" id="Ewz-ej-9IF"/>
+                                            <constraint firstAttribute="width" constant="50" id="Ewz-ej-9IF"/>
                                         </constraints>
                                         <attributedString key="attributedText">
                                             <fragment content="16:51">
                                                 <attributes>
                                                     <color key="NSColor" red="0.71372549019607845" green="0.59215686274509804" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                    <font key="NSFont" size="16" name="HiraMaruProN-W4"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -171,12 +171,12 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQ9-j4-pKP">
-                                <rect key="frame" x="86.5" y="66.5" width="241" height="21"/>
+                                <rect key="frame" x="108.5" y="65" width="197.5" height="24"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="2020年12月31日 23:59">
+                                    <fragment content="2020年12月31日">
                                         <attributes>
                                             <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="21" name="HiraMaruProN-W4"/>
+                                            <font key="NSFont" size="24" name="HiraMaruProN-W4"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -213,6 +213,7 @@
                     </view>
                     <connections>
                         <outlet property="diaryImage" destination="xQc-VO-0yJ" id="n4B-uo-B2d"/>
+                        <outlet property="diaryTime" destination="Zmd-wn-WYp" id="e9Y-BX-Qrw"/>
                         <outlet property="kibunImage" destination="NXW-2C-e6E" id="Pp9-MD-Ks6"/>
                         <outlet property="profileIcon" destination="b2j-yb-TE6" id="7O3-Vm-asS"/>
                         <outlet property="textLabel" destination="JKf-Y4-Sg8" id="Hfl-hG-s3g"/>

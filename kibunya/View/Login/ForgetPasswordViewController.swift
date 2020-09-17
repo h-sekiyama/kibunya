@@ -30,6 +30,8 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBAction func goToLoginButton(_ sender: Any) {
         let loginViewController = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as UIViewController
         loginViewController.modalPresentationStyle = .fullScreen
+        // 遷移アニメーション定義
+        Functions.presentAnimation(view: view)
         self.present(loginViewController, animated: false, completion: nil)
     }
     
@@ -81,9 +83,9 @@ class ForgetPasswordViewController: UIViewController, UITextFieldDelegate {
     // 各テキストフィールド入力監視
     @objc func textFieldDidChange(_ textFiled: UITextField) {
         if (mailTextField.text!.count > 0) {
-            sendMailButton.isEnabled = true
+            Functions.updateButtonEnabled(button: sendMailButton, enabled: true)
         } else {
-            sendMailButton.isEnabled = false
+            Functions.updateButtonEnabled(button: sendMailButton, enabled: false)
         }
     }
 }

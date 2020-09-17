@@ -33,8 +33,8 @@ class KibunDetailViewController:  UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     // 投稿画像
     @IBOutlet weak var diaryImage: UIImageView!
-    // 投稿画像の高さ制約
-
+    // 日記の投稿時間
+    @IBOutlet weak var diaryTime: UILabel!
     // 日記本文
     @IBOutlet weak var textLabel: UITextView!
     // ユーザーアイコン
@@ -46,12 +46,14 @@ class KibunDetailViewController:  UIViewController {
         let mainViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         mainViewController.displayedDate = date
         mainViewController.modalPresentationStyle = .fullScreen
+        // 遷移アニメーション定義
+        Functions.presentAnimation(view: view)
         self.present(mainViewController, animated: false, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timeLabel.text = "\(Functions.getDate(timeStamp: time!)) \(Functions.getTime(timeStamp: time!))"
+        timeLabel.text = "\(Functions.getDate(timeStamp: time!))"
         userNameLabel.text = userName!
         textLabel.text = text!
         if (imageUrl != "") {
@@ -60,6 +62,8 @@ class KibunDetailViewController:  UIViewController {
         } else {
             diaryImage.isHidden = true
         }
+        // 日記の投稿時間
+        diaryTime.text  = Functions.getTime(timeStamp: time!)
         
         // 本文タップ時にキーボードを出さない様にする
         textLabel.isUserInteractionEnabled = true

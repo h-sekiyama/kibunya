@@ -48,6 +48,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signUpButton(_ sender: Any) {
         let signUpViewController = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as UIViewController
         signUpViewController.modalPresentationStyle = .fullScreen
+        // 遷移アニメーション定義
+        Functions.presentAnimation(view: view)
         self.present(signUpViewController, animated: false, completion: nil)
     }
     
@@ -101,9 +103,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // 各テキストフィールド入力監視
     @objc func textFieldDidChange(_ textFiled: UITextField) {
         if (mailTextBox.text!.count > 0 && passwordTextBox.text!.count > 0) {
-            loginButton.isEnabled = true
+            Functions.updateButtonEnabled(button: loginButton, enabled: true)
         } else {
-            loginButton.isEnabled = false
+            Functions.updateButtonEnabled(button: loginButton, enabled: false)
         }
     }
 }

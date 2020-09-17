@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0bA-Lw-MKw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0bA-Lw-MKw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -57,12 +59,12 @@
                                         <rect key="frame" x="45" y="396" width="307" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCP-Nu-JFs">
-                                                <rect key="frame" x="69" y="15" width="224" height="22"/>
+                                                <rect key="frame" x="69" y="15" width="228" height="22"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="電話番号で登録">
                                                         <attributes>
-                                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                                            <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" metaFont="system" size="18"/>
                                                             <font key="NSOriginalFont" metaFont="system" size="18"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
@@ -76,8 +78,8 @@
                                                     </fragment>
                                                     <fragment content="ログイン">
                                                         <attributes>
-                                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                                            <color key="NSColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" metaFont="system" size="18"/>
                                                             <font key="NSOriginalFont" metaFont="system" size="18"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
@@ -103,7 +105,7 @@
                                             <constraint firstAttribute="height" constant="50" id="vBk-HC-3sP"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bx-7U-UvA" userLabel="電話番號で登録ボタン">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bx-7U-UvA" userLabel="電話番號で登録ボタン">
                                         <rect key="frame" x="107" y="524" width="200" height="60"/>
                                         <color key="backgroundColor" red="0.88235294119999996" green="0.80392156859999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -115,21 +117,28 @@
                                                 <fragment content="認証コードを送る">
                                                     <attributes>
                                                         <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                                        <font key="NSFont" metaFont="system" size="18"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="didTapTelNoSignUpButton:" destination="0bA-Lw-MKw" eventType="touchUpInside" id="nho-CE-tvi"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="電話番号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aiw-92-hPY" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="電話番号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aiw-92-hPY" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
                                         <rect key="frame" x="20" y="456" width="374" height="48"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="qqg-GS-4fY"/>
                                         </constraints>
-                                        <attributedString key="attributedText"/>
+                                        <color key="textColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -160,12 +169,14 @@
                                     <constraint firstItem="aiw-92-hPY" firstAttribute="top" secondItem="Z6j-A9-VOr" secondAttribute="bottom" constant="10" id="vnc-n5-SCz"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="なまえ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPF-D9-71F" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="なまえ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPF-D9-71F" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
                                 <rect key="frame" x="20" y="110" width="374" height="48"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="0Vd-bG-MFa"/>
                                 </constraints>
-                                <attributedString key="attributedText"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="inset">
@@ -182,12 +193,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSp-TO-9Fi" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xSp-TO-9Fi" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
                                 <rect key="frame" x="20" y="168" width="374" height="48"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="qAX-BA-Imh"/>
                                 </constraints>
-                                <attributedString key="attributedText"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -204,12 +217,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dc-jb-tKs" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dc-jb-tKs" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
                                 <rect key="frame" x="20" y="226" width="374" height="48"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="eCB-9Y-Hwn"/>
                                 </constraints>
-                                <attributedString key="attributedText"/>
+                                <color key="textColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -226,14 +241,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ic8-0N-joz">
-                                <rect key="frame" x="111.5" y="604" width="191" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ic8-0N-joz">
+                                <rect key="frame" x="110" y="604" width="194" height="33.5"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Eメールログイン画面へ">
                                             <attributes>
                                                 <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
@@ -251,7 +266,7 @@
                                     <constraint firstAttribute="height" constant="2" id="2c8-et-IsB"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0qS-C3-7Vm">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0qS-C3-7Vm">
                                 <rect key="frame" x="107" y="294" width="200" height="60"/>
                                 <color key="backgroundColor" red="0.92439115049999998" green="0.82285851239999996" blue="0.81839394570000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -263,7 +278,7 @@
                                         <fragment content="登録する">
                                             <attributes>
                                                 <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <font key="NSFont" size="18" name=".HiraKakuInterface-W3"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -278,7 +293,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="g0i-2P-U8v"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="xfk-o8-p6w" secondAttribute="bottom" id="47J-o3-5Ww"/>
                             <constraint firstItem="lPF-D9-71F" firstAttribute="top" secondItem="LKd-q2-CUF" secondAttribute="bottom" id="4ND-xR-utH"/>
@@ -306,7 +322,6 @@
                             <constraint firstItem="g0i-2P-U8v" firstAttribute="trailing" secondItem="xSp-TO-9Fi" secondAttribute="trailing" constant="20" id="vNJ-b4-QEN"/>
                             <constraint firstItem="lPF-D9-71F" firstAttribute="leading" secondItem="g0i-2P-U8v" secondAttribute="leading" constant="20" id="vmg-to-Xcj"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="g0i-2P-U8v"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="xSp-TO-9Fi" id="u6C-hC-luJ"/>
@@ -322,7 +337,24 @@
             <point key="canvasLocation" x="-1043.4782608695652" y="-483.48214285714283"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="8dc-jb-tKs">
+            <size key="intrinsicContentSize" width="120" height="48"/>
+        </designable>
+        <designable name="aiw-92-hPY">
+            <size key="intrinsicContentSize" width="103.5" height="49"/>
+        </designable>
+        <designable name="lPF-D9-71F">
+            <size key="intrinsicContentSize" width="87" height="49"/>
+        </designable>
+        <designable name="xSp-TO-9Fi">
+            <size key="intrinsicContentSize" width="152.5" height="49"/>
+        </designable>
+    </designables>
     <resources>
         <image name="icon_paw" width="51" height="54.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

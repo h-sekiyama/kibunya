@@ -65,6 +65,8 @@ class SMSSendCompleteViewController: UIViewController {
     @IBAction func toSignUpButton(_ sender: Any) {
         let signUpViewController = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as UIViewController
         signUpViewController.modalPresentationStyle = .fullScreen
+        // 遷移アニメーション定義
+        Functions.presentAnimation(view: view)
         self.present(signUpViewController, animated: false, completion: nil)
     }
     
@@ -88,9 +90,9 @@ class SMSSendCompleteViewController: UIViewController {
     // 各テキストフィールド入力監視
     @objc func textFieldDidChange(_ textFiled: UITextField) {
         if (verificationIdTextField.text!.count == 6 && verificationIdTextField.text!.count > 0) {
-            signUpButton.isEnabled = true
+            Functions.updateButtonEnabled(button: signUpButton, enabled: true)
         } else {
-            signUpButton.isEnabled = false
+            Functions.updateButtonEnabled(button: signUpButton, enabled: false)
         }
         
         // 入力文字数制限をつける（認証コードテキストフィールド）
