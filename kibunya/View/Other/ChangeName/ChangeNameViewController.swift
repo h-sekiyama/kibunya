@@ -158,7 +158,7 @@ extension ChangeNameViewController: UIImagePickerControllerDelegate, UINavigatio
             profileIcon.image = originalImage
         }
         dismiss(animated: true, completion: nil)
-        Functions.updateButtonEnabled(button: self.updateProfile, enabled: false)
+        Functions.updateButtonEnabled(button: self.updateProfile, enabled: true)
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

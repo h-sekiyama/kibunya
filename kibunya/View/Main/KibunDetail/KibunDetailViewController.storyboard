@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -171,12 +172,12 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQ9-j4-pKP">
-                                <rect key="frame" x="108.5" y="65" width="197.5" height="24"/>
+                                <rect key="frame" x="112.5" y="65.5" width="189" height="23"/>
                                 <attributedString key="attributedText">
                                     <fragment content="2020年12月31日">
                                         <attributes>
-                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="24" name="HiraMaruProN-W4"/>
+                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="23" name="HiraMaruProN-W4"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -195,6 +196,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="dzl-r3-I1u"/>
                         <color key="backgroundColor" red="1" green="0.85882352941176465" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xth-Ct-sZo" firstAttribute="leading" secondItem="dzl-r3-I1u" secondAttribute="leading" id="FlZ-n0-W9S"/>
@@ -209,7 +211,6 @@
                             <constraint firstItem="nVJ-Q0-wdb" firstAttribute="leading" secondItem="dzl-r3-I1u" secondAttribute="leading" id="t4B-nf-GeQ"/>
                             <constraint firstItem="sQ9-j4-pKP" firstAttribute="centerX" secondItem="BcH-69-8wm" secondAttribute="centerX" id="zS2-Fo-z4T"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="dzl-r3-I1u"/>
                     </view>
                     <connections>
                         <outlet property="diaryImage" destination="xQc-VO-0yJ" id="n4B-uo-B2d"/>

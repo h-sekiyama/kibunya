@@ -53,16 +53,20 @@ class KibunDetailViewController:  UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timeLabel.text = "\(Functions.getDate(timeStamp: time!))"
+        // 上部の投稿年月日表示
+        timeLabel.text = "\(Functions.getDateWithDayOfTheWeek(date: date))"
+        // 投稿者名表示
         userNameLabel.text = userName!
+        // 日記本文表示
         textLabel.text = text!
+        // 投稿者プロフィールアイコン表示
         if (imageUrl != "") {
-            diaryImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        diaryImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
             diaryImage.sd_setImage(with: URL(string: imageUrl))
         } else {
             diaryImage.isHidden = true
         }
-        // 日記の投稿時間
+        // 日記の投稿時間表示
         diaryTime.text  = Functions.getTime(timeStamp: time!)
         
         // 本文タップ時にキーボードを出さない様にする

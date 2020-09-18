@@ -89,7 +89,7 @@
                                             </constraints>
                                             <color key="textColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                     <color key="value" red="0.88235294119999996" green="0.80392156859999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
