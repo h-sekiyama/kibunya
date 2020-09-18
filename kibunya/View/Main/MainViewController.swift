@@ -4,8 +4,9 @@ import FirebaseFirestore
 import FirebaseAuth
 import Foundation
 import FirebaseUI
+import GoogleMobileAds
 
-class MainViewController: UIViewController, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDelegate, GADBannerViewDelegate {
     
     //ストレージサーバのURLを取得
     let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
@@ -52,6 +53,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
             nextDateButton.setImage(UIImage(named: "arrow_right_off"), for: .normal)
         }
     }
+    // 広告バナー
+    var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +96,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
         view.addSubview(tabBarView.tab)
         tabBarView.owner = self
 
+        // 広告表示
+        showAdBanner()
+        
         // タブの表示位置を調整
         tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
         tabBarView.diaryButton.setBackgroundImage(UIImage(named: "tab_image0_on"), for: .normal)
@@ -104,6 +110,33 @@ class MainViewController: UIViewController, UITableViewDelegate {
             kibuns.removeAll()
             showKibuns(date: displayedDate)
         }
+    }
+    
+    // 広告バナー表示処理
+    private func showAdBanner() {
+        bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView as Any,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: -50),
+             NSLayoutConstraint(item: bannerView as Any,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
+        bannerView.adUnitID = Constants.ADMOB_ID
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
     }
     
     // 気分リストを設定

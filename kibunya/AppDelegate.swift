@@ -5,6 +5,7 @@ import FirebaseCore
 import UserNotifications
 import FirebaseMessaging
 import UserNotifications
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         application.registerForRemoteNotifications()
+        
+        // 広告ID追加
+        GADMobileAds.configure(withApplicationID: Constants.ADMOB_ID)
         
         return true
     }

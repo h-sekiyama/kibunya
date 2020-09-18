@@ -15,6 +15,7 @@ target 'kibunya' do
   pod 'Firebase/Core'
   pod 'FirebaseUI/Storage'
   pod 'CropViewController'
+  pod 'Google-Mobile-Ads-SDK'
 
   target 'kibunyaTests' do
     inherit! :search_paths
