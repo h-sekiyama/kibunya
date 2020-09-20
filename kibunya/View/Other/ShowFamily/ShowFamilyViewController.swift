@@ -148,7 +148,9 @@ extension ShowFamilyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let profileIcon = cell.viewWithTag(1) as! UIImageView
-        profileIcon.sd_setImage(with: familyProfileIconArray[indexPath.row], placeholderImage: UIImage(named: "no_image"))
+        profileIcon.sd_setImage(with: familyProfileIconArray[indexPath.row], maxImageSize: 10000000, placeholderImage: UIImage(named: "no_image"), options: .refreshCached) { _, _, _, _ in
+            // nop
+        }
         let nameLabel = cell.viewWithTag(2) as! UILabel
         nameLabel.text = familyNameArray[indexPath.row]
         return cell
