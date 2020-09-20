@@ -111,13 +111,15 @@ class ChangeNameViewController: UIViewController, UITextFieldDelegate {
         // 自分のユーザーIDを取得
         myUserId = Auth.auth().currentUser?.uid ?? ""
         
+        let myProfileIconUrl: StorageReference = self.storage.child("profileIcon").child("\(myUserId).jpg")
+        
         // プロフィール画像を設定
         if (UserDefaults.standard.cachedProfileIconKey != nil) {
             myProfileIcon = Functions.loadImageFromPath(path: Functions.fileInDocumentsDirectory(filename: "profileIcon"))
+            profileIcon.image = myProfileIcon
         } else {
-            myProfileIcon = UIImage(named: "no_image")
+            profileIcon.sd_setImage(with: myProfileIconUrl, placeholderImage: UIImage(named: "no_image"))
         }
-        profileIcon.image = myProfileIcon
     }
     
     override func loadView() {
