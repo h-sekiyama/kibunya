@@ -147,9 +147,8 @@ extension ShowFamilyViewController: UITableViewDataSource {
     // セルの中身を設定するデータソース
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let placeholderImage = UIImage(named: "no_image")
         let profileIcon = cell.viewWithTag(1) as! UIImageView
-        profileIcon.sd_setImage(with: familyProfileIconArray[indexPath.row], placeholderImage: placeholderImage)
+        profileIcon.sd_setImage(with: familyProfileIconArray[indexPath.row], placeholderImage: UIImage(named: "no_image"))
         let nameLabel = cell.viewWithTag(2) as! UILabel
         nameLabel.text = familyNameArray[indexPath.row]
         return cell

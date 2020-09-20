@@ -223,12 +223,11 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "KibunTableViewCell", for: indexPath ) as! KibunTableViewCell
         let imageRef = storage.child("profileIcon").child("\(kibuns[indexPath.row].user_id!).jpg")
-        let placeholderImage = UIImage(named: "no_image")
         cell.userIcon.image = nil
         if (myProfileIcon != nil && kibuns[indexPath.row].user_id == myUserId) {
             cell.userIcon.image = myProfileIcon
         } else {
-            cell.userIcon.sd_setImage(with: imageRef, placeholderImage: placeholderImage)
+            cell.userIcon.sd_setImage(with: imageRef, placeholderImage: UIImage(named: "no_image"))
         }
         cell.userIcon.layer.cornerRadius = 15
         cell.clipsToBounds = true
