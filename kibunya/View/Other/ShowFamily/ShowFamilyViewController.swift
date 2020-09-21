@@ -163,6 +163,6 @@ extension ShowFamilyViewController: UITableViewDataSource {
     
     // セルの高さを指定する
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 74
     }
 }
