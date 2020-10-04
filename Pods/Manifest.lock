@@ -361,6 +361,7 @@ PODS:
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
+  - NCMB (1.1.2)
   - PromisesObjC (1.2.10)
   - Protobuf (3.13.0)
   - SDWebImage (5.9.1):
@@ -377,6 +378,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - FirebaseUI/Storage
+  - NCMB (from `https://github.com/NIFCloud-mbaas/ncmb_swift`)
 
 SPEC REPOS:
   trunk:
@@ -407,6 +409,15 @@ SPEC REPOS:
     - Protobuf
     - SDWebImage
 
+EXTERNAL SOURCES:
+  NCMB:
+    :git: https://github.com/NIFCloud-mbaas/ncmb_swift
+
+CHECKOUT OPTIONS:
+  NCMB:
+    :commit: be8833647e6b4f4ab154bbd849929692349cb418
+    :git: https://github.com/NIFCloud-mbaas/ncmb_swift
+
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
@@ -431,10 +442,11 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  NCMB: 71a6dc3bce6124739ef9d287fb8811664ae0968b
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
 
-PODFILE CHECKSUM: cdfda34fba1a60ec0a763c0e56a5fb4e84737a43
+PODFILE CHECKSUM: e98ca6a29fee1a597dca81f8ce3399443a04bace
 
 COCOAPODS: 1.9.1

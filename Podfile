@@ -15,6 +15,7 @@ target 'kibunya' do
   pod 'Firebase/Core'
   pod 'FirebaseUI/Storage'
   pod 'CropViewController'
+  pod 'NCMB', :git => 'https://github.com/NIFCloud-mbaas/ncmb_swift'
 
   target 'kibunyaTests' do
     inherit! :search_paths

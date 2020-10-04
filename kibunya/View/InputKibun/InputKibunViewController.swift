@@ -5,10 +5,11 @@ import FirebaseAuth
 import Foundation
 import CropViewController
 import FirebaseUI
+import NCMB
 
 class InputKibunViewController: UIViewController {
     //ストレージサーバのURLを取得
-    let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
+    let storage = Functions.getStorageURL()
     // タブ定義
     var tabBarView: TabBarView!
     // FireStore取得
@@ -199,11 +200,52 @@ class InputKibunViewController: UIViewController {
                 self.sendKibunCompleteLabel.text = "今日の気分を送信しました！"
                 self.sendKibunCompleteLabel.isHidden = false
                 self.sendImage.image = UIImage(named: "diary_image_icon")
+                
+                // 家族に日記の更新をPUSH通知で送信
+                self.sendUpdateDiaryPush(userName: userName, myUserId: userId)
             }
             self.dismissIndicator()
             self.kibunTextBox.text = ""
             Functions.updateButtonEnabled(button: self.sendButton, enabled: false)
             self.remainingTextCountLabel.text = "300"
+        }
+    }
+    
+    // 家族にのみ日記更新通知のPUSHを送る処理
+    private func sendUpdateDiaryPush(userName: String, myUserId: String) {
+        // 自分が所属する家族が存在すればPUSH送信
+        defaultStore.collection("families").whereField("user_id", arrayContainsAny: [myUserId]).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                guard let familyDocumentId = querySnapshot?.documents[0].documentID else {
+                    return
+                }
+                // プッシュ通知オブジェクトの作成
+                let push : NCMBPush = NCMBPush()
+                push.sound = "default"
+                push.badgeIncrementFlag = true
+                push.contentAvailable = false
+                push.searchCondition?.where(field: "channels", toMatchPattern: familyDocumentId)
+                
+                // メッセージの設定
+                push.message = "\(userName)が日記を書きました"
+                // iOS端末を送信対象に設定する
+                push.isSendToIOS = true
+                // 即時配信を設定する
+                push.setImmediateDelivery()
+
+                // プッシュ通知を配信登録する
+                push.sendInBackground(callback: { result in
+                    switch result {
+                    case .success:
+                        print("登録に成功しました。プッシュID: \(push.objectId!)")
+                    case let .failure(error):
+                        print("登録に失敗しました: \(error)")
+                        return;
+                    }
+                })
+            }
         }
     }
 }

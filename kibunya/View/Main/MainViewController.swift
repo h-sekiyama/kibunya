@@ -4,11 +4,12 @@ import FirebaseFirestore
 import FirebaseAuth
 import Foundation
 import FirebaseUI
+import NCMB
 
 class MainViewController: UIViewController, UITableViewDelegate {
     
     //ストレージサーバのURLを取得
-    let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
+    let storage = Functions.getStorageURL()
     // タブ定義
     var tabBarView: TabBarView!
     // 表示中の年月日
@@ -67,6 +68,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         Auth.auth().currentUser?.reload()
         // 自分のユーザーIDを取得
         myUserId = Auth.auth().currentUser?.uid
+        setDeviceTokenWithFamilyDocumentId()
         
         // アプリがフォアグラウンドになった時のオブザーバー登録
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.viewWillEnterForeground(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
@@ -81,6 +83,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
         kibunList.delegate = self
         kibunList.register(UINib(nibName: "KibunTableViewCell", bundle: nil), forCellReuseIdentifier: "KibunTableViewCell")
         showKibuns(date: displayedDate)
+        
+        //installationの取得と表示
+        getInstallation()
     }
     
     override func loadView() {
@@ -191,6 +196,35 @@ class MainViewController: UIViewController, UITableViewDelegate {
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    // 以下PUSH通知送信関連の処理
+    func getInstallation() {
+        //installationの生成
+        let installation = NCMBInstallation.currentInstallation
+        //ローカルのinstallationをfetchして更新
+        installation.fetchInBackground(callback: { result in
+            switch result {
+                case .success:
+                    print("取得成功:\(installation)")
+                case let .failure(error):
+                    print(error)
+            }
+        })
+    }
+    
+    // 自分のdeviceTokenと家族ドキュメントIDの紐付け
+    func setDeviceTokenWithFamilyDocumentId() {
+        defaultStore.collection("families").whereField("user_id", arrayContainsAny: [myUserId!]).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                guard let familyDocumentId = querySnapshot?.documents[0].documentID else {
+                    return
+                }
+                Functions.setFamilyIdWithDeviceToken(familyDocumentId: familyDocumentId)
             }
         }
     }

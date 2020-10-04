@@ -8,7 +8,7 @@ import FirebaseUI
 class ChangeNameViewController: UIViewController, UITextFieldDelegate {
     
     //ストレージサーバのURLを取得
-    let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
+    let storage = Functions.getStorageURL()
     //保存したい画像のデータを変数として持つ
     var ProfileImageData: Data = Data()
     // 自分のUID

@@ -7,7 +7,7 @@ import FirebaseUI
 class KibunDetailViewController:  UIViewController {
     
     //ストレージサーバのURLを取得
-    let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
+    let storage = Functions.getStorageURL()
     // 日記のドキュメントID
     var diaryId: String = ""
     // 投稿者のユーザーID

@@ -4,13 +4,17 @@ import FirebaseAuth
 import FirebaseCore
 import UserNotifications
 import FirebaseMessaging
+import NCMB
 import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    // ニフクラのAPIキーの設定
+    let applicationkey = "23cdc4478a47767b5f49bcfa80b33aa8087f5d4ad96192a457489ccac91a4721"
+    let clientkey      = "645eb370a2b644caae9d229392ac3b654593913d2f996040c8751027453f0fa2"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         FirebaseApp.configure()
         Auth.auth().signInAnonymously()
         
@@ -29,6 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         application.registerForRemoteNotifications()
+
+        // SDKの初期化
+        NCMB.initialize(applicationKey: applicationkey, clientKey: clientkey)
+        
+        // Register notification
+        registerForPushNotifications()
         
         return true
     }
@@ -48,13 +58,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-         // 1. Convert device token to string
-         let tokenParts = deviceToken.map { data -> String in
-             return String(format: "%02.2hhx", data)
-         }
-         let token = tokenParts.joined()
-         // 2. Print device token to use for PNs payloads
-         print("Device Token: \(token)")
+        //端末情報を扱うNCMBInstallationのインスタンスを作成
+        let installation : NCMBInstallation = NCMBInstallation.currentInstallation
+        installation.setDeviceTokenFromData(data: deviceToken)
+        installation.saveInBackground(callback: { result in
+            switch result {
+            case .success:
+                //端末情報の登録が成功した場合の処理
+                UserDefaults.standard.devicetokenKey = deviceToken
+                break
+            case let .failure(error):
+                //端末情報の登録が失敗した場合の処理
+                let errorCode = (error as! NCMBApiError).errorCode;
+                if (errorCode == NCMBApiErrorCode.duplication) {
+                    //失敗した原因がdeviceTokenの重複だった場合
+                    self.updateExistInstallation(installation: installation, deviceToken: deviceToken)
+                } else {
+                    //deviceTokenの重複以外のエラーが返ってきた場合
+                }
+                return
+            }
+        })
      }
 
      func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -88,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
-   func userNotificationCenter(_ center: UNUserNotificationCenter,
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
                                willPresent notification: UNNotification,
                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
        let userInfo = notification.request.content.userInfo
@@ -100,9 +124,9 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
        print(userInfo)
 
        completionHandler([])
-   }
+    }
 
-   func userNotificationCenter(_ center: UNUserNotificationCenter,
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
                                didReceive response: UNNotificationResponse,
                                withCompletionHandler completionHandler: @escaping () -> Void) {
        let userInfo = response.notification.request.content.userInfo
@@ -113,5 +137,53 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
        print(userInfo)
 
        completionHandler()
-   }
+    }
+    
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current() // 1
+            .requestAuthorization(options: [.alert, .sound, .badge]) { // 2
+                granted, error in
+                print("Permission granted: \(granted)") // 3
+                guard granted else { return }
+                self.getNotificationSettings()
+        }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
+    
+    //deviceTokenの重複で端末情報の登録に失敗した場合に上書き処理を行う
+    func updateExistInstallation(installation: NCMBInstallation, deviceToken: Data) -> Void {
+        var installationQuery : NCMBQuery<NCMBInstallation> = NCMBInstallation.query
+        installationQuery.where(field: "deviceToken", equalTo: installation.deviceToken!)
+        installationQuery.findInBackground(callback: {results in
+            switch results {
+            case let .success(data):
+                //上書き保存する
+                let searchDevice:NCMBInstallation = data.first!
+                installation.objectId = searchDevice.objectId
+                installation.saveInBackground(callback: { result in
+                    switch result {
+                    case .success:
+                        //端末情報更新に成功したときの処理
+                        UserDefaults.standard.devicetokenKey = deviceToken
+                        break
+                    case .failure:
+                        //端末情報更新に失敗したときの処理
+                        break
+                    }
+                })
+            case .failure:
+                //端末情報検索に失敗した場合の処理
+                break
+            }
+        })
+    }
 }

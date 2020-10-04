@@ -84,6 +84,7 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
                 print("Error getting documents: \(err)")
             } else {
                 if (querySnapshot?.documents.count == 0) {  // 自分か相手のユーザーIDがまだ家族登録されていない場合
+                    let ref: DocumentReference? = nil
                     self.defaultStore.collection("families").addDocument(data: [
                         "user_id": [userId, self.familyUserId]
                     ]) { err in
@@ -91,9 +92,11 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
                             print("Error adding document: \(err)")
                         } else {
                             self.addedFamilyLabel.text = self.familyUserName
-                            self.addedFamily.isHidden = false
                             self.userNameLabel.isHidden = true
                             self.addedFamily.isHidden = true
+                            
+                            // 自分のdeviceTokenと家族ドキュメントIDの紐付け
+                            Functions.setFamilyIdWithDeviceToken(familyDocumentId: ref!.documentID)
                         }
                     }
                 } else {    // 自分か相手のユーザーIDがいずれかの家族に追加済みの場合
@@ -124,6 +127,9 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
                                     self.addFamilyInfo.text = "と家族になりました！"
                                     self.addedFamily.isHidden = false
                                     self.userNameLabel.isHidden = true
+                                    
+                                    // 自分のdeviceTokenと家族ドキュメントIDの紐付け
+                                    Functions.setFamilyIdWithDeviceToken(familyDocumentId: familyDocumentId2)
                                 }
                             }
                         }
@@ -187,6 +193,9 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
                                        self.addedFamilyLabel.text = self.familyUserName
                                        self.addFamilyInfo.text = "と家族になりました！"
                                        self.addedFamily.isHidden = false
+                                    
+                                    // 自分のdeviceTokenと家族ドキュメントIDの紐付け
+                                    Functions.setFamilyIdWithDeviceToken(familyDocumentId: document.documentID)
                                    }
                                }
                            }

@@ -36,6 +36,43 @@
 		3E70A82F24E26379008667B5 /* kibunyaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A82E24E26379008667B5 /* kibunyaUITests.swift */; };
 		3E72A6F924E6C37B00EC71EB /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E72A6F824E6C37B00EC71EB /* TabBarView.xib */; };
 		3E7442C225110A0C00E881F6 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7442C125110A0C00E881F6 /* FormTextField.swift */; };
+		3E777F722518B9C10063E9A4 /* InputKibunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C004424E92100001D4828 /* InputKibunViewController.swift */; };
+		3E777F732518B9C10063E9A4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */; };
+		3E777F742518B9C10063E9A4 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0854A24E68BB2003E8FE2 /* TabBarView.swift */; };
+		3E777F752518B9C10063E9A4 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C005F24EC247E001D4828 /* Functions.swift */; };
+		3E777F762518B9C10063E9A4 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5B315D24FE912D006AB64C /* ForgetPasswordViewController.swift */; };
+		3E777F772518B9C10063E9A4 /* Kibuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA278D224E7BF5C00A62834 /* Kibuns.swift */; };
+		3E777F782518B9C10063E9A4 /* KibunTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FD59A24E7F24B005011B6 /* KibunTableViewCell.swift */; };
+		3E777F792518B9C10063E9A4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C005D24EAE97C001D4828 /* Extensions.swift */; };
+		3E777F7A2518B9C10063E9A4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A81024E26376008667B5 /* MainViewController.swift */; };
+		3E777F7B2518B9C10063E9A4 /* MailSendCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */; };
+		3E777F7C2518B9C10063E9A4 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7442C125110A0C00E881F6 /* FormTextField.swift */; };
+		3E777F7D2518B9C10063E9A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A80C24E26376008667B5 /* AppDelegate.swift */; };
+		3E777F7E2518B9C10063E9A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A80E24E26376008667B5 /* SceneDelegate.swift */; };
+		3E777F7F2518B9C10063E9A4 /* ShowFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C006724ED75A7001D4828 /* ShowFamilyViewController.swift */; };
+		3E777F802518B9C10063E9A4 /* KibunDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE54E3224F3DE87002050B7 /* KibunDetailViewController.swift */; };
+		3E777F812518B9C10063E9A4 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C004924EA5EF9001D4828 /* OtherViewController.swift */; };
+		3E777F822518B9C10063E9A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6D765C250CD4B800E2BF05 /* Constants.swift */; };
+		3E777F832518B9C10063E9A4 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C006224ED6972001D4828 /* ChangeNameViewController.swift */; };
+		3E777F842518B9C10063E9A4 /* AddFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C005824EADDA0001D4828 /* AddFamilyViewController.swift */; };
+		3E777F852518B9C10063E9A4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C005324EA85BF001D4828 /* LoginViewController.swift */; };
+		3E777F862518B9C10063E9A4 /* SMSSendCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5B315724FBB389006AB64C /* SMSSendCompleteViewController.swift */; };
+		3E777F8A2518B9C10063E9A4 /* KibunDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE54E3424F3DE9A002050B7 /* KibunDetailViewController.storyboard */; };
+		3E777F8B2518B9C10063E9A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E70A81724E26378008667B5 /* LaunchScreen.storyboard */; };
+		3E777F8D2518B9C10063E9A4 /* OtherViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C004B24EA5F50001D4828 /* OtherViewController.storyboard */; };
+		3E777F8E2518B9C10063E9A4 /* SMSSendCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B315924FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard */; };
+		3E777F8F2518B9C10063E9A4 /* AddFamilyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C005A24EADDD1001D4828 /* AddFamilyViewController.storyboard */; };
+		3E777F902518B9C10063E9A4 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8024E52A6B00BAC128 /* SignUpViewController.storyboard */; };
+		3E777F912518B9C10063E9A4 /* InputKibunViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C004624E92112001D4828 /* InputKibunViewController.storyboard */; };
+		3E777F922518B9C10063E9A4 /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E72A6F824E6C37B00EC71EB /* TabBarView.xib */; };
+		3E777F932518B9C10063E9A4 /* KibunTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7FD59B24E7F24B005011B6 /* KibunTableViewCell.xib */; };
+		3E777F942518B9C10063E9A4 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C005524EA85D4001D4828 /* LoginViewController.storyboard */; };
+		3E777F952518B9C10063E9A4 /* ChangeNameViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C006424ED69E6001D4828 /* ChangeNameViewController.storyboard */; };
+		3E777F962518B9C10063E9A4 /* ShowFamilyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E6C006924ED75D4001D4828 /* ShowFamilyViewController.storyboard */; };
+		3E777F972518B9C10063E9A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E70A81524E26378008667B5 /* Assets.xcassets */; };
+		3E777F982518B9C10063E9A4 /* MailSendCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */; };
+		3E777F992518B9C10063E9A4 /* ForgetPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B315F24FE9171006AB64C /* ForgetPasswordViewController.storyboard */; };
+		3E777F9A2518B9C10063E9A4 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E70A81224E26376008667B5 /* MainViewController.storyboard */; };
 		3E7FD59C24E7F24B005011B6 /* KibunTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FD59A24E7F24B005011B6 /* KibunTableViewCell.swift */; };
 		3E7FD59D24E7F24B005011B6 /* KibunTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7FD59B24E7F24B005011B6 /* KibunTableViewCell.xib */; };
 		3E8FBE7F24E52A4E00BAC128 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */; };
@@ -43,14 +80,16 @@
 		3E8FBE8324E54EF400BAC128 /* MailSendCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */; };
 		3E8FBE8524E54F0300BAC128 /* MailSendCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */; };
 		3EA278D324E7BF5C00A62834 /* Kibuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA278D224E7BF5C00A62834 /* Kibuns.swift */; };
+		3EB2F7A72518C7DD00F3170A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2F7A62518C7DD00F3170A /* GoogleService-Info.plist */; };
+		3EB2F7CC2518C7EA00F3170A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2F7CB2518C7EA00F3170A /* GoogleService-Info.plist */; };
 		3EE54E3324F3DE87002050B7 /* KibunDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE54E3224F3DE87002050B7 /* KibunDetailViewController.swift */; };
 		3EE54E3524F3DE9A002050B7 /* KibunDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE54E3424F3DE9A002050B7 /* KibunDetailViewController.storyboard */; };
-		3EEB5CD124E37A3C00A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */; };
 		3EEB5CD324E37A4800A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD224E37A4800A0EA19 /* GoogleService-Info.plist */; };
 		3EEB5CD524E37A4F00A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD424E37A4F00A0EA19 /* GoogleService-Info.plist */; };
 		3EF0854B24E68BB2003E8FE2 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0854A24E68BB2003E8FE2 /* TabBarView.swift */; };
 		6A61898A33C12CEE4535F409 /* Pods_kibunya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4E4D1907B851DEDE716569 /* Pods_kibunya.framework */; };
 		BB08ED1EB104B5556D1E84D0 /* Pods_kibunya_kibunyaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F349568CC0ADE4EB46C56950 /* Pods_kibunya_kibunyaUITests.framework */; };
+		D80E8381A9BD54982D245BB1 /* Pods_kibunya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4E4D1907B851DEDE716569 /* Pods_kibunya.framework */; };
 		F4629B59FD7272E403AAE519 /* Pods_kibunyaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E1A4D237F9B8A5C76C69549 /* Pods_kibunyaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +111,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06BF8412232A9427F313E5CA /* Pods-kibunya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunya.debug.xcconfig"; path = "Target Support Files/Pods-kibunya/Pods-kibunya.debug.xcconfig"; sourceTree = "<group>"; };
 		3E5B315624FB9425006AB64C /* 家族ダイアリー.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "家族ダイアリー.entitlements"; sourceTree = "<group>"; };
 		3E5B315724FBB389006AB64C /* SMSSendCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSSendCompleteViewController.swift; sourceTree = "<group>"; };
 		3E5B315924FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SMSSendCompleteViewController.storyboard; sourceTree = "<group>"; };
@@ -108,6 +148,7 @@
 		3E70A83024E26379008667B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E72A6F824E6C37B00EC71EB /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
 		3E7442C125110A0C00E881F6 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		3E777F9F2518B9C10063E9A4 /* kibunya_dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kibunya_dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E7FD59A24E7F24B005011B6 /* KibunTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KibunTableViewCell.swift; sourceTree = "<group>"; };
 		3E7FD59B24E7F24B005011B6 /* KibunTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KibunTableViewCell.xib; sourceTree = "<group>"; };
 		3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = /Users/user/sites/kibunya/kibunya/SignUpViewController.swift; sourceTree = "<absolute>"; };
@@ -115,20 +156,20 @@
 		3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailSendCompleteViewController.swift; sourceTree = "<group>"; };
 		3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailSendCompleteViewController.storyboard; sourceTree = "<group>"; };
 		3EA278D224E7BF5C00A62834 /* Kibuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kibuns.swift; sourceTree = "<group>"; };
+		3EB2F7A62518C7DD00F3170A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Configs/Release/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3EB2F7CB2518C7EA00F3170A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Configs/Debug/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3EE54E3224F3DE87002050B7 /* KibunDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KibunDetailViewController.swift; sourceTree = "<group>"; };
 		3EE54E3424F3DE9A002050B7 /* KibunDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KibunDetailViewController.storyboard; sourceTree = "<group>"; };
-		3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3EEB5CD224E37A4800A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "kibunya/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3EEB5CD424E37A4F00A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "kibunya/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3EF0854A24E68BB2003E8FE2 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		53A41DA030BC9368DE59A067 /* Pods-kibunya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunya.release.xcconfig"; path = "Target Support Files/Pods-kibunya/Pods-kibunya.release.xcconfig"; sourceTree = "<group>"; };
 		8AA0F6FEB4B0E14B9CF6709A /* Pods-kibunya-kibunyaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunya-kibunyaUITests.debug.xcconfig"; path = "Target Support Files/Pods-kibunya-kibunyaUITests/Pods-kibunya-kibunyaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E1A4D237F9B8A5C76C69549 /* Pods_kibunyaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kibunyaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98CA9EE0972853C3D5F9CC2A /* Pods-kibunya-kibunyaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunya-kibunyaUITests.release.xcconfig"; path = "Target Support Files/Pods-kibunya-kibunyaUITests/Pods-kibunya-kibunyaUITests.release.xcconfig"; sourceTree = "<group>"; };
-		9B6032BA666830724FCD44A5 /* Pods-kibunya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunya.debug.xcconfig"; path = "Target Support Files/Pods-kibunya/Pods-kibunya.debug.xcconfig"; sourceTree = "<group>"; };
 		A20AD7BBFF2A60C3BFD4AA7F /* Pods-kibunyaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunyaTests.release.xcconfig"; path = "Target Support Files/Pods-kibunyaTests/Pods-kibunyaTests.release.xcconfig"; sourceTree = "<group>"; };
 		AF4E4D1907B851DEDE716569 /* Pods_kibunya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kibunya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDAD3BBB15405305A099B1C0 /* Pods-kibunyaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunyaTests.debug.xcconfig"; path = "Target Support Files/Pods-kibunyaTests/Pods-kibunyaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EF81D6B479BB3809C5A08B26 /* Pods-kibunya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunya.release.xcconfig"; path = "Target Support Files/Pods-kibunya/Pods-kibunya.release.xcconfig"; sourceTree = "<group>"; };
 		F349568CC0ADE4EB46C56950 /* Pods_kibunya_kibunyaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kibunya_kibunyaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -138,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A61898A33C12CEE4535F409 /* Pods_kibunya.framework in Frameworks */,
+				D80E8381A9BD54982D245BB1 /* Pods_kibunya.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +196,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB08ED1EB104B5556D1E84D0 /* Pods_kibunya_kibunyaUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E777F872518B9C10063E9A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +286,7 @@
 				3E70A80924E26376008667B5 /* Family Diary.app */,
 				3E70A81F24E26378008667B5 /* kibunyaTests.xctest */,
 				3E70A82A24E26379008667B5 /* kibunyaUITests.xctest */,
+				3E777F9F2518B9C10063E9A4 /* kibunya_dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -244,10 +294,11 @@
 		3E70A80B24E26376008667B5 /* kibunya */ = {
 			isa = PBXGroup;
 			children = (
+				3EB2F7A62518C7DD00F3170A /* GoogleService-Info.plist */,
+				3EB2F7CB2518C7EA00F3170A /* GoogleService-Info.plist */,
 				3E5B315624FB9425006AB64C /* 家族ダイアリー.entitlements */,
 				3E70A80C24E26376008667B5 /* AppDelegate.swift */,
 				3E70A80E24E26376008667B5 /* SceneDelegate.swift */,
-				3EEB5CD024E37A3C00A0EA19 /* GoogleService-Info.plist */,
 				3E6C005C24EAE965001D4828 /* Common */,
 				3EA278D424E7BF7000A62834 /* Model */,
 				3E763CAD24F25FD70097FCD1 /* View */,
@@ -356,12 +407,12 @@
 		86ABA8A6EF18FD942793203D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9B6032BA666830724FCD44A5 /* Pods-kibunya.debug.xcconfig */,
-				53A41DA030BC9368DE59A067 /* Pods-kibunya.release.xcconfig */,
 				8AA0F6FEB4B0E14B9CF6709A /* Pods-kibunya-kibunyaUITests.debug.xcconfig */,
 				98CA9EE0972853C3D5F9CC2A /* Pods-kibunya-kibunyaUITests.release.xcconfig */,
 				BDAD3BBB15405305A099B1C0 /* Pods-kibunyaTests.debug.xcconfig */,
 				A20AD7BBFF2A60C3BFD4AA7F /* Pods-kibunyaTests.release.xcconfig */,
+				06BF8412232A9427F313E5CA /* Pods-kibunya.debug.xcconfig */,
+				EF81D6B479BB3809C5A08B26 /* Pods-kibunya.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -437,6 +488,23 @@
 			productReference = 3E70A82A24E26379008667B5 /* kibunyaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		3E777F6F2518B9C10063E9A4 /* kibunya_dev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E777F9C2518B9C10063E9A4 /* Build configuration list for PBXNativeTarget "kibunya_dev" */;
+			buildPhases = (
+				3E777F712518B9C10063E9A4 /* Sources */,
+				3E777F872518B9C10063E9A4 /* Frameworks */,
+				3E777F892518B9C10063E9A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kibunya_dev;
+			productName = kibunya;
+			productReference = 3E777F9F2518B9C10063E9A4 /* kibunya_dev.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -476,6 +544,7 @@
 				3E70A80824E26376008667B5 /* kibunya */,
 				3E70A81E24E26378008667B5 /* kibunyaTests */,
 				3E70A82924E26379008667B5 /* kibunyaUITests */,
+				3E777F6F2518B9C10063E9A4 /* kibunya_dev */,
 			);
 		};
 /* End PBXProject section */
@@ -487,7 +556,6 @@
 			files = (
 				3EE54E3524F3DE9A002050B7 /* KibunDetailViewController.storyboard in Resources */,
 				3E70A81924E26378008667B5 /* LaunchScreen.storyboard in Resources */,
-				3EEB5CD124E37A3C00A0EA19 /* GoogleService-Info.plist in Resources */,
 				3E6C004C24EA5F50001D4828 /* OtherViewController.storyboard in Resources */,
 				3E5B315A24FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard in Resources */,
 				3E6C005B24EADDD1001D4828 /* AddFamilyViewController.storyboard in Resources */,
@@ -498,6 +566,7 @@
 				3E6C005624EA85D4001D4828 /* LoginViewController.storyboard in Resources */,
 				3E6C006524ED69E6001D4828 /* ChangeNameViewController.storyboard in Resources */,
 				3E6C006A24ED75D4001D4828 /* ShowFamilyViewController.storyboard in Resources */,
+				3EB2F7A72518C7DD00F3170A /* GoogleService-Info.plist in Resources */,
 				3E70A81624E26378008667B5 /* Assets.xcassets in Resources */,
 				3E8FBE8524E54F0300BAC128 /* MailSendCompleteViewController.storyboard in Resources */,
 				3E5B316024FE9171006AB64C /* ForgetPasswordViewController.storyboard in Resources */,
@@ -518,6 +587,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EEB5CD524E37A4F00A0EA19 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E777F892518B9C10063E9A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E777F8A2518B9C10063E9A4 /* KibunDetailViewController.storyboard in Resources */,
+				3E777F8B2518B9C10063E9A4 /* LaunchScreen.storyboard in Resources */,
+				3E777F8D2518B9C10063E9A4 /* OtherViewController.storyboard in Resources */,
+				3E777F8E2518B9C10063E9A4 /* SMSSendCompleteViewController.storyboard in Resources */,
+				3E777F8F2518B9C10063E9A4 /* AddFamilyViewController.storyboard in Resources */,
+				3E777F902518B9C10063E9A4 /* SignUpViewController.storyboard in Resources */,
+				3E777F912518B9C10063E9A4 /* InputKibunViewController.storyboard in Resources */,
+				3E777F922518B9C10063E9A4 /* TabBarView.xib in Resources */,
+				3E777F932518B9C10063E9A4 /* KibunTableViewCell.xib in Resources */,
+				3E777F942518B9C10063E9A4 /* LoginViewController.storyboard in Resources */,
+				3E777F952518B9C10063E9A4 /* ChangeNameViewController.storyboard in Resources */,
+				3E777F962518B9C10063E9A4 /* ShowFamilyViewController.storyboard in Resources */,
+				3EB2F7CC2518C7EA00F3170A /* GoogleService-Info.plist in Resources */,
+				3E777F972518B9C10063E9A4 /* Assets.xcassets in Resources */,
+				3E777F982518B9C10063E9A4 /* MailSendCompleteViewController.storyboard in Resources */,
+				3E777F992518B9C10063E9A4 /* ForgetPasswordViewController.storyboard in Resources */,
+				3E777F9A2518B9C10063E9A4 /* MainViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,6 +761,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E70A82F24E26379008667B5 /* kibunyaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E777F712518B9C10063E9A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E777F722518B9C10063E9A4 /* InputKibunViewController.swift in Sources */,
+				3E777F732518B9C10063E9A4 /* SignUpViewController.swift in Sources */,
+				3E777F742518B9C10063E9A4 /* TabBarView.swift in Sources */,
+				3E777F752518B9C10063E9A4 /* Functions.swift in Sources */,
+				3E777F762518B9C10063E9A4 /* ForgetPasswordViewController.swift in Sources */,
+				3E777F772518B9C10063E9A4 /* Kibuns.swift in Sources */,
+				3E777F782518B9C10063E9A4 /* KibunTableViewCell.swift in Sources */,
+				3E777F792518B9C10063E9A4 /* Extensions.swift in Sources */,
+				3E777F7A2518B9C10063E9A4 /* MainViewController.swift in Sources */,
+				3E777F7B2518B9C10063E9A4 /* MailSendCompleteViewController.swift in Sources */,
+				3E777F7C2518B9C10063E9A4 /* FormTextField.swift in Sources */,
+				3E777F7D2518B9C10063E9A4 /* AppDelegate.swift in Sources */,
+				3E777F7E2518B9C10063E9A4 /* SceneDelegate.swift in Sources */,
+				3E777F7F2518B9C10063E9A4 /* ShowFamilyViewController.swift in Sources */,
+				3E777F802518B9C10063E9A4 /* KibunDetailViewController.swift in Sources */,
+				3E777F812518B9C10063E9A4 /* OtherViewController.swift in Sources */,
+				3E777F822518B9C10063E9A4 /* Constants.swift in Sources */,
+				3E777F832518B9C10063E9A4 /* ChangeNameViewController.swift in Sources */,
+				3E777F842518B9C10063E9A4 /* AddFamilyViewController.swift in Sources */,
+				3E777F852518B9C10063E9A4 /* LoginViewController.swift in Sources */,
+				3E777F862518B9C10063E9A4 /* SMSSendCompleteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -822,7 +943,7 @@
 		};
 		3E70A83424E26379008667B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B6032BA666830724FCD44A5 /* Pods-kibunya.debug.xcconfig */;
+			baseConfigurationReference = 06BF8412232A9427F313E5CA /* Pods-kibunya.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
@@ -845,7 +966,7 @@
 		};
 		3E70A83524E26379008667B5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53A41DA030BC9368DE59A067 /* Pods-kibunya.release.xcconfig */;
+			baseConfigurationReference = EF81D6B479BB3809C5A08B26 /* Pods-kibunya.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
@@ -954,6 +1075,54 @@
 			};
 			name = Release;
 		};
+		3E777F9D2518B9C10063E9A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 42UU3JKF9R;
+				DISPLAY_NAME = "Family Diary Dev";
+				INFOPLIST_FILE = kibunya/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-D kibunya_dev";
+				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3E777F9E2518B9C10063E9A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 42UU3JKF9R;
+				DISPLAY_NAME = "Family Diary Dev";
+				INFOPLIST_FILE = kibunya/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-D kibunya_dev";
+				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya-Dev";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー（本番）";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -989,6 +1158,15 @@
 			buildConfigurations = (
 				3E70A83A24E26379008667B5 /* Debug */,
 				3E70A83B24E26379008667B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E777F9C2518B9C10063E9A4 /* Build configuration list for PBXNativeTarget "kibunya_dev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E777F9D2518B9C10063E9A4 /* Debug */,
+				3E777F9E2518B9C10063E9A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

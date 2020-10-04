@@ -9,7 +9,7 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
     // タブ定義
     var tabBarView: TabBarView!
     //ストレージサーバのURLを取得
-    let storage = Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
+    let storage = Functions.getStorageURL()
     // 家族リスト
     @IBOutlet weak var tableView: UITableView!
     // FireStore取得

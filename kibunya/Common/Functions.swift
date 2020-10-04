@@ -1,6 +1,8 @@
 import Foundation
 import UIKit
+import Firebase
 import FirebaseFirestore
+import NCMB
 
 class Functions {
     // 今日の日付けを返すメソッド
@@ -128,5 +130,43 @@ class Functions {
         transition.type = CATransitionType.push
         transition.subtype = CATransitionSubtype.fromLeft
         view.window!.layer.add(transition, forKey: kCATransition)
+    }
+    
+    // Firebase StorageのURL取得
+    public static func getStorageURL() -> StorageReference {
+        #if kibunya_dev
+            return Storage.storage().reference(forURL: "gs://kibunya-dev.appspot.com")
+        #else
+            return Storage.storage().reference(forURL: "gs://kibunya-app.appspot.com")
+        #endif
+    }
+    
+    // 自分のdeviceTokenとFamilyDocumentIdの紐付け
+    public static func setFamilyIdWithDeviceToken(familyDocumentId: String) {
+        //端末情報を扱うNCMBInstallationのインスタンスを作成
+        let installation : NCMBInstallation = NCMBInstallation.currentInstallation
+        //ローカルのinstallationをfetchして更新
+        installation.fetchInBackground(callback: { result in
+            switch result {
+                case .success:
+                    print("取得成功:\(installation)")
+                    guard let deviceToken: Data = UserDefaults.standard.devicetokenKey else { return }
+                    
+                    installation.setDeviceTokenFromData(data: deviceToken)
+                    installation["channels"] = [familyDocumentId]
+                    installation.saveInBackground(callback: {results in
+                        switch results {
+                        case .success(_):
+                            //上書き保存する
+                            break
+                        case .failure:
+                            //端末情報検索に失敗した場合の処理
+                            break
+                        }
+                    })
+                case let .failure(error):
+                    print(error)
+            }
+        })
     }
 }
