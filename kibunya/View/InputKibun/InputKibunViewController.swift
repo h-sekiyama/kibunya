@@ -290,7 +290,6 @@ extension InputKibunViewController: UIImagePickerControllerDelegate, UINavigatio
         //今回は使わない、余計なボタン等を非表示にする。
         cropController.aspectRatioPickerButtonHidden = true
         cropController.resetAspectRatioEnabled = false
-        cropController.rotateButtonsHidden = true
 
         //cropBoxのサイズを固定する。
         cropController.cropView.cropBoxResizeEnabled = false
