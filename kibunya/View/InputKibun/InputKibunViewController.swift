@@ -227,7 +227,10 @@ class InputKibunViewController: UIViewController {
                 push.badgeIncrementFlag = true
                 push.contentAvailable = false
                 push.searchCondition?.where(field: "channels", toMatchPattern: familyDocumentId)
-                
+                if (UserDefaults.standard.devicetokenKey != nil) {
+                    let deviceTokenString = UserDefaults.standard.devicetokenKey!.map { String(format: "%.2hhx", $0) }.joined()
+                    push.searchCondition?.where(field: "deviceToken", notEqualTo: deviceTokenString)
+                }
                 // メッセージの設定
                 push.message = "\(userName)が日記を書きました"
                 // iOS端末を送信対象に設定する
