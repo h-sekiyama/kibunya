@@ -38,6 +38,9 @@ class OtherViewController: UIViewController {
         dialog.addAction(UIAlertAction(title: "OK", style: .default,
             handler: { action in
                 do {
+                    // PUSH通知用のデバイストークンをニフクラサーバから削除
+                    Functions.deleteDeviceTokenFromNCMB()
+                    
                     try Auth.auth().signOut()
                     let signUpViewController = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController") as UIViewController
                     signUpViewController.modalPresentationStyle = .fullScreen

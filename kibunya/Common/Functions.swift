@@ -146,6 +146,27 @@ class Functions {
         //端末情報を扱うNCMBInstallationのインスタンスを作成
         let installation : NCMBInstallation = NCMBInstallation.currentInstallation
         //ローカルのinstallationをfetchして更新
+        guard let deviceToken: Data = UserDefaults.standard.devicetokenKey else { return }
+        
+        installation.setDeviceTokenFromData(data: deviceToken)
+        installation["channels"] = [familyDocumentId]
+        installation.saveInBackground(callback: {results in
+            switch results {
+            case .success(_):
+                //上書き保存する
+                break
+            case .failure:
+                //端末情報検索に失敗した場合の処理
+                break
+            }
+        })
+    }
+    
+    // PUSH通知用のデバイストークンをニフクラサーバから削除
+    public static func deleteDeviceTokenFromNCMB() {
+        //端末情報を扱うNCMBInstallationのインスタンスを作成
+        let installation : NCMBInstallation = NCMBInstallation.currentInstallation
+        //ローカルのinstallationをfetchして更新
         installation.fetchInBackground(callback: { result in
             switch result {
                 case .success:
@@ -153,17 +174,9 @@ class Functions {
                     guard let deviceToken: Data = UserDefaults.standard.devicetokenKey else { return }
                     
                     installation.setDeviceTokenFromData(data: deviceToken)
-                    installation["channels"] = [familyDocumentId]
-                    installation.saveInBackground(callback: {results in
-                        switch results {
-                        case .success(_):
-                            //上書き保存する
-                            break
-                        case .failure:
-                            //端末情報検索に失敗した場合の処理
-                            break
-                        }
-                    })
+                    installation.deleteInBackground { result in
+                        print(result)
+                    }
                 case let .failure(error):
                     print(error)
             }
