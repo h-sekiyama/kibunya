@@ -1,0 +1,6 @@
+framework module Pods_kibunya_kibunya_dev {
+  umbrella header "Pods-kibunya-kibunya_dev-umbrella.h"
+
+  export *
+  module * { export * }
+}

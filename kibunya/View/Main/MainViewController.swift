@@ -86,6 +86,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
         
         //installationの取得と表示
         getInstallation()
+        
+        // アプリアイコンの通知バッジ削除
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
     override func loadView() {
@@ -108,6 +111,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
             dateText.text = Functions.getDateWithDayOfTheWeek(date: displayedDate)
             kibuns.removeAll()
             showKibuns(date: displayedDate)
+            
+            // アプリアイコンの通知バッジ削除
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
     }
     

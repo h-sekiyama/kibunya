@@ -11,8 +11,16 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // ニフクラのAPIキーの設定
-    let applicationkey = "23cdc4478a47767b5f49bcfa80b33aa8087f5d4ad96192a457489ccac91a4721"
-    let clientkey      = "645eb370a2b644caae9d229392ac3b654593913d2f996040c8751027453f0fa2"
+    #if kibunya_dev
+        // 検証環境
+        let applicationkey = "362179601d478e841d36e745ba1f4516cd0bcfb5d0123a1bd5d0960dcdd3dd61"
+        let clientkey      = "69c1601ca32cd5b0581bde8fda9fa3a0e69ec34a92f321fa7122aca63fe681eb"
+    #else
+        // 本番環境
+        let applicationkey = "23cdc4478a47767b5f49bcfa80b33aa8087f5d4ad96192a457489ccac91a4721"
+        let clientkey      = "645eb370a2b644caae9d229392ac3b654593913d2f996040c8751027453f0fa2"
+    #endif
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -140,10 +148,10 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     }
     
     func registerForPushNotifications() {
-        UNUserNotificationCenter.current() // 1
-            .requestAuthorization(options: [.alert, .sound, .badge]) { // 2
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound, .badge]) {
                 granted, error in
-                print("Permission granted: \(granted)") // 3
+                print("Permission granted: \(granted)")
                 guard granted else { return }
                 self.getNotificationSettings()
         }

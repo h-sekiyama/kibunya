@@ -357,10 +357,10 @@
     </scenes>
     <designables>
         <designable name="MhA-TR-SyO">
-            <size key="intrinsicContentSize" width="168" height="49"/>
+            <size key="intrinsicContentSize" width="158" height="34"/>
         </designable>
         <designable name="joC-RK-xe3">
-            <size key="intrinsicContentSize" width="77" height="49"/>
+            <size key="intrinsicContentSize" width="67" height="34"/>
         </designable>
     </designables>
     <resources>

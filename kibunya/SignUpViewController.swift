@@ -177,6 +177,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // アプリアイコンの通知バッジ削除
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
         nameTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         emailTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
@@ -187,9 +190,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        // アプリアイコンの通知バッジ削除
-        UIApplication.shared.applicationIconBadgeNumber = 0
         
         Auth.auth().currentUser?.reload()
         // メール認証済み、ないし電話番号認証済み即メイン画面を表示
