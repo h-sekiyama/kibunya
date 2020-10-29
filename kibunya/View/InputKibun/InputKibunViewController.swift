@@ -218,6 +218,9 @@ class InputKibunViewController: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                if (querySnapshot?.documents.count == 0) {
+                    return
+                }
                 guard let familyDocumentId = querySnapshot?.documents[0].documentID else {
                     return
                 }

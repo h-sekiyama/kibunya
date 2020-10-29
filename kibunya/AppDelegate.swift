@@ -75,15 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //端末情報の登録が成功した場合の処理
                 UserDefaults.standard.devicetokenKey = deviceToken
                 break
-            case let .failure(error):
-                //端末情報の登録が失敗した場合の処理
-                let errorCode = (error as! NCMBApiError).errorCode;
-                if (errorCode == NCMBApiErrorCode.duplication) {
-                    //失敗した原因がdeviceTokenの重複だった場合
-                    self.updateExistInstallation(installation: installation, deviceToken: deviceToken)
-                } else {
-                    //deviceTokenの重複以外のエラーが返ってきた場合
-                }
+            case .failure(_):
                 return
             }
         })

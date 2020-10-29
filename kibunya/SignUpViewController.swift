@@ -149,9 +149,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     // メイン画面に遷移
     func login() {
-        let mailSendCompleteViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as UIViewController
-        mailSendCompleteViewController.modalPresentationStyle = .fullScreen
-        self.present(mailSendCompleteViewController, animated: false, completion: nil)
+        let mainViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as UIViewController
+        mainViewController.modalPresentationStyle = .fullScreen
+        self.present(mainViewController, animated: false, completion: nil)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -178,20 +178,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         // アプリアイコンの通知バッジ削除
-        UIApplication.shared.applicationIconBadgeNumber = 0
-        
+        DispatchQueue.main.async {
+            UIApplication.shared.applicationIconBadgeNumber = 0
+        }
+            
         nameTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         emailTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         telNoTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
         telNoTextField.delegate = self
+        
+        Auth.auth().currentUser?.reload()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        Auth.auth().currentUser?.reload()
         // メール認証済み、ないし電話番号認証済み即メイン画面を表示
         if (Auth.auth().currentUser?.isEmailVerified ?? false || Auth.auth().currentUser?.phoneNumber != nil) {
             login()

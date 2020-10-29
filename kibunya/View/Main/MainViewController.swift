@@ -88,7 +88,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
         getInstallation()
         
         // アプリアイコンの通知バッジ削除
-        UIApplication.shared.applicationIconBadgeNumber = 0
+        DispatchQueue.main.async {
+            UIApplication.shared.applicationIconBadgeNumber = 0
+        }
     }
     
     override func loadView() {
@@ -105,6 +107,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
         tabBarView.diaryButton.setBackgroundImage(UIImage(named: "tab_image0_on"), for: .normal)
     }
+    
     // フォアグラウンドに来た時の処理を記載
     @objc func viewWillEnterForeground(_ notification: Notification?) {
         if (self.isViewLoaded && self.view.window != nil && !isDrawingTable && Functions.isToday(date: displayedDate)) {
@@ -113,7 +116,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
             showKibuns(date: displayedDate)
             
             // アプリアイコンの通知バッジ削除
-            UIApplication.shared.applicationIconBadgeNumber = 0
+            DispatchQueue.main.async {
+                UIApplication.shared.applicationIconBadgeNumber = 0
+            }
         }
     }
     
@@ -226,6 +231,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
         defaultStore.collection("families").whereField("user_id", arrayContainsAny: [myUserId!]).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
+            } else if (querySnapshot?.documents.count == 0) {
+                return
             } else {
                 guard let familyDocumentId = querySnapshot?.documents[0].documentID else {
                     return
