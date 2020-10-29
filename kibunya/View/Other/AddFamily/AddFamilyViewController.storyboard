@@ -103,6 +103,9 @@
                                                 <userDefinedRuntimeAttribute type="number" keyPath="inset">
                                                     <real key="value" value="12"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                    <color key="value" systemColor="opaqueSeparatorColor"/>
+                                                </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEY-Dm-u9v">
@@ -357,15 +360,18 @@
     </scenes>
     <designables>
         <designable name="MhA-TR-SyO">
-            <size key="intrinsicContentSize" width="158" height="34"/>
+            <size key="intrinsicContentSize" width="168" height="49"/>
         </designable>
         <designable name="joC-RK-xe3">
-            <size key="intrinsicContentSize" width="67" height="34"/>
+            <size key="intrinsicContentSize" width="77" height="49"/>
         </designable>
     </designables>
     <resources>
         <image name="arrow_left_on" width="24" height="36.5"/>
         <image name="icon_paw" width="51" height="54.5"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
