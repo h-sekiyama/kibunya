@@ -126,6 +126,7 @@ extension UIView {
 private let AuthVerificationIDKey = "authVerificationID"
 private let CachedProfileIconKey = "cachedProfileIconKey"
 private let DevicetokenKey = "devicetokenKey"
+private let NowInputDiaryText = "nowInputDiaryText"
 extension UserDefaults {
     var authVerificationID: String? {
         set(newValue) {
@@ -151,6 +152,15 @@ extension UserDefaults {
             synchronize()
         } get {
             return data(forKey: DevicetokenKey)
+        }
+    }
+    
+     var nowInputDiaryText: String? {
+        set(newValue) {
+            set(newValue, forKey: NowInputDiaryText)
+            synchronize()
+        } get {
+            return string(forKey: NowInputDiaryText)
         }
     }
 }

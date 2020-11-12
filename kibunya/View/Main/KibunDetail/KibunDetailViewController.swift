@@ -78,7 +78,9 @@ class KibunDetailViewController:  UIViewController {
         
         // プロフィール画像設定
         let placeholderImage = UIImage(named: "no_image")
-        profileIcon.sd_setImage(with: self.storage.child("profileIcon").child("\(userId).jpg"), placeholderImage: placeholderImage)
+        profileIcon.sd_setImage(with: self.storage.child("profileIcon").child("\(userId).jpg"), maxImageSize: 10000000, placeholderImage: placeholderImage, options: .refreshCached) { _, _, _, _ in
+            // nop
+        }
         
         // 日記本文の背景設定
         textLabel.backgroundColor = UIColor(red: 255/255, green: 246/255, blue: 238/255, alpha: 1)

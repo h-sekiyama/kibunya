@@ -99,6 +99,10 @@ class InputKibunViewController: UIViewController {
         
         // 気分ボタンを配列に入れる
         kibunButtonArray = [kibunButton0, kibunButton1, kibunButton2, kibunButton3, kibunButton4]
+        
+        if (!(UserDefaults.standard.nowInputDiaryText?.isEmpty ?? false)) {
+            kibunTextBox.text = UserDefaults.standard.nowInputDiaryText
+        }
     }
     
     // 画像添付ボタン
@@ -203,6 +207,9 @@ class InputKibunViewController: UIViewController {
                 
                 // 家族に日記の更新をPUSH通知で送信
                 self.sendUpdateDiaryPush(userName: userName, myUserId: userId)
+                
+                // UserDefaultsに保存してる下記途中の文章を削除
+                UserDefaults.standard.nowInputDiaryText = ""
             }
             self.dismissIndicator()
             self.kibunTextBox.text = ""
@@ -262,6 +269,11 @@ extension InputKibunViewController: UITextViewDelegate {
             Functions.updateButtonEnabled(button: sendButton, enabled: true)
         } else {
             Functions.updateButtonEnabled(button: sendButton, enabled: false)
+        }
+        
+        // 書き途中の日記をUserDefaultsに保存
+        if (kibunTextBox.text?.count != 0) {
+            UserDefaults.standard.nowInputDiaryText = kibunTextBox.text
         }
     }
     
