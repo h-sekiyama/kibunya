@@ -16,6 +16,7 @@ target 'kibunya' do
   pod 'FirebaseUI/Storage'
   pod 'CropViewController'
   pod 'NCMB', :git => 'https://github.com/NIFCloud-mbaas/ncmb_swift'
+  pod 'FSCalendar', :git=> 'https://github.com/WenchaoD/FSCalendar'
 
 target 'kibunya_dev'
   use_frameworks!
@@ -31,6 +32,7 @@ target 'kibunya_dev'
   pod 'FirebaseUI/Storage'
   pod 'CropViewController'
   pod 'NCMB', :git => 'https://github.com/NIFCloud-mbaas/ncmb_swift'
+  pod 'FSCalendar', :git=> 'https://github.com/WenchaoD/FSCalendar'
 
 target 'kibunyaTests' do
   inherit! :search_paths

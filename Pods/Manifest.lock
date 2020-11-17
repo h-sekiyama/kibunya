@@ -303,6 +303,7 @@ PODS:
   - FirebaseUI/Storage (8.4.2):
     - Firebase/Storage (~> 6.0)
     - SDWebImage (~> 5.0)
+  - FSCalendar (2.8.1)
   - GoogleAppMeasurement (6.8.2):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
@@ -378,6 +379,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - FirebaseUI/Storage
+  - FSCalendar (from `https://github.com/WenchaoD/FSCalendar`)
   - NCMB (from `https://github.com/NIFCloud-mbaas/ncmb_swift`)
 
 SPEC REPOS:
@@ -410,10 +412,15 @@ SPEC REPOS:
     - SDWebImage
 
 EXTERNAL SOURCES:
+  FSCalendar:
+    :git: https://github.com/WenchaoD/FSCalendar
   NCMB:
     :git: https://github.com/NIFCloud-mbaas/ncmb_swift
 
 CHECKOUT OPTIONS:
+  FSCalendar:
+    :commit: 7fd27f977fa311e9b8cadd80299949325185ea45
+    :git: https://github.com/WenchaoD/FSCalendar
   NCMB:
     :commit: be8833647e6b4f4ab154bbd849929692349cb418
     :git: https://github.com/NIFCloud-mbaas/ncmb_swift
@@ -434,6 +441,7 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 82d75b3770a78bbce470769a6980429608b4c407
   FirebaseStorage: 33b92875a9b556824886cc7a65120c7d2cb3a8d8
   FirebaseUI: e57e9b9c4340631151fbe67a14206d23d0974f37
+  FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
   GoogleAppMeasurement: 1a66f478c68ecd6c16ee63ee60c7c3a648e6b337
   GoogleDataTransport: e85fb700c9b027079ce182c3d08e12e0f9618bb4
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
@@ -447,6 +455,6 @@ SPEC CHECKSUMS:
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
 
-PODFILE CHECKSUM: 654afa60fbdb348ba7349b57848050b1fb18606d
+PODFILE CHECKSUM: 0810f61240b45b81eb92b2c6a37a963654a10c5d
 
 COCOAPODS: 1.9.1

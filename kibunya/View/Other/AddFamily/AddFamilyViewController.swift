@@ -96,7 +96,9 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
                             self.addedFamily.isHidden = true
                             
                             // 自分のdeviceTokenと家族ドキュメントIDの紐付け
-                            Functions.setFamilyIdWithDeviceToken(familyDocumentId: ref!.documentID)
+                            if (ref != nil) {
+                                Functions.setFamilyIdWithDeviceToken(familyDocumentId: ref!.documentID)
+                            }
                         }
                     }
                 } else {    // 自分か相手のユーザーIDがいずれかの家族に追加済みの場合

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Kibun Calendar Modal View Controller-->
+        <scene sceneID="V33-eD-m1g">
+            <objects>
+                <viewController storyboardIdentifier="calendarModal" modalPresentationStyle="overCurrentContext" id="CUw-Vo-ifs" customClass="KibunCalendarModalViewController" customModule="Family_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bp7-mq-hin">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0w-PB-oQh" userLabel="Overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="L4Y-1a-wb7" appends="YES" id="CPA-GI-QYe"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z23-28-7vV" customClass="FSCalendar">
+                                <rect key="frame" x="20" y="144" width="374" height="518"/>
+                                <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="headerDateFormat" value="              YYYY年MM月"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.80784313725490198" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" red="0.54117647058823526" green="0.28235294117647058" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                                        <color key="value" red="0.82352941180000006" green="0.062745098040000002" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fakedSelectedDay">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fakeSubtitles" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fakeEventDots" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CUw-Vo-ifs" id="sKh-Jp-OGu"/>
+                                    <outlet property="delegate" destination="CUw-Vo-ifs" id="xB2-yb-7Rj"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="P6g-q3-mV2"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="x0w-PB-oQh" secondAttribute="bottom" id="2pn-BP-eHN"/>
+                            <constraint firstItem="z23-28-7vV" firstAttribute="top" secondItem="P6g-q3-mV2" secondAttribute="top" constant="100" id="Jba-OX-GZ8"/>
+                            <constraint firstItem="P6g-q3-mV2" firstAttribute="bottom" secondItem="z23-28-7vV" secondAttribute="bottom" constant="200" id="MZq-r8-rpE"/>
+                            <constraint firstItem="z23-28-7vV" firstAttribute="leading" secondItem="P6g-q3-mV2" secondAttribute="leading" constant="20" id="NU5-dj-jys"/>
+                            <constraint firstItem="P6g-q3-mV2" firstAttribute="trailing" secondItem="x0w-PB-oQh" secondAttribute="trailing" id="SaW-Ck-tQN"/>
+                            <constraint firstItem="x0w-PB-oQh" firstAttribute="top" secondItem="Bp7-mq-hin" secondAttribute="top" id="ZQt-sa-3TV"/>
+                            <constraint firstItem="z23-28-7vV" firstAttribute="centerX" secondItem="Bp7-mq-hin" secondAttribute="centerX" id="dLj-Af-r3C"/>
+                            <constraint firstItem="x0w-PB-oQh" firstAttribute="leading" secondItem="P6g-q3-mV2" secondAttribute="leading" id="qiK-hT-O6u"/>
+                            <constraint firstItem="P6g-q3-mV2" firstAttribute="trailing" secondItem="z23-28-7vV" secondAttribute="trailing" constant="20" id="uH9-oV-1JC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendar" destination="z23-28-7vV" id="giM-Hh-WRA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mdJ-4W-apJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="L4Y-1a-wb7" userLabel="Close Calendar">
+                    <connections>
+                        <action selector="closeCalendar:" destination="CUw-Vo-ifs" id="gO3-R9-qOm"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-701.44927536231887" y="122.54464285714285"/>
+        </scene>
+    </scenes>
+</document>
