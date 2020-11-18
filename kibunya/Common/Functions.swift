@@ -48,6 +48,14 @@ class Functions {
         return dateFormatter.string(from: date)
     }
     
+    // 渡したDate型をStringで返すメソッド
+    public static func getDateString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年MM月dd日"
+        let dateStr = formatter.string(from: date)
+        return dateStr
+    }
+    
     // Date型を渡したら曜日月の年月日に変換して返すメソッド
     public static func getDateWithDayOfTheWeek(date: Date) -> String {
         let formatter = DateFormatter()
@@ -123,7 +131,7 @@ class Functions {
         }
     }
     
-    // 遷移アニメーション
+    // 遷移アニメーション（左から右）
     public static func presentAnimation(view: UIView) {
         let transition = CATransition()
         transition.duration = 0.25

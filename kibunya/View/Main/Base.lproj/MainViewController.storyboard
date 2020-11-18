@@ -40,21 +40,29 @@
                                 <rect key="frame" x="0.0" y="110" width="414" height="698"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar_icon" translatesAutoresizingMaskIntoConstraints="NO" id="EQx-k4-gAW">
+                                <rect key="frame" x="308.5" y="62" width="30" height="30"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="C1o-G1-iQE"/>
+                                    <constraint firstAttribute="height" constant="30" id="Zi6-Yq-c43"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="q6I-uS-e91" appends="YES" id="DtA-Vm-qUS"/>
+                                </connections>
+                            </imageView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nl5-Mz-wtH">
-                                <rect key="frame" x="92.5" y="65.5" width="229" height="23"/>
+                                <rect key="frame" x="107.5" y="67" width="199" height="20"/>
                                 <gestureRecognizers/>
                                 <attributedString key="attributedText">
                                     <fragment content="2020年12月24日(水)">
                                         <attributes>
                                             <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="23" name="HiraMaruProN-W4"/>
+                                            <font key="NSFont" size="20" name="HiraMaruProN-W4"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="q6I-uS-e91" appends="YES" id="6Yx-Sr-tla"/>
-                                </connections>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYa-aa-6UK">
                                 <rect key="frame" x="103" y="438" width="208" height="20.5"/>
@@ -105,6 +113,7 @@
                             <constraint firstItem="txb-8X-qYK" firstAttribute="top" secondItem="zY1-AB-hvX" secondAttribute="bottom" id="Ygs-AA-GV4"/>
                             <constraint firstItem="KYa-aa-6UK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bCf-Wg-NR1"/>
                             <constraint firstItem="Nl5-Mz-wtH" firstAttribute="centerY" secondItem="zY1-AB-hvX" secondAttribute="centerY" id="bcw-cs-KS9"/>
+                            <constraint firstItem="EQx-k4-gAW" firstAttribute="centerY" secondItem="Nl5-Mz-wtH" secondAttribute="centerY" id="dB2-jl-2xJ"/>
                             <constraint firstItem="RDe-NO-a1F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="h4f-OP-m3J"/>
                             <constraint firstItem="txb-8X-qYK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hn7-fr-8h1"/>
                             <constraint firstItem="6wP-IY-kLv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="66" id="i75-3Y-eL9"/>
@@ -114,6 +123,7 @@
                             <constraint firstItem="KYa-aa-6UK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="omc-3S-abF"/>
                             <constraint firstItem="txb-8X-qYK" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" constant="-88" id="uOs-fs-9aN"/>
                             <constraint firstItem="zY1-AB-hvX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yDk-8N-7iv"/>
+                            <constraint firstItem="EQx-k4-gAW" firstAttribute="leading" secondItem="Nl5-Mz-wtH" secondAttribute="trailing" constant="2" id="yvn-cZ-s3O"/>
                         </constraints>
                     </view>
                     <connections>
@@ -138,6 +148,7 @@
     <resources>
         <image name="arrow_left_on" width="24" height="36.5"/>
         <image name="arrow_right_on" width="23.5" height="36.5"/>
+        <image name="calendar_icon" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

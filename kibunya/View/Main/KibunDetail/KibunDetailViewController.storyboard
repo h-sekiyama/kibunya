@@ -172,12 +172,12 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQ9-j4-pKP">
-                                <rect key="frame" x="112.5" y="65.5" width="189" height="23"/>
+                                <rect key="frame" x="125" y="67" width="164.5" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="2020年12月31日">
                                         <attributes>
                                             <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="23" name="HiraMaruProN-W4"/>
+                                            <font key="NSFont" size="20" name="HiraMaruProN-W4"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>

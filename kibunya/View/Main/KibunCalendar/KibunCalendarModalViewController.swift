@@ -6,7 +6,7 @@ import FirebaseFirestore
 
 class KibunCalendarModalViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     // カレンダーデータ変数
-    var calendarSnapShot: QuerySnapshot?
+    var writtenDate: [String]?
     // カレンダーView
     @IBOutlet weak var calendar: FSCalendar!
     // カレンダーを閉じる
@@ -42,21 +42,17 @@ class KibunCalendarModalViewController: UIViewController, FSCalendarDataSource, 
     
     // 選択された日付を取得
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let tmpDate = Calendar(identifier: .gregorian)
-        let year = tmpDate.component(.year, from: date)
-        let month = tmpDate.component(.month, from: date)
-        let day = tmpDate.component(.day, from: date)
+        let mainViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        mainViewController.displayedDate = date
+        mainViewController.modalPresentationStyle = .fullScreen
+        self.present(mainViewController, animated: false, completion: nil)
     }
 
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-//        let date = stringFromDate(date: date, format: "yyyy.MM.dd")
-//        var hasEvent: Bool = false
-//        for eventModel in eventModels {
-//            if eventModel["date"] == date {
-//                hasEvent = true
-//            }
-//        }
-        if true {
+        if (writtenDate == nil) {
+            return 0
+        }
+        if (writtenDate!.contains(Functions.getDateString(date: date))) {
             return 1
         } else {
             return 0

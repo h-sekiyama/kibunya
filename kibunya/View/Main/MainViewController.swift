@@ -29,15 +29,15 @@ class MainViewController: UIViewController, UITableViewDelegate {
     var isDrawingTable: Bool = false
     // 端末内に保存している自分のプロフィール画像
     var myProfileIcon: UIImage? = nil
-    // カレンダーに渡す日記データ
-    var calendarSnapShot: QuerySnapshot?
+    // カレンダーに渡す日記を書いた日にち配列
+    var writtenDate: [String]?
     // 背景色を付ける用のView
     @IBOutlet weak var backgroundView: UIView!
     // カレンダーモーダルを開くボタン
     @IBAction func openCalendarButton(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "KibunCalendarModalViewController", bundle: nil)
         let kibunCalendarModalViewController = storyboard.instantiateViewController(withIdentifier: "calendarModal") as! KibunCalendarModalViewController
-        kibunCalendarModalViewController.calendarSnapShot = calendarSnapShot
+        kibunCalendarModalViewController.writtenDate = self.writtenDate
         self.present(kibunCalendarModalViewController, animated: false, completion: nil)
     }
     // １日戻るボタン
@@ -151,7 +151,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                 self.dismissIndicator()
                 print(err)
             } else {
-                self.calendarSnapShot = querySnapshot
+                self.writtenDate = []   // カレンダーに渡す日にち配列初期化
                 if (querySnapshot?.documents.count == 0) {  // 家族登録してる人が一人もいない
                     // 表示対象のデータを取得（指定の日付け）
                     self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: userId).whereField("date", isEqualTo: Functions.getDate(timeStamp: Timestamp(date: date))).getDocuments() { (snaps, error)  in
@@ -178,6 +178,17 @@ class MainViewController: UIViewController, UITableViewDelegate {
                             self.kibunList.reloadData()
                         }
                         self.isDrawingTable = false
+                        
+                        // カレンダーに渡すデータ生成
+                        self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: userId).getDocuments() { (datas, error) in
+                            if (datas == nil) {
+                                return
+                            }
+                            for data in datas!.documents {
+                                self.writtenDate?.append(data.data()["date"] as! String)
+                            }
+                        }
+                        
                         self.dismissIndicator()
                      }
                 } else {    // 家族が一人以上いる
@@ -213,6 +224,17 @@ class MainViewController: UIViewController, UITableViewDelegate {
                                 }
                             }
                             self.isDrawingTable = false
+                            
+                            // カレンダーに渡すデータ生成
+                            self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: id).getDocuments() { (datas, error) in
+                                if (datas == nil) {
+                                    return
+                                }
+                                for data in datas!.documents {
+                                    self.writtenDate?.append(data.data()["date"] as! String)
+                                }
+                            }
+                            
                             self.dismissIndicator()
                         }
                     }
