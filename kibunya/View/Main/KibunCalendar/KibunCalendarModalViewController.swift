@@ -7,6 +7,8 @@ import FirebaseFirestore
 class KibunCalendarModalViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     // カレンダーデータ変数
     var writtenDate: [String]?
+    // 選択中の日にち
+    var selectedDate: Date?
     // カレンダーView
     @IBOutlet weak var calendar: FSCalendar!
     // カレンダーを閉じる
@@ -17,10 +19,15 @@ class KibunCalendarModalViewController: UIViewController, FSCalendarDataSource, 
     override func  viewDidLoad() {
         super.viewDidLoad()
         
-        changeWeekdayLabelText()
+        // カレンダーのレイアウト更新
+        updateCalendarLayout()
+        
+        // 日にちを初期選択
+        calendar.select(selectedDate)
     }
     
-    func changeWeekdayLabelText() {
+    // カレンダーのレイアウト更新
+    func updateCalendarLayout() {
         // 曜日を日本語にする
         self.calendar.calendarWeekdayView.weekdayLabels[0].text = "日"
         self.calendar.calendarWeekdayView.weekdayLabels[1].text = "月"

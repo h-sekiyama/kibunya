@@ -56,6 +56,14 @@ class Functions {
         return dateStr
     }
     
+    // 渡したString型をDate型で返すメソッド
+    public static func getDateFromString(string: String) -> Date {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.dateFormat = "yyyy年MM月dd日"
+        return formatter.date(from: string)!
+    }
+    
     // Date型を渡したら曜日月の年月日に変換して返すメソッド
     public static func getDateWithDayOfTheWeek(date: Date) -> String {
         let formatter = DateFormatter()

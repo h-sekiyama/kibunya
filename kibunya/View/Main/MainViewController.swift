@@ -38,6 +38,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         let storyboard: UIStoryboard = UIStoryboard(name: "KibunCalendarModalViewController", bundle: nil)
         let kibunCalendarModalViewController = storyboard.instantiateViewController(withIdentifier: "calendarModal") as! KibunCalendarModalViewController
         kibunCalendarModalViewController.writtenDate = self.writtenDate
+        kibunCalendarModalViewController.selectedDate = displayedDate
         self.present(kibunCalendarModalViewController, animated: false, completion: nil)
     }
     // １日戻るボタン
