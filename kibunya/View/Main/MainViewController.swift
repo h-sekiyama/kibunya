@@ -161,6 +161,15 @@ class MainViewController: UIViewController, UITableViewDelegate {
                             self.dismissIndicator()
                             fatalError("\(error)")
                         }
+                        // カレンダーに渡すデータ生成
+                        self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: userId).getDocuments() { (datas, error) in
+                            if (datas == nil) {
+                                return
+                            }
+                            for data in datas!.documents {
+                                self.writtenDate?.append(data.data()["date"] as! String)
+                            }
+                        }
                         if (snaps?.count == 0) {    // まだ今日の日記を書いてない
                             self.kibunList.isHidden = true
                             self.emptyKibunLabel.text = "誰も日記を書いてません"
@@ -179,17 +188,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
                             self.kibunList.reloadData()
                         }
                         self.isDrawingTable = false
-                        
-                        // カレンダーに渡すデータ生成
-                        self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: userId).getDocuments() { (datas, error) in
-                            if (datas == nil) {
-                                return
-                            }
-                            for data in datas!.documents {
-                                self.writtenDate?.append(data.data()["date"] as! String)
-                            }
-                        }
-                        
                         self.dismissIndicator()
                      }
                 } else {    // 家族が一人以上いる
@@ -208,6 +206,15 @@ class MainViewController: UIViewController, UITableViewDelegate {
                             if let error = error {
                                 fatalError("\(error)")
                             }
+                            // カレンダーに渡すデータ生成
+                            self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: id).getDocuments() { (datas, error) in
+                                if (datas == nil) {
+                                    return
+                                }
+                                for data in datas!.documents {
+                                    self.writtenDate?.append(data.data()["date"] as! String)
+                                }
+                            }
                             guard let snaps = snaps else { return }
                             self.kibuns += snaps.documents.map {document in
                                 let data = Kibuns(document: document)
@@ -225,17 +232,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
                                 }
                             }
                             self.isDrawingTable = false
-                            
-                            // カレンダーに渡すデータ生成
-                            self.defaultStore.collection("kibuns").whereField("user_id", isEqualTo: id).getDocuments() { (datas, error) in
-                                if (datas == nil) {
-                                    return
-                                }
-                                for data in datas!.documents {
-                                    self.writtenDate?.append(data.data()["date"] as! String)
-                                }
-                            }
-                            
                             self.dismissIndicator()
                         }
                     }
