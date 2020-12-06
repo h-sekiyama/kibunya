@@ -5,6 +5,7 @@ import FirebaseAuth
 import Foundation
 import FirebaseUI
 import NCMB
+import StoreKit
 
 class MainViewController: UIViewController, UITableViewDelegate {
     
@@ -101,6 +102,19 @@ class MainViewController: UIViewController, UITableViewDelegate {
         DispatchQueue.main.async {
             UIApplication.shared.applicationIconBadgeNumber = 0
         }
+        
+        // 気分リスト表示回数30回以上でまだストアレビューダイアログを表示してないユーザーに表示
+        if (!(UserDefaults.standard.sendStoreReview ?? true) && UserDefaults.standard.showKibunListCount ?? 0 > 30) {
+            SKStoreReviewController.requestReview()
+            UserDefaults.standard.sendStoreReview = true
+        }
+        
+        // 気分リスト表示回数をインクリメントしてUserDefaultsに保存
+        guard let showKibunListCount = UserDefaults.standard.showKibunListCount else {
+            UserDefaults.standard.showKibunListCount = 1
+            return
+        }
+        UserDefaults.standard.showKibunListCount = showKibunListCount + 1
     }
     
     override func loadView() {

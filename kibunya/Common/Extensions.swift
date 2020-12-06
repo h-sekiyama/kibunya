@@ -127,7 +127,10 @@ private let AuthVerificationIDKey = "authVerificationID"
 private let CachedProfileIconKey = "cachedProfileIconKey"
 private let DevicetokenKey = "devicetokenKey"
 private let NowInputDiaryText = "nowInputDiaryText"
+private let SendStoreReview = "sendStoreReview"
+private let ShowKibunListCount = "showKibunListCount"
 extension UserDefaults {
+    // 認証ID
     var authVerificationID: String? {
         set(newValue) {
             set(newValue, forKey: AuthVerificationIDKey)
@@ -137,6 +140,7 @@ extension UserDefaults {
         }
     }
     
+    // プロフィールアイコン画像キー
     var cachedProfileIconKey: String? {
         set(newValue) {
             set(newValue, forKey: CachedProfileIconKey)
@@ -146,6 +150,7 @@ extension UserDefaults {
         }
     }
     
+    // PUSH送信用のデバイストークン
     var devicetokenKey: Data? {
         set(newValue) {
             set(newValue, forKey: DevicetokenKey)
@@ -155,6 +160,7 @@ extension UserDefaults {
         }
     }
     
+    // 入力中の日記文章
      var nowInputDiaryText: String? {
         set(newValue) {
             set(newValue, forKey: NowInputDiaryText)
@@ -163,6 +169,26 @@ extension UserDefaults {
             return string(forKey: NowInputDiaryText)
         }
     }
+    
+    // 日記リスト画面表示回数
+    var showKibunListCount: Int? {
+       set(newValue) {
+           set(newValue, forKey: ShowKibunListCount)
+           synchronize()
+       } get {
+           return integer(forKey: ShowKibunListCount)
+       }
+    }
+    
+    // ストアレビュー促進ダイアログの表示有無
+    var sendStoreReview: Bool? {
+       set(newValue) {
+           set(newValue, forKey: SendStoreReview)
+           synchronize()
+       } get {
+           return bool(forKey: SendStoreReview)
+       }
+   }
 }
 
 extension UIImageView {
