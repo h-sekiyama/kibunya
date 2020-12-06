@@ -185,6 +185,9 @@ class InputKibunViewController: UIViewController {
         }
     }
     
+    // PUSH通知送信スイッチ
+    @IBOutlet weak var pushSwitch: UISwitch!
+    
     // 日記をアップロードする処理
     func updateDiary(userId: String, userName: String, documentId: String, imageUrl: String = "") {
         defaultStore.collection("kibuns").document(documentId).setData([
@@ -206,8 +209,10 @@ class InputKibunViewController: UIViewController {
                 self.sendImage.image = UIImage(named: "diary_image_icon")
                 
                 // 家族に日記の更新をPUSH通知で送信
+                if (self.pushSwitch.isOn) {
                 self.sendUpdateDiaryPush(userName: userName, myUserId: userId)
-                
+                }   
+                    
                 // UserDefaultsに保存してる下記途中の文章を削除
                 UserDefaults.standard.nowInputDiaryText = ""
             }
