@@ -347,6 +347,7 @@
                                     </button>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R01-XF-LF6">
                                         <rect key="frame" x="345" y="398" width="51" height="31"/>
+                                        <color key="tintColor" red="0.50632876159999995" green="0.29472824930000002" blue="0.32935255769999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.43921568630000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
