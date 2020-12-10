@@ -55,6 +55,7 @@ class KibunCalendarModalViewController: UIViewController, FSCalendarDataSource, 
         self.present(mainViewController, animated: false, completion: nil)
     }
 
+    // 日記を書いてる日に印を付ける
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         if (writtenDate == nil) {
             return 0
@@ -64,5 +65,14 @@ class KibunCalendarModalViewController: UIViewController, FSCalendarDataSource, 
         } else {
             return 0
         }
+    }
+    
+    // 未来の日付を選択不可にする
+    func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+       if (date > Date()) {
+           return false
+       } else {
+           return true
+       }
     }
 }

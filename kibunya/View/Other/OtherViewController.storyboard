@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,7 +45,7 @@
                                                 <rect key="frame" x="22" y="18" width="51" height="34"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="9IO-jr-TF5" firstAttribute="top" secondItem="ZjM-Jv-wkz" secondAttribute="top" constant="18" id="EnN-N1-M0K"/>
@@ -101,7 +102,7 @@
                                                 <rect key="frame" x="22" y="18" width="51" height="34"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="tNr-Ie-aka" firstAttribute="top" secondItem="hnu-sU-chW" secondAttribute="top" constant="18" id="5cp-Dl-GY0"/>
@@ -158,7 +159,7 @@
                                                 <rect key="frame" x="22" y="18" width="51" height="34"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="R4a-4T-qKZ" firstAttribute="leading" secondItem="gaX-ul-O95" secondAttribute="leading" constant="22" id="2IZ-sU-P4j"/>
@@ -215,7 +216,7 @@
                                                 <rect key="frame" x="22" y="18" width="51" height="34"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="Orm-bj-Htm" firstAttribute="top" secondItem="WUN-ev-lRi" secondAttribute="top" constant="18" id="44B-Us-9zB"/>
@@ -291,6 +292,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="glR-6j-EHG"/>
                         <color key="backgroundColor" red="1" green="0.85882352941176465" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="S6c-4E-OYL" firstAttribute="top" secondItem="glR-6j-EHG" secondAttribute="top" id="2Sk-ib-AVf"/>
@@ -303,7 +305,6 @@
                             <constraint firstItem="S6c-4E-OYL" firstAttribute="bottom" secondItem="qRb-AZ-xjf" secondAttribute="top" id="lOk-ez-H9X"/>
                             <constraint firstItem="S6c-4E-OYL" firstAttribute="leading" secondItem="glR-6j-EHG" secondAttribute="leading" id="qWB-UL-FzP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="glR-6j-EHG"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mpq-42-Yl7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
