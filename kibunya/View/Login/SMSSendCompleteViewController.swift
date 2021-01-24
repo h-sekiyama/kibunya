@@ -39,7 +39,7 @@ class SMSSendCompleteViewController: UIViewController {
                     // この時点でユーザー情報をサーバDBに登録
                     Auth.auth().currentUser?.reload()
                     self.defaultStore.collection("users").document(Auth.auth().currentUser?.uid ?? "").setData([
-                        "name": self.nameTextField.text ?? "名無し"
+                        "name": self.nameTextField.text ?? "名無しの猫ちゃん"
                     ])
                     
                     let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()

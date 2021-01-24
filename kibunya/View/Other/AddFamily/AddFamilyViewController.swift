@@ -92,7 +92,7 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
                             print("Error adding document: \(err)")
                         } else {
                             self.addedFamilyLabel.text = self.familyUserName
-                            self.userNameLabel.isHidden = true
+                            self.userNameLabel.isHidden = false
                             self.addedFamily.isHidden = true
                             
                             // 自分のdeviceTokenと家族ドキュメントIDの紐付け
@@ -180,29 +180,31 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
                                         self.addedFamilyLabel.text = self.familyUserName
                                         self.addFamilyInfo.text = "と家族になりました！"
                                         self.addedFamily.isHidden = false
+                                        self.userNameLabel.isHidden = true
                                     }
                                 }
                             }
                         } else if (isContainOpponentId) { // 自分のみ未登録の場合
-                           for document in querySnapshot!.documents {
-                               self.defaultStore.collection("families").document(document.documentID).updateData(["user_id": FieldValue.arrayUnion([self.myUserId])]) { err in
-                                   if let err = err {
-                                       // エラー
-                                       print("Error writing document: \(err)")
-                                   } else {
-                                       // 成功
-                                       print("Document successfully written!")
-                                       self.addedFamilyLabel.text = self.familyUserName
-                                       self.addFamilyInfo.text = "と家族になりました！"
-                                       self.addedFamily.isHidden = false
-                                    
-                                    // 自分のdeviceTokenと家族ドキュメントIDの紐付け
-                                    Functions.setFamilyIdWithDeviceToken(familyDocumentId: document.documentID)
-                                   }
-                               }
-                           }
+                            for document in querySnapshot!.documents {
+                                self.defaultStore.collection("families").document(document.documentID).updateData(["user_id": FieldValue.arrayUnion([self.myUserId])]) { err in
+                                    if let err = err {
+                                        // エラー
+                                        print("Error writing document: \(err)")
+                                    } else {
+                                        // 成功
+                                        print("Document successfully written!")
+                                        self.addedFamilyLabel.text = self.familyUserName
+                                        self.addFamilyInfo.text = "と家族になりました！"
+                                        self.addedFamily.isHidden = false
+                                        self.userNameLabel.isHidden = true
+                                        
+                                        // 自分のdeviceTokenと家族ドキュメントIDの紐付け
+                                        Functions.setFamilyIdWithDeviceToken(familyDocumentId: document.documentID)
+                                    }
+                                }
+                            }
                         }
-                   }
+                    }
                 }
             }
             self.dismissIndicator()
@@ -223,7 +225,7 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
         let shareName: String = userName
         let shareId: String = myUserId
         // 初期化処理
-        let activityVC = UIActivityViewController(activityItems: ["家族の交換日記アプリ「家族ダイアリー」\n" + shareName + "からの招待です。\n\nkazokuDiary://login?id=" + shareId + "\n\nアプリをダウンロード\nhttps://apps.apple.com/us/app/id1528947553"], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: ["家族の交換日記アプリ「家族ダイアリー」\n" + shareName + "からの招待です。\n\niPhoneの方は以下をタップ！\nkazokuDiary://login?id=" + shareId + "\n\nAndroidの方は以下をタップ！\nhttp://kazoku-diary?kazokuDiary=" + shareId + "\n\nアプリをダウンロード\niOS版：https://apps.apple.com/us/app/id1528947553\n\nAndroid版：htts://hogehoge.com"], applicationActivities: nil)
         
         // 使用しないアクティビティタイプ
         let excludedActivityTypes = [

@@ -241,7 +241,7 @@ class InputKibunViewController: UIViewController {
                 // プッシュ通知オブジェクトの作成
                 let push : NCMBPush = NCMBPush()
                 push.sound = "default"
-                push.badgeIncrementFlag = true
+                push.badgeIncrementFlag = false
                 push.contentAvailable = false
                 push.searchCondition?.where(field: "channels", toMatchPattern: familyDocumentId)
                 if (UserDefaults.standard.devicetokenKey != nil) {
@@ -250,8 +250,6 @@ class InputKibunViewController: UIViewController {
                 }
                 // メッセージの設定
                 push.message = "\(userName)が日記を書きました"
-                // iOS端末を送信対象に設定する
-                push.isSendToIOS = true
                 // 即時配信を設定する
                 push.setImmediateDelivery()
 

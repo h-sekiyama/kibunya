@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0bA-Lw-MKw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0bA-Lw-MKw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -131,7 +131,7 @@
                                             <action selector="didTapTelNoSignUpButton:" destination="0bA-Lw-MKw" eventType="touchUpInside" id="nho-CE-tvi"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="電話番号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aiw-92-hPY" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="電話番号（ハイフンなし）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aiw-92-hPY" customClass="FormTextField" customModule="Family_Diary" customModuleProvider="target">
                                         <rect key="frame" x="20" y="456" width="374" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -354,7 +354,7 @@
             <size key="intrinsicContentSize" width="120" height="48"/>
         </designable>
         <designable name="aiw-92-hPY">
-            <size key="intrinsicContentSize" width="103.5" height="49"/>
+            <size key="intrinsicContentSize" width="234" height="49"/>
         </designable>
         <designable name="lPF-D9-71F">
             <size key="intrinsicContentSize" width="87" height="49"/>
