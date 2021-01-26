@@ -6,6 +6,7 @@ import UserNotifications
 import FirebaseMessaging
 import NCMB
 import UserNotifications
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,6 +48,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Register notification
         registerForPushNotifications()
+        
+        // Admobの初期化
+        GADMobileAds.sharedInstance().start { (status) in
+            // 初期化が完了(or タイムアウト)
+            debugPrint("AdMob Initialization Completed")
+            for (k,v) in status.adapterStatusesByClassName {
+                debugPrint("\(k) >> \(v.state.rawValue == 1 ? "Ready" : "NotReady")")
+            }
+        }
         
         return true
     }

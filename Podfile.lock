@@ -304,6 +304,9 @@ PODS:
     - Firebase/Storage (~> 6.0)
     - SDWebImage (~> 5.0)
   - FSCalendar (2.8.1)
+  - Google-Mobile-Ads-SDK (7.65.0):
+    - GoogleAppMeasurement (~> 6.0)
+    - GoogleUserMessagingPlatform (~> 1.1)
   - GoogleAppMeasurement (6.8.2):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
@@ -312,6 +315,7 @@ PODS:
     - nanopb (~> 1.30906.0)
   - GoogleDataTransport (7.3.0):
     - nanopb (~> 1.30906.0)
+  - GoogleUserMessagingPlatform (1.2.0)
   - GoogleUtilities/AppDelegateSwizzler (6.7.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -380,6 +384,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI/Storage
   - FSCalendar (from `https://github.com/WenchaoD/FSCalendar`)
+  - Google-Mobile-Ads-SDK
   - NCMB (from `https://github.com/NIFCloud-mbaas/ncmb_swift`)
 
 SPEC REPOS:
@@ -399,8 +404,10 @@ SPEC REPOS:
     - FirebaseMessaging
     - FirebaseStorage
     - FirebaseUI
+    - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GoogleUserMessagingPlatform
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
@@ -442,8 +449,10 @@ SPEC CHECKSUMS:
   FirebaseStorage: 33b92875a9b556824886cc7a65120c7d2cb3a8d8
   FirebaseUI: e57e9b9c4340631151fbe67a14206d23d0974f37
   FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
+  Google-Mobile-Ads-SDK: af735e001ee534d9dd2ce0a87cd8c355b19844b5
   GoogleAppMeasurement: 1a66f478c68ecd6c16ee63ee60c7c3a648e6b337
   GoogleDataTransport: e85fb700c9b027079ce182c3d08e12e0f9618bb4
+  GoogleUserMessagingPlatform: c85530d930ba509583aa5a6d50a10aca22cf8502
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
@@ -455,6 +464,6 @@ SPEC CHECKSUMS:
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
 
-PODFILE CHECKSUM: 0810f61240b45b81eb92b2c6a37a963654a10c5d
+PODFILE CHECKSUM: 46e9d0b488b9f19a126a94a0c7f509b31b5517c9
 
 COCOAPODS: 1.9.1

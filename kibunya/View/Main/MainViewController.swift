@@ -6,6 +6,7 @@ import Foundation
 import FirebaseUI
 import NCMB
 import StoreKit
+import GoogleMobileAds
 
 class MainViewController: UIViewController, UITableViewDelegate {
     
@@ -64,6 +65,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
             nextDateButton.setImage(UIImage(named: "arrow_right_off"), for: .normal)
         }
     }
+    // 気分リストの下部のスペース
+    @IBOutlet weak var kibunListBottomSpqce: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,10 +129,42 @@ class MainViewController: UIViewController, UITableViewDelegate {
         tabBarView  = TabBarView()
         view.addSubview(tabBarView.tab)
         tabBarView.owner = self
-
-        // タブの表示位置を調整
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
         tabBarView.diaryButton.setBackgroundImage(UIImage(named: "tab_image0_on"), for: .normal)
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        
+        if (false) { // 課金済み
+            // nop
+        } else {
+            // Admob広告表示用
+            // 広告ユニットID
+            let AdMobID = "ca-app-pub-1593736122135080/1835987356"
+            // テスト用広告ユニットID
+            let TEST_ID = "ca-app-pub-3940256099942544/2934735716"
+            
+            var admobView = GADBannerView()
+            
+            admobView = GADBannerView(adSize:kGADAdSizeBanner)
+            admobView.frame.origin = CGPoint(x: 0, y: backgroundView.frame.origin.y)
+            admobView.frame.size = CGSize(width:self.view.frame.width, height: admobView.frame.height)
+     
+            #if DEBUG
+                admobView.adUnitID = TEST_ID
+            #else
+                admobView.adUnitID = AdMobID
+            #endif
+     
+            admobView.rootViewController = self
+            admobView.load(GADRequest())
+     
+            self.view.addSubview(admobView)
+            
+            kibunList.transform = CGAffineTransform(translationX: 0, y: admobView.frame.height)
+            kibunListBottomSpqce.constant = -88 - admobView.frame.height
+        }
     }
     
     // フォアグラウンドに来た時の処理を記載

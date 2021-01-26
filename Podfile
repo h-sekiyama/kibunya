@@ -33,6 +33,7 @@ target 'kibunya_dev'
   pod 'CropViewController'
   pod 'NCMB', :git => 'https://github.com/NIFCloud-mbaas/ncmb_swift'
   pod 'FSCalendar', :git=> 'https://github.com/WenchaoD/FSCalendar'
+  pod 'Google-Mobile-Ads-SDK'
 
 target 'kibunyaTests' do
   inherit! :search_paths

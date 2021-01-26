@@ -65,12 +65,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYa-aa-6UK">
-                                <rect key="frame" x="105" y="438.5" width="204" height="19"/>
+                                <rect key="frame" x="103" y="438" width="208" height="20.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="誰も日記を書いていません">
                                         <attributes>
                                             <color key="NSColor" red="0.50632876159999995" green="0.29472824930000002" blue="0.32935255769999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="17" name=".HiraKakuInterface-W3"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
                                             <font key="NSOriginalFont" metaFont="system" size="17"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -133,6 +133,7 @@
                         <outlet property="dateText" destination="Nl5-Mz-wtH" id="KO1-OH-H7u"/>
                         <outlet property="emptyKibunLabel" destination="KYa-aa-6UK" id="xVo-zy-vSr"/>
                         <outlet property="kibunList" destination="txb-8X-qYK" id="5gG-EK-0eM"/>
+                        <outlet property="kibunListBottomSpqce" destination="uOs-fs-9aN" id="smo-rh-t8d"/>
                         <outlet property="nextDateButton" destination="L6C-kP-KVH" id="hkt-7t-ler"/>
                     </connections>
                 </viewController>
