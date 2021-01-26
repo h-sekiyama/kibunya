@@ -136,7 +136,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         
-        if (false) { // 課金済み
+        if (UserDefaults.standard.billingProMode ?? false) { // 課金済み
             // nop
         } else {
             // Admob広告表示用

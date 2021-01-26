@@ -91,6 +91,8 @@
 		3EEB5CD324E37A4800A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD224E37A4800A0EA19 /* GoogleService-Info.plist */; };
 		3EEB5CD524E37A4F00A0EA19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB5CD424E37A4F00A0EA19 /* GoogleService-Info.plist */; };
 		3EF0854B24E68BB2003E8FE2 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0854A24E68BB2003E8FE2 /* TabBarView.swift */; };
+		3EF5185F25C073ED00F946A1 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5185E25C073ED00F946A1 /* IAPManager.swift */; };
+		3EF5186525C0834E00F946A1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5186425C0834E00F946A1 /* StoreKit.framework */; };
 		6A61898A33C12CEE4535F409 /* Pods_kibunya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4E4D1907B851DEDE716569 /* Pods_kibunya.framework */; };
 		9B7F42D0F2397F17AA935129 /* Pods_kibunya_kibunya_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDAEE6647E1D3C7F541994FE /* Pods_kibunya_kibunya_dev.framework */; };
 		BB08ED1EB104B5556D1E84D0 /* Pods_kibunya_kibunyaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F349568CC0ADE4EB46C56950 /* Pods_kibunya_kibunyaUITests.framework */; };
@@ -170,6 +172,8 @@
 		3EEB5CD224E37A4800A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "kibunya/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3EEB5CD424E37A4F00A0EA19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "kibunya/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3EF0854A24E68BB2003E8FE2 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		3EF5185E25C073ED00F946A1 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		3EF5186425C0834E00F946A1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		65B1C2725F8BF66B013A5A76 /* Pods-kibunya-kibunya_dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunya-kibunya_dev.release.xcconfig"; path = "Target Support Files/Pods-kibunya-kibunya_dev/Pods-kibunya-kibunya_dev.release.xcconfig"; sourceTree = "<group>"; };
 		8AA0F6FEB4B0E14B9CF6709A /* Pods-kibunya-kibunyaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunya-kibunyaUITests.debug.xcconfig"; path = "Target Support Files/Pods-kibunya-kibunyaUITests/Pods-kibunya-kibunyaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E1A4D237F9B8A5C76C69549 /* Pods_kibunyaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kibunyaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF5186525C0834E00F946A1 /* StoreKit.framework in Frameworks */,
 				6A61898A33C12CEE4535F409 /* Pods_kibunya.framework in Frameworks */,
 				D80E8381A9BD54982D245BB1 /* Pods_kibunya.framework in Frameworks */,
 			);
@@ -257,6 +262,7 @@
 				3E6C005F24EC247E001D4828 /* Functions.swift */,
 				3E6D765C250CD4B800E2BF05 /* Constants.swift */,
 				3E7442C125110A0C00E881F6 /* FormTextField.swift */,
+				3EF5185E25C073ED00F946A1 /* IAPManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 		D6D3F378587B751B3F0FD53A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3EF5186425C0834E00F946A1 /* StoreKit.framework */,
 				AF4E4D1907B851DEDE716569 /* Pods_kibunya.framework */,
 				F349568CC0ADE4EB46C56950 /* Pods_kibunya_kibunyaUITests.framework */,
 				8E1A4D237F9B8A5C76C69549 /* Pods_kibunyaTests.framework */,
@@ -800,6 +807,7 @@
 				3E7FD59C24E7F24B005011B6 /* KibunTableViewCell.swift in Sources */,
 				3E6C005E24EAE97C001D4828 /* Extensions.swift in Sources */,
 				3E70A81124E26376008667B5 /* MainViewController.swift in Sources */,
+				3EF5185F25C073ED00F946A1 /* IAPManager.swift in Sources */,
 				3E8FBE8324E54EF400BAC128 /* MailSendCompleteViewController.swift in Sources */,
 				3E7442C225110A0C00E881F6 /* FormTextField.swift in Sources */,
 				3E70A80D24E26376008667B5 /* AppDelegate.swift in Sources */,

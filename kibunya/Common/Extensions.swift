@@ -129,6 +129,7 @@ private let DevicetokenKey = "devicetokenKey"
 private let NowInputDiaryText = "nowInputDiaryText"
 private let SendStoreReview = "sendStoreReview"
 private let ShowKibunListCount = "showKibunListCount"
+private let BillingProMode = "billingProMode"
 extension UserDefaults {
     // 認証ID
     var authVerificationID: String? {
@@ -187,6 +188,16 @@ extension UserDefaults {
            synchronize()
        } get {
            return bool(forKey: SendStoreReview)
+       }
+    }
+    
+    // PROモード購入したかどうか
+    var billingProMode: Bool? {
+       set(newValue) {
+           set(newValue, forKey: BillingProMode)
+           synchronize()
+       } get {
+           return bool(forKey: BillingProMode)
        }
    }
 }

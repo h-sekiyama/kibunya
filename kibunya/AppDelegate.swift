@@ -58,6 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        // 課金の準備
+        SKPaymentQueue.default().add(IAPManager.shared)
+        
         return true
     }
 

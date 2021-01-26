@@ -103,6 +103,10 @@ class InputKibunViewController: UIViewController {
         if (!(UserDefaults.standard.nowInputDiaryText?.isEmpty ?? false)) {
             kibunTextBox.text = UserDefaults.standard.nowInputDiaryText
         }
+        
+        if (UserDefaults.standard.billingProMode ?? false) {    // 課金ユーザー
+            remainingTextCountLabel.isHidden = true
+        }
     }
     
     // 画像添付ボタン
@@ -162,7 +166,11 @@ class InputKibunViewController: UIViewController {
         if (isExistImage) {
             //保存したい画像のデータを変数として持つ
             var diaryImage: Data = Data()
-            diaryImage = (sendImage.image?.jpegData(compressionQuality: 0.01))!
+            var imageQuality: CGFloat = 0
+            if (UserDefaults.standard.billingProMode ?? false) { // 課金ユーザー
+                imageQuality = 0.9
+            }
+            diaryImage = (sendImage.image?.jpegData(compressionQuality: imageQuality))!
             let imageRef = storage.child("diary").child("\(documentId).jpg")
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
@@ -290,9 +298,14 @@ extension InputKibunViewController: UITextViewDelegate {
         }
         // 入力を反映させたテキストを取得する
         let resultText: String = (textView.text! as NSString).replacingCharacters(in: range, with: text)
-        self.remainingTextCountLabel.text = String(300 - resultText.count)
-        if resultText.count < 300 {
+        
+        if (UserDefaults.standard.billingProMode ?? false) {    // 無課金ユーザー
             return true
+        } else {
+            self.remainingTextCountLabel.text = String(300 - resultText.count)
+            if resultText.count < 300 {
+                return true
+            }
         }
         return false
     }

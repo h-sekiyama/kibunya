@@ -50,6 +50,7 @@ class KibunDetailViewController:  UIViewController {
         Functions.presentAnimation(view: view)
         self.present(mainViewController, animated: false, completion: nil)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,6 +85,12 @@ class KibunDetailViewController:  UIViewController {
         
         // 日記本文の背景設定
         textLabel.backgroundColor = UIColor(red: 255/255, green: 246/255, blue: 238/255, alpha: 1)
+        
+        if (UserDefaults.standard.billingProMode ?? false) { // 課金ユーザー
+            // 画像の保存
+            diaryImage.isUserInteractionEnabled = true
+            diaryImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.saveImage(_:))))
+        }
     }
     
     override func loadView() {
@@ -97,5 +104,48 @@ class KibunDetailViewController:  UIViewController {
         // タブの表示位置を調整
         tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
         tabBarView.diaryButton.setBackgroundImage(UIImage(named: "tab_image0_on"), for: .normal)
+    }
+    
+    @objc func saveImage(_ sender: UITapGestureRecognizer) {
+
+        //タップしたUIImageViewを取得
+        let targetImageView = sender.view! as! UIImageView
+        // その中の UIImage を取得
+        let targetImage = targetImageView.image!
+        //保存するか否かのアラート
+        let alertController = UIAlertController(title: "保存", message: "この画像を保存しますか？", preferredStyle: .alert)
+        //OK
+        let okAction = UIAlertAction(title: "OK", style: .default) { (ok) in
+            //ここでフォトライブラリに画像を保存
+            UIImageWriteToSavedPhotosAlbum(targetImage, self, #selector(self.showResultOfSaveImage(_:didFinishSavingWithError:contextInfo:)), nil)
+        }
+        //CANCEL
+        let cancelAction = UIAlertAction(title: "しない", style: .default) { (cancel) in
+            alertController.dismiss(animated: true, completion: nil)
+        }
+        //OKとCANCELを表示追加し、アラートを表示
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    // 保存結果をアラートで表示
+    @objc func showResultOfSaveImage(_ image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
+
+        var title = "保存完了"
+        var message = "カメラロールに保存しました"
+
+        if error != nil {
+            title = "エラー"
+            message = "保存に失敗しました"
+        }
+
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        // OKボタンを追加
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        // UIAlertController を表示
+        self.present(alert, animated: true, completion: nil)
     }
 }

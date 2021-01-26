@@ -26,8 +26,65 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qRb-AZ-xjf" userLabel="BackgroundView">
                                 <rect key="frame" x="0.0" y="110" width="414" height="698"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXI-fi-fmb" userLabel="プロモード">
+                                        <rect key="frame" x="30" y="22" width="354" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fke-D5-Niw">
+                                                <rect key="frame" x="85" y="26.5" width="206" height="17"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="PROにアップグレードする">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="17" name="HiraMaruProN-W4"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_paw" translatesAutoresizingMaskIntoConstraints="NO" id="sy0-E8-xqx">
+                                                <rect key="frame" x="22" y="18" width="51" height="34"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="Fke-D5-Niw" firstAttribute="centerY" secondItem="JXI-fi-fmb" secondAttribute="centerY" id="D0V-0c-Ufp"/>
+                                            <constraint firstItem="Fke-D5-Niw" firstAttribute="leading" secondItem="sy0-E8-xqx" secondAttribute="trailing" constant="12" id="FDY-DI-Xjv"/>
+                                            <constraint firstItem="sy0-E8-xqx" firstAttribute="leading" secondItem="JXI-fi-fmb" secondAttribute="leading" constant="22" id="FDh-HH-KeL"/>
+                                            <constraint firstAttribute="height" constant="70" id="Q89-fG-pXQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="sy0-E8-xqx" secondAttribute="bottom" constant="18" id="V1m-Ic-Vwv"/>
+                                            <constraint firstItem="sy0-E8-xqx" firstAttribute="top" secondItem="JXI-fi-fmb" secondAttribute="top" constant="18" id="ycX-lb-HN8"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="34"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.8980392157" green="0.80000000000000004" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowAlpha">
+                                                <real key="value" value="0.40000000000000002"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="2" height="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="tqI-g3-ALM" appends="YES" id="t8w-yw-481"/>
+                                        </connections>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZjM-Jv-wkz" userLabel="家族追加">
-                                        <rect key="frame" x="30" y="35" width="354" height="70"/>
+                                        <rect key="frame" x="30" y="118" width="354" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAV-jT-ard">
                                                 <rect key="frame" x="85" y="26.5" width="119" height="17"/>
@@ -83,7 +140,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hnu-sU-chW" userLabel="家族リストをみる">
-                                        <rect key="frame" x="30" y="131" width="354" height="70"/>
+                                        <rect key="frame" x="30" y="214" width="354" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jlv-Cz-gQ9">
                                                 <rect key="frame" x="85" y="26.5" width="136" height="17"/>
@@ -140,7 +197,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaX-ul-O95" userLabel="プロフィールを変更する">
-                                        <rect key="frame" x="30" y="227" width="354" height="70"/>
+                                        <rect key="frame" x="30" y="310" width="354" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHC-9B-F5f">
                                                 <rect key="frame" x="85" y="26.5" width="186" height="17"/>
@@ -197,7 +254,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WUN-ev-lRi" userLabel="ログアウトする">
-                                        <rect key="frame" x="30" y="323" width="354" height="70"/>
+                                        <rect key="frame" x="30" y="406" width="354" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zr-es-Uq2">
                                                 <rect key="frame" x="85" y="26.5" width="119" height="17"/>
@@ -256,17 +313,20 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.96470588239999999" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="ZjM-Jv-wkz" firstAttribute="top" secondItem="qRb-AZ-xjf" secondAttribute="top" constant="35" id="1AR-gy-ljO"/>
                                     <constraint firstAttribute="trailing" secondItem="gaX-ul-O95" secondAttribute="trailing" constant="30" id="1MF-wB-hTJ"/>
                                     <constraint firstItem="ZjM-Jv-wkz" firstAttribute="leading" secondItem="qRb-AZ-xjf" secondAttribute="leading" constant="30" id="4uT-Q8-PXN"/>
+                                    <constraint firstItem="JXI-fi-fmb" firstAttribute="leading" secondItem="qRb-AZ-xjf" secondAttribute="leading" constant="30" id="5bc-NI-iFJ"/>
                                     <constraint firstItem="WUN-ev-lRi" firstAttribute="leading" secondItem="qRb-AZ-xjf" secondAttribute="leading" constant="30" id="5bv-nG-eHD"/>
                                     <constraint firstAttribute="trailing" secondItem="hnu-sU-chW" secondAttribute="trailing" constant="30" id="CrG-nj-YTx"/>
                                     <constraint firstAttribute="trailing" secondItem="WUN-ev-lRi" secondAttribute="trailing" constant="30" id="JbJ-Px-6QT"/>
                                     <constraint firstItem="hnu-sU-chW" firstAttribute="leading" secondItem="qRb-AZ-xjf" secondAttribute="leading" constant="30" id="ONg-EU-Ed7"/>
+                                    <constraint firstItem="ZjM-Jv-wkz" firstAttribute="top" secondItem="JXI-fi-fmb" secondAttribute="bottom" constant="26" id="Ozq-TH-K8w"/>
                                     <constraint firstItem="hnu-sU-chW" firstAttribute="top" secondItem="ZjM-Jv-wkz" secondAttribute="bottom" constant="26" id="a5Q-XA-F87"/>
+                                    <constraint firstItem="JXI-fi-fmb" firstAttribute="top" secondItem="qRb-AZ-xjf" secondAttribute="top" constant="22" id="aj1-fg-9Nl"/>
                                     <constraint firstItem="WUN-ev-lRi" firstAttribute="top" secondItem="gaX-ul-O95" secondAttribute="bottom" constant="26" id="dOW-ez-BRY"/>
                                     <constraint firstAttribute="trailing" secondItem="ZjM-Jv-wkz" secondAttribute="trailing" constant="30" id="f75-3m-JPz"/>
                                     <constraint firstItem="gaX-ul-O95" firstAttribute="leading" secondItem="qRb-AZ-xjf" secondAttribute="leading" constant="30" id="nbv-IY-vBC"/>
+                                    <constraint firstItem="JXI-fi-fmb" firstAttribute="centerX" secondItem="qRb-AZ-xjf" secondAttribute="centerX" id="tzs-tf-rNp"/>
                                     <constraint firstItem="gaX-ul-O95" firstAttribute="top" secondItem="hnu-sU-chW" secondAttribute="bottom" constant="26" id="wVx-af-22y"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -306,8 +366,17 @@
                             <constraint firstItem="S6c-4E-OYL" firstAttribute="leading" secondItem="glR-6j-EHG" secondAttribute="leading" id="qWB-UL-FzP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="proButtonLabel" destination="Fke-D5-Niw" id="cYc-0y-rZT"/>
+                        <outlet property="upgradeProButton" destination="tqI-g3-ALM" id="HoA-5R-wnN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mpq-42-Yl7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tqI-g3-ALM" userLabel="PROにアップグレードタップ">
+                    <connections>
+                        <action selector="upgradePro:" destination="Urh-ip-LnY" id="P3I-DE-wXD"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="ZjA-Ex-GiB" userLabel="家族を追加するタップ">
                     <connections>
                         <action selector="addFamilyButton:" destination="Urh-ip-LnY" id="Kg8-7E-r6b"/>
