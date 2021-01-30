@@ -351,16 +351,16 @@
     </scenes>
     <designables>
         <designable name="8dc-jb-tKs">
-            <size key="intrinsicContentSize" width="120" height="48"/>
+            <size key="intrinsicContentSize" width="110" height="34"/>
         </designable>
         <designable name="aiw-92-hPY">
-            <size key="intrinsicContentSize" width="234" height="49"/>
+            <size key="intrinsicContentSize" width="224" height="34"/>
         </designable>
         <designable name="lPF-D9-71F">
-            <size key="intrinsicContentSize" width="87" height="49"/>
+            <size key="intrinsicContentSize" width="77" height="34"/>
         </designable>
         <designable name="xSp-TO-9Fi">
-            <size key="intrinsicContentSize" width="152.5" height="49"/>
+            <size key="intrinsicContentSize" width="142.5" height="34"/>
         </designable>
     </designables>
     <resources>

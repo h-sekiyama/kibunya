@@ -83,6 +83,8 @@
 		3E8FBE8124E52A6B00BAC128 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8024E52A6B00BAC128 /* SignUpViewController.storyboard */; };
 		3E8FBE8324E54EF400BAC128 /* MailSendCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */; };
 		3E8FBE8524E54F0300BAC128 /* MailSendCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */; };
+		3E9467D025C5AB390000D96C /* ProUpgradeModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9467CF25C5AB390000D96C /* ProUpgradeModalViewController.swift */; };
+		3E9467D625C5AB490000D96C /* ProUpgradeModalViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9467D525C5AB490000D96C /* ProUpgradeModalViewController.storyboard */; };
 		3EA278D324E7BF5C00A62834 /* Kibuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA278D224E7BF5C00A62834 /* Kibuns.swift */; };
 		3EB2F7A72518C7DD00F3170A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2F7A62518C7DD00F3170A /* GoogleService-Info.plist */; };
 		3EB2F7CC2518C7EA00F3170A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2F7CB2518C7EA00F3170A /* GoogleService-Info.plist */; };
@@ -164,6 +166,8 @@
 		3E8FBE8024E52A6B00BAC128 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
 		3E8FBE8224E54EF400BAC128 /* MailSendCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailSendCompleteViewController.swift; sourceTree = "<group>"; };
 		3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailSendCompleteViewController.storyboard; sourceTree = "<group>"; };
+		3E9467CF25C5AB390000D96C /* ProUpgradeModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeModalViewController.swift; sourceTree = "<group>"; };
+		3E9467D525C5AB490000D96C /* ProUpgradeModalViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProUpgradeModalViewController.storyboard; sourceTree = "<group>"; };
 		3EA278D224E7BF5C00A62834 /* Kibuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kibuns.swift; sourceTree = "<group>"; };
 		3EB2F7A62518C7DD00F3170A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Configs/Release/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3EB2F7CB2518C7EA00F3170A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Configs/Debug/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 				3E6C005724EADD69001D4828 /* AddFamily */,
 				3E6C004924EA5EF9001D4828 /* OtherViewController.swift */,
 				3E6C004B24EA5F50001D4828 /* OtherViewController.storyboard */,
+				3E9467CF25C5AB390000D96C /* ProUpgradeModalViewController.swift */,
+				3E9467D525C5AB490000D96C /* ProUpgradeModalViewController.storyboard */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -591,6 +597,7 @@
 				3E70A81924E26378008667B5 /* LaunchScreen.storyboard in Resources */,
 				3E6C004C24EA5F50001D4828 /* OtherViewController.storyboard in Resources */,
 				3E5B315A24FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard in Resources */,
+				3E9467D625C5AB490000D96C /* ProUpgradeModalViewController.storyboard in Resources */,
 				3E6C005B24EADDD1001D4828 /* AddFamilyViewController.storyboard in Resources */,
 				3E729E2B2561225600C5F0FF /* KibunCalendarModalViewController.storyboard in Resources */,
 				3E8FBE8124E52A6B00BAC128 /* SignUpViewController.storyboard in Resources */,
@@ -820,6 +827,7 @@
 				3E729E212561222700C5F0FF /* KibunCalendarModalViewController.swift in Sources */,
 				3E6C005924EADDA0001D4828 /* AddFamilyViewController.swift in Sources */,
 				3E6C005424EA85BF001D4828 /* LoginViewController.swift in Sources */,
+				3E9467D025C5AB390000D96C /* ProUpgradeModalViewController.swift in Sources */,
 				3E5B315824FBB389006AB64C /* SMSSendCompleteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,26 +14,11 @@ class OtherViewController: UIViewController {
     // PROアップグレードボタン
     @IBOutlet weak var proButtonLabel: UILabel!
     @IBOutlet var upgradeProButton: UITapGestureRecognizer!
-    // PROモードにアップグレード
+    // PROモードにアップグレードボタンタップ
     @IBAction func upgradePro(_ sender: Any) {
-        let dialog = UIAlertController(title: "PROにアップグレード", message: "PROにアップグレードすると以下の機能が追加されます\n\n日記の文字数が無制限に\n日記の写真を高画質で送れる\n日記画像の保存機能\n広告非表示", preferredStyle: .alert)
-        dialog.addAction(UIAlertAction(title: "アップグレード", style: .default,
-            handler: { action in
-                do {
-                    self.startIndicator()
-                    IAPManager.shared.buy(productIdentifier: "kazoku_diary_pro_mode")
-                }
-            }))
-        dialog.addAction(UIAlertAction(title: "購入を復元", style: .default,
-            handler: { action in
-                do {
-                    self.startIndicator()
-                    IAPManager.shared.restore()
-                }
-            }))
-        dialog.addAction(UIAlertAction(title: "しない", style: .cancel, handler: nil))
-        // 生成したダイアログを実際に表示します
-        self.present(dialog, animated: true, completion: nil)
+        let storyboard: UIStoryboard = UIStoryboard(name: "ProUpgradeModalViewController", bundle: nil)
+        let modalView = storyboard.instantiateViewController(withIdentifier: "modal") as! ProUpgradeModalViewController
+        self.present(modalView, animated: true, completion: nil)
     }
     
     // 家族追加画面へ遷移
@@ -87,8 +72,6 @@ class OtherViewController: UIViewController {
         if (UserDefaults.standard.billingProMode ?? false) {
             proButtonLabel.text = "PROアップグレード済み"
             upgradeProButton.isEnabled = false
-        } else {
-            IAPManager.shared.delegate = self
         }
     }
     
@@ -103,56 +86,5 @@ class OtherViewController: UIViewController {
         // タブの表示位置を調整
         tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
         tabBarView.otherButton.setBackgroundImage(UIImage(named: "tab_image2_on"), for: .normal)
-    }
-}
-
-extension OtherViewController: IAPManagerDelegate {
-    //購入が完了した時
-    func iapManagerDidFinishPurchased() {
-        self.dismissIndicator()
-        let dialog = UIAlertController(title: "購入完了", message: "購入ありがとうございます！ひきつづき家族ダイアリーをお楽しみ下さい！", preferredStyle: .alert)
-        dialog.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(dialog, animated: true, completion: nil)
-        UserDefaults.standard.billingProMode = true
-    }
-    //購入に失敗した時
-    func iapManagerDidFailedPurchased() {
-        self.dismissIndicator()
-        let dialog = UIAlertController(title: "購入失敗", message: "購入に失敗しました", preferredStyle: .alert)
-        dialog.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(dialog, animated: true, completion: nil)
-    }
-    //リストアが完了した時
-    func iapManagerDidFinishRestore(_ productIdentifiers: [String]) {
-        self.dismissIndicator()
-        for identifier in productIdentifiers {
-            if identifier == "kazoku_diary_pro_mode" {
-                let dialog = UIAlertController(title: "復元完了", message: "復元完了しました！ひきつづき家族ダイアリーをお楽しみ下さい！", preferredStyle: .alert)
-                dialog.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self.present(dialog, animated: true, completion: nil)
-                UserDefaults.standard.billingProMode = true
-            }
-        }
-    }
-    //1度もアイテム購入したことがなく、リストアを実行した時
-    func iapManagerDidFailedRestoreNeverPurchase() {
-        self.dismissIndicator()
-        let dialog = UIAlertController(title: "復元失敗", message: "復元できませんでした", preferredStyle: .alert)
-        dialog.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(dialog, animated: true, completion: nil)
-    }
-    //リストアに失敗した時
-    func iapManagerDidFailedRestore() {
-        self.dismissIndicator()
-        let dialog = UIAlertController(title: "復元失敗", message: "復元に失敗しました", preferredStyle: .alert)
-        dialog.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(dialog, animated: true, completion: nil)
-    }
-    //特殊な購入時の延期の時
-    func iapManagerDidDeferredPurchased() {
-        self.dismissIndicator()
-        let dialog = UIAlertController(title: "購入失敗", message: "購入に失敗しました", preferredStyle: .alert)
-        dialog.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(dialog, animated: true, completion: nil)
     }
 }
