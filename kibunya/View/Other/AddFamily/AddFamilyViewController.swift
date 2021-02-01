@@ -225,7 +225,18 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
         let shareName: String = userName
         let shareId: String = myUserId
         // 初期化処理
-        let activityVC = UIActivityViewController(activityItems: ["家族の交換日記アプリ「家族ダイアリー」\n" + shareName + "からの招待です。\n\niPhoneの方は以下をタップ！\nkazokuDiary://login?id=" + shareId + "\n\nAndroidの方は以下をタップ！\nhttp://kazoku-diary?kazokuDiary=" + shareId + "\n\nアプリをダウンロード\niOS版：https://apps.apple.com/us/app/id1528947553\n\nAndroid版：https://play.google.com/store/apps/details?id=com.sekky.kibunya"], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: [
+            "家族の交換日記アプリ「家族ダイアリー」\n" + shareName + "からの招待です。\n\n" +
+            "かんたん3ステップで家族登録完了！\n\n" +
+            "手順①\n" +
+            "家族ダイアリーをインストール（既にインストール済みなら手順②へ）\n" +
+            "https://kibunya-app.web.app/download.html\n\n" +
+            "手順②\n" +
+            "インストール後にEメールアドレスか電話番号でアカウント登録（既に登録済みなら手順③へ）\n\n" +
+            "手順③\n" +
+            "以下のURLをタップして「家族に追加する」を選べば家族追加完了！\n" +
+            "https://kibunya-app.web.app/?id=" + shareId
+        ], applicationActivities: nil)
         
         // 使用しないアクティビティタイプ
         let excludedActivityTypes = [

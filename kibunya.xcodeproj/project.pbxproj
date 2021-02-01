@@ -1034,14 +1034,14 @@
 				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = 42UU3JKF9R;
 				INFOPLIST_FILE = kibunya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
 				PRODUCT_NAME = "Family Diary";
 				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー";
@@ -1058,14 +1058,14 @@
 				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = 42UU3JKF9R;
 				INFOPLIST_FILE = kibunya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
 				PRODUCT_NAME = "Family Diary";
 				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー（本番）";
