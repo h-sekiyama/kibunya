@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -84,26 +85,29 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYq-xC-zct">
                                         <rect key="frame" x="20" y="106" width="374" height="584"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="104-hg-CQ5">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="574"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="104-hg-CQ5">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="508"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xQc-VO-0yJ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="280.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="280"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="xQc-VO-0yJ" secondAttribute="height" multiplier="480:360" id="UhC-8H-N7w"/>
+                                                            <constraint firstAttribute="width" secondItem="xQc-VO-0yJ" secondAttribute="height" multiplier="187:140" id="Znh-UT-b5o"/>
                                                         </constraints>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="d90-IH-eqx" appends="YES" id="LMW-bT-Y3M"/>
                                                         </connections>
                                                     </imageView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKf-Y4-Sg8">
-                                                        <rect key="frame" x="0.0" y="280.5" width="374" height="293.5"/>
+                                                        <rect key="frame" x="0.0" y="280" width="374" height="100"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                                             <bool key="isElement" value="NO"/>
                                                         </accessibility>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="100" id="GfJ-Nv-Poh"/>
+                                                        </constraints>
                                                         <attributedString key="attributedText">
                                                             <fragment>
                                                                 <string key="content">＜うんちに異常が見られたら　～うんちに虫が入っていた！？～＞
@@ -126,25 +130,31 @@
                                                         </attributedString>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MPC-Sx-98a" userLabel="Coments">
+                                                        <rect key="frame" x="0.0" y="380" width="374" height="128"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </tableView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="JKf-Y4-Sg8" secondAttribute="trailing" id="XAj-V7-T12"/>
-                                                    <constraint firstItem="JKf-Y4-Sg8" firstAttribute="leading" secondItem="104-hg-CQ5" secondAttribute="leading" id="lng-eG-bcc"/>
-                                                    <constraint firstAttribute="bottom" secondItem="JKf-Y4-Sg8" secondAttribute="bottom" id="wno-4T-w31"/>
+                                                    <constraint firstItem="xQc-VO-0yJ" firstAttribute="leading" secondItem="104-hg-CQ5" secondAttribute="leading" id="0ij-XL-U42"/>
+                                                    <constraint firstItem="JKf-Y4-Sg8" firstAttribute="top" secondItem="xQc-VO-0yJ" secondAttribute="bottom" id="30C-dX-pCW"/>
+                                                    <constraint firstItem="MPC-Sx-98a" firstAttribute="leading" secondItem="104-hg-CQ5" secondAttribute="leading" id="ANZ-O4-2aB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xQc-VO-0yJ" secondAttribute="trailing" id="QrQ-8S-UbH"/>
+                                                    <constraint firstItem="MPC-Sx-98a" firstAttribute="top" secondItem="JKf-Y4-Sg8" secondAttribute="bottom" id="aLa-fU-nIn"/>
+                                                    <constraint firstAttribute="trailing" secondItem="MPC-Sx-98a" secondAttribute="trailing" id="ecF-D3-JoG"/>
+                                                    <constraint firstItem="xQc-VO-0yJ" firstAttribute="top" secondItem="104-hg-CQ5" secondAttribute="top" id="iVl-ff-QfQ"/>
+                                                    <constraint firstItem="xQc-VO-0yJ" firstAttribute="width" secondItem="104-hg-CQ5" secondAttribute="width" id="lxd-vp-Vkg"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="104-hg-CQ5" firstAttribute="top" secondItem="Fdx-KV-4uN" secondAttribute="top" id="Wvc-rb-Hdj"/>
-                                            <constraint firstItem="104-hg-CQ5" firstAttribute="leading" secondItem="Fdx-KV-4uN" secondAttribute="leading" id="eDW-Bg-eJR"/>
-                                            <constraint firstItem="104-hg-CQ5" firstAttribute="width" secondItem="JYq-xC-zct" secondAttribute="width" id="k3U-Ig-fs4"/>
-                                            <constraint firstAttribute="bottom" secondItem="104-hg-CQ5" secondAttribute="bottom" id="rcn-AH-GZc"/>
-                                            <constraint firstItem="104-hg-CQ5" firstAttribute="height" secondItem="JYq-xC-zct" secondAttribute="height" multiplier="0.982877" id="tqG-n6-9ja"/>
-                                            <constraint firstAttribute="trailing" secondItem="104-hg-CQ5" secondAttribute="trailing" id="wAt-RT-hOv"/>
+                                            <constraint firstItem="104-hg-CQ5" firstAttribute="top" secondItem="JYq-xC-zct" secondAttribute="top" id="M6e-RV-WlY"/>
+                                            <constraint firstAttribute="trailing" secondItem="104-hg-CQ5" secondAttribute="trailing" id="VE0-Y8-gEA"/>
+                                            <constraint firstItem="104-hg-CQ5" firstAttribute="leading" secondItem="JYq-xC-zct" secondAttribute="leading" id="hEy-Mz-ktq"/>
+                                            <constraint firstAttribute="bottom" secondItem="104-hg-CQ5" secondAttribute="bottom" id="hQ9-hV-5re"/>
+                                            <constraint firstItem="104-hg-CQ5" firstAttribute="width" secondItem="JYq-xC-zct" secondAttribute="width" id="t8p-fW-oHu"/>
                                         </constraints>
-                                        <viewLayoutGuide key="contentLayoutGuide" id="SiC-3r-WPb"/>
-                                        <viewLayoutGuide key="frameLayoutGuide" id="Fdx-KV-4uN"/>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -217,6 +227,7 @@
                         <outlet property="diaryTime" destination="Zmd-wn-WYp" id="e9Y-BX-Qrw"/>
                         <outlet property="kibunImage" destination="NXW-2C-e6E" id="Pp9-MD-Ks6"/>
                         <outlet property="profileIcon" destination="b2j-yb-TE6" id="7O3-Vm-asS"/>
+                        <outlet property="scrollView" destination="JYq-xC-zct" id="Blu-ut-lJY"/>
                         <outlet property="textLabel" destination="JKf-Y4-Sg8" id="Hfl-hG-s3g"/>
                         <outlet property="timeLabel" destination="sQ9-j4-pKP" id="l9c-Gl-JuK"/>
                         <outlet property="userNameLabel" destination="nYI-NW-36Y" id="5Jb-R0-DA5"/>
@@ -230,5 +241,8 @@
     </scenes>
     <resources>
         <image name="arrow_left_on" width="24" height="36.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

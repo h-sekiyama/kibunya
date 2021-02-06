@@ -51,6 +51,9 @@ class KibunDetailViewController:  UIViewController {
         self.present(mainViewController, animated: false, completion: nil)
     }
     
+    // スクロールエリア
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,6 +94,13 @@ class KibunDetailViewController:  UIViewController {
             diaryImage.isUserInteractionEnabled = true
             diaryImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.saveImage(_:))))
         }
+        
+        // 日記本文の高さを取得
+        let textHeight = textLabel.sizeThatFits(CGSize(width: textLabel.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height
+        textLabel.heightAnchor.constraint(equalToConstant: textHeight).isActive = true
+        
+        //スクロールエリアの高さを画像と本文の高さの合計に設定
+        scrollView.contentSize.height = diaryImage.frame.height + textHeight
     }
     
     override func loadView() {
