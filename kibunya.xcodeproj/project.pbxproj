@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3E013A8B25656572001AA5AE /* KibunCalendarModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E729E202561222700C5F0FF /* KibunCalendarModalViewController.swift */; };
 		3E013A902565657B001AA5AE /* KibunCalendarModalViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E729E2A2561225600C5F0FF /* KibunCalendarModalViewController.storyboard */; };
+		3E131C3A25CED8CF00526E7C /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E131C3925CED8CF00526E7C /* CommentTableViewCell.swift */; };
+		3E131C4025CED8E000526E7C /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E131C3F25CED8E000526E7C /* CommentTableViewCell.xib */; };
 		3E5B315824FBB389006AB64C /* SMSSendCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5B315724FBB389006AB64C /* SMSSendCompleteViewController.swift */; };
 		3E5B315A24FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B315924FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard */; };
 		3E5B315E24FE912D006AB64C /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5B315D24FE912D006AB64C /* ForgetPasswordViewController.swift */; };
@@ -86,6 +88,7 @@
 		3E9467D025C5AB390000D96C /* ProUpgradeModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9467CF25C5AB390000D96C /* ProUpgradeModalViewController.swift */; };
 		3E9467D625C5AB490000D96C /* ProUpgradeModalViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9467D525C5AB490000D96C /* ProUpgradeModalViewController.storyboard */; };
 		3EA278D324E7BF5C00A62834 /* Kibuns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA278D224E7BF5C00A62834 /* Kibuns.swift */; };
+		3EA3611525CEC851005EFEA0 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA3611425CEC851005EFEA0 /* Comments.swift */; };
 		3EB2F7A72518C7DD00F3170A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2F7A62518C7DD00F3170A /* GoogleService-Info.plist */; };
 		3EB2F7CC2518C7EA00F3170A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EB2F7CB2518C7EA00F3170A /* GoogleService-Info.plist */; };
 		3EE54E3324F3DE87002050B7 /* KibunDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE54E3224F3DE87002050B7 /* KibunDetailViewController.swift */; };
@@ -121,6 +124,8 @@
 
 /* Begin PBXFileReference section */
 		06BF8412232A9427F313E5CA /* Pods-kibunya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kibunya.debug.xcconfig"; path = "Target Support Files/Pods-kibunya/Pods-kibunya.debug.xcconfig"; sourceTree = "<group>"; };
+		3E131C3925CED8CF00526E7C /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		3E131C3F25CED8E000526E7C /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		3E5B315624FB9425006AB64C /* 家族ダイアリー.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "家族ダイアリー.entitlements"; sourceTree = "<group>"; };
 		3E5B315724FBB389006AB64C /* SMSSendCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSSendCompleteViewController.swift; sourceTree = "<group>"; };
 		3E5B315924FBB3F4006AB64C /* SMSSendCompleteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SMSSendCompleteViewController.storyboard; sourceTree = "<group>"; };
@@ -169,6 +174,7 @@
 		3E9467CF25C5AB390000D96C /* ProUpgradeModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUpgradeModalViewController.swift; sourceTree = "<group>"; };
 		3E9467D525C5AB490000D96C /* ProUpgradeModalViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProUpgradeModalViewController.storyboard; sourceTree = "<group>"; };
 		3EA278D224E7BF5C00A62834 /* Kibuns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kibuns.swift; sourceTree = "<group>"; };
+		3EA3611425CEC851005EFEA0 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		3EB2F7A62518C7DD00F3170A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Configs/Release/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3EB2F7CB2518C7EA00F3170A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Configs/Debug/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3EE54E3224F3DE87002050B7 /* KibunDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KibunDetailViewController.swift; sourceTree = "<group>"; };
@@ -424,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				3EA278D224E7BF5C00A62834 /* Kibuns.swift */,
+				3EA3611425CEC851005EFEA0 /* Comments.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -433,6 +440,8 @@
 			children = (
 				3EE54E3224F3DE87002050B7 /* KibunDetailViewController.swift */,
 				3EE54E3424F3DE9A002050B7 /* KibunDetailViewController.storyboard */,
+				3E131C3925CED8CF00526E7C /* CommentTableViewCell.swift */,
+				3E131C3F25CED8E000526E7C /* CommentTableViewCell.xib */,
 			);
 			path = KibunDetail;
 			sourceTree = "<group>";
@@ -612,6 +621,7 @@
 				3E8FBE8524E54F0300BAC128 /* MailSendCompleteViewController.storyboard in Resources */,
 				3E5B316024FE9171006AB64C /* ForgetPasswordViewController.storyboard in Resources */,
 				3E70A81424E26376008667B5 /* MainViewController.storyboard in Resources */,
+				3E131C4025CED8E000526E7C /* CommentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,6 +821,7 @@
 				3E6C006024EC247E001D4828 /* Functions.swift in Sources */,
 				3E5B315E24FE912D006AB64C /* ForgetPasswordViewController.swift in Sources */,
 				3EA278D324E7BF5C00A62834 /* Kibuns.swift in Sources */,
+				3EA3611525CEC851005EFEA0 /* Comments.swift in Sources */,
 				3E7FD59C24E7F24B005011B6 /* KibunTableViewCell.swift in Sources */,
 				3E6C005E24EAE97C001D4828 /* Extensions.swift in Sources */,
 				3E70A81124E26376008667B5 /* MainViewController.swift in Sources */,
@@ -825,6 +836,7 @@
 				3E6D765D250CD4B800E2BF05 /* Constants.swift in Sources */,
 				3E6C006324ED6972001D4828 /* ChangeNameViewController.swift in Sources */,
 				3E729E212561222700C5F0FF /* KibunCalendarModalViewController.swift in Sources */,
+				3E131C3A25CED8CF00526E7C /* CommentTableViewCell.swift in Sources */,
 				3E6C005924EADDA0001D4828 /* AddFamilyViewController.swift in Sources */,
 				3E6C005424EA85BF001D4828 /* LoginViewController.swift in Sources */,
 				3E9467D025C5AB390000D96C /* ProUpgradeModalViewController.swift in Sources */,
@@ -1034,14 +1046,14 @@
 				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 42UU3JKF9R;
 				INFOPLIST_FILE = kibunya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
 				PRODUCT_NAME = "Family Diary";
 				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー";
@@ -1058,14 +1070,14 @@
 				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 42UU3JKF9R;
 				INFOPLIST_FILE = kibunya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
 				PRODUCT_NAME = "Family Diary";
 				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー（本番）";

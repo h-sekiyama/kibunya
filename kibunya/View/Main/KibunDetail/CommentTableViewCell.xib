@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZgH-of-YAK" customClass="CommentTableViewCell" customModule="Family_Diary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZgH-of-YAK" id="w2u-0s-biP">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gPf-yj-xqh">
+                        <rect key="frame" x="4" y="4" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="EbK-26-M5x"/>
+                            <constraint firstAttribute="width" constant="40" id="XKL-gM-Vab"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4J-n4-bHk">
+                        <rect key="frame" x="52" y="4" width="36" height="14"/>
+                        <attributedString key="attributedText">
+                            <fragment content="ゆっこ">
+                                <attributes>
+                                    <color key="NSColor" red="0.71372549019607845" green="0.59215686274509804" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="12" name=".HiraKakuInterface-W3"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIP-SA-ciE">
+                        <rect key="frame" x="323" y="4" width="87" height="11"/>
+                        <attributedString key="attributedText">
+                            <fragment content="12月31日 16:51">
+                                <attributes>
+                                    <color key="NSColor" red="0.71372549019607845" green="0.59215686274509804" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="11" name="HiraMaruProN-W4"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNL-un-bRG">
+                        <rect key="frame" x="52" y="22" width="358" height="35"/>
+                        <attributedString key="attributedText">
+                            <fragment>
+                                <string key="content">コメントだよーん
+改行も行けるよーん
+結構長い文字も行けるよーん</string>
+                                <attributes>
+                                    <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="11" name="HiraMaruProN-W4"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.99852985139999995" green="0.96758180859999998" blue="0.9399255514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="X4J-n4-bHk" firstAttribute="leading" secondItem="gPf-yj-xqh" secondAttribute="trailing" constant="8" symbolic="YES" id="10h-eY-AfL"/>
+                    <constraint firstItem="dNL-un-bRG" firstAttribute="leading" secondItem="gPf-yj-xqh" secondAttribute="trailing" constant="8" symbolic="YES" id="8RR-32-f0E"/>
+                    <constraint firstAttribute="bottom" secondItem="dNL-un-bRG" secondAttribute="bottom" constant="6" id="QQk-uF-iV2"/>
+                    <constraint firstItem="gPf-yj-xqh" firstAttribute="top" secondItem="w2u-0s-biP" secondAttribute="top" constant="4" id="QSR-vV-z5Q"/>
+                    <constraint firstAttribute="trailing" secondItem="dNL-un-bRG" secondAttribute="trailing" constant="4" id="QgA-Ri-QGg"/>
+                    <constraint firstItem="gPf-yj-xqh" firstAttribute="leading" secondItem="w2u-0s-biP" secondAttribute="leading" constant="4" id="Wx3-a0-7Zc"/>
+                    <constraint firstItem="dNL-un-bRG" firstAttribute="top" secondItem="X4J-n4-bHk" secondAttribute="bottom" constant="4" id="bmI-Z8-DJ5"/>
+                    <constraint firstAttribute="trailing" secondItem="EIP-SA-ciE" secondAttribute="trailing" constant="4" id="cHR-ID-WLr"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gPf-yj-xqh" secondAttribute="bottom" constant="6" id="eNu-hf-jl7"/>
+                    <constraint firstItem="X4J-n4-bHk" firstAttribute="top" secondItem="w2u-0s-biP" secondAttribute="top" constant="4" id="lDV-fk-zZ0"/>
+                    <constraint firstItem="EIP-SA-ciE" firstAttribute="top" secondItem="w2u-0s-biP" secondAttribute="top" constant="4" id="qc7-4M-zKB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="commentText" destination="dNL-un-bRG" id="s93-Dx-l7O"/>
+                <outlet property="name" destination="X4J-n4-bHk" id="u4A-w2-rea"/>
+                <outlet property="time" destination="EIP-SA-ciE" id="3GZ-Ep-sbd"/>
+                <outlet property="userIcon" destination="gPf-yj-xqh" id="wNP-p8-oKT"/>
+            </connections>
+            <point key="canvasLocation" x="-55.072463768115945" y="107.47767857142857"/>
+        </tableViewCell>
+    </objects>
+</document>

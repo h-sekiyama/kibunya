@@ -48,6 +48,14 @@ class Functions {
         return dateFormatter.string(from: date)
     }
     
+    // タイムスタンプを年月日時間に変換して返すメソッド
+    public static func getDateTime(timeStamp: Timestamp) -> String {
+        let date = timeStamp.dateValue()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM月dd日 HH:mm"
+        return dateFormatter.string(from: date)
+    }
+    
     // 渡したDate型をStringで返すメソッド
     public static func getDateString(date: Date) -> String {
         let formatter = DateFormatter()

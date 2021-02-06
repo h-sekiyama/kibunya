@@ -4,8 +4,10 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseUI
 
-class KibunDetailViewController:  UIViewController {
-    
+class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    // FireStore取得
+    let defaultStore: Firestore! = Firestore.firestore()
     //ストレージサーバのURLを取得
     let storage = Functions.getStorageURL()
     // 日記のドキュメントID
@@ -37,6 +39,8 @@ class KibunDetailViewController:  UIViewController {
     @IBOutlet weak var diaryTime: UILabel!
     // 日記本文
     @IBOutlet weak var textLabel: UITextView!
+    // 日記本文の高さ
+    @IBOutlet weak var textLabelHeight: NSLayoutConstraint!
     // ユーザーアイコン
     @IBOutlet weak var profileIcon: UIImageView!
     // 気分アイコン画像
@@ -53,6 +57,13 @@ class KibunDetailViewController:  UIViewController {
     
     // スクロールエリア
     @IBOutlet weak var scrollView: UIScrollView!
+    // スクロールエリアの高さを入れておく変数
+    var scrollViewHeight: CGFloat = 0
+    // コメント一覧
+    @IBOutlet weak var comments: UITableView!
+    var commentData: [Comments] = [Comments]()
+    // コメントエリアの高さ
+    @IBOutlet weak var commentViewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,8 +110,48 @@ class KibunDetailViewController:  UIViewController {
         let textHeight = textLabel.sizeThatFits(CGSize(width: textLabel.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height
         textLabel.heightAnchor.constraint(equalToConstant: textHeight).isActive = true
         
+        // 日記本文の（本来の）高さを設定
+        textLabelHeight.constant = textHeight
+        
         //スクロールエリアの高さを画像と本文の高さの合計に設定
-        scrollView.contentSize.height = diaryImage.frame.height + textHeight
+        scrollViewHeight = diaryImage.frame.height + textHeight
+        scrollView.contentSize.height = scrollViewHeight
+        
+        comments.dataSource = self
+        comments.delegate = self
+        comments.register(UINib(nibName: "CommentTableViewCell", bundle: nil), forCellReuseIdentifier: "CommentTableViewCell")
+        showComment()
+        
+        comments.rowHeight = UITableView.automaticDimension
+        comments.estimatedRowHeight = 40
+        
+        commentTextBox.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                if commentTextBox.convert(commentTextBox.frame, to: self.view).origin.y > (self.view.frame.height - keyboardSize.height) {
+                    self.view.frame.origin.y -= keyboardSize.height
+                }
+            } else {
+                if commentTextBox.convert(commentTextBox.frame, to: self.view).origin.y > (self.view.frame.height - keyboardSize.height) {
+                    let suggestionHeight = self.view.frame.origin.y + keyboardSize.height
+                    self.view.frame.origin.y -= suggestionHeight
+                }
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide() {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     override func loadView() {
@@ -114,6 +165,88 @@ class KibunDetailViewController:  UIViewController {
         // タブの表示位置を調整
         tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
         tabBarView.diaryButton.setBackgroundImage(UIImage(named: "tab_image0_on"), for: .normal)
+    }
+    
+    // コメントセルの数を指定する
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return commentData.count
+    }
+    
+    // コメントセルの中身を入れる
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell", for: indexPath ) as! CommentTableViewCell
+        let imageRef = storage.child("profileIcon").child("\(commentData[indexPath.row].user_id!).jpg")
+        cell.userIcon.sd_setImage(with: imageRef, placeholderImage: UIImage(named: "no_image"))
+        cell.name.text = commentData[indexPath.row].name
+        cell.commentText.text = commentData[indexPath.row].text
+        cell.time.text = Functions.getDateTime(timeStamp: commentData[indexPath.row].time!)
+        return cell
+    }
+    
+    // コメントを表示
+    func showComment() {
+        defaultStore.collection("comments").whereField("diary_id", isEqualTo: diaryId).getDocuments() { (snaps, error)  in
+            if let err = error {
+                print(err)
+            } else {
+                self.commentData.removeAll()
+                self.commentViewHeight.constant = 0
+                guard let snaps = snaps else { return }
+                self.commentData += snaps.documents.map {document in
+                    let data = Comments(document: document)
+                    return data
+                }
+                self.commentData.sort()
+                DispatchQueue.main.async {
+                    self.comments.reloadData()
+                    self.comments.layoutIfNeeded()
+                    self.comments.updateConstraints()
+                    self.commentViewHeight.constant = self.comments.contentSize.height + (14 * CGFloat(self.commentData.count))
+                }
+            }
+        }
+    }
+    
+    // コメント入力ボックス
+    @IBOutlet weak var commentTextBox: UITextView!
+    // コメント送信ボタン
+    @IBOutlet weak var sendCommentButton: UIButton!
+    // コメント送信アクション
+    @IBAction func sendComment(_ sender: Any) {
+        // ユーザーを取得
+        Auth.auth().currentUser?.reload()
+        guard let userId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        guard let userName = Auth.auth().currentUser?.displayName else {
+            return
+        }
+        
+        sendComment(userId: userId, userName: userName)
+    }
+    
+    // コメント送信処理
+    func sendComment(userId: String, userName: String) {
+        self.startIndicator()
+        defaultStore.collection("comments").document().setData([
+            "text": commentTextBox.text ?? "",
+            "name": userName,
+            "user_id": userId,
+            "time": Date(),
+            "diary_id": diaryId,
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                self.commentData.removeAll()
+                self.comments.reloadData()
+                self.showComment()
+            }
+            self.dismissIndicator()
+            self.commentTextBox.text = ""
+            Functions.updateButtonEnabled(button: self.sendCommentButton, enabled: false)
+            self.commentTextBox.endEditing(true)
+        }
     }
     
     @objc func saveImage(_ sender: UITapGestureRecognizer) {
@@ -157,5 +290,25 @@ class KibunDetailViewController:  UIViewController {
 
         // UIAlertController を表示
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+// コメント入力監視
+extension KibunDetailViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView){
+        if (commentTextBox.text?.count != 0) {
+            Functions.updateButtonEnabled(button: sendCommentButton, enabled: true)
+        } else {
+            Functions.updateButtonEnabled(button: sendCommentButton, enabled: false)
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (commentTextBox.text?.count != 0) {
+            Functions.updateButtonEnabled(button: sendCommentButton, enabled: true)
+        } else {
+            Functions.updateButtonEnabled(button: sendCommentButton, enabled: false)
+        }
+        return true
     }
 }

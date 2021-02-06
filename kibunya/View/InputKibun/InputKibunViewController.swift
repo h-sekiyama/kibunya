@@ -276,6 +276,7 @@ class InputKibunViewController: UIViewController {
     }
 }
 
+// 日記本文の編集監視
 extension InputKibunViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView){
         if (kibunTextBox.text?.count != 0 && kibunStatus != nil) {
