@@ -3,6 +3,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import FirebaseUI
+import NCMB
 
 class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -212,19 +213,19 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         guard let userId = Auth.auth().currentUser?.uid else {
             return
         }
-        guard let userName = Auth.auth().currentUser?.displayName else {
+        guard let commentUserName = Auth.auth().currentUser?.displayName else {
             return
         }
         
-        sendComment(userId: userId, userName: userName)
+        sendComment(userId: userId, commentUserName: commentUserName)
     }
     
     // コメント送信処理
-    func sendComment(userId: String, userName: String) {
+    func sendComment(userId: String, commentUserName: String) {
         self.startIndicator()
         defaultStore.collection("comments").document().setData([
             "text": commentTextBox.text ?? "",
-            "name": userName,
+            "name": commentUserName,
             "user_id": userId,
             "time": Date(),
             "diary_id": diaryId,
@@ -235,11 +236,56 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
                 self.commentData.removeAll()
                 self.comments.reloadData()
                 self.showComment()
+                
+                // PUSH通知を送る
+                self.sendUpdateCommentPush(commentUserName: commentUserName, myUserId: userId)
             }
             self.dismissIndicator()
             self.commentTextBox.text = ""
             Functions.updateButtonEnabled(button: self.sendCommentButton, enabled: false)
             self.commentTextBox.endEditing(true)
+        }
+    }
+    
+    // 家族にのみコメント更新通知のPUSHを送る処理
+    private func sendUpdateCommentPush(commentUserName: String, myUserId: String) {
+        // 自分が所属する家族が存在すればPUSH送信
+        defaultStore.collection("families").whereField("user_id", arrayContainsAny: [myUserId]).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                if (querySnapshot?.documents.count == 0) {
+                    return
+                }
+                guard let familyDocumentId = querySnapshot?.documents[0].documentID else {
+                    return
+                }
+                // プッシュ通知オブジェクトの作成
+                let push : NCMBPush = NCMBPush()
+                push.sound = "default"
+                push.badgeIncrementFlag = false
+                push.contentAvailable = false
+                push.searchCondition?.where(field: "channels", toMatchPattern: familyDocumentId)
+                if (UserDefaults.standard.devicetokenKey != nil) {
+                    let deviceTokenString = UserDefaults.standard.devicetokenKey!.map { String(format: "%.2hhx", $0) }.joined()
+                    push.searchCondition?.where(field: "deviceToken", notEqualTo: deviceTokenString)
+                }
+                // メッセージの設定
+                push.message = "\(commentUserName)が\(self.userName!)の日記にコメントしました"
+                // 即時配信を設定する
+                push.setImmediateDelivery()
+
+                // プッシュ通知を配信登録する
+                push.sendInBackground(callback: { result in
+                    switch result {
+                    case .success:
+                        print("登録に成功しました。プッシュID: \(push.objectId!)")
+                    case let .failure(error):
+                        print("登録に失敗しました: \(error)")
+                        return;
+                    }
+                })
+            }
         }
     }
     
