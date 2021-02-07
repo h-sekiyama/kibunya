@@ -104,7 +104,7 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         }
         
         // 日記本文の高さを取得
-        let textHeight = textLabel.sizeThatFits(CGSize(width: textLabel.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height + 12
+        let textHeight = textLabel.sizeThatFits(CGSize(width: textLabel.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height + 42
         textLabel.heightAnchor.constraint(equalToConstant: textHeight).isActive = true
         
         // 日記本文の（本来の）高さを設定
@@ -195,7 +195,7 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
                     self.comments.layoutIfNeeded()
                     self.comments.updateConstraints()
                     // コメントエリアの高さを設定
-                    self.commentViewHeight.constant = self.comments.contentSize.height + (16 * CGFloat(self.commentData.count))
+                    self.commentViewHeight.constant = self.comments.contentSize.height + (21 * CGFloat(self.commentData.count))
                 }
             }
         }
