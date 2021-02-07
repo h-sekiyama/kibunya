@@ -54,11 +54,8 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         Functions.presentAnimation(view: view)
         self.present(mainViewController, animated: false, completion: nil)
     }
-    
     // スクロールエリア
     @IBOutlet weak var scrollView: UIScrollView!
-    // スクロールエリアの高さを入れておく変数
-    var scrollViewHeight: CGFloat = 0
     // コメント一覧
     @IBOutlet weak var comments: UITableView!
     var commentData: [Comments] = [Comments]()
@@ -107,15 +104,11 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         }
         
         // 日記本文の高さを取得
-        let textHeight = textLabel.sizeThatFits(CGSize(width: textLabel.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height
+        let textHeight = textLabel.sizeThatFits(CGSize(width: textLabel.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height + 12
         textLabel.heightAnchor.constraint(equalToConstant: textHeight).isActive = true
         
         // 日記本文の（本来の）高さを設定
         textLabelHeight.constant = textHeight
-        
-        //スクロールエリアの高さを画像と本文の高さの合計に設定
-        scrollViewHeight = diaryImage.frame.height + textHeight
-        scrollView.contentSize.height = scrollViewHeight
         
         comments.dataSource = self
         comments.delegate = self
@@ -201,7 +194,8 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
                     self.comments.reloadData()
                     self.comments.layoutIfNeeded()
                     self.comments.updateConstraints()
-                    self.commentViewHeight.constant = self.comments.contentSize.height + (14 * CGFloat(self.commentData.count))
+                    // コメントエリアの高さを設定
+                    self.commentViewHeight.constant = self.comments.contentSize.height + (16 * CGFloat(self.commentData.count))
                 }
             }
         }

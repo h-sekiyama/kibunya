@@ -17,19 +17,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gPf-yj-xqh">
-                        <rect key="frame" x="4" y="4" width="40" height="40"/>
+                        <rect key="frame" x="4" y="8" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="EbK-26-M5x"/>
                             <constraint firstAttribute="width" constant="40" id="XKL-gM-Vab"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4J-n4-bHk">
-                        <rect key="frame" x="52" y="4" width="36" height="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4J-n4-bHk">
+                        <rect key="frame" x="52" y="8" width="37" height="14"/>
                         <attributedString key="attributedText">
                             <fragment content="ゆっこ">
                                 <attributes>
                                     <color key="NSColor" red="0.71372549019607845" green="0.59215686274509804" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
-                                    <font key="NSFont" size="12" name=".HiraKakuInterface-W3"/>
+                                    <font key="NSFont" metaFont="cellTitle"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                 </attributes>
                             </fragment>
@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIP-SA-ciE">
-                        <rect key="frame" x="323" y="4" width="87" height="11"/>
+                        <rect key="frame" x="323" y="8" width="87" height="11"/>
                         <attributedString key="attributedText">
                             <fragment content="12月31日 16:51">
                                 <attributes>
@@ -50,7 +50,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNL-un-bRG">
-                        <rect key="frame" x="52" y="22" width="358" height="35"/>
+                        <rect key="frame" x="52" y="26" width="358" height="31"/>
                         <attributedString key="attributedText">
                             <fragment>
                                 <string key="content">コメントだよーん
@@ -71,14 +71,14 @@
                     <constraint firstItem="X4J-n4-bHk" firstAttribute="leading" secondItem="gPf-yj-xqh" secondAttribute="trailing" constant="8" symbolic="YES" id="10h-eY-AfL"/>
                     <constraint firstItem="dNL-un-bRG" firstAttribute="leading" secondItem="gPf-yj-xqh" secondAttribute="trailing" constant="8" symbolic="YES" id="8RR-32-f0E"/>
                     <constraint firstAttribute="bottom" secondItem="dNL-un-bRG" secondAttribute="bottom" constant="6" id="QQk-uF-iV2"/>
-                    <constraint firstItem="gPf-yj-xqh" firstAttribute="top" secondItem="w2u-0s-biP" secondAttribute="top" constant="4" id="QSR-vV-z5Q"/>
+                    <constraint firstItem="gPf-yj-xqh" firstAttribute="top" secondItem="w2u-0s-biP" secondAttribute="top" constant="8" id="QSR-vV-z5Q"/>
                     <constraint firstAttribute="trailing" secondItem="dNL-un-bRG" secondAttribute="trailing" constant="4" id="QgA-Ri-QGg"/>
                     <constraint firstItem="gPf-yj-xqh" firstAttribute="leading" secondItem="w2u-0s-biP" secondAttribute="leading" constant="4" id="Wx3-a0-7Zc"/>
                     <constraint firstItem="dNL-un-bRG" firstAttribute="top" secondItem="X4J-n4-bHk" secondAttribute="bottom" constant="4" id="bmI-Z8-DJ5"/>
                     <constraint firstAttribute="trailing" secondItem="EIP-SA-ciE" secondAttribute="trailing" constant="4" id="cHR-ID-WLr"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gPf-yj-xqh" secondAttribute="bottom" constant="6" id="eNu-hf-jl7"/>
-                    <constraint firstItem="X4J-n4-bHk" firstAttribute="top" secondItem="w2u-0s-biP" secondAttribute="top" constant="4" id="lDV-fk-zZ0"/>
-                    <constraint firstItem="EIP-SA-ciE" firstAttribute="top" secondItem="w2u-0s-biP" secondAttribute="top" constant="4" id="qc7-4M-zKB"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gPf-yj-xqh" secondAttribute="bottom" constant="8" id="eNu-hf-jl7"/>
+                    <constraint firstItem="X4J-n4-bHk" firstAttribute="top" secondItem="w2u-0s-biP" secondAttribute="top" constant="8" id="lDV-fk-zZ0"/>
+                    <constraint firstItem="EIP-SA-ciE" firstAttribute="top" secondItem="w2u-0s-biP" secondAttribute="top" constant="8" id="qc7-4M-zKB"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
