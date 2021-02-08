@@ -235,7 +235,7 @@ class AddFamilyViewController: UIViewController, UITextFieldDelegate {
             "インストール後にEメールアドレスか電話番号でアカウント登録（既に登録済みなら手順③へ）\n\n" +
             "手順③\n" +
             "以下のURLをタップして「家族に追加する」を選べば家族追加完了！\n" +
-            "https://kibunya-app.web.app/?id=" + shareId
+            "https://kibunya-app.web.app/invite.html?id=" + shareId
         ], applicationActivities: nil)
         
         // 使用しないアクティビティタイプ

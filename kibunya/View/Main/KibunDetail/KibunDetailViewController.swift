@@ -114,10 +114,8 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         comments.dataSource = self
         comments.delegate = self
         comments.register(UINib(nibName: "CommentTableViewCell", bundle: nil), forCellReuseIdentifier: "CommentTableViewCell")
-        showComment()
         
-        comments.rowHeight = UITableView.automaticDimension
-        comments.estimatedRowHeight = 40
+        showComment()
         
         commentTextBox.delegate = self
         
@@ -184,7 +182,6 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
                 print(err)
             } else {
                 self.commentData.removeAll()
-                self.commentViewHeight.constant = 0
                 guard let snaps = snaps else { return }
                 self.commentData += snaps.documents.map {document in
                     let data = Comments(document: document)
@@ -196,7 +193,7 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
                     self.comments.layoutIfNeeded()
                     self.comments.updateConstraints()
                     // コメントエリアの高さを設定
-                    self.commentViewHeight.constant = self.comments.contentSize.height + (21 * CGFloat(self.commentData.count))
+                    self.commentViewHeight.constant = self.comments.contentSize.height + (20 * CGFloat(self.commentData.count)) + 20
                 }
             }
         }
