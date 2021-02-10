@@ -29,6 +29,8 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
     var imageUrl: String = ""
     // タブ定義
     var tabBarView: TabBarView!
+    // 日記編集モードON/OFFフラグ
+    var isEditingDiary: Bool = false
     
     // 年月日時間
     @IBOutlet weak var timeLabel: UILabel!
@@ -48,6 +50,7 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var kibunImage: UIImageView!
     // 戻るボタン
     @IBAction func backButton(_ sender: Any) {
+        isEditingDiary = false
         let mainViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         mainViewController.displayedDate = date
         mainViewController.modalPresentationStyle = .fullScreen
@@ -55,14 +58,37 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         Functions.presentAnimation(view: view)
         self.present(mainViewController, animated: false, completion: nil)
     }
-    // スクロールエリア
-    @IBOutlet weak var scrollView: UIScrollView!
     // コメント一覧
     @IBOutlet weak var comments: UITableView!
     var commentData: [Comments] = [Comments]()
     // コメントエリアの高さ
     @IBOutlet weak var commentViewHeight: NSLayoutConstraint!
-    
+    // 日記本文の編集ボックス
+    @IBOutlet weak var editDiaryText: UITextView!
+    // 日記本文の編集ボックスの高さ
+    @IBOutlet weak var editDiaryTextHeight: NSLayoutConstraint!
+    // 日記本文タップ（編集）
+    @IBAction func tapDiaryText(_ sender: Any) {
+        Auth.auth().currentUser?.reload()
+        guard let myUserId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        // 編集出来るのは自分の日記のみ
+        if (userId == myUserId) {
+            // 日記本文が大きすぎる時は編集時のボックスは適度なサイズに調整
+            if (editDiaryText.frame.height > 300) {
+                editDiaryText.heightAnchor.constraint(equalToConstant: 300).isActive = true
+                editDiaryTextHeight.constant = 300
+            }
+            textLabel.isHidden = true
+            editDiaryText.text = textLabel.text
+            editDiaryText.isHidden = false
+            isEditingDiary = true
+            OperationQueue.main.addOperation({
+                self.editDiaryText.becomeFirstResponder()
+            });
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -104,6 +130,9 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
             diaryImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.saveImage(_:))))
         }
         
+        // 日記本文の編集を監視
+        editDiaryText.delegate = self
+        
         // 日記本文の高さを取得
         let textHeight = textLabel.sizeThatFits(CGSize(width: textLabel.frame.size.width, height: CGFloat.greatestFiniteMagnitude)).height + 42
         textLabel.heightAnchor.constraint(equalToConstant: textHeight).isActive = true
@@ -125,17 +154,24 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         self.view.addGestureRecognizer(tapGesture)
     }
     
+    // コメントおよび日記編集時のキーボード表示に伴うViewのスライド
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        if (!isEditingDiary) {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                if self.view.frame.origin.y == 0 {
+                    if commentTextBox.convert(commentTextBox.frame, to: self.view).origin.y > (self.view.frame.height - keyboardSize.height) {
+                        self.view.frame.origin.y -= keyboardSize.height
+                    }
+                } else {
+                    if commentTextBox.convert(commentTextBox.frame, to: self.view).origin.y > (self.view.frame.height - keyboardSize.height) {
+                        let suggestionHeight = self.view.frame.origin.y + keyboardSize.height
+                        self.view.frame.origin.y -= suggestionHeight
+                    }
+                }
+            }
+        } else {
             if self.view.frame.origin.y == 0 {
-                if commentTextBox.convert(commentTextBox.frame, to: self.view).origin.y > (self.view.frame.height - keyboardSize.height) {
-                    self.view.frame.origin.y -= keyboardSize.height
-                }
-            } else {
-                if commentTextBox.convert(commentTextBox.frame, to: self.view).origin.y > (self.view.frame.height - keyboardSize.height) {
-                    let suggestionHeight = self.view.frame.origin.y + keyboardSize.height
-                    self.view.frame.origin.y -= suggestionHeight
-                }
+                self.view.frame.origin.y -= 100
             }
         }
     }
@@ -330,13 +366,45 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
     }
 }
 
-// コメント入力監視
+// 日記本文およびコメント入力監視
 extension KibunDetailViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView){
+        // コメントの編集完了
         if (commentTextBox.text?.count != 0) {
             Functions.updateButtonEnabled(button: sendCommentButton, enabled: true)
         } else {
             Functions.updateButtonEnabled(button: sendCommentButton, enabled: false)
+        }
+        
+        // 日記本文の編集完了
+        if (isEditingDiary) {
+            self.startIndicator()
+            textLabel.isHidden = false
+            textLabel.text = editDiaryText.text
+            editDiaryText.isHidden = true
+            isEditingDiary = false
+            
+            defaultStore.collection("kibuns").document(diaryId).updateData([
+                "text": editDiaryText.text ?? ""
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                }
+                self.dismissIndicator()
+                self.text = self.editDiaryText.text
+                // 画面リロード
+                let kibunDetailViewController = UIStoryboard(name: "KibunDetailViewController", bundle: nil).instantiateViewController(withIdentifier: "KibunDetailViewController") as! KibunDetailViewController
+                kibunDetailViewController.diaryId = self.diaryId
+                kibunDetailViewController.userId = self.userId
+                kibunDetailViewController.time = self.time
+                kibunDetailViewController.userName = self.userName
+                kibunDetailViewController.text = self.text
+                kibunDetailViewController.kibun = self.kibun
+                kibunDetailViewController.date = self.date
+                kibunDetailViewController.imageUrl = self.imageUrl
+                kibunDetailViewController.modalPresentationStyle = .fullScreen
+                self.present(kibunDetailViewController, animated: false, completion: nil)
+            }
         }
     }
     
@@ -346,6 +414,16 @@ extension KibunDetailViewController: UITextViewDelegate {
         } else {
             Functions.updateButtonEnabled(button: sendCommentButton, enabled: false)
         }
-        return true
+        // 入力を反映させたテキストを取得する
+        let resultText: String = (textView.text! as NSString).replacingCharacters(in: range, with: text)
+        
+        if (UserDefaults.standard.billingProMode ?? false) {    // 無課金ユーザー
+            return true
+        } else {
+            if resultText.count < 300 {
+                return true
+            }
+        }
+        return false
     }
 }

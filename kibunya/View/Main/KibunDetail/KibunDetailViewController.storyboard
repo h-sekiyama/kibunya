@@ -86,7 +86,7 @@
                                         <rect key="frame" x="20" y="106" width="374" height="584"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="104-hg-CQ5">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="578"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="442"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xQc-VO-0yJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="280"/>
@@ -98,15 +98,29 @@
                                                             <outletCollection property="gestureRecognizers" destination="d90-IH-eqx" appends="YES" id="LMW-bT-Y3M"/>
                                                         </connections>
                                                     </imageView>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKf-Y4-Sg8">
-                                                        <rect key="frame" x="0.0" y="292" width="374" height="100"/>
+                                                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vKM-bH-qN1" userLabel="Diary Edit Text">
+                                                        <rect key="frame" x="0.0" y="280" width="374" height="0.0"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="6"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKf-Y4-Sg8" userLabel="Diary Text">
+                                                        <rect key="frame" x="0.0" y="280" width="374" height="0.0"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" notEnabled="YES"/>
                                                             <bool key="isElement" value="NO"/>
                                                         </accessibility>
+                                                        <gestureRecognizers/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="100" id="GfJ-Nv-Poh"/>
+                                                            <constraint firstAttribute="height" id="Cyz-xg-sNR"/>
                                                         </constraints>
                                                         <attributedString key="attributedText">
                                                             <fragment>
@@ -129,12 +143,15 @@
                                                             </fragment>
                                                         </attributedString>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="fNb-KL-pLV" appends="YES" id="8O7-Zz-xjY"/>
+                                                        </connections>
                                                     </textView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgd-3b-EuY" userLabel="Input Comments">
-                                                        <rect key="frame" x="0.0" y="404" width="374" height="62"/>
+                                                        <rect key="frame" x="0.0" y="280" width="374" height="62"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVi-1R-OtC">
-                                                                <rect key="frame" x="4" y="-7.5" width="86" height="14.5"/>
+                                                                <rect key="frame" x="4" y="0.5" width="86" height="14.5"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="コメントを書く">
                                                                         <attributes>
@@ -146,7 +163,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grk-8N-4IV" userLabel="Comment Text Box">
-                                                                <rect key="frame" x="4" y="11" width="314" height="32"/>
+                                                                <rect key="frame" x="4" y="19" width="314" height="32"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="32" id="Lq7-YB-xmC"/>
@@ -160,7 +177,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </textView>
                                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LcW-le-LKF">
-                                                                <rect key="frame" x="326" y="12" width="44" height="30"/>
+                                                                <rect key="frame" x="326" y="20" width="44" height="30"/>
                                                                 <color key="backgroundColor" red="0.90980392156862744" green="0.82352941176470584" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="GO2-oJ-aW9"/>
@@ -193,14 +210,14 @@
                                                             <constraint firstAttribute="trailing" secondItem="LcW-le-LKF" secondAttribute="trailing" constant="4" id="2LC-aG-aaB"/>
                                                             <constraint firstItem="LcW-le-LKF" firstAttribute="leading" secondItem="grk-8N-4IV" secondAttribute="trailing" constant="8" symbolic="YES" id="3KK-Kr-qct"/>
                                                             <constraint firstAttribute="height" constant="62" id="5aW-Dr-BSQ"/>
-                                                            <constraint firstItem="LcW-le-LKF" firstAttribute="top" secondItem="rgd-3b-EuY" secondAttribute="top" constant="12" id="Bbb-BI-XQD"/>
+                                                            <constraint firstItem="LcW-le-LKF" firstAttribute="top" secondItem="rgd-3b-EuY" secondAttribute="top" constant="20" id="Bbb-BI-XQD"/>
                                                             <constraint firstItem="grk-8N-4IV" firstAttribute="top" secondItem="iVi-1R-OtC" secondAttribute="bottom" constant="4" id="IPr-zI-0lv"/>
                                                             <constraint firstItem="LcW-le-LKF" firstAttribute="centerY" secondItem="grk-8N-4IV" secondAttribute="centerY" id="J41-yg-3an"/>
                                                             <constraint firstItem="iVi-1R-OtC" firstAttribute="leading" secondItem="rgd-3b-EuY" secondAttribute="leading" constant="4" id="kzy-gP-zsy"/>
                                                         </constraints>
                                                     </view>
                                                     <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" scrollEnabled="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MPC-Sx-98a" userLabel="Comments">
-                                                        <rect key="frame" x="0.0" y="478" width="374" height="100"/>
+                                                        <rect key="frame" x="0.0" y="342" width="374" height="100"/>
                                                         <color key="backgroundColor" red="0.99852985139999995" green="0.96758180859999998" blue="0.9399255514" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="hG0-ii-Bwt"/>
@@ -210,14 +227,15 @@
                                                 <constraints>
                                                     <constraint firstItem="xQc-VO-0yJ" firstAttribute="leading" secondItem="104-hg-CQ5" secondAttribute="leading" id="0ij-XL-U42"/>
                                                     <constraint firstItem="rgd-3b-EuY" firstAttribute="leading" secondItem="104-hg-CQ5" secondAttribute="leading" id="2Qq-Pq-6ew"/>
+                                                    <constraint firstItem="vKM-bH-qN1" firstAttribute="top" secondItem="xQc-VO-0yJ" secondAttribute="bottom" id="4Tz-lG-MTH"/>
+                                                    <constraint firstItem="vKM-bH-qN1" firstAttribute="height" secondItem="JKf-Y4-Sg8" secondAttribute="height" id="5id-Ho-5Vp"/>
                                                     <constraint firstItem="MPC-Sx-98a" firstAttribute="leading" secondItem="104-hg-CQ5" secondAttribute="leading" id="ANZ-O4-2aB"/>
                                                     <constraint firstAttribute="trailing" secondItem="xQc-VO-0yJ" secondAttribute="trailing" id="QrQ-8S-UbH"/>
                                                     <constraint firstAttribute="trailing" secondItem="rgd-3b-EuY" secondAttribute="trailing" id="VlL-kZ-0mm"/>
                                                     <constraint firstAttribute="trailing" secondItem="MPC-Sx-98a" secondAttribute="trailing" id="ecF-D3-JoG"/>
-                                                    <constraint firstItem="MPC-Sx-98a" firstAttribute="top" secondItem="rgd-3b-EuY" secondAttribute="bottom" constant="12" id="eu0-Dv-qqy"/>
+                                                    <constraint firstItem="JKf-Y4-Sg8" firstAttribute="top" secondItem="xQc-VO-0yJ" secondAttribute="bottom" id="fZf-em-aAX"/>
                                                     <constraint firstItem="xQc-VO-0yJ" firstAttribute="top" secondItem="104-hg-CQ5" secondAttribute="top" id="iVl-ff-QfQ"/>
                                                     <constraint firstItem="xQc-VO-0yJ" firstAttribute="width" secondItem="104-hg-CQ5" secondAttribute="width" id="lxd-vp-Vkg"/>
-                                                    <constraint firstItem="rgd-3b-EuY" firstAttribute="top" secondItem="JKf-Y4-Sg8" secondAttribute="bottom" constant="12" id="ui2-8C-PC5"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -302,24 +320,33 @@
                         <outlet property="comments" destination="MPC-Sx-98a" id="yhJ-vg-1xl"/>
                         <outlet property="diaryImage" destination="xQc-VO-0yJ" id="n4B-uo-B2d"/>
                         <outlet property="diaryTime" destination="Zmd-wn-WYp" id="e9Y-BX-Qrw"/>
+                        <outlet property="editDiaryText" destination="vKM-bH-qN1" id="gDf-Ip-nFS"/>
+                        <outlet property="editDiaryTextHeight" destination="5id-Ho-5Vp" id="sEZ-ZN-Xas"/>
                         <outlet property="kibunImage" destination="NXW-2C-e6E" id="Pp9-MD-Ks6"/>
                         <outlet property="profileIcon" destination="b2j-yb-TE6" id="7O3-Vm-asS"/>
-                        <outlet property="scrollView" destination="JYq-xC-zct" id="Blu-ut-lJY"/>
                         <outlet property="sendCommentButton" destination="LcW-le-LKF" id="bzM-mo-9Ph"/>
                         <outlet property="textLabel" destination="JKf-Y4-Sg8" id="Hfl-hG-s3g"/>
-                        <outlet property="textLabelHeight" destination="GfJ-Nv-Poh" id="dL7-BJ-6Wb"/>
+                        <outlet property="textLabelHeight" destination="Cyz-xg-sNR" id="5V2-pQ-CBQ"/>
                         <outlet property="timeLabel" destination="sQ9-j4-pKP" id="l9c-Gl-JuK"/>
                         <outlet property="userNameLabel" destination="nYI-NW-36Y" id="5Jb-R0-DA5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5G-3v-1gt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="d90-IH-eqx"/>
+                <tapGestureRecognizer id="d90-IH-eqx" userLabel="画像タップ"/>
+                <tapGestureRecognizer id="fNb-KL-pLV" userLabel="日記本文タップ">
+                    <connections>
+                        <action selector="tapDiaryText:" destination="fH5-yP-nRf" id="dsg-wk-0BD"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="115.94202898550725" y="152.67857142857142"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow_left_on" width="24" height="36.5"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
