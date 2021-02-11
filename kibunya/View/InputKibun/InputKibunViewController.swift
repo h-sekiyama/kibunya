@@ -106,6 +106,8 @@ class InputKibunViewController: UIViewController {
         
         if (UserDefaults.standard.billingProMode ?? false) {    // 課金ユーザー
             remainingTextCountLabel.isHidden = true
+        } else {
+            self.remainingTextCountLabel.text = String(300 - kibunTextBox.text.count)
         }
     }
     

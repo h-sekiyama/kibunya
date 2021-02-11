@@ -156,7 +156,7 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
     
     // コメントおよび日記編集時のキーボード表示に伴うViewのスライド
     @objc func keyboardWillShow(notification: NSNotification) {
-        if (!isEditingDiary) {
+        if (!isEditingDiary || imageUrl != "") {
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 if self.view.frame.origin.y == 0 {
                     if commentTextBox.convert(commentTextBox.frame, to: self.view).origin.y > (self.view.frame.height - keyboardSize.height) {
@@ -420,7 +420,7 @@ extension KibunDetailViewController: UITextViewDelegate {
         if (UserDefaults.standard.billingProMode ?? false) {    // 無課金ユーザー
             return true
         } else {
-            if resultText.count < 300 {
+            if resultText.count <= 300 {
                 return true
             }
         }
