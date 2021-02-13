@@ -352,7 +352,7 @@ extension MainViewController: UITableViewDataSource {
         if (myProfileIcon != nil && kibuns[indexPath.row].user_id == myUserId) {
             cell.userIcon.image = myProfileIcon
         } else {
-            cell.userIcon.sd_setImage(with: imageRef, placeholderImage: UIImage(named: "no_image"))
+            cell.userIcon.sd_setImage(with: imageRef, maxImageSize: 10000000, placeholderImage: UIImage(named: "no_image"), options: .refreshCached)
         }
         cell.userIcon.layer.cornerRadius = 15
         cell.clipsToBounds = true

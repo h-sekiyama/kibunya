@@ -378,7 +378,6 @@ extension KibunDetailViewController: UITextViewDelegate {
         
         // 日記本文の編集完了
         if (isEditingDiary) {
-            self.startIndicator()
             textLabel.isHidden = false
             textLabel.text = editDiaryText.text
             editDiaryText.isHidden = true
@@ -390,7 +389,6 @@ extension KibunDetailViewController: UITextViewDelegate {
                 if let err = err {
                     print("Error adding document: \(err)")
                 }
-                self.dismissIndicator()
                 self.text = self.editDiaryText.text
                 // 画面リロード
                 let kibunDetailViewController = UIStoryboard(name: "KibunDetailViewController", bundle: nil).instantiateViewController(withIdentifier: "KibunDetailViewController") as! KibunDetailViewController
