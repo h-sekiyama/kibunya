@@ -29,6 +29,37 @@ class InputKibunViewController: UIViewController {
         }
     }
     
+    // DatePickerを含むView
+    @IBOutlet weak var datePickerView: UIView!
+    // DatePicker
+    @IBOutlet weak var datePicker: UIDatePicker!
+    // 日記を書く日付
+    @IBOutlet weak var diaryDate: UILabel!
+    // 日付を選ぶボタンタップ
+    @IBAction func selectDate(_ sender: Any) {
+        datePickerView.isHidden = false
+    }
+    // 日記送信日時（Kibuns.dateに入れる値）
+    private var diarySendDateString: String = Functions.today()
+    // 日記送信時間変数（Kibuns.timeに入れる値）
+    private var diarySendDateTime: Date = Date()
+    // 日付決定ボタンタップ
+    @IBAction func updateDate(_ sender: Any) {
+        let formatter = DateFormatter()
+        let formatter2 = DateFormatter()
+        formatter.dateFormat = "M月d日"
+        formatter2.dateFormat = "YYYY年MM月dd日"
+        if (formatter.string(from: datePicker.date) == formatter.string(from: Date())) {
+            diaryDate.text = "今日の日記"
+            diarySendDateString = Functions.today()
+        } else {
+            diaryDate.text = "\(formatter.string(from: datePicker.date))の日記"
+            diarySendDateString = formatter2.string(from: datePicker.date)
+        }
+        diarySendDateTime = datePicker.date
+        datePickerView.isHidden = true
+    }
+    
     // 画像を添付したかどうか
     var isExistImage: Bool = false
     // 今日あった出来事を入力するテキストボックス
@@ -204,11 +235,11 @@ class InputKibunViewController: UIViewController {
     func updateDiary(userId: String, userName: String, documentId: String, imageUrl: String = "") {
         defaultStore.collection("kibuns").document(documentId).setData([
             "kibun": kibunStatus!,
-            "date": Functions.today(),
+            "date": diarySendDateString,
             "text": kibunTextBox.text ?? "",
             "name": userName,
             "user_id": userId,
-            "time": Date(),
+            "time": diarySendDateTime,
             "documentId": documentId,
             "image": imageUrl
         ]) { err in

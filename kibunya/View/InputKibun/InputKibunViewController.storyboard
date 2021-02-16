@@ -23,19 +23,47 @@
                                     <constraint firstAttribute="height" constant="66" id="J03-V1-Exd"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGa-jd-Qbi">
-                                <rect key="frame" x="149.5" y="65.5" width="115" height="23"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="今日の日記">
-                                        <attributes>
-                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="23" name="HiraMaruProN-W4"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="onZ-c6-Xed">
+                                <rect key="frame" x="322" y="61" width="80" height="32"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="7Fg-CO-6cY"/>
+                                    <constraint firstAttribute="width" constant="80" id="PYL-Ai-4PD"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="日付を選ぶ">
+                                            <attributes>
+                                                <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="12" name="HiraMaruProN-W4"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.90980392160000001" green="0.82352941180000006" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowAlpha">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="1" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="selectDate:" destination="uHM-hf-JGD" eventType="touchUpInside" id="24a-Ne-RLl"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vD-Ye-WaI" userLabel="BackgroundView">
                                 <rect key="frame" x="0.0" y="110" width="414" height="698"/>
                                 <subviews>
@@ -392,24 +420,100 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGa-jd-Qbi">
+                                <rect key="frame" x="149.5" y="65.5" width="115" height="23"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="今日の日記">
+                                        <attributes>
+                                            <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="23" name="HiraMaruProN-W4"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0d-W9-0mb" userLabel="Date Picker View">
+                                <rect key="frame" x="30" y="110" width="354" height="280"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="l0G-TX-1Jy">
+                                        <rect key="frame" x="20" y="0.0" width="314" height="216"/>
+                                        <locale key="locale" localeIdentifier="ja"/>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyl-g9-llO" userLabel="日付決定ボタン">
+                                        <rect key="frame" x="107" y="226" width="140" height="30"/>
+                                        <color key="backgroundColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="B3h-V9-Ci9"/>
+                                            <constraint firstAttribute="height" constant="30" id="aX7-fS-Zcg"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="この日にする">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="16" name="HiraMaruProN-W4"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="updateDate:" destination="uHM-hf-JGD" eventType="touchUpInside" id="hw2-kT-hBY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="l0G-TX-1Jy" firstAttribute="leading" secondItem="y0d-W9-0mb" secondAttribute="leading" constant="20" id="Act-gi-R5P"/>
+                                    <constraint firstItem="l0G-TX-1Jy" firstAttribute="top" secondItem="y0d-W9-0mb" secondAttribute="top" id="XVy-Mi-RXS"/>
+                                    <constraint firstAttribute="height" constant="280" id="Y2D-Tl-bz4"/>
+                                    <constraint firstAttribute="trailing" secondItem="l0G-TX-1Jy" secondAttribute="trailing" constant="20" id="ZEy-Pf-eVe"/>
+                                    <constraint firstItem="jyl-g9-llO" firstAttribute="top" secondItem="l0G-TX-1Jy" secondAttribute="bottom" constant="10" id="s1Z-4J-Kf9"/>
+                                    <constraint firstItem="jyl-g9-llO" firstAttribute="centerX" secondItem="y0d-W9-0mb" secondAttribute="centerX" id="u1z-rn-eaA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.90980392160000001" green="0.82352941180000006" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dm6-zi-Z9E"/>
                         <color key="backgroundColor" red="1" green="0.85882352941176465" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="y0d-W9-0mb" firstAttribute="top" secondItem="nhy-2r-OR0" secondAttribute="bottom" id="52R-aL-cFi"/>
                             <constraint firstItem="QpR-Gq-NFP" firstAttribute="width" secondItem="wxw-JS-15q" secondAttribute="width" multiplier="0.3" id="B6B-ht-ihy"/>
                             <constraint firstItem="nhy-2r-OR0" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" id="HjU-Yo-gD0"/>
+                            <constraint firstItem="Dm6-zi-Z9E" firstAttribute="trailing" secondItem="onZ-c6-Xed" secondAttribute="trailing" constant="12" id="Tzb-UE-vZ4"/>
+                            <constraint firstItem="Dm6-zi-Z9E" firstAttribute="trailing" secondItem="y0d-W9-0mb" secondAttribute="trailing" constant="30" id="VCG-xL-2VT"/>
                             <constraint firstItem="dGa-jd-Qbi" firstAttribute="centerY" secondItem="nhy-2r-OR0" secondAttribute="centerY" id="VLj-y9-EAV"/>
                             <constraint firstItem="1vD-Ye-WaI" firstAttribute="top" secondItem="nhy-2r-OR0" secondAttribute="bottom" id="VUQ-fd-fR2"/>
                             <constraint firstItem="dGa-jd-Qbi" firstAttribute="centerX" secondItem="wxw-JS-15q" secondAttribute="centerX" id="Vew-YR-znz"/>
                             <constraint firstAttribute="bottom" secondItem="1vD-Ye-WaI" secondAttribute="bottom" constant="88" id="gzK-V8-Tvc"/>
                             <constraint firstItem="nhy-2r-OR0" firstAttribute="trailing" secondItem="Dm6-zi-Z9E" secondAttribute="trailing" id="hZa-AQ-BHf"/>
+                            <constraint firstItem="y0d-W9-0mb" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" constant="30" id="qOU-qM-BrO"/>
                             <constraint firstItem="1vD-Ye-WaI" firstAttribute="trailing" secondItem="Dm6-zi-Z9E" secondAttribute="trailing" id="tYc-bA-5gV"/>
+                            <constraint firstItem="onZ-c6-Xed" firstAttribute="centerY" secondItem="dGa-jd-Qbi" secondAttribute="centerY" id="w9C-JH-ZNC"/>
                             <constraint firstItem="1vD-Ye-WaI" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" id="wWf-de-1my"/>
                             <constraint firstItem="nhy-2r-OR0" firstAttribute="top" secondItem="Dm6-zi-Z9E" secondAttribute="top" id="yBX-ml-1gY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="balloonView" destination="efI-9D-mvQ" id="Ty0-v6-mRf"/>
+                        <outlet property="datePicker" destination="l0G-TX-1Jy" id="azr-ay-Xyz"/>
+                        <outlet property="datePickerView" destination="y0d-W9-0mb" id="pAN-fu-76z"/>
+                        <outlet property="diaryDate" destination="dGa-jd-Qbi" id="JrB-w3-yX4"/>
                         <outlet property="kibunButton0" destination="sIO-AR-cmf" id="HGi-hV-U4p"/>
                         <outlet property="kibunButton1" destination="wsP-gD-KDQ" id="jOt-8f-Iyo"/>
                         <outlet property="kibunButton2" destination="ctg-jD-Fpq" id="FS3-ZH-Oil"/>
