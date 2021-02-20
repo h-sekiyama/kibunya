@@ -28,7 +28,6 @@ class InputKibunViewController: UIViewController {
             kibunButtonArray[kibunStatus!].setImage(UIImage(named: "kibunIcon\(kibunStatus!)"), for: .normal)
         }
     }
-    
     // DatePickerを含むView
     @IBOutlet weak var datePickerView: UIView!
     // DatePicker
@@ -37,7 +36,11 @@ class InputKibunViewController: UIViewController {
     @IBOutlet weak var diaryDate: UILabel!
     // 日付を選ぶボタンタップ
     @IBAction func selectDate(_ sender: Any) {
-        datePickerView.isHidden = false
+        if (datePickerView.isHidden) {
+            datePickerView.isHidden = false
+        } else {
+            datePickerView.isHidden = true
+        }
     }
     // 日記送信日時（Kibuns.dateに入れる値）
     private var diarySendDateString: String = Functions.today()
