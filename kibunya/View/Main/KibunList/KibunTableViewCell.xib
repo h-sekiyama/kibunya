@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,25 +18,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVU-Qs-GGO" userLabel="名前">
-                        <rect key="frame" x="147" y="77.5" width="144" height="17"/>
+                        <rect key="frame" x="147" y="78" width="111" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="144" id="tw8-GD-Db0"/>
+                            <constraint firstAttribute="width" constant="111" id="tw8-GD-Db0"/>
                         </constraints>
                         <attributedString key="attributedText">
                             <fragment content="みっちゃん">
                                 <attributes>
                                     <color key="NSColor" red="0.71372549019999998" green="0.59215686270000001" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <font key="NSFont" metaFont="system" size="14"/>
+                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                    <font key="NSOriginalFont" metaFont="system" size="14"/>
                                 </attributes>
                             </fragment>
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:23" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ6-Lz-XBf" userLabel="投稿時間">
-                        <rect key="frame" x="330" y="78" width="51" height="16"/>
+                        <rect key="frame" x="343" y="78" width="38" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="ix0-M2-Dqh"/>
-                            <constraint firstAttribute="width" constant="51" id="n3f-S7-fSB"/>
+                            <constraint firstAttribute="width" constant="38" id="n3f-S7-fSB"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.71372549019607845" green="0.59215686274509804" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,7 +58,7 @@
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L6X-kb-c3a">
-                        <rect key="frame" x="299" y="76" width="27" height="20"/>
+                        <rect key="frame" x="312" y="76" width="27" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="DoK-6y-Ll4"/>
                             <constraint firstAttribute="width" constant="27" id="rFz-FX-Tlv"/>
@@ -82,13 +84,33 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvb-48-gbM">
+                        <rect key="frame" x="294.5" y="79" width="9.5" height="14"/>
+                        <attributedString key="attributedText">
+                            <fragment content="0">
+                                <attributes>
+                                    <color key="NSColor" red="0.4392156862745098" green="0.2627450980392157" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="14" name="HiraMaruProN-W4"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment" translatesAutoresizingMaskIntoConstraints="NO" id="VIE-oR-z1k">
+                        <rect key="frame" x="270.5" y="76" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="rbY-UO-Ydo"/>
+                            <constraint firstAttribute="height" constant="20" id="xoT-ER-PSA"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
+                    <constraint firstItem="L6X-kb-c3a" firstAttribute="leading" secondItem="Yvb-48-gbM" secondAttribute="trailing" constant="8" id="04Z-2U-ajJ"/>
                     <constraint firstItem="Hqi-Ay-cEd" firstAttribute="leading" secondItem="nKL-hk-cD5" secondAttribute="trailing" constant="8" id="4yS-8I-Gvq"/>
                     <constraint firstItem="Hqi-Ay-cEd" firstAttribute="leading" secondItem="nKL-hk-cD5" secondAttribute="trailing" constant="8" id="DWy-hr-Aay"/>
                     <constraint firstItem="Zlp-wK-xcD" firstAttribute="top" secondItem="nKL-hk-cD5" secondAttribute="top" id="HZv-2K-IPK"/>
-                    <constraint firstItem="L6X-kb-c3a" firstAttribute="leading" secondItem="SVU-Qs-GGO" secondAttribute="trailing" constant="8" id="ILm-mI-o3f"/>
                     <constraint firstItem="L6X-kb-c3a" firstAttribute="centerY" secondItem="SVU-Qs-GGO" secondAttribute="centerY" id="JLG-XJ-hk6"/>
                     <constraint firstItem="ivZ-in-jDN" firstAttribute="top" secondItem="Hqi-Ay-cEd" secondAttribute="bottom" constant="21" id="Ke9-8p-K9X"/>
                     <constraint firstItem="SVU-Qs-GGO" firstAttribute="centerY" secondItem="Hqi-Ay-cEd" secondAttribute="centerY" id="KkA-Js-bwv"/>
@@ -98,7 +120,10 @@
                     <constraint firstItem="SVU-Qs-GGO" firstAttribute="leading" secondItem="Hqi-Ay-cEd" secondAttribute="trailing" constant="5" id="SsJ-bh-JRJ"/>
                     <constraint firstItem="ZZ6-Lz-XBf" firstAttribute="centerY" secondItem="SVU-Qs-GGO" secondAttribute="centerY" id="VJp-eH-QSy"/>
                     <constraint firstAttribute="trailing" secondItem="ZZ6-Lz-XBf" secondAttribute="trailing" constant="12" id="XK5-z6-XK4"/>
+                    <constraint firstItem="Yvb-48-gbM" firstAttribute="leading" secondItem="VIE-oR-z1k" secondAttribute="trailing" constant="4" id="dUD-em-Kqj"/>
+                    <constraint firstItem="VIE-oR-z1k" firstAttribute="centerY" secondItem="Yvb-48-gbM" secondAttribute="centerY" id="eg1-Ng-CbZ"/>
                     <constraint firstItem="ZZ6-Lz-XBf" firstAttribute="leading" secondItem="L6X-kb-c3a" secondAttribute="trailing" constant="4" id="eiS-Xd-nVK"/>
+                    <constraint firstItem="Yvb-48-gbM" firstAttribute="centerY" secondItem="L6X-kb-c3a" secondAttribute="centerY" id="fSW-z5-o7D"/>
                     <constraint firstItem="Zlp-wK-xcD" firstAttribute="leading" secondItem="nKL-hk-cD5" secondAttribute="trailing" constant="8" id="hXB-hY-WhS"/>
                     <constraint firstAttribute="trailing" secondItem="ivZ-in-jDN" secondAttribute="trailing" constant="8" id="iWv-MV-HQo"/>
                     <constraint firstItem="ivZ-in-jDN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="tqb-ie-tHa"/>
@@ -106,6 +131,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="commentCount" destination="Yvb-48-gbM" id="NML-ry-iiU"/>
+                <outlet property="commentIcon" destination="VIE-oR-z1k" id="7ap-R8-Kbf"/>
                 <outlet property="isExistImage" destination="L6X-kb-c3a" id="MnO-Iy-bKJ"/>
                 <outlet property="kibunImage" destination="nKL-hk-cD5" id="dnQ-uY-DMv"/>
                 <outlet property="kibunText" destination="Zlp-wK-xcD" id="8ps-fF-gl6"/>
@@ -117,6 +144,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="comment" width="64" height="64"/>
         <image name="no_image" width="200" height="200"/>
     </resources>
 </document>

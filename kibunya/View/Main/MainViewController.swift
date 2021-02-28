@@ -33,6 +33,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
     var myProfileIcon: UIImage? = nil
     // カレンダーに渡す日記を書いた日にち配列
     var writtenDate: [String]?
+    // 広告View
+    var admobView = GADBannerView()
     // 背景色を付ける用のView
     @IBOutlet weak var backgroundView: UIView!
     // カレンダーモーダルを開くボタン
@@ -52,6 +54,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
         dateText.text = Functions.getDateWithDayOfTheWeek(date: displayedDate)
         nextDateButton.isEnabled = true
         nextDateButton.setImage(UIImage(named: "arrow_right_on"), for: .normal)
+        
+        admobView.reloadInputViews()
     }
     // １日進むボタン
     @IBOutlet weak var nextDateButton: UIButton!
@@ -64,6 +68,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
             nextDateButton.isEnabled = false
             nextDateButton.setImage(UIImage(named: "arrow_right_off"), for: .normal)
         }
+        admobView.reloadInputViews()
     }
     // 気分リストの下部のスペース
     @IBOutlet weak var kibunListBottomSpqce: NSLayoutConstraint!
@@ -145,7 +150,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
             // テスト用広告ユニットID
             let TEST_ID = "ca-app-pub-3940256099942544/2934735716"
             
-            var admobView = GADBannerView()
+            admobView = GADBannerView()
             
             admobView = GADBannerView(adSize:kGADAdSizeBanner)
             admobView.frame.origin = CGPoint(x: 0, y: backgroundView.frame.origin.y)
