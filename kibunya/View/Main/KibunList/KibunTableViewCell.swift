@@ -37,6 +37,8 @@ class KibunTableViewCell: UITableViewCell {
         self.kibunText.text = kibuns.text!.isEmpty ? "未入力" : kibuns.text
         self.kibunImage.image = UIImage(named: "kibunIcon\(kibuns.kibun ?? 0)")
         self.time.text = Functions.getTime(timeStamp: kibuns.time!)
+        self.commentIcon.isHidden = true
+        self.commentCount.isHidden = true
         
         defaultStore.collection("comments").whereField("diary_id", isEqualTo: kibuns.documentId!).getDocuments() { (snaps, error)  in
             if let err = error {
@@ -47,9 +49,6 @@ class KibunTableViewCell: UITableViewCell {
                 if (commentCount != 0) {
                     self.commentIcon.isHidden = false
                     self.commentCount.isHidden = false
-                } else {
-                    self.commentIcon.isHidden = true
-                    self.commentCount.isHidden = true
                 }
             }
         }

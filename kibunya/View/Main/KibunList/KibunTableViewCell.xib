@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVU-Qs-GGO" userLabel="名前">
-                        <rect key="frame" x="147" y="78" width="111" height="16"/>
+                        <rect key="frame" x="147" y="77.5" width="111" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="111" id="tw8-GD-Db0"/>
                         </constraints>
@@ -26,7 +26,7 @@
                             <fragment content="みっちゃん">
                                 <attributes>
                                     <color key="NSColor" red="0.71372549019999998" green="0.59215686270000001" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <font key="NSFont" size="14" name=".HiraKakuInterface-W3"/>
+                                    <font key="NSFont" metaFont="system" size="14"/>
                                     <font key="NSOriginalFont" metaFont="system" size="14"/>
                                 </attributes>
                             </fragment>

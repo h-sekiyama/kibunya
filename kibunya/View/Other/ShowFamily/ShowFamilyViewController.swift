@@ -58,6 +58,8 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
         // 生成したダイアログを実際に表示します
         self.present(dialog, animated: true, completion: nil)
     }
+    // 家出するボタンの下部のスペース
+    @IBOutlet weak var runawayButtonBottomSpace: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +79,8 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
         if (UserDefaults.standard.cachedProfileIconKey != nil) {
             myProfileIcon = Functions.loadImageFromPath(path: Functions.fileInDocumentsDirectory(filename: "profileIcon"))
         }
+        
+        runawayButtonBottomSpace.constant = self.view.bounds.width * 0.22
     }
     
     override func loadView() {
@@ -88,7 +92,7 @@ class ShowFamilyViewController: UIViewController, UITableViewDelegate {
         tabBarView.owner = self
 
         // タブの表示位置を調整
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - (self.view.bounds.width * 0.33), width: self.view.bounds.width, height: (self.view.bounds.width * 0.33))
         tabBarView.otherButton.setBackgroundImage(UIImage(named: "tab_image2_on"), for: .normal)
     }
     

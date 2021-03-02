@@ -7,7 +7,6 @@ class TabBarView: NSObject {
     
     // 現在画面表示を担当しているViewControllerインスタンスを保持しておくプロパティ
     weak var owner: UIViewController?
-    
     // 日記一覧ボタン
     @IBOutlet weak var diaryButton: UIButton!
     @IBAction func diaryButton(_ sender: Any) {

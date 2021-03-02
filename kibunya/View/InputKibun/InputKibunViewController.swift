@@ -143,6 +143,13 @@ class InputKibunViewController: UIViewController {
         } else {
             self.remainingTextCountLabel.text = String(300 - kibunTextBox.text.count)
         }
+        
+        // 気分ボタンの画像のアス比を揃える
+        kibunButton0.imageView?.contentMode = .scaleAspectFit
+        kibunButton1.imageView?.contentMode = .scaleAspectFit
+        kibunButton2.imageView?.contentMode = .scaleAspectFit
+        kibunButton3.imageView?.contentMode = .scaleAspectFit
+        kibunButton4.imageView?.contentMode = .scaleAspectFit
     }
     
     // 画像添付ボタン
@@ -164,7 +171,7 @@ class InputKibunViewController: UIViewController {
         tabBarView.owner = self
 
         // タブの表示位置を調整
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - (self.view.bounds.width * 0.33), width: self.view.bounds.width, height: (self.view.bounds.width * 0.33))
         tabBarView.inputDiaryButton.setBackgroundImage(UIImage(named: "tab_image1_on"), for: .normal)
         
         pushSwitch.onTintColor = UIColor(red: 129/255, green: 75/255, blue: 84/255, alpha: 1)
@@ -204,7 +211,7 @@ class InputKibunViewController: UIViewController {
             var diaryImage: Data = Data()
             var imageQuality: CGFloat = 0
             if (UserDefaults.standard.billingProMode ?? false) { // 課金ユーザー
-                imageQuality = 0.9
+                imageQuality = 1.0
             }
             diaryImage = (sendImage.image?.jpegData(compressionQuality: imageQuality))!
             let imageRef = storage.child("diary").child("\(documentId).jpg")

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,12 +28,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="138" height="135"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-LC-TPD" userLabel="気分タブ">
-                                    <rect key="frame" x="0.0" y="46" width="138" height="89"/>
+                                    <rect key="frame" x="0.0" y="45.5" width="138" height="89.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="gl7-LC-TPD" secondAttribute="height" multiplier="138:89" id="fUa-x5-9y8"/>
-                                    </constraints>
                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" backgroundImage="tab_image0_off">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
@@ -44,9 +40,11 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="gl7-LC-TPD" secondAttribute="trailing" id="BIH-zs-t6l"/>
+                                <constraint firstItem="gl7-LC-TPD" firstAttribute="height" secondItem="ZCB-9w-BQy" secondAttribute="height" multiplier="0.662963" id="QxV-0N-Izu"/>
                                 <constraint firstItem="gl7-LC-TPD" firstAttribute="leading" secondItem="ZCB-9w-BQy" secondAttribute="leading" id="UCU-e5-xqS"/>
                                 <constraint firstAttribute="bottom" secondItem="gl7-LC-TPD" secondAttribute="bottom" id="g2Y-du-lHc"/>
                             </constraints>
@@ -56,9 +54,6 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MUZ-Zu-lok" userLabel="入力タブ">
                                     <rect key="frame" x="0.0" y="20" width="138" height="115"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="MUZ-Zu-lok" secondAttribute="height" multiplier="6:5" id="IwI-on-mMW"/>
-                                    </constraints>
                                     <state key="normal" backgroundImage="tab_image1_off">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
@@ -67,21 +62,19 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="MUZ-Zu-lok" firstAttribute="leading" secondItem="h3G-gW-wb8" secondAttribute="leading" id="RR8-vs-WOg"/>
                                 <constraint firstAttribute="bottom" secondItem="MUZ-Zu-lok" secondAttribute="bottom" id="hVl-eb-4Nb"/>
                                 <constraint firstAttribute="trailing" secondItem="MUZ-Zu-lok" secondAttribute="trailing" id="pud-jL-NmQ"/>
+                                <constraint firstItem="MUZ-Zu-lok" firstAttribute="height" secondItem="h3G-gW-wb8" secondAttribute="height" multiplier="0.851852" id="yqx-tK-pME"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcI-4I-oQ4" userLabel="設定View">
                             <rect key="frame" x="276" y="0.0" width="138" height="135"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-Y6-xWo" userLabel="その他タブ">
-                                    <rect key="frame" x="0.0" y="46" width="138" height="89"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="Ack-Y6-xWo" secondAttribute="height" multiplier="138:89" id="ait-OS-oQV"/>
-                                    </constraints>
+                                    <rect key="frame" x="0.0" y="45.5" width="138" height="89.5"/>
                                     <state key="normal" backgroundImage="tab_image2_off">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
@@ -90,8 +83,9 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="Ack-Y6-xWo" firstAttribute="height" secondItem="ZcI-4I-oQ4" secondAttribute="height" multiplier="0.662963" id="CMY-ud-MJu"/>
                                 <constraint firstAttribute="bottom" secondItem="Ack-Y6-xWo" secondAttribute="bottom" id="ZgP-Pt-dFK"/>
                                 <constraint firstItem="Ack-Y6-xWo" firstAttribute="leading" secondItem="ZcI-4I-oQ4" secondAttribute="leading" id="bMe-mS-bhi"/>
                                 <constraint firstAttribute="trailing" secondItem="Ack-Y6-xWo" secondAttribute="trailing" id="eU3-5q-uNo"/>
@@ -121,8 +115,5 @@
         <image name="tab_image0_off" width="135" height="89.5"/>
         <image name="tab_image1_off" width="135" height="115"/>
         <image name="tab_image2_off" width="135" height="89.5"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

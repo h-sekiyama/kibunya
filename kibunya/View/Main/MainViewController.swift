@@ -71,7 +71,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         admobView.reloadInputViews()
     }
     // 気分リストの下部のスペース
-    @IBOutlet weak var kibunListBottomSpqce: NSLayoutConstraint!
+    @IBOutlet weak var kibunListBottomSpace: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,7 +135,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
         view.addSubview(tabBarView.tab)
         tabBarView.owner = self
         tabBarView.diaryButton.setBackgroundImage(UIImage(named: "tab_image0_on"), for: .normal)
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - Constants.TAB_BUTTON_HEIGHT, width: self.view.bounds.width, height: Constants.TAB_BUTTON_HEIGHT)
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - (self.view.bounds.width * 0.33), width: self.view.bounds.width, height: (self.view.bounds.width * 0.33))
+        kibunListBottomSpace.constant = -(self.view.bounds.width * 0.22)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -168,7 +169,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
             self.view.addSubview(admobView)
             
             kibunList.transform = CGAffineTransform(translationX: 0, y: admobView.frame.height)
-            kibunListBottomSpqce.constant = -88 - admobView.frame.height
+            kibunListBottomSpace.constant = -(self.view.bounds.width * 0.22) - admobView.frame.height
         }
     }
     
@@ -386,6 +387,7 @@ extension MainViewController: UITableViewDataSource {
     // セルの編集許可（自分の投稿のみ）
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
+        guard self.kibuns.indices.contains(indexPath.row) else { return false }
         if (self.kibuns[indexPath.row].user_id! == myUserId) {
             return true
         } else {
