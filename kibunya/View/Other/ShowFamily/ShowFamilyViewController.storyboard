@@ -86,7 +86,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y63-tG-sgE">
-                                <rect key="frame" x="0.0" y="193" width="414" height="485"/>
+                                <rect key="frame" x="0.0" y="193" width="414" height="439"/>
                                 <color key="backgroundColor" red="1" green="0.97275406119999996" blue="0.95069652800000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="Jcc-l8-v5P">
@@ -141,7 +141,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jom-y4-jjc">
-                                <rect key="frame" x="87" y="698" width="240" height="60"/>
+                                <rect key="frame" x="87" y="652" width="240" height="60"/>
                                 <color key="backgroundColor" red="0.28033742309999998" green="0.3517087102" blue="0.4313934445" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Qkk-7Z-lcu"/>
@@ -181,7 +181,7 @@
                             <constraint firstItem="gD1-xt-EP2" firstAttribute="leading" secondItem="cEO-mn-WR5" secondAttribute="leading" id="ebm-7z-W0n"/>
                             <constraint firstItem="deo-4r-j2F" firstAttribute="bottom" secondItem="z7e-Cg-qfO" secondAttribute="bottom" id="fFQ-VC-RFT"/>
                             <constraint firstItem="gD1-xt-EP2" firstAttribute="top" secondItem="cEO-mn-WR5" secondAttribute="top" id="jpr-U6-veO"/>
-                            <constraint firstItem="cEO-mn-WR5" firstAttribute="bottom" secondItem="jom-y4-jjc" secondAttribute="bottom" constant="104" id="kc2-Zv-9dB"/>
+                            <constraint firstItem="cEO-mn-WR5" firstAttribute="bottom" secondItem="jom-y4-jjc" secondAttribute="bottom" constant="150" id="kc2-Zv-9dB"/>
                             <constraint firstItem="deo-4r-j2F" firstAttribute="trailing" secondItem="cEO-mn-WR5" secondAttribute="trailing" id="sbI-Qe-qYt"/>
                             <constraint firstItem="deo-4r-j2F" firstAttribute="top" secondItem="gD1-xt-EP2" secondAttribute="bottom" id="u8Z-a1-IQw"/>
                             <constraint firstItem="y63-tG-sgE" firstAttribute="top" secondItem="Beb-1Y-UFz" secondAttribute="bottom" constant="19" id="wdZ-2R-ePN"/>

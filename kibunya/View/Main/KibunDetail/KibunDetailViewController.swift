@@ -191,7 +191,7 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         tabBarView.owner = self
 
         // タブの表示位置を調整
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - (self.view.bounds.width * 0.33), width: self.view.bounds.width, height: (self.view.bounds.width * 0.33))
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - (self.view.bounds.width * 0.28), width: self.view.bounds.width, height: (self.view.bounds.width * 0.28))
         tabBarView.diaryButton.setBackgroundImage(UIImage(named: "tab_image0_on"), for: .normal)
     }
     

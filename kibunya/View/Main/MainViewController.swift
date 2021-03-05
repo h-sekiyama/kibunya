@@ -135,7 +135,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         view.addSubview(tabBarView.tab)
         tabBarView.owner = self
         tabBarView.diaryButton.setBackgroundImage(UIImage(named: "tab_image0_on"), for: .normal)
-        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - (self.view.bounds.width * 0.33), width: self.view.bounds.width, height: (self.view.bounds.width * 0.33))
+        tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - (self.view.bounds.width * 0.28), width: self.view.bounds.width, height: (self.view.bounds.width * 0.28))
         kibunListBottomSpace.constant = -(self.view.bounds.width * 0.22)
     }
     

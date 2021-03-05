@@ -35,10 +35,10 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYI-NW-36Y">
-                                        <rect key="frame" x="88" y="39" width="140" height="22"/>
+                                        <rect key="frame" x="88" y="39" width="180" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="d82-M0-oks"/>
-                                            <constraint firstAttribute="width" constant="140" id="uLE-cH-PDo"/>
+                                            <constraint firstAttribute="width" constant="180" id="uLE-cH-PDo"/>
                                         </constraints>
                                         <attributedString key="attributedText">
                                             <fragment content="アンジュ">

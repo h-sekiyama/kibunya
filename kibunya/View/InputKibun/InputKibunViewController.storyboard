@@ -57,7 +57,7 @@
                                 <rect key="frame" x="0.0" y="110" width="414" height="698"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diary_image_icon" translatesAutoresizingMaskIntoConstraints="NO" id="QpR-Gq-NFP">
-                                        <rect key="frame" x="145" y="297.5" width="124" height="105"/>
+                                        <rect key="frame" x="145" y="325.5" width="124" height="105"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="124" id="M75-la-U4J"/>
@@ -73,19 +73,19 @@
                                         </connections>
                                     </imageView>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日の日記を書きました！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIE-Bh-Rfj">
-                                        <rect key="frame" x="103" y="488.5" width="208" height="20.5"/>
+                                        <rect key="frame" x="103" y="516.5" width="208" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efI-9D-mvQ" userLabel="balloonView">
-                                        <rect key="frame" x="2" y="104" width="410" height="181.5"/>
+                                        <rect key="frame" x="2" y="104" width="410" height="209.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balloonImage" translatesAutoresizingMaskIntoConstraints="NO" id="vRy-PZ-If0">
-                                                <rect key="frame" x="0.0" y="0.0" width="410" height="181.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="410" height="209.5"/>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="biR-WE-q3x">
-                                                <rect key="frame" x="18" y="22" width="374" height="137.5"/>
+                                                <rect key="frame" x="18" y="25.5" width="374" height="158.5"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="textColor" red="0.43921568630000002" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -343,7 +343,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sRU-uv-Avx">
-                                        <rect key="frame" x="107" y="418.5" width="200" height="60"/>
+                                        <rect key="frame" x="107" y="446.5" width="200" height="60"/>
                                         <color key="backgroundColor" red="0.88235294117647056" green="0.80392156862745101" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="A4n-cv-zS6"/>
@@ -369,7 +369,7 @@
                                         </connections>
                                     </button>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R01-XF-LF6">
-                                        <rect key="frame" x="345" y="293.5" width="51" height="31"/>
+                                        <rect key="frame" x="345" y="321.5" width="51" height="31"/>
                                         <color key="tintColor" red="0.50632876159999995" green="0.29472824930000002" blue="0.32935255769999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -378,7 +378,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBv-dH-z4K">
-                                        <rect key="frame" x="310" y="300.5" width="29" height="17"/>
+                                        <rect key="frame" x="310" y="328.5" width="29" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.50632876159999995" green="0.29472824930000002" blue="0.32935255769999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -399,7 +399,7 @@
                                     <constraint firstItem="XIE-Bh-Rfj" firstAttribute="top" secondItem="sRU-uv-Avx" secondAttribute="bottom" constant="10" id="ezP-d8-HFp"/>
                                     <constraint firstItem="efI-9D-mvQ" firstAttribute="leading" secondItem="1vD-Ye-WaI" secondAttribute="leading" constant="2" id="haj-78-bNc"/>
                                     <constraint firstItem="sRU-uv-Avx" firstAttribute="top" secondItem="QpR-Gq-NFP" secondAttribute="bottom" constant="16" id="qCL-Mg-hEf"/>
-                                    <constraint firstItem="efI-9D-mvQ" firstAttribute="height" secondItem="1vD-Ye-WaI" secondAttribute="height" multiplier="0.26" id="rK8-MO-lt2"/>
+                                    <constraint firstItem="efI-9D-mvQ" firstAttribute="height" secondItem="1vD-Ye-WaI" secondAttribute="height" multiplier="0.3" id="rK8-MO-lt2"/>
                                     <constraint firstItem="XIE-Bh-Rfj" firstAttribute="centerX" secondItem="1vD-Ye-WaI" secondAttribute="centerX" id="vcQ-2j-ulO"/>
                                     <constraint firstItem="sRU-uv-Avx" firstAttribute="centerX" secondItem="1vD-Ye-WaI" secondAttribute="centerX" id="wg8-Cn-ONy"/>
                                     <constraint firstItem="Nt0-bN-N9x" firstAttribute="leading" secondItem="1vD-Ye-WaI" secondAttribute="leading" constant="20" id="xZc-os-FEO"/>
