@@ -297,6 +297,7 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
                 let push : NCMBPush = NCMBPush()
                 push.sound = "default"
                 push.badgeIncrementFlag = false
+                push.badgeSetting = 1
                 push.contentAvailable = false
                 push.searchCondition?.where(field: "channels", toMatchPattern: familyDocumentId)
                 if (UserDefaults.standard.devicetokenKey != nil) {

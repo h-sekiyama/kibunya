@@ -79,6 +79,13 @@
 		3E777F982518B9C10063E9A4 /* MailSendCompleteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8FBE8424E54F0300BAC128 /* MailSendCompleteViewController.storyboard */; };
 		3E777F992518B9C10063E9A4 /* ForgetPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5B315F24FE9171006AB64C /* ForgetPasswordViewController.storyboard */; };
 		3E777F9A2518B9C10063E9A4 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E70A81224E26376008667B5 /* MainViewController.storyboard */; };
+		3E796AAB25F3C5E50065AAB1 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA3611425CEC851005EFEA0 /* Comments.swift */; };
+		3E796AB025F3C5EB0065AAB1 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5185E25C073ED00F946A1 /* IAPManager.swift */; };
+		3E796AB525F3C6020065AAB1 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E131C3925CED8CF00526E7C /* CommentTableViewCell.swift */; };
+		3E796ABA25F3C6110065AAB1 /* ProUpgradeModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9467CF25C5AB390000D96C /* ProUpgradeModalViewController.swift */; };
+		3E796ABF25F3C6290065AAB1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF5186425C0834E00F946A1 /* StoreKit.framework */; };
+		3E796AC025F3C6470065AAB1 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E131C3F25CED8E000526E7C /* CommentTableViewCell.xib */; };
+		3E796AC525F3C64D0065AAB1 /* ProUpgradeModalViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9467D525C5AB490000D96C /* ProUpgradeModalViewController.storyboard */; };
 		3E7FD59C24E7F24B005011B6 /* KibunTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FD59A24E7F24B005011B6 /* KibunTableViewCell.swift */; };
 		3E7FD59D24E7F24B005011B6 /* KibunTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E7FD59B24E7F24B005011B6 /* KibunTableViewCell.xib */; };
 		3E8FBE7F24E52A4E00BAC128 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8FBE7E24E52A4E00BAC128 /* SignUpViewController.swift */; };
@@ -228,6 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E796ABF25F3C6290065AAB1 /* StoreKit.framework in Frameworks */,
 				9B7F42D0F2397F17AA935129 /* Pods_kibunya_kibunya_dev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -645,6 +653,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E796AC525F3C64D0065AAB1 /* ProUpgradeModalViewController.storyboard in Resources */,
+				3E796AC025F3C6470065AAB1 /* CommentTableViewCell.xib in Resources */,
 				3E013A902565657B001AA5AE /* KibunCalendarModalViewController.storyboard in Resources */,
 				3E777F8A2518B9C10063E9A4 /* KibunDetailViewController.storyboard in Resources */,
 				3E777F8B2518B9C10063E9A4 /* LaunchScreen.storyboard in Resources */,
@@ -864,6 +874,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E796ABA25F3C6110065AAB1 /* ProUpgradeModalViewController.swift in Sources */,
+				3E796AB525F3C6020065AAB1 /* CommentTableViewCell.swift in Sources */,
+				3E796AB025F3C5EB0065AAB1 /* IAPManager.swift in Sources */,
+				3E796AAB25F3C5E50065AAB1 /* Comments.swift in Sources */,
 				3E013A8B25656572001AA5AE /* KibunCalendarModalViewController.swift in Sources */,
 				3E777F722518B9C10063E9A4 /* InputKibunViewController.swift in Sources */,
 				3E777F732518B9C10063E9A4 /* SignUpViewController.swift in Sources */,
@@ -1046,14 +1060,14 @@
 				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 48;
 				DEVELOPMENT_TEAM = 42UU3JKF9R;
 				INFOPLIST_FILE = kibunya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.8;
+				MARKETING_VERSION = 2.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
 				PRODUCT_NAME = "Family Diary";
 				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー";
@@ -1070,14 +1084,14 @@
 				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 48;
 				DEVELOPMENT_TEAM = 42UU3JKF9R;
 				INFOPLIST_FILE = kibunya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.8;
+				MARKETING_VERSION = 2.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya";
 				PRODUCT_NAME = "Family Diary";
 				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー（本番）";
@@ -1235,8 +1249,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "kibunya/家族ダイアリー.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 42UU3JKF9R;
 				DISPLAY_NAME = "Family Diary Dev";
@@ -1278,7 +1292,7 @@
 				OTHER_SWIFT_FLAGS = "-D kibunya_dev";
 				PRODUCT_BUNDLE_IDENTIFIER = "sekky-company.kibunya-Dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "家族ダイアリー（本番）";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
