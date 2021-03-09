@@ -49,6 +49,9 @@ class KibunTableViewCell: UITableViewCell {
                 if (commentCount != 0) {
                     self.commentIcon.isHidden = false
                     self.commentCount.isHidden = false
+                } else {
+                    self.commentIcon.isHidden = true
+                    self.commentCount.isHidden = true
                 }
             }
         }

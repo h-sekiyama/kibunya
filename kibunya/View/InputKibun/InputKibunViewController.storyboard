@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="66" id="J03-V1-Exd"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="onZ-c6-Xed">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="onZ-c6-Xed" userLabel="時間選択ボタン">
                                 <rect key="frame" x="358" y="61" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="7Fg-CO-6cY"/>
@@ -483,17 +483,30 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIq-vS-2ij">
+                                <rect key="frame" x="20" y="55" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="IOm-48-Pts"/>
+                                    <constraint firstAttribute="height" constant="44" id="biE-tA-ZfM"/>
+                                </constraints>
+                                <state key="normal" image="arrow_left_on"/>
+                                <connections>
+                                    <action selector="backButton:" destination="uHM-hf-JGD" eventType="touchUpInside" id="sc4-hE-UEo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dm6-zi-Z9E"/>
                         <color key="backgroundColor" red="1" green="0.85882352941176465" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="y0d-W9-0mb" firstAttribute="top" secondItem="nhy-2r-OR0" secondAttribute="bottom" id="52R-aL-cFi"/>
                             <constraint firstItem="nhy-2r-OR0" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" id="HjU-Yo-gD0"/>
+                            <constraint firstItem="DIq-vS-2ij" firstAttribute="centerY" secondItem="dGa-jd-Qbi" secondAttribute="centerY" id="OkT-OF-VZS"/>
                             <constraint firstItem="Dm6-zi-Z9E" firstAttribute="trailing" secondItem="onZ-c6-Xed" secondAttribute="trailing" constant="24" id="Tzb-UE-vZ4"/>
                             <constraint firstItem="Dm6-zi-Z9E" firstAttribute="trailing" secondItem="y0d-W9-0mb" secondAttribute="trailing" constant="30" id="VCG-xL-2VT"/>
                             <constraint firstItem="dGa-jd-Qbi" firstAttribute="centerY" secondItem="nhy-2r-OR0" secondAttribute="centerY" id="VLj-y9-EAV"/>
                             <constraint firstItem="1vD-Ye-WaI" firstAttribute="top" secondItem="nhy-2r-OR0" secondAttribute="bottom" id="VUQ-fd-fR2"/>
                             <constraint firstItem="dGa-jd-Qbi" firstAttribute="centerX" secondItem="wxw-JS-15q" secondAttribute="centerX" id="Vew-YR-znz"/>
+                            <constraint firstItem="DIq-vS-2ij" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" constant="20" id="X7c-PS-UTe"/>
                             <constraint firstAttribute="bottom" secondItem="1vD-Ye-WaI" secondAttribute="bottom" constant="88" id="gzK-V8-Tvc"/>
                             <constraint firstItem="nhy-2r-OR0" firstAttribute="trailing" secondItem="Dm6-zi-Z9E" secondAttribute="trailing" id="hZa-AQ-BHf"/>
                             <constraint firstItem="y0d-W9-0mb" firstAttribute="leading" secondItem="Dm6-zi-Z9E" secondAttribute="leading" constant="30" id="qOU-qM-BrO"/>
@@ -504,6 +517,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="DIq-vS-2ij" id="6Tm-Qf-VBL"/>
                         <outlet property="balloonView" destination="efI-9D-mvQ" id="Ty0-v6-mRf"/>
                         <outlet property="datePicker" destination="l0G-TX-1Jy" id="azr-ay-Xyz"/>
                         <outlet property="datePickerView" destination="y0d-W9-0mb" id="pAN-fu-76z"/>
@@ -515,6 +529,7 @@
                         <outlet property="kibunButton4" destination="mL1-C2-SKk" id="4jW-oY-bJP"/>
                         <outlet property="kibunTextBox" destination="biR-WE-q3x" id="wQd-Av-21e"/>
                         <outlet property="pushSwitch" destination="R01-XF-LF6" id="5Et-Vb-7JU"/>
+                        <outlet property="pushSwitchLabel" destination="rBv-dH-z4K" id="icx-Ys-edN"/>
                         <outlet property="remainingTextCountLabel" destination="3Tb-EX-Q93" id="cra-54-W5p"/>
                         <outlet property="sendButton" destination="sRU-uv-Avx" id="qL0-ML-oRb"/>
                         <outlet property="sendImage" destination="QpR-Gq-NFP" id="8sf-AZ-jP7"/>
@@ -532,6 +547,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_left_on" width="24" height="36.5"/>
         <image name="balloonImage" width="701" height="626"/>
         <image name="clock" width="120" height="120"/>
         <image name="diary_image_icon" width="131" height="105"/>

@@ -58,6 +58,23 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         Functions.presentAnimation(view: view)
         self.present(mainViewController, animated: false, completion: nil)
     }
+    // 編集ボタン
+    @IBOutlet weak var editButton: UIButton!
+    @IBAction func editButton(_ sender: Any) {
+        let inputKibunViewController = UIStoryboard(name: "InputKibunViewController", bundle: nil).instantiateViewController(withIdentifier: "InputKibunViewController") as! InputKibunViewController
+        inputKibunViewController.isEditDiary = true
+        inputKibunViewController.documentId = diaryId
+        inputKibunViewController.diarySendDateString = Functions.getDate(timeStamp: time!)
+        inputKibunViewController.imageUrl = imageUrl
+        inputKibunViewController.kibunId = kibun
+        inputKibunViewController.userId = userId
+        inputKibunViewController.userName = userName ?? "名無しの猫ちゃん"
+        inputKibunViewController.diaryText = text ?? ""
+        inputKibunViewController.diarySendDateTime = date
+        inputKibunViewController.modalPresentationStyle = .fullScreen
+        inputKibunViewController.time = time
+        self.present(inputKibunViewController, animated: false, completion: nil)
+    }
     // コメント一覧
     @IBOutlet weak var comments: UITableView!
     var commentData: [Comments] = [Comments]()
@@ -98,9 +115,9 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         userNameLabel.text = userName!
         // 日記本文表示
         textLabel.text = text!
-        // 投稿者プロフィールアイコン表示
+        // 投稿画像表示
         if (imageUrl != "") {
-        diaryImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            diaryImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
             diaryImage.sd_setImage(with: URL(string: imageUrl))
         } else {
             diaryImage.isHidden = true
@@ -111,6 +128,12 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         // 本文タップ時にキーボードを出さない様にする
         textLabel.isUserInteractionEnabled = true
         textLabel.isEditable = false
+        
+        // 編集ボタンは自分の日記の時のみ表示する
+        Auth.auth().currentUser?.reload()
+        if (userId == Auth.auth().currentUser?.uid) {
+            editButton.isHidden = false
+        }
         
         // 気分アイコン設定
         self.kibunImage.image = UIImage(named: "kibunIcon\(kibun ?? 0)")

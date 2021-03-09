@@ -8,6 +8,27 @@ import FirebaseUI
 import NCMB
 
 class InputKibunViewController: UIViewController {
+    // 日付文字列
+    var diarySendDateString: String = Functions.today()
+    // 日記送信時間変数（Kibuns.timeに入れる値）
+    var diarySendDateTime: Date = Date()
+    // 日記詳細の編集ボタンからの遷移か否か
+    var isEditDiary: Bool = false
+    // 日記ID
+    var documentId: String = ""
+    // 添付画像URL
+    var imageUrl: String = ""
+    // ユーザーID
+    var userId: String = ""
+    // ユーザー名
+    var userName: String = ""
+    // 日記本文
+    var diaryText: String = ""
+    // 気分ID
+    var kibunId: Int? = nil
+    // タイムスタンプ
+    var time: Timestamp? = nil
+    
     //ストレージサーバのURLを取得
     let storage = Functions.getStorageURL()
     // タブ定義
@@ -28,6 +49,23 @@ class InputKibunViewController: UIViewController {
             kibunButtonArray[kibunStatus!].setImage(UIImage(named: "kibunIcon\(kibunStatus!)"), for: .normal)
         }
     }
+    // 戻るボタン
+    @IBOutlet weak var backButton: UIButton!
+    @IBAction func backButton(_ sender: Any) {
+        let kibunDetailViewController = UIStoryboard(name: "KibunDetailViewController", bundle: nil).instantiateViewController(withIdentifier: "KibunDetailViewController") as! KibunDetailViewController
+        kibunDetailViewController.diaryId = documentId
+        kibunDetailViewController.userId = userId
+        kibunDetailViewController.time = time
+        kibunDetailViewController.userName = userName
+        kibunDetailViewController.text = diaryText
+        kibunDetailViewController.kibun = kibunId
+        kibunDetailViewController.date = diarySendDateTime
+        kibunDetailViewController.imageUrl = imageUrl
+        kibunDetailViewController.modalPresentationStyle = .fullScreen
+        Functions.presentAnimation(view: view)
+        self.present(kibunDetailViewController, animated: false, completion: nil)
+    }
+    
     // DatePickerを含むView
     @IBOutlet weak var datePickerView: UIView!
     // DatePicker
@@ -42,10 +80,7 @@ class InputKibunViewController: UIViewController {
             datePickerView.isHidden = true
         }
     }
-    // 日記送信日時（Kibuns.dateに入れる値）
-    private var diarySendDateString: String = Functions.today()
-    // 日記送信時間変数（Kibuns.timeに入れる値）
-    private var diarySendDateTime: Date = Date()
+
     // 日付決定ボタンタップ
     @IBAction func updateDate(_ sender: Any) {
         let formatter = DateFormatter()
@@ -150,6 +185,28 @@ class InputKibunViewController: UIViewController {
         kibunButton2.imageView?.contentMode = .scaleAspectFit
         kibunButton3.imageView?.contentMode = .scaleAspectFit
         kibunButton4.imageView?.contentMode = .scaleAspectFit
+        
+        // 編集ボタンから来た時の為の初期化処理
+        if (isEditDiary) {
+            kibunTextBox.text = diaryText
+            kibunStatus = kibunId
+            Functions.updateButtonEnabled(button: self.sendButton, enabled: true)
+            
+            if (imageUrl != "") {
+                sendImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                sendImage.sd_setImage(with: URL(string: imageUrl))
+                isExistImage = true
+            }
+            if (diarySendDateString != Functions.today()) {
+                diaryDate.text = diarySendDateString.dropFirst(5) + "の日記"
+            }
+            pushSwitchLabel.isHidden = true
+            pushSwitch.isHidden = true
+            
+            datePicker.date = diarySendDateTime
+            
+            backButton.isHidden = false
+        }
     }
     
     // 画像添付ボタン
@@ -191,20 +248,21 @@ class InputKibunViewController: UIViewController {
     func updateData() {
         // ユーザーを取得
         Auth.auth().currentUser?.reload()
-        guard let userId = Auth.auth().currentUser?.uid else {
-            return
+        if (userId == "") {
+            userId = Auth.auth().currentUser?.uid ?? "0"
         }
-        guard let userName = Auth.auth().currentUser?.displayName else {
-            return
+        if (userName == "") {
+            userName = Auth.auth().currentUser?.displayName ?? "名無しの猫ちゃん"
         }
         if (kibunStatus == nil) {
             return
         }
 
         // ドキュメントIDを事前に設定する
-        let documentId = defaultStore.collection("kibuns").document().documentID
+        if (documentId == "") {
+            documentId = defaultStore.collection("kibuns").document().documentID
+        }
         
-        var imageUrl: String = ""
         // 添付画像があるか判定
         if (isExistImage) {
             //保存したい画像のデータを変数として持つ
@@ -228,8 +286,8 @@ class InputKibunViewController: UIViewController {
                     if let error = error {
                         print(error)
                     } else {
-                        imageUrl = url?.absoluteString ?? ""
-                        self.updateDiary(userId: userId, userName: userName, documentId: documentId, imageUrl: imageUrl)
+                        self.imageUrl = url?.absoluteString ?? ""
+                        self.updateDiary(userId: self.userId, userName: self.userName, documentId: self.documentId, imageUrl: self.imageUrl)
                     }
                 }
             }
@@ -238,6 +296,8 @@ class InputKibunViewController: UIViewController {
         }
     }
     
+    // PUSH通知送信スイッチラベル
+    @IBOutlet weak var pushSwitchLabel: UILabel!
     // PUSH通知送信スイッチ
     @IBOutlet weak var pushSwitch: UISwitch!
     
@@ -257,20 +317,27 @@ class InputKibunViewController: UIViewController {
                 print("Error adding document: \(err)")
                 self.sendKibunCompleteLabel.isHidden = true
             } else {
-                self.sendKibunCompleteLabel.text = "今日の気分を送信しました！"
+                if (self.isEditDiary) {
+                    self.sendKibunCompleteLabel.text = "日記を編集しました！"
+                    self.diaryText = self.kibunTextBox.text
+                    self.kibunId = self.kibunStatus
+                    self.time = Timestamp(date: self.diarySendDateTime)
+                } else {
+                    self.sendKibunCompleteLabel.text = "今日の気分を送信しました！"
+                    self.kibunTextBox.text = ""
+                    self.sendImage.image = UIImage(named: "diary_image_icon")
+                }
                 self.sendKibunCompleteLabel.isHidden = false
-                self.sendImage.image = UIImage(named: "diary_image_icon")
                 
                 // 家族に日記の更新をPUSH通知で送信
-                if (self.pushSwitch.isOn) {
-                self.sendUpdateDiaryPush(userName: userName, myUserId: userId)
+                if (self.pushSwitch.isOn && self.pushSwitch.isHidden == false) {
+                    self.sendUpdateDiaryPush(userName: userName, myUserId: userId)
                 }   
                     
                 // UserDefaultsに保存してる下記途中の文章を削除
                 UserDefaults.standard.nowInputDiaryText = ""
             }
             self.dismissIndicator()
-            self.kibunTextBox.text = ""
             Functions.updateButtonEnabled(button: self.sendButton, enabled: false)
             self.remainingTextCountLabel.text = "300"
         }

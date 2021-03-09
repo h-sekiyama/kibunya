@@ -19,9 +19,23 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xth-Ct-sZo" userLabel="Navi Bar">
                                 <rect key="frame" x="0.0" y="44" width="414" height="66"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Id8-Fl-J2t" userLabel="編集ボタン">
+                                        <rect key="frame" x="358" y="17" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="Hdd-p2-tDk"/>
+                                            <constraint firstAttribute="width" constant="32" id="VZD-UJ-J5x"/>
+                                        </constraints>
+                                        <state key="normal" image="icon_edit"/>
+                                        <connections>
+                                            <action selector="editButton:" destination="fH5-yP-nRf" eventType="touchUpInside" id="A80-WR-ajb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.8984755874" blue="0.66378134489999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="LBE-W4-trb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Id8-Fl-J2t" secondAttribute="trailing" constant="24" id="dnF-iO-6O0"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVJ-Q0-wdb" userLabel="BackgroundView">
@@ -286,7 +300,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGQ-WP-sJN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGQ-WP-sJN" userLabel="戻るボタン">
                                 <rect key="frame" x="20" y="55" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Ezf-nZ-z7u"/>
@@ -306,6 +320,7 @@
                             <constraint firstAttribute="bottom" secondItem="nVJ-Q0-wdb" secondAttribute="bottom" constant="88" id="Su1-xp-0Xe"/>
                             <constraint firstItem="PGQ-WP-sJN" firstAttribute="centerY" secondItem="sQ9-j4-pKP" secondAttribute="centerY" id="UzM-MV-lr9"/>
                             <constraint firstItem="PGQ-WP-sJN" firstAttribute="leading" secondItem="dzl-r3-I1u" secondAttribute="leading" constant="20" id="XDK-Lj-7uy"/>
+                            <constraint firstItem="Id8-Fl-J2t" firstAttribute="centerY" secondItem="sQ9-j4-pKP" secondAttribute="centerY" id="XxL-Lf-xVb"/>
                             <constraint firstItem="nVJ-Q0-wdb" firstAttribute="top" secondItem="xth-Ct-sZo" secondAttribute="bottom" id="Yvj-QL-wpa"/>
                             <constraint firstItem="sQ9-j4-pKP" firstAttribute="centerY" secondItem="xth-Ct-sZo" secondAttribute="centerY" id="ZSN-my-qe6"/>
                             <constraint firstItem="nVJ-Q0-wdb" firstAttribute="trailing" secondItem="dzl-r3-I1u" secondAttribute="trailing" id="gUB-Qu-LEf"/>
@@ -320,6 +335,7 @@
                         <outlet property="comments" destination="MPC-Sx-98a" id="yhJ-vg-1xl"/>
                         <outlet property="diaryImage" destination="xQc-VO-0yJ" id="n4B-uo-B2d"/>
                         <outlet property="diaryTime" destination="Zmd-wn-WYp" id="e9Y-BX-Qrw"/>
+                        <outlet property="editButton" destination="Id8-Fl-J2t" id="mXq-RB-s0w"/>
                         <outlet property="editDiaryText" destination="vKM-bH-qN1" id="gDf-Ip-nFS"/>
                         <outlet property="editDiaryTextHeight" destination="5id-Ho-5Vp" id="sEZ-ZN-Xas"/>
                         <outlet property="kibunImage" destination="NXW-2C-e6E" id="Pp9-MD-Ks6"/>
@@ -344,6 +360,7 @@
     </scenes>
     <resources>
         <image name="arrow_left_on" width="24" height="36.5"/>
+        <image name="icon_edit" width="64" height="64"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
