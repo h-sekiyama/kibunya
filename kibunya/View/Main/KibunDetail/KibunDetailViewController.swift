@@ -231,6 +231,9 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         cell.name.text = commentData[indexPath.row].name
         cell.commentText.text = commentData[indexPath.row].text
         cell.time.text = Functions.getDateTime(timeStamp: commentData[indexPath.row].time!)
+        self.comments.reloadRows(at: [indexPath], with: .top)
+        let cellHeight = cell.frame.height
+        self.commentViewHeight.constant += cellHeight
         return cell
     }
     
@@ -247,13 +250,7 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
                     return data
                 }
                 self.commentData.sort()
-                DispatchQueue.main.async {
-                    self.comments.reloadData()
-                    self.comments.layoutIfNeeded()
-                    self.comments.updateConstraints()
-                    // コメントエリアの高さを設定
-                    self.commentViewHeight.constant = self.comments.contentSize.height + (20 * CGFloat(self.commentData.count)) + 20
-                }
+                self.comments.reloadData()
             }
         }
     }
@@ -291,6 +288,7 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
             } else {
                 self.commentData.removeAll()
                 self.comments.reloadData()
+                self.commentViewHeight.constant = 1
                 self.showComment()
                 
                 // PUSH通知を送る

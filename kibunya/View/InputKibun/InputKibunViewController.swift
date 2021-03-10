@@ -229,7 +229,12 @@ class InputKibunViewController: UIViewController {
 
         // タブの表示位置を調整
         tabBarView.tab.frame = CGRect(x: 0, y: self.view.frame.maxY  - (self.view.bounds.width * 0.28), width: self.view.bounds.width, height: (self.view.bounds.width * 0.28))
-        tabBarView.inputDiaryButton.setBackgroundImage(UIImage(named: "tab_image1_on"), for: .normal)
+        // 日記編集の場合は強調するタブボタンを「いちらん」にする
+        if (isEditDiary) {
+            tabBarView.diaryButton.setBackgroundImage(UIImage(named: "tab_image0_on"), for: .normal)
+        } else {
+            tabBarView.inputDiaryButton.setBackgroundImage(UIImage(named: "tab_image1_on"), for: .normal)
+        }
         
         pushSwitch.onTintColor = UIColor(red: 129/255, green: 75/255, blue: 84/255, alpha: 1)
     }
@@ -397,7 +402,7 @@ extension InputKibunViewController: UITextViewDelegate {
         }
         
         // 書き途中の日記をUserDefaultsに保存
-        if (kibunTextBox.text?.count != 0) {
+        if (kibunTextBox.text?.count != 0 && !isEditDiary) {
             UserDefaults.standard.nowInputDiaryText = kibunTextBox.text
         }
     }
