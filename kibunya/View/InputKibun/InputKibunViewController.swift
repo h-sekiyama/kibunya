@@ -173,12 +173,6 @@ class InputKibunViewController: UIViewController {
             kibunTextBox.text = UserDefaults.standard.nowInputDiaryText
         }
         
-        if (UserDefaults.standard.billingProMode ?? false) {    // 課金ユーザー
-            remainingTextCountLabel.isHidden = true
-        } else {
-            self.remainingTextCountLabel.text = String(300 - kibunTextBox.text.count)
-        }
-        
         // 気分ボタンの画像のアス比を揃える
         kibunButton0.imageView?.contentMode = .scaleAspectFit
         kibunButton1.imageView?.contentMode = .scaleAspectFit
@@ -206,6 +200,12 @@ class InputKibunViewController: UIViewController {
             datePicker.date = diarySendDateTime
             
             backButton.isHidden = false
+        }
+        
+        if (UserDefaults.standard.billingProMode ?? false) {    // 課金ユーザー
+            remainingTextCountLabel.isHidden = true
+        } else {
+            self.remainingTextCountLabel.text = String(300 - kibunTextBox.text.count)
         }
     }
     
