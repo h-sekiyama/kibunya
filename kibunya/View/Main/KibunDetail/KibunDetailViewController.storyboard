@@ -236,6 +236,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="130" id="hG0-ii-Bwt"/>
                                                         </constraints>
+                                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </tableView>
                                                 </subviews>
                                                 <constraints>

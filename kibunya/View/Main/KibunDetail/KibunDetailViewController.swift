@@ -178,6 +178,7 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         
         self.comments.estimatedRowHeight = 100.0
         self.comments.rowHeight = UITableView.automaticDimension
+        self.comments.cellLayoutMarginsFollowReadableWidth = true
     }
     
     // コメントおよび日記編集時のキーボード表示に伴うViewのスライド
