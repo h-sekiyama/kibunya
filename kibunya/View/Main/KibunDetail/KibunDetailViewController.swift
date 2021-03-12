@@ -175,6 +175,9 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
+        
+        self.comments.estimatedRowHeight = 100.0
+        self.comments.rowHeight = UITableView.automaticDimension
     }
     
     // コメントおよび日記編集時のキーボード表示に伴うViewのスライド
@@ -231,10 +234,20 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         cell.name.text = commentData[indexPath.row].name
         cell.commentText.text = commentData[indexPath.row].text
         cell.time.text = Functions.getDateTime(timeStamp: commentData[indexPath.row].time!)
-        self.comments.reloadRows(at: [indexPath], with: .top)
-        let cellHeight = cell.frame.height
-        self.commentViewHeight.constant += cellHeight
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
+                DispatchQueue.main.async {
+                    self.commentViewHeight.constant = 1
+                    for i in 0..<self.commentData.count {
+                        self.commentViewHeight.constant += self.comments.cellForRow(at: [0,i])?.frame.height ?? 300
+                    }
+                }
+            }
+        }
     }
     
     // コメントを表示
@@ -251,6 +264,15 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
                 }
                 self.commentData.sort()
                 self.comments.reloadData()
+//                UIView.animate(withDuration: 0.0, animations: {
+//                    self.comments.reloadData()
+//                }) { (finished) in
+//                    DispatchQueue.main.async {
+//                        for i in 0..<self.commentData.count {
+//                            self.commentViewHeight.constant += self.comments.cellForRow(at: [0,i])?.frame.height ?? 300
+//                        }
+//                    }
+//                }
             }
         }
     }
@@ -273,6 +295,22 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
         sendComment(userId: userId, commentUserName: commentUserName)
     }
     
+    // 画面リロード処理
+    func reloadScreen() {
+        // 画面リロード
+        let kibunDetailViewController = UIStoryboard(name: "KibunDetailViewController", bundle: nil).instantiateViewController(withIdentifier: "KibunDetailViewController") as! KibunDetailViewController
+        kibunDetailViewController.diaryId = self.diaryId
+        kibunDetailViewController.userId = self.userId
+        kibunDetailViewController.time = self.time
+        kibunDetailViewController.userName = self.userName
+        kibunDetailViewController.text = self.text
+        kibunDetailViewController.kibun = self.kibun
+        kibunDetailViewController.date = self.date
+        kibunDetailViewController.imageUrl = self.imageUrl
+        kibunDetailViewController.modalPresentationStyle = .fullScreen
+        self.present(kibunDetailViewController, animated: false, completion: nil)
+    }
+    
     // コメント送信処理
     func sendComment(userId: String, commentUserName: String) {
         self.startIndicator()
@@ -286,13 +324,11 @@ class KibunDetailViewController:  UIViewController, UITableViewDelegate, UITable
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
-                self.commentData.removeAll()
-                self.comments.reloadData()
-                self.commentViewHeight.constant = 1
-                self.showComment()
-                
                 // PUSH通知を送る
                 self.sendUpdateCommentPush(commentUserName: commentUserName, myUserId: userId)
+                
+                // 画面をリロード
+                self.reloadScreen()
             }
             self.dismissIndicator()
             self.commentTextBox.text = ""
@@ -412,18 +448,8 @@ extension KibunDetailViewController: UITextViewDelegate {
                     print("Error adding document: \(err)")
                 }
                 self.text = self.editDiaryText.text
-                // 画面リロード
-                let kibunDetailViewController = UIStoryboard(name: "KibunDetailViewController", bundle: nil).instantiateViewController(withIdentifier: "KibunDetailViewController") as! KibunDetailViewController
-                kibunDetailViewController.diaryId = self.diaryId
-                kibunDetailViewController.userId = self.userId
-                kibunDetailViewController.time = self.time
-                kibunDetailViewController.userName = self.userName
-                kibunDetailViewController.text = self.text
-                kibunDetailViewController.kibun = self.kibun
-                kibunDetailViewController.date = self.date
-                kibunDetailViewController.imageUrl = self.imageUrl
-                kibunDetailViewController.modalPresentationStyle = .fullScreen
-                self.present(kibunDetailViewController, animated: false, completion: nil)
+                // 画面をリロード
+                self.reloadScreen()
             }
         }
     }
