@@ -400,9 +400,9 @@ extension MainViewController: UITableViewDataSource {
         let imageRef = self.storage.child("diary").child("\(self.kibuns[indexPath.row].documentId!).jpg")
         imageRef.delete { error in
             if error != nil {
-                print("Uh-oh, an error occurred!")
+                print("error occurred")
             } else {
-                print("delete success!!")
+                print("delete success")
             }
         }
         if editingStyle == UITableViewCell.EditingStyle.delete {
@@ -413,6 +413,9 @@ extension MainViewController: UITableViewDataSource {
                     print("Document successfully removed!")
                     self.kibuns.remove(at: indexPath.row)
                     tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+                    if (self.kibuns.count == 0) {
+                        self.emptyKibunLabel.isHidden = false
+                    }
                 }
             }
         }
