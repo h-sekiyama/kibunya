@@ -331,6 +331,7 @@ class InputKibunViewController: UIViewController {
                     self.sendKibunCompleteLabel.text = "今日の気分を送信しました！"
                     self.kibunTextBox.text = ""
                     self.sendImage.image = UIImage(named: "diary_image_icon")
+                    self.documentId = ""
                 }
                 self.sendKibunCompleteLabel.isHidden = false
                 
